@@ -1,0 +1,11 @@
+Body {
+    padding: 0;
+    margin: 0;
+    font-family: serif;
+    font: serif;
+    background: white;
+    background: -webkit-linear-gradient(horizontal, #EEF, #FFF 50%);
+    background: -moz-linear-gradient(horizontal, #EEF, #FFF 50%);
+    background: -ms-linear-gradient(horizontal, #EEF, #FFF 50%);
+}
+

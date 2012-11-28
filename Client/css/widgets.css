@@ -1,0 +1,373 @@
+.Banner {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    padding-bottom: 15px;
+
+    color: #EEE;
+    text-shadow: 2px 1px 3px #888;
+    background: #111;
+    background: -webkit-linear-gradient(left, #111, #555);
+    background: -moz-linear-gradient(left, #111, #555);
+    background: -ms-linear-gradient(left, #111, #555);
+
+    cursor: default;
+}
+
+.Banner H1 {
+    font-size: 38px;
+    margin: 0px 15px;
+}
+
+.Banner H2 {
+    margin: 0px 65px;
+    font-size: 26px;
+}
+
+.Banner .PlusOne {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.Header {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 20px;
+}
+
+.Header>A {
+    display: inline-block;
+    width: 25%;
+    text-decoration: none;
+    outline: none;
+}
+
+.Header>A:last-child {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 26%;
+}
+
+.Header>A>Div {
+    color: black;
+    text-align: center;
+    background: #EEE;
+    background: -webkit-linear-gradient(#EEE, #AAA);
+    background: -moz-linear-gradient(#EEE, #AAA);
+    background: -ms-linear-gradient(#EEE, #AAA);
+
+    border-bottom: 1px solid black;
+}
+
+.Header>A:not(.Selected) Div:hover,
+.Header>A:not(.Selected):focus Div {
+    color: #222;
+    background: #AAA;
+    background: -webkit-linear-gradient(#AAA, #EEE);
+    background: -moz-linear-gradient(#AAA, #EEE);
+    background: -ms-linear-gradient(#AAA, #EEE);
+}
+
+.Header>.Selected>Div {
+    color: lightgrey;
+    cursor: default;
+    background: #357;
+    background: -webkit-linear-gradient(#479, #146);
+    background: -moz-linear-gradient(#479, #146);
+    background: -ms-linear-gradient(#479, #146);
+}
+
+.Main {
+    position: relative;
+    margin-bottom: 21px;
+}
+
+.ListHeader {
+    margin-bottom: 10px;
+    padding-left: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    border-bottom: 1px solid grey;
+}
+
+.List {
+    display: inline-block;
+    margin: 6px 10px;
+    vertical-align: top;
+}
+
+.List>.Title {
+    font-weight: 700;
+    border-bottom: 2px solid grey;
+}
+
+.SubSection {
+    position: relative;
+}
+
+.SubSection>.Title {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+    border-bottom: 1px grey solid;
+}
+
+.SubSection>.SubTitle {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.SubSection>.Content {
+    margin: 10px 5px;
+    text-indent: 30px;
+}
+
+.SubSection>.Content>* {
+    text-indent: 0px;
+}
+
+.NavigationMain {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding-top: 15px;
+}
+
+.NavigationTitle {
+    position: relative;
+    display: inline-block;
+    width: 20%;
+    padding-top: 4px;
+    vertical-align: top;
+}
+
+.NavigationTitle>.Title {
+    display: block;
+    margin-bottom: 6px;
+    padding-left: 5px;
+    
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.NavigationTitle>.Pages {
+    position: relative;
+    display: block;
+    margin-bottom: 2px;
+    margin-left: 10px;
+    padding-left: 5px;
+}
+
+.NavigationTitle .Arrow {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+
+    font-weight: bold;
+}
+
+.NavigationContent {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 80%;
+    padding: 0;
+}
+
+.NavigationContent>Div {
+    position: relative;
+    width: 100%;
+}
+
+.NavigationContent>Div>Div {
+    position: relative;
+    padding: 4px;
+    padding-left: 30px;
+}
+
+.PageTitle {
+    width: 100%;
+    margin-bottom: 25px;
+
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+
+    border-bottom: 1px solid black;
+}
+
+.Boxes>A {
+    display: inline-block;
+    vertical-align: top;
+    padding: 1%;
+
+    cursor: pointer;
+    outline: none;
+
+    -webkit-transition-duration: 250ms;
+    -moz-transition-duration: 250ms;
+    -ms-transition-duration: 250ms;
+}
+
+.Boxes>A:hover,
+.Boxes>A:focus {
+    box-shadow: 0px 0px 5px black;
+}
+
+.Boxes>A>Img {
+    width: 100%;
+    height: auto;
+}
+
+.Boxes>A>Div {
+    padding-left: 15px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.Audio {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    text-align: left;
+    z-index: 1;
+
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    -ms-transition-duration: 500ms;
+}
+
+.Audio>Span {
+    position: relative;
+    display: block;
+
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.Audio>Div {
+    position: relative;
+    padding: 10px 40px;
+    border: 1px solid black;
+    border-bottom: none;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    background: #EFEFEF;
+    background: -webkit-linear-gradient(#E0E0E0, #F4F4F4 50%);
+    background: -moz-linear-gradient(#E0E0E0, #F4F4F4 50%);
+    background: -ms-linear-gradient(#E0E0E0, #F4F4F4 50%);
+}
+
+.Audio>Div>Div {
+    margin-bottom: 8px;
+}
+
+.Audio .Prev,
+.Audio .Next {
+    position: absolute;
+    top: 50px;
+    width: 25px;
+    height: 25px;
+    outline: none;
+    cursor: pointer;
+}
+
+.Audio .Prev {
+    left: 10px;
+    background-image: url('/img/icons/Prev_Up.png');
+}
+
+.Audio .Prev:hover,
+.Audio .Prev:focus {
+    background-image: url('/img/icons/Prev_Down.png');
+}
+
+.Audio .Next {
+    right: 10px;
+    background-image: url('/img/icons/Next_Up.png');
+}
+
+.Audio .Next:hover,
+.Audio .Next:focus {
+    background-image: url('/img/icons/Next_Down.png');
+}
+
+.Audio .Artist {
+    padding: 0px;
+}
+
+.Audio .Album {
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.Audio .Song {
+    margin-left: 20px;
+}
+
+A.NoStyle {
+    color: black;
+    text-decoration: none;
+}
+
+.ButtonMain {
+    padding: 0px 2px;
+
+    color: black;
+    text-shadow: 0px 0px 1px rgba(1, 1, 1, 0);
+    text-size: 18px;
+
+    cursor: pointer;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+
+    background: #BCD;
+    background: -webkit-linear-gradient(#EEE, #BCD);
+    background: -moz-linear-gradient(#EEE, #BCD);
+    background: -ms-linear-gradient(#EEE, #BCD);
+
+    -webkit-transition-duration: 250ms;
+    -moz-transition-duration: 250ms;
+    -ms-transition-duration: 250ms;
+}
+
+.ButtonMain:hover,
+.ButtonMain:focus {
+    text-shadow: 0px 0px 1px rgba(1, 1, 1, 0.5);
+
+    background: lightblue;
+    background: -webkit-linear-gradient(#BCD, #EEE);
+    background: -moz-linear-gradient(#BCD, #EEE);
+    background: -ms-linear-gradient(#BCD, #EEE);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.ButtonLink {
+    text-shadow: 0px 0px 1px rgba(1, 1, 1, 0);
+    text-size: 18px;
+
+    cursor: pointer;
+
+    -webkit-transition-duration: 250ms;
+    -moz-transition-duration: 250ms;
+    -ms-transition-duration: 250ms;
+}
+
+.ButtonLink:hover,
+.ButtonLink:focus {
+    text-shadow: 0px 0px 1px rgba(1, 1, 1, 0.5);
+    box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+

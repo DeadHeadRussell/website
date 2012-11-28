@@ -1,0 +1,64 @@
+<!DOCTYPE html5>
+<html itemscope itemtype="http://schema.org/Person">
+
+<head>
+<title>Andrew Russell</title>
+
+<meta itemprop="name" content="Andrew Russell">
+<meta itemprop="description" content="Andrew Russell's personal website, detailing all of the work he has put into his music and software engineering over the years.">
+<meta itemprop="image" content="http://ajrussell.ca/img/soft/Personal%20Website.png">
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22276754-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {.meta-left}
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        {.meta-right})();
+</script>
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+    {.meta-left}parsetags: 'explicit'{.meta-right}
+</script>
+
+</head>
+
+<body>
+{.section about}
+<h1>{name}</h1>
+<h2>{title}</h2>
+{.end}
+
+<hr>
+
+<a href="/home">Home</a>
+<a href="/music">Music</a>
+<a href="/soft">Software</a>
+<a href="/about">About</a>
+
+<hr>
+
+<h2>Resume</h2>
+{.repeated section resumes}
+  <div>
+  {data}
+  </div>
+{.end}
+
+<hr>
+
+<h2>Projects</h2>
+{.repeated section softwareProjects}
+  <div>
+  <h4>{name}</h4>
+  <p>{description}</p>
+  <a href="/software/{name|urlescape}.zip">Source</a>
+  </div>
+{.end}
+
+</body>
+
+</html>
