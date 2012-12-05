@@ -1,4 +1,13 @@
-var CreateBanner = function(title, subtitle) {
+(function() {
+
+window.ajrussell.register('widgets', {
+  createBanner: createBanner,
+  createHeader: createHeader,
+  createBoxView: createBoxView,
+  createList: createList
+});
+
+function createBanner(title, subtitle) {
     var banner = document.createElement("Div");
     banner.className = 'Banner';
 
@@ -16,65 +25,62 @@ var CreateBanner = function(title, subtitle) {
     banner.appendChild(div);
 
     return banner;
-};
+}
 
-var CreateHeader = function(items, callback, init, subPages) {
-    var node = document.createElement("Div");
-    var current = '';
+function createHeader(click_callback) {
+    var node = document.createElement('div');
+    var items = {};
+    var selected_id = null;
+
     node.className = 'Header';
 
-    for(var i in items) {
-        var a = document.createElement("A");
-        a.id = i;
-        a.href = '/' + i;
-        a.addEventListener('click', function(e) { preventDefaultLink(e); return true; }, false);
-        a.addEventListener('click', select, false);
-        a.addEventListener('keydown', keyToClick(select), false);
-        a.className = 'NoStyle';
-
-        var item = document.createElement("Div");
-        item.appendChild(document.createTextNode(items[i].text));
-
-        a.appendChild(item);
-        node.appendChild(a);
-    }
-
-    var obj = {
-        select: function(id, subPages, noState) {
-            if(id != current) {
-                callback(
-                    id,
-                    function(status) {
-                        if (status == transition.STARTING) {
-                            items[id].page.changeSubPage(subPages, id == current, noState);
-                            current = id;
-                            for (var i = 0; i < node.children.length; i++) {
-                                var item = node.children[i];
-                                if (id === item.id) {
-                                    item.className = 'Selected';
-                                    item.setAttribute('tabindex', '-1');
-                                } else {
-                                    item.className = '';
-                                    item.removeAttribute('tabindex');
-                                }
-                            }
-                        }
-                    }
-                );
-            } else {
-                items[id].page.changeSubPage(subPages, id == current, noState);
-            }
-        },
-        node: node
+    return {
+      getNode: function() { return node; },
+      add: add,
+      select: select
     };
 
-    obj.select(init, subPages, true);
+    function add(id) {
+      var a = document.createElement('a');
+      a.id = id;
+      a.href = '/' + id;
+      a.addEventListener('click', preventDefaultLink);
+      a.addEventListener('click', onClick);
+      a.addEventListener('keydown', keyToClick(onClick));
+      a.className = 'NoStyle';
 
-    return obj;
+      var item = document.createElement("Div");
+      item.appendChild(document.createTextNode(id));
 
-    function select(e) {
-        obj.select(e.currentTarget.id);
-        return true;
+      a.appendChild(item);
+      node.appendChild(a);
+
+      if (!selected_id) {
+        selected_id = id;
+        a.className = 'Selected';
+        item.setAttribute('tabindex', '-1');
+      }
+    }
+
+    function select(id) {
+      if (id != selected_id) {
+        selected_id = id;
+        for (var i = 0; i < node.children.length; i++) {
+          var item = node.children[i];
+          if (id === item.id) {
+            item.className = 'Selected';
+            item.setAttribute('tabindex', '-1');
+          } else {
+            item.className = '';
+            item.removeAttribute('tabindex');
+          }
+        }
+      }
+    }
+
+    function onClick(e) {
+      click_callback(e.currentTarget.id);
+      return true;
     }
 };
 
@@ -166,7 +172,7 @@ var CreatePageTitle = function(title) {
     return node;
 };
 
-var CreateList = function(title, items, callback) {
+function createList(title, items, callback) {
     var node = document.createElement("Div");
     node.className = 'List';
     
@@ -239,7 +245,7 @@ var CreateSubSection = function(title, subtitle, content) {
     return node;
 };
 
-function CreateBoxView(elems, callback) {
+function createBoxView(elems, callback) {
     var node = document.createElement("Div");
     node.className = "Boxes";
 
@@ -262,7 +268,7 @@ function CreateBoxView(elems, callback) {
         a.addEventListener('keydown', keyToClick(clickHandler), false);
 
         var img = document.createElement('Img');
-        img.src = elem.imgSrc;
+        img.src = elem.imageSource;
         img.alt = '';
         img.setAttribute('border', '0');
         a.appendChild(img);
@@ -538,4 +544,6 @@ function keyToClick(clickHandler, keys) {
         }
     };
 }
+
+})();
 

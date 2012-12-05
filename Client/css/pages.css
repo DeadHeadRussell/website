@@ -240,13 +240,8 @@
     background-image: url('/img/icons/Close_Down.png');
 }
 
-.resumeLink {
-    height: 35px;
-}
-
 .resumeLink>A {
-    float: right;
-    clear: both;
+    display: block;
     padding: 2px;
 }
 

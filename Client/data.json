@@ -14,17 +14,17 @@
     {
       "name": "West Coast Drinking Expedition",
       "link": "http://wcdrinkingexpedition.ajrussell.ca",
-      "desc": "Blog that details the West Coast Drinking Expedition I attended"
+      "description": "Blog that details the West Coast Drinking Expedition I attended"
     },
     {
       "name": "Baryons for Breakfast",
       "link": "http://baryonsforbreakfast.wordpress.com",
-      "desc": "My sister's delicious cooking blog"
+      "description": "My sister's delicious cooking blog"
     },
     {
       "name": "Stephan Pastis's Blog",
       "link": "http://stephanpastis.wordpress.com",
-      "desc": "Personal blog of the creator of the syndicated comic 'Pearls Before Swine'."
+      "description": "Personal blog of the creator of the syndicated comic 'Pearls Before Swine'."
     }
   ],
 
@@ -121,11 +121,6 @@
               "recording": true
             }
           ]
-        },
-        {
-          "name": "This World",
-          "description": "A rock album with a theme centered around the world we all live on.",
-          "songs": []
         }
       ]
     },
@@ -347,18 +342,19 @@
 
   "resumes": [
     {
-      "path": "current"
+      "name": "Software",
+      "path": "software"
+    },
+    {
+      "name": "Music and Technology",
+      "path": "music_tech"
     }
   ],
 
-  "softwareProjects": [
+  "personalProjects": [
     {
-      "name": "Personal Website",
+      "name": "Website",
       "description": "This is the source for both the server side and client side code required for running this website. Node.js required to run the server. No audio files and no other software project's source are included with wth this source."
-    },
-    {
-      "name": "Defend Your Castle",
-      "description": "Lovingly ripped off of the popular flash game. I created this game for a UI assignment at the University of Waterloo. The goal of this game is to kill all of the attacking stick figures by dropping them from a great hight before they knock down your castle."
     },
     {
       "name": "Soccer Emulator",
@@ -377,8 +373,22 @@
       "description": "Pong, teh awesome game. Implemented with C++ and OpenGL. What more can be said? NOTE: Windows only"
     },
     {
-      "name": "Hearts",
+      "name": "Terminal Hearts",
       "description": "An implementation of hearts I made while learning perl. Needless to say, I have not used perl since."
+    }
+  ],
+
+  "schoolProjects": [
+    {
+      "name": "Defend Your Castle",
+      "description": "Lovingly ripped off of the popular flash game. I created this game for a UI assignment at the University of Waterloo. The goal of this game is to kill all of the attacking stick figures by dropping them from a great hight before they knock down your castle."
+    }
+  ],
+
+  "workProjects": [
+    {
+      "name": "Virtual Surround Sound Device Driver",
+      "description": ""
     }
   ]
 }

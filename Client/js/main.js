@@ -1,75 +1,43 @@
-var pages = null;
-
 (function() {
 
+var pages = window.ajrussell.require('pages');
+var createBanner = window.ajrussell.require('widgets.createBanner');
+
 var loadWindow = false;
-var loadData = false;
+var data = null;
 var failed = false;
 
 var init = function() {
-    if(!loadData || !loadWindow) {
-        return;
+  if(!data || !loadWindow) {
+    return;
+  }
+
+  try {
+    var main = document.createElement('div');
+    document.body.appendChild(main);
+
+    main.appendChild(createBanner(
+      data.about.name,
+      data.about.title
+    ));
+
+    var page_id = location.pathname.split('/');
+    page_id.shift();
+    if (page_id.length < 1) {
+      page_id = ['Home'];
     }
+    page_id = page_id.join('/');
 
-    try {
-        var main = document.createElement('Div');
-        document.body.appendChild(main);
+    pages = pages.getPagesHandler();
+    pages.setData(data);
+    pages.gotoPage(page_id);
 
-        main.appendChild(CreateBanner(
-            data.about.name,
-            data.about.title
-        ));
-
-        var page = location.pathname.split('/');
-        if (page[1].length == 0) {
-            page = 'home';
-        } else {
-            page = page[1];
-        }
-
-        var p = {
-            'home': {
-                text: 'Home',
-                pageFunc: CreateHomePage
-            },
-            'music': {
-                text: 'Music',
-                pageFunc: CreateMusicPage
-            },
-            'soft': {
-                text: 'Software',
-                pageFunc: CreateSoftPage
-            },
-            'about': {
-                text: 'About',
-                pageFunc: CreateAboutPage
-            }
-        };
-
-        for (var i in p) {
-            if (window.history && window.history.pushState && i != page) {
-                window.setTimeout(
-                    (function(i) {
-                        return function() {
-                            p[i].page = p[i].pageFunc();
-                        }
-                    })(i),
-                    0
-                );
-            } else if (i == page) {
-                p[i].page = p[i].pageFunc();
-            }
-        }
-
-        pages = CreatePageHandler(main, p, 'home');
-    } catch(e) {
-        if (console) {
-            console.log(e.message);
-            console.log(e.stack);
-        }
-        failed = true;
-        IncompatibleBrowser();
-    }
+    main.appendChild(pages.getNode());
+  } catch(e) {
+    failed = true;
+    logException(e);
+    IncompatibleBrowser();
+  }
 };
 
 function loaded() {
@@ -82,31 +50,38 @@ function loaded() {
 }
 
 (function getData() {
-    try {
-        var x = new XMLHttpRequest();
-        x.open('GET', '/data.json', true);
-        x.addEventListener(
-            'readystatechange',
-            function(e) {
-                if(e.target.readyState === 4 && e.target.status === 200) {
-                    data = JSON.parse(e.target.responseText);
-                    loadData = true;
-                    init();
-                }
-            },
-            false
-        );
-        x.send();
-    } catch(e) {
-        failed = true;
-        IncompatibleBrowser();
-    }
+  try {
+    var x = new XMLHttpRequest();
+    x.open('GET', '/data.json', true);
+    x.addEventListener(
+      'readystatechange',
+      function(e) {
+        if(e.target.readyState === 4 && e.target.status === 200) {
+          data = JSON.parse(e.target.responseText);
+          init();
+        }
+      },
+      false
+    );
+    x.send();
+  } catch(e) {
+    failed = true;
+    logException(e);
+    IncompatibleBrowser();
+  }
 })();
 
+function logException(e) {
+  if (console) {
+    console.log(e.message);
+    console.log(e.stack);
+  }
+}
+
 function IncompatibleBrowser() {
-    if (loadWindow) {
-        document.body.innerHTML = '<div>Please use one of the following browsers<ul><li><a href="http://www.google.com/chrome/">Google Chrome</a></li><li><a href="http://www.mozilla.com">Mozilla Firefox</a></li></ul></div>';
-    }
+  if (loadWindow) {
+    document.body.innerHTML = '<div>Please use one of the following browsers<ul><li><a href="http://www.google.com/chrome/">Google Chrome</a></li><li><a href="http://www.mozilla.com">Mozilla Firefox</a></li></ul></div>';
+  }
 }
 
 window.addEventListener('load', loaded, false);

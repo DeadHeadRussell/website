@@ -33,8 +33,9 @@ http.createServer(function(req, res) {
     var pages = parsedURL.pathname.split('/');
     pages.shift();
     var page = pages.shift();
-    if (page === 'music' || page === 'soft' ||
-       page === 'about' || page === 'home') {
+    var page_lower = page.toLowerCase();
+    if (page_lower === 'music' || page_lower === 'soft' ||
+       page_lower === 'about' || page_lower === 'home') {
         parsedURL.pathname = '/';
     }
 
@@ -54,8 +55,8 @@ http.createServer(function(req, res) {
         delete require.cache[path.resolve('./data.js')];
         data = require('./data');
         data.getData(readData);
-    } else if (/\/data\/?/.test(parsedURL.pathname)) {
-        data.getData(readData);
+    //} else if (/\/data\/?/.test(parsedURL.pathname)) {
+    //    data.getData(readData);
     } else if (parsedURL.pathname === '/favicon.ico') {
         file += '/img/favicon.ico';
         readFile(file);

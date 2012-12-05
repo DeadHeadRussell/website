@@ -13,13 +13,12 @@
 
   body > div, .iediv {
     position: relative;
-    padding-bottom: 25px;
-    border-top: 1px solid lightgrey;
-    clear: both;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
   }
 
-  .info {
-    border-top: none;
+  .int {
+    border-bottom: none;
   }
 
   H3 {
@@ -46,11 +45,16 @@
     margin-bottom: 0px;
   }
   
-  .website,
-  .email,
-  .phone {
-    float: right;
-    clear: right;
+  .website {
+    position: absolute;
+    right: 0px;
+    top: 8px;
+  }
+
+  .email {
+    position: absolute;
+    right: 0px;
+    top: 26px;
   }
 
   .class {
@@ -74,11 +78,31 @@
 
 <body>
   <div class="info iediv">
+    <h2 class="name">Andrew Russell</h2>
     <div class="website">ajrussell.ca</div>
     <div class="email">deadhead.russell@gmail.com</div>
-    <div class="phone">1-226-789-3957</div>
-    <h2 class="name">Andrew Russell</h2>
     <div class="class">4A Software Engineer</div>
+  </div>
+
+  <div class="skills iediv">
+    <h3>Skills Summary</h3>
+    <div>
+      <h4>Web Application Development</h4>
+      <ul>
+        <li>Strong knowledge of HTML5, JavaScript and CSS3 in Webkit, Gecko and Trident browsers</li>
+        <li>Good understanding of AJAX technology using both XML and JSON</li>
+        <li>Familiar with using Javascript (node.js), Python, JSP and PHP for server side development</li>
+        <li>Experience with SQLite, MySQL, and SQL Anywhere</li>
+      </ul>
+    </div>
+    <div>
+      <h4>C/C++ Development</h4>
+      <ul>
+        <li>Good understanding of developing physical device drivers in an object-oriented style</li>
+        <li>Familiar with digital signal processing techinques, especially with audio and images</li>
+        <li>Experience using OpenGL for both 2D and 3D graphics</li>
+      </ul>
+    </div>
   </div>
   
   <div class="edu iediv">
@@ -97,35 +121,8 @@
     </div>
   </div>
 
-  <div class="skills iediv">
-   <h3>Technical Skills</h3>
-     <div>
-      <h4>C/C++ Development</h4>
-      <ul>
-        <li>Good understanding of developing physical device drivers in an object-oriented style</li>
-        <li>Familiar with digital signal processing techinques, especially with audio and images</li>
-        <li>Experience using OpenGL for both 2D and 3D graphics</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Web Application Development</h4>
-      <ul>
-        <li>Strong knowledge of HTML5, JavaScript, CSS3, and AJAX in all major browsers</li>
-        <li>Familiar with using Javascript (node.js), Google Go, and Java for server development</li>
-      </ul>
-    </div>
-  </div>
-
   <div class="work iediv">
     <h3>Work Experience</h3>
-
-    <div>
-      <span>Research Intern,</span> Primal Inc., Waterloo, Ontario; Sep - Dec 2012
-      <ul>
-          <li></li>
-      </ul>
-    </div>
-
     <div>
       <span>Software Engineer Intern,</span> Microsoft Corp., Redmond, Washington; Jan - Apr 2012
       <ul>
