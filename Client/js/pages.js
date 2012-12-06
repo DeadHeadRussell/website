@@ -579,7 +579,7 @@ var CreateSoftPage = function() {
     var content = document.createElement('Div');
 
     var source = document.createElement('A');
-    source.href = '/software/' + p.name + '.zip';
+    source.href = 'https://github.com/deadheadrussell/' + p.repository_name;
     source.appendChild(document.createTextNode('Source'));
     content.appendChild(source);
 

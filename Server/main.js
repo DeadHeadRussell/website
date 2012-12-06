@@ -50,14 +50,8 @@ http.createServer(function(req, res) {
             file += '/index.html';
             readFile(file);
         }
-/*
     } else if (/\/refreshData\/?/.test(parsedURL.pathname)) {
-        delete require.cache[path.resolve('./data.js')];
-        data = require('./data');
-        data.getData(readData);
-    } else if (/\/data\/?/.test(parsedURL.pathname)) {
-        data.getData(readData);
-*/
+        data.refreshData();
     } else if (parsedURL.pathname === '/favicon.ico') {
         file += '/img/favicon.ico';
         readFile(file);
@@ -114,14 +108,6 @@ http.createServer(function(req, res) {
                 );
             });
         });
-    }
-
-    function readData(data) {
-        if (!data) {
-            writer.defaultResponses[503]('The data could not be read.');
-        }
-        var json = JSON.stringify(data);
-        writer.write(json, 'application/json');
     }
 }).listen(8001);//, '127.0.0.1');
 

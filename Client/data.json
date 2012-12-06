@@ -373,31 +373,38 @@
   "softwareProjects": [
     {
       "name": "Personal Website",
-      "description": "This is the source for both the server side and client side code required for running this website. Node.js required to run the server. No audio files and no other software project's source are included with wth this source."
+      "description": "This is the source for both the server side and client side code required for running this website. Node.js required to run the server. No audio files and no other software project's source are included with wth this source.",
+      "repository_name": "website"
     },
     {
       "name": "Defend Your Castle",
-      "description": "Lovingly ripped off of the popular flash game. I created this game for a UI assignment at the University of Waterloo. The goal of this game is to kill all of the attacking stick figures by dropping them from a great hight before they knock down your castle."
+      "description": "Lovingly ripped off of the popular flash game. I created this game for a UI assignment at the University of Waterloo. The goal of this game is to kill all of the attacking stick figures by dropping them from a great hight before they knock down your castle.",
+      "repository_name": "defend-your-castle"
     },
     {
       "name": "Soccer Emulator",
-      "description": "A soccer emulator I made for as a mini-game for an online, text-based RPG. NOTE: Windows only"
+      "description": "A soccer emulator I made for as a mini-game for an online, text-based RPG. NOTE: Windows only",
+      "repository_name": "soccer-emulator"
     },
     {
       "name": "Carz",
-      "description": "A game I originally saw on a TI-83 graphing calculator.Try to keep your car inside the lines. NOTE: Windows only. Sometimes has framerate issues and runs too fast"
+      "description": "A game I originally saw on a TI-83 graphing calculator.Try to keep your car inside the lines. NOTE: Windows only. Sometimes has framerate issues and runs too fast",
+      "repository_name": "carz"
     },
     {
       "name": "Conway's Game of Life",
-      "description": "An implementation of Conway's Game of Life using OpenGL"
+      "description": "An implementation of Conway's Game of Life using OpenGL",
+      "repository_name": "game-of-life"
     },
     {
       "name": "Pong",
-      "description": "Pong, teh awesome game. Implemented with C++ and OpenGL. What more can be said? NOTE: Windows only"
+      "description": "Pong, teh awesome game. Implemented with C++ and OpenGL. What more can be said? NOTE: Windows only",
+      "repository_name": "pong"
     },
     {
       "name": "Hearts",
-      "description": "An implementation of hearts I made while learning perl. Needless to say, I have not used perl since."
+      "description": "An implementation of hearts I made while learning perl. Needless to say, I have not used perl since.",
+      "repository_name": "terminal-hearts"
     }
   ],
 

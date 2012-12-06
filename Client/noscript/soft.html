@@ -37,25 +37,37 @@
 <a href="/home">Home</a>
 <a href="/music">Music</a>
 <a href="/soft">Software</a>
-<a href="/about">About</a>
+<a href="/resume">Resumes</a>
 
 <hr>
 
-<h2>Resume</h2>
-{.repeated section resumes}
+<h2>Personal Projects</h2>
+{.repeated section softwareProjects}
   <div>
-  {data}
+  <h4>{name}</h4>
+  <p>{description}</p>
+  <a href="https://github.com/deadheadrussell/{repository_name}">Source</a>
   </div>
 {.end}
 
 <hr>
 
-<h2>Projects</h2>
-{.repeated section softwareProjects}
+<h2>School Projects</h2>
+{.repeated section schoolProjects}
+  <div>
+  <h4>{course}</h4>
+  <p>{description}</p>
+  </div>
+{.end}
+
+<hr>
+
+<h2>Work Projects</h2>
+{.repeated section workProjects}
   <div>
   <h4>{name}</h4>
+  <p>{company}</p>
   <p>{description}</p>
-  <a href="/software/{name|urlescape}.zip">Source</a>
   </div>
 {.end}
 

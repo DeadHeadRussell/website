@@ -37,11 +37,16 @@
 <a href="/home">Home</a>
 <a href="/music">Music</a>
 <a href="/soft">Software</a>
-<a href="/about">About</a>
+<a href="/resume">Resumes</a>
 
 <hr>
 
-<p>Nothing here yet...</p>
+<h2>Resumes</h2>
+{.repeated section resumes}
+  <div>
+    <a href="/resumes/{name|urlescape}/full.html">{name}</a>
+  </div>
+{.end}
 
 </body>
 
