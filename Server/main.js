@@ -34,7 +34,7 @@ http.createServer(function(req, res) {
     pages.shift();
     var page = pages.shift();
     if (page === 'music' || page === 'soft' ||
-       page === 'about' || page === 'home') {
+       page === 'resume' || page === 'home') {
         parsedURL.pathname = '/';
     }
 
@@ -50,12 +50,14 @@ http.createServer(function(req, res) {
             file += '/index.html';
             readFile(file);
         }
+/*
     } else if (/\/refreshData\/?/.test(parsedURL.pathname)) {
         delete require.cache[path.resolve('./data.js')];
         data = require('./data');
         data.getData(readData);
     } else if (/\/data\/?/.test(parsedURL.pathname)) {
         data.getData(readData);
+*/
     } else if (parsedURL.pathname === '/favicon.ico') {
         file += '/img/favicon.ico';
         readFile(file);

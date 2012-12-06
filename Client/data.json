@@ -347,7 +347,10 @@
 
   "resumes": [
     {
-      "path": "current"
+      "name": "Software"
+    },
+    {
+      "name": "Music and Technology"
     }
   ],
 
@@ -379,6 +382,92 @@
     {
       "name": "Hearts",
       "description": "An implementation of hearts I made while learning perl. Needless to say, I have not used perl since."
+    }
+  ],
+
+  "workProjects": [
+    {
+      "name": "Synthesis Engine Prototype",
+      "description": "Prototype of the new concept synthesis engine spec, with a focus on performance.",
+      "company": "Primal Inc."
+    },
+    {
+      "name": "Label-to-Concept Engine Prototype",
+      "description": "Prototype of the new label-to-concept engine spec, with a focus on result quality.",
+      "company": "Primal Inc"
+    },
+    {
+      "name": "Content Scoring Engine Prototype",
+      "description": "Prototype of the new content scoring engine spec, with a focus on a smoother range of content scores.",
+      "company": "Primal Inc."
+    },
+    {
+      "name": "Virtual Surround Sound Device Driver",
+      "description": "Driver that takes stereo input audio and outputs 5.1 virtual surround sound.",
+      "company": "Microsoft Corp."
+    },
+    {
+      "name": "Accessibility API",
+      "description": "Accessibility features for a public API that enable blind and low vision users to consume applicaitons written with the API.",
+      "company": "Google Inc."
+    },
+    {
+      "name": "Internal Native Client Demo",
+      "description": "Native client application used for demo certain native client capabilities.",
+      "company": "Google Inc."
+    },
+    {
+      "name": "Speech Enabled Text Adventure",
+      "description": "Browser extension that allows speech to text input and text to speech output for text adventure games based on the Parchment engine.",
+      "company": "Google Inc."
+    },
+    {
+      "name": "Internal TouchUI Demo",
+      "description": "Clone of an existing internal demo as a web application using TouchUI",
+      "company": "Sybase Inc"
+    },
+    {
+      "name": "TouchUI",
+      "description": "Library to help create Web Applications that mimick native applications for mobile devices.",
+      "company": "Sybase Inc."
+    },
+    {
+      "name": "Symbian OS audio driver emulation for Windows",
+      "description": "Implemented an audio driver for the Symbian OS emulator on Windows for a specific line of smartphones.",
+      "company": "Qualcomm Inc."
+    },
+    {
+      "name": "Internal Work Item Tracking System",
+      "description": "New web front end for the internal work item tracking system.",
+      "company": "Canadian Space Agency"
+    },
+    {
+      "name": "ASReml Batch",
+      "description": "Tool for running large number of ASReml calculations and for running further statistical calculations over the results.",
+      "company": "Pacific Data Management"
+    }
+  ],
+
+  "schoolProjects": [
+    {
+      "course": "Design Project",
+      "description": "Automatic meeting transcription tool, recognizing both who is speaking and what is being said."
+    },
+    {
+      "course": "Introduction to Computer Graphics (CS 488)",
+      "description": "OpenGL application featuring flocking, L-System plants, terrain erosion and water rippling systems."
+    },
+    {
+      "course": "Computational Vision (CS 489)",
+      "description": "Panoramic stitching program that takes arbitrary images and recognizes both if and how they are connected, and then composes the connected images."
+    },
+    {
+      "course": "Operating Systems (SE 350)",
+      "description": "Simple, real-time operating system implemented for a Motorola 68k series chip."
+    },
+    {
+      "course": "Software Abstraction and Specification (CS 246)",
+      "description": "Euchre game implemented with GTK++."
     }
   ]
 }
