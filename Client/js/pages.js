@@ -646,7 +646,6 @@ var CreateSoftPage = function() {
       subPages.splice(1);
 
       if(!(subPages[0] in subPagesNav)) {
-      } else {
         nav.changePage('projects', !samePage);
         subPages = ['projects'];
       }
