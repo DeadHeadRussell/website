@@ -91,8 +91,8 @@ function createPagesHandler() {
     while (!pages[root_page_id]) {
       page_ids = root_page_id.split('/');
       if (page_ids.length <= 1) {
-        if (aliases[page_id]) {
-          gotoPage(aliases[page_id]);
+        if (aliases[root_page_id]) {
+          gotoPage(aliases[root_page_id]);
         }
         return;
       }

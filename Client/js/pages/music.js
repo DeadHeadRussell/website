@@ -1,66 +1,74 @@
 (function() {
+var html = window.ajrussell.require('html');
 var pages = window.ajrussell.require('pages');
+var widgets = window.ajrussell.require('widgets');
+
 var pages_handler = pages.getPagesHandler();
 
 pages_handler.aliasPage('Music', 'Music/Artists', true);
 pages_handler.registerPage('Music/Artists', createArtistsPage);
 pages_handler.registerPage('Music/Equipment', createEquipmentPage);
 
+function createAlbumNode(album) {
+  return document.createElement('div');
+}
+
+function createArtistNode(artist, image_source) {
+  var content_node = document.createElement('div');
+  content_node.className = 'artist';
+  content_node.appendChild(html.createImageElement(image_source));
+  content_node.appendChild(html.createTextElement(artist.description));
+
+  for (var i = 0; i < artist.albums.length; i++) {
+    var album = artist.albums[i];
+    var album_node = createAlbumNode(album);
+    content_node.appendChild(album_node);
+  }
+  
+  var artist_node = document.createElement('div');
+  artist_node.appendChild(widgets.createPageTitle(artist.name));
+  artist_node.appendChild(content_node);
+  artist_node.appendChild(widgets.createBackNode('/music/artists'));
+  return artist_node;
+}
 
 function createArtistsPage(data, sub_pages) {
   var current_artists = [];
   var previous_artists = [];
 
-  for (var i = 0; i < data.aritsts.length; i++) {
+  for (var i = 0; i < data.artists.length; i++) {
     var artist = data.artists[i];
-    var artist_node = createArtistNode(artist);
-    var back_node = widgets.createBackNode();
-
     var image_source = '/img/music/' + artist.name + '/main.jpg';
- 
-    var wrapper_node = document.createElement("Div");
-    wrapper_node.appendChild(widgets.createPageTitle(artist.name));
-    wrapper_node.appendChild(back_node);
-    wrapper_node.appendChild(artist_node);
+    var artist_node = createArtistNode(artist, image_source);
     
     var box_object = {
       id: artist.name,
       title: artist.name,
       path: '/music/artists/' + artist.name,
       imageSource: image_source,
-      content: wrapper_node
+      content: artist_node
     };
 
     if(artist.end) {
       previous_artists.push(box_object);
     } else {
-      current_Artists.push(box_object);
+      current_artists.push(box_object);
     }
   }
+
+  var artists_node = document.createElement('Div');
+  artists_node.className = 'artists';
+  var artists_content = document.createElement('Div');
+  artists_node.appendChild(artists_content);
+
+  return artists_node;
 }
 
 function createEquipmentPage(data, sub_pages) {
 }
 
 })();
-var CreateMusicPage = function() {
-    var currentArtists = [];
-    var previousArtists = [];
-    for(var i = 0; i < data.artists.length; i++) {
-        var artist = data.artists[i];
-        var artistNode = document.createElement("Div");
-        artistNode.className = 'artist';
-
-        var aImg = document.createElement("Img");
-        aImg.src = '/img/music/' + artist.name + '/main.jpg';
-        aImg.alt = '';
-        artistNode.appendChild(aImg);
-        var text = document.createElement("Div");
-        text.appendChild(document.createTextNode(artist.description));
-        artistNode.appendChild(text);
-        
-        for(var j = 0; j < artist.albums.length; j++) {
-            var album = artist.albums[j];
+/*
             var content = document.createElement('Div');
 
             var img = document.createElement('Img');
@@ -99,7 +107,7 @@ var CreateMusicPage = function() {
                 return function(obj) {
                     var text = document.createElement('Div');
                     var title = document.createElement('Div');
-                    title.className = "title";
+                    title.className = 'title';
                     title.appendChild(document.createTextNode(obj.text));
                     var descText = obj.desc.replace(/\n/g, '</div><div>');
                     descText = '<div>' + descText + '</div>';
@@ -114,12 +122,12 @@ var CreateMusicPage = function() {
             for(var k = 0; album.songs && k < album.songs.length; k++) {
                 var song = album.songs[k];
                 var id = i + '/' + j + '/' + k;
-                var node = document.createElement("Div");
+                var node = document.createElement('Div');
 
                 var obj = {id: id, node: node, text: song.name, desc: song.description, callback: dispDesc};
 
                 if(song.recording) {
-                    var img = document.createElement("Div");
+                    var img = document.createElement('Div');
                     img.className = 'control play';
                     img.setAttribute('role', 'button');
                     node.appendChild(img);
@@ -144,7 +152,7 @@ var CreateMusicPage = function() {
                     img.addEventListener('keydown', keyToClick(play), false);
                 }
 
-                var span = document.createElement("Span");
+                var span = document.createElement('Span');
                 span.appendChild(document.createTextNode(song.name));
                 node.appendChild(span);
 
@@ -160,20 +168,9 @@ var CreateMusicPage = function() {
                 albumNode.appendChild(list);
                 albumNode.appendChild(desc);
             }
-            artistNode.appendChild(albumNode);
         }
 
-        var backNode = document.createElement("A");
-        backNode.href = '/music/artists';
-        backNode.className = 'back';
-        backNode.addEventListener('click', function(e) { return preventDefaultLink(e); }, false);
-        backNode.addEventListener('click', displayArtists, false);
-        backNode.addEventListener('keydown', keyToClick(displayArtists), false);
-        backNode.setAttribute('role', 'button');
-        backNode.setAttribute('tabindex', '0');
-        backNode.setAttribute('title', 'Back');
-
-        var sectionNode = document.createElement("Div");
+        var sectionNode = document.createElement('Div');
         sectionNode.appendChild(CreatePageTitle(artist.name));
         sectionNode.appendChild(backNode);
         sectionNode.appendChild(artistNode);
@@ -213,7 +210,7 @@ var CreateMusicPage = function() {
                 }
             })(equipment);
 
-            var backNode = document.createElement("A");
+            var backNode = document.createElement('A');
             backNode.href = '/music/equipment/' + e.name;
             backNode.className = 'back';
             backNode.addEventListener('click', function(e) { return preventDefaultLink(e); }, false);
@@ -226,10 +223,10 @@ var CreateMusicPage = function() {
             var img = document.createElement('Img');
             img.src = '/img/equipment/' + e.name + '/' + ee.name + '.jpg';
 
-            var content = document.createElement("Div");
+            var content = document.createElement('Div');
             content.appendChild(img);
 
-            var largeImage = document.createElement("Div");
+            var largeImage = document.createElement('Div');
             largeImage.appendChild(CreatePageTitle(ee.name));
             largeImage.appendChild(backNode);
             largeImage.appendChild(content);
@@ -244,7 +241,7 @@ var CreateMusicPage = function() {
             });
         }
 
-        var backNode = document.createElement("A");
+        var backNode = document.createElement('A');
         backNode.href = '/music/equipment';
         backNode.className = 'back';
         backNode.addEventListener('click', function(e) { return preventDefaultLink(e); }, false);
@@ -256,7 +253,7 @@ var CreateMusicPage = function() {
 
         var content = CreateBoxView(tiles, displayEquipmentImage);
 
-        var sectionNode = document.createElement("Div");
+        var sectionNode = document.createElement('Div');
         sectionNode.className = 'equipmentSection';
         sectionNode.appendChild(CreatePageTitle(e.name));
         sectionNode.appendChild(backNode);
@@ -267,27 +264,22 @@ var CreateMusicPage = function() {
         equipments.push(equipment);
     }
 
-    var artistsNode = document.createElement("Div");
-    artistsNode.className = 'artists';
-    var artistsContent = document.createElement("Div");
-    artistsNode.appendChild(artistsContent);
-
-    var artistsListNode = document.createElement("Div");
-    var currentArtistsNode  = CreateSubSection("Current Acts", "", CreateBoxView(currentArtists, displayArtist));
-    var previousArtistsNode = CreateSubSection("Previous Acts", "", CreateBoxView(previousArtists, displayArtist));
-    artistsListNode.appendChild(CreatePageTitle("Related Acts"));
+    var artistsListNode = document.createElement('Div');
+    var currentArtistsNode  = CreateSubSection('Current Acts', '', CreateBoxView(currentArtists, displayArtist));
+    var previousArtistsNode = CreateSubSection('Previous Acts', '', CreateBoxView(previousArtists, displayArtist));
+    artistsListNode.appendChild(CreatePageTitle('Related Acts'));
     artistsListNode.appendChild(currentArtistsNode);
     artistsListNode.appendChild(previousArtistsNode);
     artistsContent.appendChild(artistsListNode);
 
-    var equipmentNode = document.createElement("Div");
+    var equipmentNode = document.createElement('Div');
     equipmentNode.className = 'equipment';
-    equipmentContent = document.createElement("Div");
+    equipmentContent = document.createElement('Div');
     equipmentNode.appendChild(equipmentContent);
 
-    var equipmentListNode = document.createElement("Div");
+    var equipmentListNode = document.createElement('Div');
     var equipmentBoxView = CreateBoxView(equipments, displayEquipment);
-    equipmentListNode.appendChild(CreatePageTitle("Equipment"));
+    equipmentListNode.appendChild(CreatePageTitle('Equipment'));
     equipmentListNode.appendChild(equipmentBoxView);
     equipmentContent.appendChild(equipmentListNode);
 
@@ -450,3 +442,5 @@ var CreateMusicPage = function() {
         displayArtists();
     }
 };
+
+*/

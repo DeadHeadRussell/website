@@ -1,10 +1,12 @@
 (function() {
 
 window.ajrussell.register('widgets', {
+  createBackNode: createBackNode,
   createBanner: createBanner,
-  createHeader: createHeader,
   createBoxView: createBoxView,
-  createList: createList
+  createHeader: createHeader,
+  createList: createList,
+  createPageTitle: createPageTitle
 });
 
 function createBanner(title, subtitle) {
@@ -165,12 +167,25 @@ var CreateNavigation = function(title, selections, rootPath, init, callback) {
     }
 };
 
-var CreatePageTitle = function(title) {
+function createPageTitle(title) {
     var node = document.createElement("Div");
     node.className = "PageTitle";
     node.appendChild(document.createTextNode(title));
     return node;
 };
+
+function createBackNode(url, callback) {
+  var back_node = document.createElement('A');
+  back_node.href = url;
+  back_node.className = 'back';
+  back_node.addEventListener('click', preventDefaultLink);
+  back_node.addEventListener('click', callback);
+  back_node.addEventListener('keydown', keyToClick(callback));
+  back_node.setAttribute('role', 'button');
+  back_node.setAttribute('tabindex', '0');
+  back_node.setAttribute('title', 'Back');
+  return back_node;
+}
 
 function createList(title, items, callback) {
     var node = document.createElement("Div");
