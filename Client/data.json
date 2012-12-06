@@ -41,6 +41,27 @@
           "songs": []
         },
         {
+          "name": "Covers",
+          "description": "A recent collections of recordings that I have done.  These songs are all covers from various artists",
+          "songs": [
+            {
+              "name": "Waste",
+              "description": "Phish Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Trey Anastasio and Tom Marshall",
+              "recording": true
+            },
+            {
+              "name": "Suburban War",
+              "description": "Arcade Fire Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Arcade Fire",
+              "recording": true
+            },
+            {
+              "name": "Sleep",
+              "description": "Phish Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Trey Anastasio and Tom Marshall",
+              "recording": true
+            }
+          ]
+        },
+        {
           "name": "MIDI",
           "description": "A collection of works that use MIDI patches for the bass and drums with real instruments recorded ontop",
           "songs": [
@@ -83,7 +104,7 @@
         },
         {
           "name": "Epic",
-          "description": "The most brilliant rock album no one has ever heard.",
+          "description": "The most brilliant rock album no one has ever heard. Not all tracks are complete and some never will be...",
           "songs": [
             {
               "name": "hehehe...",
@@ -121,11 +142,6 @@
               "recording": true
             }
           ]
-        },
-        {
-          "name": "This World",
-          "description": "A rock album with a theme centered around the world we all live on.",
-          "songs": []
         }
       ]
     },
