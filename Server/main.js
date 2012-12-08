@@ -164,7 +164,7 @@ function CreateResponseWriter(req, res) {
 
                 var etag = stat.size + '-' + Date.parse(stat.mtime);
                 if (req.headers['if-none-match'] === etag) {
-                    res.writeHead(304, headers);
+                    res.writeHead(304);
                     res.end();
                     return;
                 }
