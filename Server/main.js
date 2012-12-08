@@ -155,6 +155,12 @@ function CreateResponseWriter(req, res) {
                 'Date': (new Date()).toGMTString()
             };
 
+            if (dataType.indexOf('audio/') >= 0 || dataType.indexOf('image/') >= 0) {
+                var date = new Date();
+                date.setDate(date.getDate() + 90);
+                headers['Expires'] = date.toGMTString();
+            }
+
             if (dataType.indexOf('audio/') >= 0) {
                 headers['access-control-allow-origin'] = '*';
             }
