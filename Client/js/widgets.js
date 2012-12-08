@@ -247,19 +247,24 @@ function CreateBoxView(elems, callback) {
         var elem = elems[i];
 
         var a = document.createElement("A");
-        a.href = escape(elem.path);
         a.className = 'NoStyle';
-        a.addEventListener('click', function(e) { return preventDefaultLink(e); }, false);
+        if (!callback) {
+          a.href = elem.path;
+          a.setAttribute('target', '_blank');
+        } else {
+          a.href = escape(elem.path);
 
-        var clickHandler = function(elem) {
-            return function(e) {
-                goToPage(elem);
-                return true;
-            }
-        }(elem);
+          var clickHandler = function(elem) {
+              return function(e) {
+                  goToPage(elem);
+                  return true;
+              }
+          }(elem);
 
-        a.addEventListener('click', clickHandler, false);
-        a.addEventListener('keydown', keyToClick(clickHandler), false);
+          a.addEventListener('click', function(e) { return preventDefaultLink(e); }, false);
+          a.addEventListener('click', clickHandler, false);
+          a.addEventListener('keydown', keyToClick(clickHandler), false);
+        }
 
         var img = document.createElement('Img');
         img.src = elem.imgSrc;

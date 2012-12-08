@@ -366,6 +366,9 @@
       "name": "Software"
     },
     {
+      "name": "CV"
+    },
+    {
       "name": "Music and Technology"
     }
   ],
@@ -373,7 +376,7 @@
   "softwareProjects": [
     {
       "name": "Personal Website",
-      "description": "This is the source for both the server side and client side code required for running this website. Node.js required to run the server. No audio files and no other software project's source are included with wth this source.",
+      "description": "This is the source for both the server side and client side code required for running this website. Node.js required to run the server.",
       "repository_name": "website"
     },
     {
@@ -425,7 +428,7 @@
       "company": "Primal Inc."
     },
     {
-      "name": "Virtual Surround Sound Device Driver",
+      "name": "Virtual Surround Sound Driver",
       "description": "Driver that takes stereo input audio and outputs 5.1 virtual surround sound.",
       "company": "Microsoft Corp."
     },
@@ -455,12 +458,12 @@
       "company": "Sybase Inc."
     },
     {
-      "name": "Symbian OS audio driver emulation for Windows",
+      "name": "Audio Driver Emulator",
       "description": "Implemented an audio driver for the Symbian OS emulator on Windows for a specific line of smartphones.",
       "company": "Qualcomm Inc."
     },
     {
-      "name": "Internal Work Item Tracking System",
+      "name": "Issue Tracking System",
       "description": "New web front end for the internal work item tracking system.",
       "company": "Canadian Space Agency"
     },
@@ -489,7 +492,7 @@
       "description": "Simple, real-time operating system implemented for a Motorola 68k series chip."
     },
     {
-      "course": "Software Abstraction and Specification (CS 246)",
+      "course": "Software Abstraction (CS 246)",
       "description": "Euchre game implemented with GTK++."
     }
   ]

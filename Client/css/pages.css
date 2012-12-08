@@ -246,8 +246,7 @@
 
 .resumeLink>A {
     float: right;
-    clear: both;
-    padding: 2px;
+    padding-left: 15px;
 }
 
 .resumeWrapper {
@@ -255,18 +254,7 @@
 }
 
 .softwareProjects A {
-    float: right;
-    width: 40%;
-    margin: 0px 50px;
-    text-align: right;
-}
-
-.softwareProjects Img {
-    display: block;
-    clear: both;
-    max-width: 70%;
-    max-height: 600px;
-    margin: auto;
+    width: 31%;
 }
 
 .softwareProjects P {
@@ -285,15 +273,10 @@
 }
 
 .softwareProjects .SubSection {
-    clear: both;
-}
-
-.softwareProjects A:hover,
-.softwareProjects A:focus {
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
-    -webkit-transition-duration: 250ms;
-    -moz-transition-duration: 250ms;
-    -ms-transition-duration: 250ms;
+  display: inline-block;
+  vertical-align: top;
+  width: 320px;
+  margin: 10px;
 }
 
 .about {

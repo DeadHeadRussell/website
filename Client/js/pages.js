@@ -574,25 +574,22 @@ var CreateMusicPage = function() {
 var CreateSoftPage = function() {
   var projectsNode = document.createElement("Div");
   projectsNode.className = 'softwareProjects';
+
+  var projects = [];
   for(var i = 0; i < data.softwareProjects.length; i++) {
     var p = data.softwareProjects[i];
-    var content = document.createElement('Div');
 
-    var source = document.createElement('A');
-    source.href = 'https://github.com/deadheadrussell/' + p.repository_name;
-    source.appendChild(document.createTextNode('Source'));
-    content.appendChild(source);
+    var project = {
+      id: p.name,
+      title: p.name,
+      path: 'https://github.com/deadheadrussell/' + escape(p.repository_name),
+      imgSrc: '/img/soft/' + p.name + '.png'
+    };
 
-    var img = document.createElement('Img');
-    img.src = '/img/soft/' + p.name + '.png';
-    content.appendChild(img);
-
-    var desc = document.createElement('P');
-    desc.appendChild(document.createTextNode(p.description));
-    content.appendChild(desc);
-
-    projectsNode.appendChild(CreateSubSection(p.name, '', content));
+    projects.push(project);
   }
+
+  projectsNode.appendChild(CreateBoxView(projects));
 
   var schoolNode = document.createElement('div');
   schoolNode.className = 'softwareProjects';
@@ -617,7 +614,7 @@ var CreateSoftPage = function() {
   }
 
   var subPagesNav = {
-    projects: { title: "Projects", node: projectsNode },
+    projects: { title: "Personal Projects", node: projectsNode },
     school: { title: "School Projects", node: schoolNode },
     work: { title: "Work Projects", node: workNode }
   };
@@ -683,7 +680,7 @@ var CreateResumesPage = function() {
       var link = document.createElement('A');
       link.href = '/resumes/' + resume.name + '/full.' + type.toLowerCase();
       link.target = '_blank';
-      link.appendChild(document.createTextNode(type.toUpperCase() + ' Version'));
+      link.appendChild(document.createTextNode('Download ' + type.toUpperCase()));
       return link;
     };
     linkNode.appendChild(createDocLink('html'));

@@ -3,34 +3,39 @@
 
   .resume {
     width: 100%;
+    margin-top: 15px;
   }
 
   .resume > div, .iediv {
     position: relative;
     padding-bottom: 10px;
-    border-bottom: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    clear: both;
   }
 
-  .resume .int {
-    border-bottom: none;
+  .resume > div:first-of-type {
+    border-top: none;
+  }
+
+  .resume > div:last-child {
+    padding-bottom: 0px;
   }
 
   .resume H3 {
     margin-top: 0.5em;
+    margin-bottom: 10px;
     font-family: sans-serif;
     font-size: 24px;
     font-variant: small-caps;
   }
-  .resume H4 {
-    margin-bottom: 5px;
-  }
 
-  .resume ul {
-    margin: 0px auto;
-  }
-  
   .resume span {
     font-weight: 700;
+  }
+
+  .resume .it {
+    font-style: italic;
+    padding-bottom: 15px;
   }
 
   .resume .name {
@@ -38,89 +43,111 @@
     margin-bottom: 0px;
   }
   
-  .resume .website {
-    position: absolute;
-    right: 0px;
-    top: 8px;
+  .resume .website,
+  .resume .email,
+  .resume .phone {
+    float: right;
+    clear: right;
   }
 
-  .resume .email {
-    position: absolute;
-    right: 0px;
-    top: 26px;
+  .resume .github {
+    margin-bottom: 15px;
   }
 
-  .resume .class {
-    font-weight: 700;
+  .resume .link {
+    margin-top: 0.5em;
+    margin-right: 10px;
+    float: right;
   }
 
-  .resume .work div {
-    margin-top: 1.33em;
-  }
-
-  .resume .work ul {
-    margin-top: 5px;
+  .resume ul {
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
 
   </style>
 
   <div class="info iediv">
+    <div class="website">
+      <a href="http://ajrussell.ca" target="_blank">ajrussell.ca</a>
+    </div>
+    <div class="email">
+      <a href="mailto:deadhead.russell@gmail.com" target="_blank">deadhead.russell@gmail.com</a>
+    </div>
+    <div class="phone">1-226-789-3957</div>
     <h2 class="name">Andrew Russell</h2>
-    <div class="website">ajrussell.ca</div>
-    <div class="email">deadhead.russell@gmail.com</div>
     <div class="class">4A Software Engineer</div>
   </div>
-
+  
   <div class="skills iediv">
-    <h3>Skills Summary</h3>
+    <h3>Technical Skills</h3>
     <div>
-      <h4>Web Application Development</h4>
+      <span>Software Development</span>
       <ul>
-        <li>Strong knowledge of HTML5, JavaScript and CSS3 in Webkit, Gecko and Trident browsers</li>
-        <li>Good understanding of AJAX technology using both XML and JSON</li>
-        <li>Familiar with using Javascript (node.js), Python, JSP and PHP for server side development</li>
-        <li>Experience with SQLite, MySQL, and SQL Anywhere</li>
+        <li>Strong understanding of developing device drivers for different types of hardware</li>
+        <li>Extensive experience of audio and image signal processing in C/C++ and Matlab</li>
+        <li>Good knowledge of computer graphics programming techniques</li>
       </ul>
     </div>
     <div>
-      <h4>C/C++ Development</h4>
+      <span>Web Development</span>
       <ul>
-        <li>Good understanding of developing physical device drivers in an object-oriented style</li>
-        <li>Familiar with digital signal processing techinques, especially with audio and images</li>
-        <li>Experience using OpenGL for both 2D and 3D graphics</li>
+        <li>Very strong client-side web application development skills (HTML, JavaScript and CSS)</li>
+        <li>Familiar with a number of server-side languages including Google Go, JavaScript (node.js) and Java</li>
       </ul>
     </div>
   </div>
-  
+
   <div class="edu iediv">
-    <div>
-      <h3>Education</h3>
-      <span>University of Waterloo;</span> Sep 2008 - Apr 2013
-      <ul>
-        <li>Candidate for Bachelor of Software Engineering, Honours Software Engineering</li>
-        <li>Advanced Courses<ul>
-          <li>Numerical Computation (CS 370)</li>
-          <li>Computational Vision (CS 484)</li>
-          <li>Introduction to Computer Graphics (CS 488)</li>
-          <li>Digital Signal Processing (ECE 413)</li>
-        </ul></li>
-      </ul>
-    </div>
+    <h3>Education</h3>
+    <span>University of Waterloo;</span> Sep 2008 - Apr 2013
+    <div class="it">Candidate for Bachelor of Software Engineering, Honours Software Engineering</div>
+
+    <span>Speechboard</span> (Design Project)
+    <ul>
+      <li>Automatic transcription application for meetings, with a large focus on simplicity for users</li>
+      <li>Developing an algorithm that analyzes voice data to determine who is speaking at what time</li>
+      <li>Algorithm analyzes frequency spectrum of voice and creates a voice print for each speaker</li>
+    </ul>
+
+    <span>Computational Vision</span> (CS 484)
+    <ul>
+      <li>Learned digital signal processing techniques for image processing</li>
+      <li>Developed a program for recognizing how images go together and composed the images into a panorama</li>
+      <li>Implemented a panoramic stitching program in Matlab</li>
+    </ul>
+
+    <span>Introduction to Computer Graphics</span> (CS 488)
+    <ul>
+      <li>Lectures gave a broad overview of many graphics concepts</li>
+      <li>Developed a final project implementing flocking, L-System, terrain erosion and water rippling systems</li>
+    </ul>
   </div>
 
   <div class="work iediv">
     <h3>Work Experience</h3>
+
     <div>
-      <span>Software Engineer Intern,</span> Microsoft Corp., Redmond, Washington; Jan - Apr 2012
+      <span>Research Intern,</span> Primal Inc., Waterloo, Ontario; Sep - Dec 2012
       <ul>
-        <li>Ported an audio processing library from Windows to the Xbox 360 kernel for a device driver</li>
-        <li>Improved CPU performance by over 750x and memory usage by over 5,200x</li>
-        <li>Worked with testing engineers and program managers to ensure that code worked as expected</li>
+          <li>Investigated a new algorithm for scoring web content against concepts</li>
+          <li>Designed a new algorithm for converting user queries into concepts and then synthesising new concepts</li>
+          <li>Researched combining synthesis results together to store user intent over multiple queries</li>
+          <li>Will be listed as a collaborator on multiple patent applications</li>
       </ul>
     </div>
 
     <div>
-      <span>Software Engineer Intern,</span> Google Inc., Mountainview, California; May - Aug 2011
+      <span>Software Engineer Intern,</span> Microsoft Corp., Redmond, Washington; Jan - Apr 2012
+      <ul>
+        <li>Ported a virtual surround sound processing library from Windows to an Xbox 360 device driver</li>
+        <li>Improved CPU performance by over 750x and memory usage by over 5200x with help from a code profiler</li>
+        <li>Worked with testing engineers to ensure code quality and program managers to ensure that the code met the spec</li>
+      </ul>
+    </div>
+
+    <div>
+      <span>Software Engineer Intern,</span> Google Inc., Mountain View, California; May - Aug 2011
       <ul>
         <li>Added accessibility for low-vision and blind users to the Pepper Plugin API (PPAPI)</li>
         <li>Modified existing Native Client applications to work with the new PPAPI version</li>
@@ -133,7 +160,7 @@
       <ul>
         <li>Researched the possibility of replacing native mobile applications with web applications</li>
         <li>Developed a JavaScript library to create native quality mobile web applications</li>
-        <li>Cloned a CRM native application as a web applications, matching performance</li>
+        <li>Cloned a CRM native application as a web application, matching performance</li>
       </ul>
     </div>
 
@@ -147,63 +174,41 @@
     </div>
     
     <div>
-      <span>Ground Segment Software Developer,</span> Canadian Space Agency, Saint-Hubert, Quebec; Apr - Aug 2009
+      <span>Ground Segment Intern,</span> Canadian Space Agency, Saint-Hubert, Quebec; Apr - Aug 2009
       <ul>
-        <li>Developed an internal application using Java, JSP, and JavaScript</li>
+        <li>Launched an internal development application using Java, JSP and JavaScript</li>
         <li>Wrote SQL queries for Oracle 10g Database</li>
       </ul>
     </div>
   </div>
-  
+
   <div class="proj iediv">
-    <h3>Projects</h3>
-   
-    <div>
-      <h4>Speechboard</h4>
-      <ul>
-        <li>Automatic transcription application for meetings, with a large focus on simplicity for users</li>
-        <li>Developing algorithm that analyzes voice data to determine who is speaking at what time</li>
-        <li>Algorithm analyzes frequency specturm of voice and creates a voice print for each speaker</li>
-      </ul>
-    </div>
-
-    <div>
-      <h4>Personal Website</h4>
-      <ul>
-        <li>Used node.js to create the server</li>
-        <li>Strong focus on client side JavaScript</li>
-        <li>Used HTML5 (JavaScript and CSS3) technologies with fallbacks for legacy browsers</li>
-      </ul>
-    </div>
-
-    <div>
-      <h4>Soccer Emulator</h4>
-      <ul>
-        <li>Created a text based soccer game simulation that takes team stats as input</li>
-        <li>Outputs play by play game summary and final scores</li>
-        <li>Simulated various single game issues such as morale</li>
-        <li>Developed a learning mechanism so that teams would improve after each game</li>
-      </ul>
+    <h3>Personal Projects</h3>
+    <div class="github">
+      Source code for most personal projects can be found at:
+      <a href="https://github.com/deadheadrussell/" target="_blank">github.com/deadheadrussell</a>
     </div>
   </div>
 
   <div class="int iediv">
-    <h3>Interests</h3>
+    <h3>Other Interests</h3>
     <div>
-      <h4>Music</h4>
+      <span>Music</span>
       <ul>
-        <li>Professional musician and composer</li>
-        <li>Instruments include guitar, piano, electric bass, stand-up bass and drums</li>
+        <li>Perform, compose and record music on various instruments</li>
+        <li>Have played piano in multiple musical theatre performances</li>
+        <li>Instruments include the guitar, piano, upright bass, drums, vocals and mandolin</li>
       </ul>
     </div>
-    
+
     <div>
-      <h4>Sports</h4>
+      <span>Sports</span>
       <ul>
-        <li>Captain of a soccer, volleyball and slo-pitch intramural teams</li>
+        <li>Class athletic representative, organizing teams, liaisoning with the league and developing plays</li>
+        <li>Captain of soccer, volleyball, ultimate frisbee and slo-pitch intramural teams</li>
         <li>Played many competitive sports including allstar teams in soccer and baseball</li>
       </ul>
     </div>
   </div>
-</div>
+</body></html>
 
