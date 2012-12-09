@@ -20,7 +20,6 @@ exports.get = function(path) {
   } else {
     path = path_parts.join('/');
   }
-  path = path.replace(/%3F/g, '\\?');
 
   var name = decodeURIComponent(path_parts[path_parts.length - 1]);
 
