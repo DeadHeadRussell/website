@@ -33,9 +33,14 @@ function createJavascriptClient() {
     getMusicPage: getMainPage,
     getSoftwarePage: getMainPage,
     getResumesPage: getMainPage,
-    getFile: function(path) { last_path = path; console.log(path); },
-    getLast: function() { return last_path; },
-    getOptions: function() { return { root: path_root }; }
+    getFile: function(path) { last_path = path; },
+    getLast: function() {
+      return {
+        isTemplate: function() { return false; },
+        getPath: function() { return last_path; },
+        getOptions: function() { return { root: path_root }; }
+      };
+    }
   };
 
   function getMainPage() {
@@ -46,16 +51,22 @@ function createJavascriptClient() {
 function createNoscriptClient() {
   var path_root = '../../Clients/noscript/';
   var last_path = '';
+  var is_template = true;
 
   return {
-    getFavicon: function() { last_path = 'favicon.ico'; },
-    getHomePage: function() { last_path = 'home.html'; },
-    getMusicPage: function() { last_path = 'music.html'; },
-    getSoftwarePage: function() { last_path = 'software.html'; },
-    getResumesPage: function() { last_path = 'resumes.html'; },
-    getFile: function() { last_path = ''; },
-    getLast: function() { return last_path; },
-    getOptions: function() { return { root: path_root }; }
+    getFavicon: function() { last_path = 'favicon.ico'; is_template = true; },
+    getHomePage: function() { last_path = 'home.ejs'; is_template = true; },
+    getMusicPage: function() { last_path = 'music.ejs'; is_template = true; },
+    getSoftwarePage: function() { last_path = 'software.ejs'; is_template = true; },
+    getResumesPage: function() { last_path = 'resumes.ejs'; is_template = true; },
+    getFile: function(path) { last_path = path; is_template = false; },
+    getLast: function() {
+      return {
+        isTemplate: function() { return is_template; },
+        getPath: function() { return last_path; },
+        getOptions: function() { return { root: path_root }; }
+      };
+    }
   };
 }
 

@@ -1,0 +1,16 @@
+<% include head %>
+
+<h2>Resumes</h2>
+<% for (var i = 0; i < resumes.length; i++) {
+  var resume = resumes[i]; %>
+  <div>
+    <span><%= resume.name %></span>
+    <ul>
+      <li><a href="/data/resumes/<%= escape(resume.name)%>/full.pdf">Download PDF</a></li>
+      <li><a href="/data/resumes/<%= escape(resume.name)%>/full.html">View HTML</a></li>
+    </ul>
+  </div>
+<% } %>
+
+<% include foot %>
+

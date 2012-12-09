@@ -1,0 +1,37 @@
+<% include head %>
+
+<h2>Personal Projects</h2>
+<% for (var i = 0; i < softwareProjects.length; i++) {
+  var project = softwareProjects[i]; %>
+  <div>
+  <h4><%= project.name %></h4>
+  <a href="https://github.com/deadheadrussell/{repository_name}">Source</a>
+  <div><%= project.description %></div>
+  </div>
+<% } %>
+
+<hr>
+
+<h2>School Projects</h2>
+<% for (var i = 0; i < schoolProjects.length; i++) {
+  var project = schoolProjects[i]; %>
+  <div>
+  <h4><%= project.course %></h4>
+  <div><%= project.description %></div>
+  </div>
+<% } %>
+
+<hr>
+
+<h2>Work Projects</h2>
+<% for (var i = 0; i < workProjects.length; i++) {
+  var project = workProjects[i]; %>
+  <div>
+  <h4><%= project.name %></h4>
+  <div><%= project.company %></div>
+  <div><%= project.description %></div>
+  </div>
+<% } %>
+
+<% include foot %>
+

@@ -1,5 +1,8 @@
+var fs = require('fs');
+
 var data_path_root = '../data/';
 var data_path = 'data.json';
+var data = null;
 
 exports.get = function(path) {
   path_parts = path.split('/');
@@ -35,4 +38,26 @@ exports.getOptions = function() {
     root: data_path_root
   };
 };
+
+exports.getJsonObject = function() {
+  return data;
+}
+
+refreshData();
+
+function refreshData() {
+  var path = data_path_root + data_path;
+  var stream = fs.createReadStream(path);
+  stream.setEncoding('utf8');
+
+  var json_string = '';
+
+  stream.on('data', function(data) {
+    json_string += data;
+  });
+
+  stream.on('end', function() {
+    data = JSON.parse(json_string);
+  });
+}
 

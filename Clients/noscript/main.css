@@ -1,0 +1,20 @@
+.navigation>a {
+  padding: 0px 10px;
+}
+
+.external_link {
+  margin-top: 10px;
+}
+
+h4 {
+  margin: 10px 0px 0px;
+}
+
+.description {
+  margin-left: 20px;
+}
+
+.bold {
+  font-weight: 700;
+}
+

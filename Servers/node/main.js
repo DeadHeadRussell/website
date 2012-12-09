@@ -5,8 +5,6 @@ var data = require('./data');
 
 var app = express();
 
-app.engine('ejs', require('ejs').renderFile);
-
 app.get(/^\/data(\/.*)?$/, function(request, response) {
   var file = data.get(request.path);
   if (file.isAttachment()) {
@@ -16,44 +14,37 @@ app.get(/^\/data(\/.*)?$/, function(request, response) {
 }, sendClientFile);
 
 app.get(/^\/favicon.ico$/, chooseClient, function(request, response, next) {
-  var client = response.locals.client;
-  client.getFavicon();
+  response.locals.client.getFavicon();
   next();
 }, sendClientFile);
 
 app.get(/^\/music(\/.*)?$/, chooseClient, function(request, response, next) {
-  var client = response.locals.client;
-  client.getMusicPage();
+  response.locals.client.getMusicPage();
   next();
 }, sendClientFile);
 
 app.get(/^\/soft(ware)?(\/.*)?$/, chooseClient, function(request, response, next) {
-  var client = response.locals.client;
-  client.getSoftwarePage();
+  response.locals.client.getSoftwarePage();
   next();
 }, sendClientFile);
 
 app.get(/^\/resumes(\/.*)?$/, chooseClient, function(request, response, next) {
-  var client = response.locals.client;
-  client.getResumesPage();
+  response.locals.client.getResumesPage();
   next();
 }, sendClientFile);
 
 app.get(/^\/home(\/.*)?$/, chooseClient, function(request, response, next) {
-  var client = response.locals.client;
-  client.getHomePage();
+  response.locals.client.getHomePage();
   next();
 }, sendClientFile);
 
-app.get(/^\/?$/, chooseClient, function(request, respnose, next) {
-  var client = response.locals.client;
-  client.getHomePage();
+app.get(/^\/?$/, chooseClient, function(request, response, next) {
+  response.locals.client.getHomePage();
   next();
 }, sendClientFile);
 
 app.get(/.*/, chooseClient, function(request, response, next) {
-  var client = response.locals.client;
-  client.getFile(request.path);
+  response.locals.client.getFile(request.path);
   next();
 }, sendClientFile);
 
@@ -65,7 +56,12 @@ function chooseClient(request, response, next) {
 }
 
 function sendClientFile(request, response) {
-  var client = response.locals.client;
-  response.sendfile(client.getLast(), client.getOptions());
+  var last = response.locals.client.getLast();
+  if (last.isTemplate()) {
+    app.set('views', last.getOptions().root);
+    response.render(last.getPath(), data.getJsonObject());
+  } else {
+    response.sendfile(last.getPath(), last.getOptions());
+  }
 }
 

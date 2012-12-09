@@ -1,0 +1,20 @@
+<% include head %>
+
+<p><%= intro %></p>
+
+<hr>
+
+<h3>Awesome Sites</h3>
+<% for (var i = 0; i < sites.length; i++) {
+  var site = sites[i]; %>
+  <div class="external_link"><a href="<%= site.link %>"><%= site.name %></a></div>
+  <div><%= site.desc %></div>
+<% } %>
+
+<hr>
+
+<h3>Contact</h3>
+<p>Email: <a href="mailto:<%= contact.email %>"><%= contact.email %></a></p>
+
+<% include foot %>
+

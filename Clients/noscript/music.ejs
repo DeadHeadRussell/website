@@ -1,0 +1,71 @@
+<% include head %>
+
+<h2>Related Acts</h2>
+
+<% for (var i = 0; i < artists.length; i++) {
+var artist = artists[i]; %>
+<div>
+
+  <h3><%= artist.name %></h3>
+  <p><%= artist.description %></p>
+
+  <ul>
+  <% for (var j = 0; j < artist.albums.length; j++) {
+    var album = artist.albums[j]; %>
+    <li>
+
+      <h4><%= album.name %></h4>
+      <div><%= album.description %></div>
+      <% if (album.link) { %>
+        <a href="<%= album.link %>"><%= album.link %></a>
+      <% } else { %>
+        <a href="/data/audio/<%= escape(artist.name) %>/<%= escape(album.name) %>.zip">Download Album</a>
+      <% } %>
+
+      <ul>
+      <% for (var k = 0; k < album.songs.length; k++) {
+        var song = album.songs[k]; %>
+
+        <li>
+          <h4><%= song.name %></h4>
+          <% if (song.recording) { %>
+            <a href="/data/audio/<%= escape(artist.name) %>/<%= escape(album.name) %>/<%= escape(song.name) %>.mp3">Download Song</a>
+          <% } %>
+          <div class='description'>
+            <% var parts = song.description.split('\n');
+            for (var l = 0; l < parts.length; l++) { %>
+              <div class='<%= parts[l].indexOf('<b>') >= 0 ? 'bold' : '' %>'>
+                <%= parts[l].replace(/<.?b>/g, '') %>
+              </div>
+            <% } %>
+          </div>
+        </li>
+      <% } %>
+      </ul>
+
+    </li>
+  <% } %>
+  </ul>
+
+</div>
+<% } %>
+
+<hr>
+
+<h2>Equipment</h2>
+<% for (var i = 0; i < equipment.length; i++) {
+  var section = equipment[i]; %>
+  <h3><%= section.name %></h3>
+  <ul>
+    <% for (var j = 0; j < section.equipment.length; j++) {
+      var eq = section.equipment[j]; %>
+      <li>
+        <h4><%= eq.name %></h4>
+        <p><%= eq.description %></p>
+      </li>
+    <% } %>
+  </ul>
+<% } %>
+
+<% include foot %>
+
