@@ -201,16 +201,18 @@ var CreateMusicPage = function() {
       div.appendChild(document.createTextNode(album.description));
       content.appendChild(div);
 
-      var albumNode = CreateSubSection(album.name, '', content);
-      
+      var link = document.createElement('A');
       if (album.link) {
-        var link = document.createElement('A');
         link.appendChild(document.createTextNode(album.link));
         link.href = album.link;
         link.setAttribute('target', '_blank');
-        link.className = 'Content';
-        albumNode.appendChild(link);
+      } else {
+        link.appendChild(document.createTextNode('Download Album'));
+        link.href = '/data/audio/' + artist.name + '/' + album.name + '.zip';
       }
+
+      var albumNode = CreateSubSection(album.name, '', content);
+      albumNode.appendChild(link);
 
       var desc = document.createElement('Div');
       desc.className = 'description';
@@ -227,10 +229,14 @@ var CreateMusicPage = function() {
           descText = '<div>' + descText + '</div>';
           text.innerHTML = descText;
           text.insertBefore(title, text.firstChild);
+          var download = document.createElement('A');
+          download.appendChild(document.createTextNode('Download Song'));
+          download.href = obj.link;
+          text.insertBefore(download, title);
           desc.replaceChild(text, desc.firstChild);
           desc.style.paddingLeft = (desc.previousSibling.offsetWidth + 35) + 'px';
         }
-      }(desc);
+      }(desc, artist.name, album.name);
 
       var songs = [];
       for(var k = 0; album.songs && k < album.songs.length; k++) {
@@ -238,7 +244,11 @@ var CreateMusicPage = function() {
         var id = i + '/' + j + '/' + k;
         var node = document.createElement("Div");
 
-        var obj = {id: id, node: node, text: song.name, desc: song.description, callback: dispDesc};
+        var obj = {
+          id: id, node: node, text: song.name,
+          desc: song.description, callback: dispDesc,
+          link: '/data/audio/' + artist.name + '/' + album.name + '/' + encodeURIComponent(song.name) + '.mp3'
+        };
 
         if(song.recording) {
           var img = document.createElement("Div");

@@ -101,6 +101,15 @@
     clear: left;
 }
 
+.artist>.SubSection>.Content {
+    margin-bottom: 0px;
+}
+
+.artist>.SubSection>A {
+    display: block;
+    margin: 3px 5px 10px;
+}
+
 .artist>.SubSection>.List {
     float: left;
     margin-right: 25px;
@@ -162,10 +171,14 @@
 }
 
 .artist>.SubSection>.description {
-    max-width: 900px;
+    max-width: 500px;
     margin-top: 35px;
     margin-bottom: 10px;
     padding-bottom: 25px;
+}
+
+.artist>.SubSection>.description A {
+    float: right;
 }
 
 .artist>.SubSection>.description .title {

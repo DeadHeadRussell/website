@@ -10,11 +10,25 @@ exports.get = function(path) {
     path_parts.pop();
   }
 
-  if (path_parts.length == 0) {
-    return data_path;
+  var is_attachment = false;
+  if (path.indexOf('.mp3') >= 0 || path.indexOf('.zip') >= 0) {
+    is_attachment = true;
   }
 
-  return path_parts.join('/');
+  if (path_parts.length == 0) {
+    path = data_path;
+  } else {
+    path = path_parts.join('/');
+  }
+  path = path.replace(/%3F/g, '\\?');
+
+  var name = decodeURIComponent(path_parts[path_parts.length - 1]);
+
+  return {
+    isAttachment: function() { return is_attachment; },
+    getPath: function() { return path; },
+    getName: function() { return name; }
+  };
 };
 
 exports.getOptions = function() {

@@ -8,7 +8,11 @@ var client = null;
 var client_file = null;
 
 app.get(/^\/data(\/.*)?$/, function(request, response) {
-  response.sendfile(data.get(request.path), data.getOptions());
+  var file = data.get(request.path);
+  if (file.isAttachment()) {
+    response.attachment(file.getName());
+  }
+  response.sendfile(file.getPath(), data.getOptions());
 }, sendClientFile);
 
 app.get(/^\/favicon.ico$/, chooseClient, function(request, response, next) {
