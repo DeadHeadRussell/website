@@ -1,5 +1,5 @@
-killall node
+killall nodejs
 cd node/
-nohup node main.js &
+nohup nodejs main.js &
 cd ../
 
