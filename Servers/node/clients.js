@@ -33,7 +33,7 @@ function createJavascriptClient() {
     getMusicPage: getMainPage,
     getSoftwarePage: getMainPage,
     getResumesPage: getMainPage,
-    getFile: function(data, path) { last_path = path; console.log(path); },
+    getFile: function(path) { last_path = path; console.log(path); },
     getLast: function() { return last_path; },
     getOptions: function() { return { root: path_root }; }
   };

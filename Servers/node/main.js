@@ -12,34 +12,37 @@ app.get(/^\/data(\/.*)?$/, function(request, response) {
 }, sendClientFile);
 
 app.get(/^\/favicon.ico$/, chooseClient, function(request, response, next) {
-  client.getFavicon(data);
+  client.getFavicon();
   next();
 }, sendClientFile);
 
 app.get(/^\/music(\/.*)?$/, chooseClient, function(request, response, next) {
-  client.getMusicPage(data);
+  client.getMusicPage();
   next();
 }, sendClientFile);
 
 app.get(/^\/soft(ware)?(\/.*)?$/, chooseClient, function(request, response, next) {
-  client.getSoftwarePage(data);
+  client.getSoftwarePage();
   next();
 }, sendClientFile);
 
 app.get(/^\/resumes(\/.*)?$/, chooseClient, function(request, response, next) {
-  client.getResumesPage(data);
+  client.getResumesPage();
   next();
 }, sendClientFile);
 
-/*
-app.get(/^(\/home(\/.*)?)|(\/)?$/, chooseClient, function(request, response, next) {
-  client.getHomePage(data);
+app.get(/^\/home(\/.*)?$/, chooseClient, function(request, response, next) {
+  client.getHomePage();
   next();
 }, sendClientFile);
-*/
+
+app.get(/^\/?$/, chooseClient, function(request, respnose, next) {
+  client.getHomePage();
+  next();
+}, sendClientFile);
 
 app.get(/.*/, chooseClient, function(request, response, next) {
-  client.getFile(data, request.path);
+  client.getFile(request.path);
   next();
 }, sendClientFile);
 
