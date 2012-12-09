@@ -29,7 +29,7 @@ var artist = artists[i]; %>
         <li>
           <h4><%= song.name %></h4>
           <% if (song.recording) { %>
-            <a href="/data/audio/<%= escape(artist.name) %>/<%= escape(album.name) %>/<%= escape(song.name) %>.mp3">Download Song</a>
+            <a href="/data/audio/<%= escape(artist.name) %>/<%= escape(album.name) %>/<%= escape(song.name.replace('?', '%3F')) %>.mp3">Download Song</a>
           <% } %>
           <div class='description'>
             <% var parts = song.description.split('\n');
