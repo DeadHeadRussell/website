@@ -92,7 +92,7 @@ var CreateHomePage = function() {
   var elems = [
     {id: 'music', title: 'Music', path: '/music', imgSrc: '/images/music.jpg'},
     {id: 'software', title: 'Software', path: '/software',  imgSrc: '/images/software.jpg'},
-    {id: 'resume', title: 'Resumes', path: '/resume', imgSrc: '/images/resumes.jpg'}
+    {id: 'resumes', title: 'Resumes', path: '/resumes', imgSrc: '/images/resumes.jpg'}
   ];
 
   var content = document.createElement('Div');
@@ -716,7 +716,7 @@ var CreateResumesPage = function() {
   var nav = CreateNavigation(
     "Navigation",
     resumes,
-    '/resume/',
+    '/resumes/',
     defaultResume,
     onNavigationChange
   );
@@ -752,7 +752,7 @@ var CreateResumesPage = function() {
 
       obj.subPages = subPages;
       if(!noState) {
-        pages.pushState('resume', obj.subPages);
+        pages.pushState('resumes', obj.subPages);
       }
     }
   };
@@ -764,7 +764,7 @@ var CreateResumesPage = function() {
       return;
     }
     obj.subPages = [id];
-    pages.pushState('resume', obj.subPages);
+    pages.pushState('resumes', obj.subPages);
   }
 };
 

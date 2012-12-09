@@ -42,7 +42,7 @@ var init = function() {
                 text: 'Software',
                 pageFunc: CreateSoftPage
             },
-            'resume': {
+            'resumes': {
                 text: 'Resumes / CVs',
                 pageFunc: CreateResumesPage
             }

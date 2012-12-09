@@ -363,13 +363,13 @@
 
   "resumes": [
     {
-      "name": "Software"
-    },
-    {
-      "name": "CV"
+      "name": "Software Resume"
     },
     {
       "name": "Music and Technology"
+    },
+    {
+      "name": "Generic CV"
     }
   ],
 
