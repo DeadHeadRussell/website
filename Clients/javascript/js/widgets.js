@@ -192,9 +192,10 @@ var CreateList = function(title, items, callback) {
                     return true;
                 };
             }(item);
-            itemNode.setAttribute('tabindex', '0');
-            itemNode.addEventListener('click', eventHandler, false);
-            itemNode.addEventListener('keydown', keyToClick(eventHandler), false);
+            var clickNode = itemNode.children[0];
+            clickNode.setAttribute('tabindex', '0');
+            clickNode.addEventListener('click', eventHandler, false);
+            clickNode.addEventListener('keydown', keyToClick(eventHandler), false);
 
             if(item.callback) {
                 var itemEventHandler = function(obj) {
@@ -202,8 +203,8 @@ var CreateList = function(title, items, callback) {
                         item.callback(obj);
                     };
                 }(item);
-                itemNode.addEventListener('mouseover', itemEventHandler, false);
-                itemNode.addEventListener('focus', itemEventHandler, false);
+                clickNode.addEventListener('mouseover', itemEventHandler, false);
+                clickNode.addEventListener('focus', itemEventHandler, false);
             }
         }
         node.appendChild(itemNode);

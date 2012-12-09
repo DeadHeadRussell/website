@@ -148,6 +148,10 @@
     background-image: url('/images/icons/Pause_Down.png');
 }
 
+.artist>.SubSection>.List>.Item>div {
+    display: inline-block;
+}
+
 .artist>.SubSection>.List>.Item Span {
     vertical-align: middle;
     padding-left: 2px;
