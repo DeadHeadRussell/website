@@ -1,21 +1,25 @@
-var fs = require('fs');
+var data_path_root = 'data/';
+var data_path = 'data.json';
 
-var data = null;
-var data_path = '../Client/data.json';
+exports.get = function(path) {
+  path_parts = path.split('/');
+  path_parts.shift();
+  path_parts.shift();
 
-exports.getData = function(callback) {
-  callback(data);
+  if (path[path.length - 1] == '/') {
+    path_parts.pop();
+  }
+
+  if (path_parts.length == 0) {
+    return data_path;
+  }
+
+  return path_parts.join('/');
 };
 
-exports.refreshData = function() {
-  fs.readFile(data_path, function(err, file_data) {
-      if (err) {
-          return;
-      }
-
-      data = JSON.parse(file_data);
-  });
+exports.getOptions = function() {
+  return {
+    root: data_path_root
+  };
 };
-
-exports.refreshData();
 

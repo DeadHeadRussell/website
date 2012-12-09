@@ -1,0 +1,289 @@
+.home {
+    padding-top: 5px;
+}
+
+.home .head {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 15px;
+
+    padding: 5px 5px;
+
+    border: 1px solid gray;
+    border-right: none;
+    border-top: none;
+    border-radius: 0px 0px 0px 5px;
+
+    background: white;
+    background: -webkit-linear-gradient(bottom left, #E5E5CC, white);
+    background: -moz-linear-gradient(bottom left, #E5E5CC, white);
+    background: -ms-linear-gradient(bottom left, #E5E5CC, white);
+}
+
+.home .head H1 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.home A {
+    position: relative;
+    width: 30%;
+}
+
+.home A:nth-of-type(1) {
+    margin-left: 1%;
+}
+
+.home A~A {
+    margin: 0 1%;
+}
+
+.home A:last-child {
+    margin: 0;
+}
+
+.home .contact,
+.home .sites {
+    display: inline-block;
+    max-width: 400px;
+    margin: 15px 50px;
+    margin-left: 50px;
+    margin-top: 15px;
+}
+
+.home .contact .Title,
+.home .sites .Title {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.home .contact .Item,
+.home .sites .Item {
+    margin-left: 10px;
+}
+
+.home .sites .Item Div~Div {
+    margin-left: 10px;
+}
+
+.artists {
+    position: relative;
+}
+
+.artists>Div,
+.artists>Div>Div {
+    position: relative;
+    width: 100%;
+}
+
+.artists .Boxes>A {
+    width: 48%;
+}
+
+.artists>.SubSection {
+    padding-left: 10px;
+}
+
+.artist {
+    padding: 15px;
+}
+
+.artist>Img {
+    width: 215px;
+    float: left;
+    margin-right: 15px;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.artist>.SubSection {
+    clear: left;
+}
+
+.artist>.SubSection>.List {
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 35px;
+}
+
+.artist>.SubSection>.List>.Item {
+    outline: none;
+}
+
+.artist>.SubSection>.List>.Item .control {
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    margin-right: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.artist>.SubSection>.List>.Item .play {
+    background-image: url('/images/icons/Play_Up.png');
+}
+
+.artist>.SubSection>.List>.Item .play:hover,
+.artist>.SubSection>.List>.Item:focus .play {
+    background-image: url('/images/icons/Play_Down.png');
+}
+
+.artist>.SubSection>.List>.Item .pause {
+    background-image: url('/images/icons/Pause_Up.png');
+}
+
+.artist>.SubSection>.List>.Item .pause:hover,
+.artist>.SubSection>.List>.Item:focus .pause {
+    background-image: url('/images/icons/Pause_Down.png');
+}
+
+.artist>.SubSection>.List>.Item Span {
+    vertical-align: middle;
+    padding-left: 2px;
+    padding-right: 5px;
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    -webkit-transition-duration: 100ms;
+    -moz-transition-duration: 100ms;
+    -ms-transition-duration: 100ms;
+}
+
+.artist>.SubSection>.List>.Item Span:hover,
+.artist>.SubSection>.List>.Item:focus Span {
+    background: #EEE;
+    background: -webkit-linear-gradient(left, #DDD, #FFF);
+    background: -moz-linear-gradient(left, #DDD, #FFF);
+    background: -ms-linear-gradient(left, #DDD, #FFF);
+    box-shadow: -2px 0 2px rgba(0, 0, 0, 0.8);
+}
+
+.artist>.SubSection>.description {
+    max-width: 900px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    padding-bottom: 25px;
+}
+
+.artist>.SubSection>.description .title {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.artist>.SubSection>.description Div {
+    min-height: 12px;
+}
+
+.artist>.SubSection {
+    clear: both;
+}
+
+.artist .Content Img {
+    float: right;
+    max-width: 40%;
+    max-height: 300px;
+    margin: 0px 30px;
+}
+
+.equipment>Div,
+.equipment>Div>Div {
+    position: relative;
+    width: 100%;
+}
+
+.equipment .Boxes>A {
+    width: 48%;
+}
+
+.equipment .SubSection {
+    clear: both;
+}
+
+.equipment .Content>Div Div {
+    padding: 50px;
+}
+
+.equipment .Content Img {
+    float: right;
+    max-width: 40%;
+    max-height: 600px;
+    margin: 0px 30px;
+}
+
+.equipment .equipmentSection .Boxes>A {
+  width: auto;
+}
+
+.equipment .equipmentSection .Boxes img {
+  display: block;
+  width: auto;
+  height: 275px;
+  margin: auto;
+}
+
+.back {
+    position: absolute;
+    top: -4px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    background-image: url('/images/icons/Close_Up.png');
+    outline: none;
+    cursor: pointer;
+}
+
+.back:hover,
+.back:focus {
+    background-image: url('/images/icons/Close_Down.png');
+}
+
+.resumeLink {
+    height: 35px;
+}
+
+.resumeLink>A {
+    float: right;
+    padding-left: 15px;
+}
+
+.resumeWrapper {
+    width: 95%;
+}
+
+.softwareProjects A {
+    width: 31%;
+}
+
+.softwareProjects P {
+    width: 75%;
+    margin: auto;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    padding: 5px 5px;
+
+    border: 1px solid gray;
+    border-right: none;
+    border-top: none;
+    border-radius: 0px 0px 0px 5px;
+}
+
+.softwareProjects .SubSection {
+  display: inline-block;
+  vertical-align: top;
+  width: 320px;
+  margin: 10px;
+}
+
+.about {
+    width: 100%;
+}
+
+.about>Div {
+    padding: 5px;
+}
+
