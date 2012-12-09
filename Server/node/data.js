@@ -1,4 +1,4 @@
-var data_path_root = 'data/';
+var data_path_root = '../data/';
 var data_path = 'data.json';
 
 exports.get = function(path) {

@@ -23,7 +23,7 @@ function getClient(request) {
 }
 
 function createJavascriptClient() {
-  var path_root = '../Clients/javascript/';
+  var path_root = '../../Clients/javascript/';
   var images_root = 'images/';
   var last_path = '';
 
@@ -44,7 +44,7 @@ function createJavascriptClient() {
 }
 
 function createNoscriptClient() {
-  var path_root = '../Clients/noscript/';
+  var path_root = '../../Clients/noscript/';
   var last_path = '';
 
   return {

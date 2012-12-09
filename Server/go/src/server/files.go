@@ -7,7 +7,7 @@ import (
 	"path"
 )
 
-var path_root string = "../Client"
+var path_root string = "../../Clients/javascript"
 
 func readFile(file_name string) (int, map[string]string, string) {
 	stat, err := os.Stat(path_root + file_name)

@@ -31,7 +31,7 @@ func startServer(c chan bool) {
 		http.Handle("/close", closeHandler)
 	}
 
-	log.Fatal(http.ListenAndServe(":8003", nil))
+	log.Fatal(http.ListenAndServe(":8001", nil))
 }
 
 func main() {
