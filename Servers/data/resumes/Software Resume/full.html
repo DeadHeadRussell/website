@@ -1,5 +1,5 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-  <title>Andrew Russell Resume Fall 2012</title>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Andrew Russell Resume Fall 2013</title>
 
   <style>
 
@@ -54,23 +54,34 @@
   
   .website,
   .email,
-  .phone {
+  .phone,
+  .github {
     float: right;
     clear: right;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
   }
 
   .class {
     font-weight: 700;
   }
 
-  .github {
-    margin-bottom: 15px;
+  .university:not(:first-of-type) {
+    display: inline-block;
+    margin-top: 16px;
   }
 
   .link {
     margin-top: 0.5em;
     margin-right: 10px;
     float: right;
+  }
+
+  .work {
+    border-top: none;
   }
 
   ul {
@@ -84,14 +95,16 @@
 <body>
   <div class="info iediv">
     <div class="website">
-      <a href="http://ajrussell.ca" target="_blank">ajrussell.ca</a>
+      <a href="http://ajrussell.ca/" target="_blank">ajrussell.ca</a>
     </div>
     <div class="email">
       <a href="mailto:deadhead.russell@gmail.com" target="_blank">deadhead.russell@gmail.com</a>
     </div>
-    <div class="phone">1-226-789-3957</div>
+    <div class="github">
+      <a href="https://github.com/deadheadrussell/" target="_blank">github.com/deadheadrussell</a>
+    </div>
     <h2 class="name">Andrew Russell</h2>
-    <div class="class">4B Software Engineer</div>
+    <div class="class">Masters in Music and Technology</div>
   </div>
   
   <div class="skills iediv">
@@ -115,27 +128,36 @@
 
   <div class="edu iediv">
     <h3>Education</h3>
-    <span>University of Waterloo;</span> Sep 2008 - Apr 2013
-    <div class="it">Candidate for Bachelor of Software Engineering, Honours Software Engineering</div>
+    <span class="university">Carnegie Mellon University;</span> Sep 2013 - Apr 2015
+    <div class="it">Candidate for Masters in Music and Technology</div>
+
+    <span> Machine Learning for Signal Processing</span> 18-797
+    <ul>
+      <li>Learn about how machine learning techniques are used to help process digital signals</li>
+      <li>Will complete a group project on a topic to be determined</li>
+    </ul>
+
+    <span class="university">University of Waterloo;</span> Sep 2008 - Apr 2013
+    <div class="it">Bachelors of Software Engineering, Honours Software Engineering</div>
 
     <span>Second Screen</span> (Design Project)
     <ul>
       <li>Developed an application for Android that identifies what TV you are watching</li>
-      <li>Modified the open source audio fingerprinter Echoprint to return where the match occurs in the source audio</li>
+      <li>Modified the open source audio fingerprinter Echoprint to return the timestamp of the match</li>
       <li>Designed the back end database that handles metadata for TV shows</li>
     </ul>
 
     <span>Research Project</span> (SE 499)
     <ul>
       <li>Investigated the use of the Stockwell transformation in audio fingerprinting</li>
-      <li>Modified Codegen for Echoprint to use either the Stockwell transform, or the already existing filter bank analysis</li>
+      <li>Modified Codegen for Echoprint to use a Stockwell transformation</li>
       <li>Performed multiple tests against both algorithms and analysed the results</li>
     </ul>
     
     <span>Computational Vision</span> (CS 484)
     <ul>
       <li>Learned digital signal processing techniques for image processing</li>
-      <li>Developed a program for recognizing how images go together and composed the images into a panorama</li>
+      <li>Developed a program for recognizing and stich images into a panorama</li>
       <li>Implemented a panoramic stitching program in Matlab</li>
     </ul>
 
@@ -163,8 +185,8 @@
       <span>Software Engineer Intern,</span> Microsoft Corp., Redmond, Washington; Jan - Apr 2012
       <ul>
         <li>Ported a virtual surround sound processing library from Windows to an Xbox 360 device driver</li>
-        <li>Improved CPU performance by over 750x and memory usage by over 5200x with help from a code profiler</li>
-        <li>Worked with testing engineers to ensure code quality and program managers to ensure that the code met the spec</li>
+        <li>Improved CPU performance by over 750x and memory usage by over 5200x using a profiler</li>
+        <li>Worked with testing engineers and program managers to ensure code quality and that it met the spec</li>
       </ul>
     </div>
 
@@ -204,14 +226,6 @@
     </div>
   </div>
 
-  <div class="proj iediv">
-    <h3>Personal Projects</h3>
-    <div class="github">
-      Source code for most personal projects can be found at:
-      <a href="https://github.com/deadheadrussell/" target="_blank">github.com/deadheadrussell</a>
-    </div>
-  </div>
-
   <div class="int iediv">
     <h3>Other Interests</h3>
     <div>
@@ -232,5 +246,6 @@
       </ul>
     </div>
   </div>
-</body></html>
 
+
+</body></html>
