@@ -1,44 +1,23 @@
-.home {
-    padding-top: 5px;
+.two_box A {
+    width: 46%;
 }
 
-.home .head {
-    width: 95%;
-    margin: auto;
-    margin-bottom: 15px;
-
-    padding: 5px 5px;
-
-    border: 1px solid gray;
-    border-right: none;
-    border-top: none;
-    border-radius: 0px 0px 0px 5px;
-
-    background: white;
-    background: -webkit-linear-gradient(bottom left, #E5E5CC, white);
-    background: -moz-linear-gradient(bottom left, #E5E5CC, white);
-    background: -ms-linear-gradient(bottom left, #E5E5CC, white);
-}
-
-.home .head H1 {
-    margin-top: 0px;
-    margin-bottom: 5px;
-}
-
-.home A {
-    position: relative;
+.three_box A {
     width: 30%;
 }
 
-.home A:nth-of-type(1) {
+.two_box A:nth-of-type(1),
+.three_box A:nth-of-type(1) {
     margin-left: 1%;
 }
 
-.home A~A {
+.two_box A~A,
+.three_box A~A {
     margin: 0 1%;
 }
 
-.home A:last-child {
+.two_box A:last-child,
+.three_box A:last-child {
     margin: 0;
 }
 
@@ -65,24 +44,6 @@
 
 .home .sites .Item Div~Div {
     margin-left: 10px;
-}
-
-.artists {
-    position: relative;
-}
-
-.artists>Div,
-.artists>Div>Div {
-    position: relative;
-    width: 100%;
-}
-
-.artists .Boxes>A {
-    width: 48%;
-}
-
-.artists>.SubSection {
-    padding-left: 10px;
 }
 
 .artist {
@@ -203,42 +164,6 @@
     max-width: 40%;
     max-height: 300px;
     margin: 0px 30px;
-}
-
-.equipment>Div,
-.equipment>Div>Div {
-    position: relative;
-    width: 100%;
-}
-
-.equipment .Boxes>A {
-    width: 48%;
-}
-
-.equipment .SubSection {
-    clear: both;
-}
-
-.equipment .Content>Div Div {
-    padding: 50px;
-}
-
-.equipment .Content Img {
-    float: right;
-    max-width: 40%;
-    max-height: 600px;
-    margin: 0px 30px;
-}
-
-.equipment .equipmentSection .Boxes>A {
-  width: auto;
-}
-
-.equipment .equipmentSection .Boxes img {
-  display: block;
-  width: auto;
-  height: 275px;
-  margin: auto;
 }
 
 .back {

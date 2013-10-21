@@ -1,11 +1,17 @@
 Body {
     padding: 0;
     margin: 0;
-    font-family: serif;
-    font: serif;
+    font-family: "Segoe UI Light";
+    font: "Segoe UI Light";
     background: white;
     background: -webkit-linear-gradient(horizontal, #EEF, #FFF 50%);
     background: -moz-linear-gradient(horizontal, #EEF, #FFF 50%);
     background: -ms-linear-gradient(horizontal, #EEF, #FFF 50%);
+}
+
+.PageWidth {
+  max-width: 950px;
+  min-width: 800px;
+  margin: auto;
 }
 

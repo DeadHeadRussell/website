@@ -1,28 +1,48 @@
+.HeaderFont {
+    font-family: "Segoe UI";
+    font: "Segoe UI";
+}
+
 .Banner {
     position: relative;
     left: 0px;
     top: 0px;
     width: 100%;
-    padding-bottom: 15px;
+    height: 42px;
+    min-width: 800px;
 
-    color: #EEE;
-    text-shadow: 2px 1px 3px #888;
-    background: #111;
-    background: -webkit-linear-gradient(left, #111, #555);
-    background: -moz-linear-gradient(left, #111, #555);
-    background: -ms-linear-gradient(left, #111, #555);
+    color: #F4F4F4;
+    text-shadow: 0px 0px 4px #333;
+    background: #88D07C;
+    background: -webkit-linear-gradient(#68BB5F, #3F974A);
+    background: -moz-linear-gradient(#68BB5F, #3F974A);
+    background: -ms-linear-gradient(#68BB5F, #3F974A);
+
+    -webkit-box-shadow: 0px 2px 3px #1C7528;
+    -moz-box-shadow: 0px 2px 3px #1C7528;
+    -ms-box-shadow: 0px 2px 3px #1C7528;
 
     cursor: default;
+
+    z-index: 1;
+}
+
+.Banner H1,
+.Banner H2 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    line-height: 42px;
 }
 
 .Banner H1 {
-    font-size: 38px;
-    margin: 0px 15px;
+    font-size: 24px;
 }
 
 .Banner H2 {
-    margin: 0px 65px;
-    font-size: 26px;
+    font-size: 22px;
+    margin-left: 14px;
+    font-weight: 500;
 }
 
 .Banner .PlusOne {
@@ -31,60 +51,46 @@
     top: 10px;
 }
 
-.Header {
-    position: relative;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 20px;
+.Head {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 15px;
+
+    padding: 5px 5px;
+
+    border: 1px solid gray;
+    border-right: none;
+    border-top: none;
+    border-radius: 0px 0px 0px 5px;
+
+    background: white;
+    background: -webkit-linear-gradient(bottom left, beige, white);
+    background: -moz-linear-gradient(bottom left, beige, white);
+    background: -ms-linear-gradient(bottom left, beige, white);
 }
 
-.Header>A {
-    display: inline-block;
-    width: 25%;
-    text-decoration: none;
-    outline: none;
-}
-
-.Header>A:last-child {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 26%;
-}
-
-.Header>A>Div {
-    color: black;
-    text-align: center;
-    background: #EEE;
-    background: -webkit-linear-gradient(#EEE, #AAA);
-    background: -moz-linear-gradient(#EEE, #AAA);
-    background: -ms-linear-gradient(#EEE, #AAA);
-
-    border-bottom: 1px solid black;
-}
-
-.Header>A:not(.Selected) Div:hover,
-.Header>A:not(.Selected):focus Div {
-    color: #222;
-    background: #AAA;
-    background: -webkit-linear-gradient(#AAA, #EEE);
-    background: -moz-linear-gradient(#AAA, #EEE);
-    background: -ms-linear-gradient(#AAA, #EEE);
-}
-
-.Header>.Selected>Div {
-    color: lightgrey;
-    cursor: default;
-    background: #357;
-    background: -webkit-linear-gradient(#479, #146);
-    background: -moz-linear-gradient(#479, #146);
-    background: -ms-linear-gradient(#479, #146);
+.Head H1 {
+    margin-top: 0px;
+    margin-bottom: 5px;
 }
 
 .Main {
     position: relative;
     margin-bottom: 21px;
+}
+
+.Main > div {
+    display: inline-block;
+}
+
+.Main > .Page {
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    width: calc(100% - 177px);
+}
+
+.Main > .Navigation {
+    width: 175px;
 }
 
 .ListHeader {
@@ -132,22 +138,13 @@
     text-indent: 0px;
 }
 
-.NavigationMain {
+.Navigation {
     position: relative;
-    width: 100%;
-    margin: 0;
-    padding-top: 15px;
-}
-
-.NavigationTitle {
-    position: relative;
-    display: inline-block;
-    width: 20%;
-    padding-top: 4px;
+    padding-top: 25px;
     vertical-align: top;
 }
 
-.NavigationTitle>.Title {
+.Navigation>.Title {
     display: block;
     margin-bottom: 6px;
     padding-left: 5px;
@@ -157,41 +154,34 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.NavigationTitle>.Pages {
+.Navigation>.Pages {
     position: relative;
     display: block;
     margin-bottom: 2px;
-    margin-left: 10px;
-    padding-left: 5px;
+    padding-left: 2px;
 }
 
-.NavigationTitle .Arrow {
-    display: inline-block;
-    position: absolute;
-    top: 0px;
-    right: 5px;
-
-    font-weight: bold;
+.Navigation > .Pages.Image {
+    line-height: 100%;
+    font-weight: 700;
+    font-variant: small-caps;
+    font-size: 18px;
+    line-height: 40px;
 }
 
-.NavigationContent {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    width: 80%;
-    padding: 0;
+.Navigation > .Pages.Header {
+    margin-top: 15px;
+    font-weight: 700;
+    font-variant: small-caps;
+    color: #555;
 }
 
-.NavigationContent>Div {
-    position: relative;
-    width: 100%;
+.Navigation > .Pages > img {
+    width: 40px;
+    padding-right: 15px;
+    vertical-align: bottom;
 }
 
-.NavigationContent>Div>Div {
-    position: relative;
-    padding: 4px;
-    padding-left: 30px;
-}
 
 .PageTitle {
     width: 100%;
@@ -355,19 +345,21 @@ A.NoStyle {
 }
 
 .ButtonLink {
-    text-shadow: 0px 0px 1px rgba(1, 1, 1, 0);
     text-size: 18px;
+    vertical-align: middle;
 
     cursor: pointer;
 
-    -webkit-transition-duration: 250ms;
-    -moz-transition-duration: 250ms;
-    -ms-transition-duration: 250ms;
+    -webkit-transition-duration: 150ms;
+    -moz-transition-duration: 150ms;
+    -ms-transition-duration: 150ms;
 }
 
 .ButtonLink:hover,
 .ButtonLink:focus {
-    text-shadow: 0px 0px 1px rgba(1, 1, 1, 0.5);
-    box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+    background: rgba(116, 218, 94, 0.4);
 }
 
+.ButtonLink.Selected {
+    background: #88D07C;
+  }

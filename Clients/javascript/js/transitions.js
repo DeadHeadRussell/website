@@ -69,7 +69,7 @@ function transition(node, newPage, options, callback) {
         return;
     }
 
-    var oldPage = node.firstChild;
+    var oldPage = node.lastChild;
     if(oldPage === newPage) {
         callback(window.transition.STARTING);
         callback(window.transition.SUCCESS);

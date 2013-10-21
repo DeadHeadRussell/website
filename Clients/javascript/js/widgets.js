@@ -1,163 +1,159 @@
 var CreateBanner = function(title, subtitle) {
     var banner = document.createElement("Div");
-    banner.className = 'Banner';
+    banner.className = 'Banner HeaderFont';
+
+    var pageWidth = document.createElement("Div");
+    pageWidth.className = 'PageWidth';
 
     var h1 = document.createElement("H1");
     h1.appendChild(document.createTextNode(title));
-    banner.appendChild(h1);
+    pageWidth.appendChild(h1);
 
     var h2 = document.createElement('H2');
     h2.appendChild(document.createTextNode(subtitle));
-    banner.appendChild(h2);
+    pageWidth.appendChild(h2);
 
     var div = document.createElement('Div');
     div.className = 'PlusOne';
     div.innerHTML = '<div class="g-plusone" data-href="http://ajrussell.ca"></div>';
-    banner.appendChild(div);
+    pageWidth.appendChild(div);
+
+    banner.appendChild(pageWidth);
 
     return banner;
 };
 
-var CreateHeader = function(items, callback, init, subPages) {
-    var node = document.createElement("Div");
-    var current = '';
-    node.className = 'Header';
+var CreatePageHead = function(title, sub) {
+    var head = document.createElement('Div');
+    head.className = 'Head HeaderFont';
 
-    for(var i in items) {
-        var a = document.createElement("A");
-        a.id = i;
-        a.href = '/' + i;
-        a.addEventListener('click', function(e) { preventDefaultLink(e); return true; }, false);
-        a.addEventListener('click', select, false);
-        a.addEventListener('keydown', keyToClick(select), false);
-        a.className = 'NoStyle';
+    var h1 = document.createElement('H1');
+    h1.appendChild(document.createTextNode(title));
+    head.appendChild(h1);
 
-        var item = document.createElement("Div");
-        item.appendChild(document.createTextNode(items[i].text));
+    var intro = document.createElement('Div');
+    intro.appendChild(document.createTextNode(sub));
+    head.appendChild(intro);
 
-        a.appendChild(item);
-        node.appendChild(a);
-    }
+    return head;
+}
 
-    var obj = {
-        select: function(id, subPages, noState) {
-            if(id != current) {
-                callback(
-                    id,
-                    function(status) {
-                        if (status == transition.STARTING) {
-                            items[id].page.changeSubPage(subPages, id == current, noState);
-                            current = id;
-                            for (var i = 0; i < node.children.length; i++) {
-                                var item = node.children[i];
-                                if (id === item.id) {
-                                    item.className = 'Selected';
-                                    item.setAttribute('tabindex', '-1');
-                                } else {
-                                    item.className = '';
-                                    item.removeAttribute('tabindex');
-                                }
-                            }
-                        }
-                    }
-                );
-            } else {
-                items[id].page.changeSubPage(subPages, id == current, noState);
-            }
-        },
-        node: node
-    };
-
-    obj.select(init, subPages, true);
-
-    return obj;
-
-    function select(e) {
-        obj.select(e.currentTarget.id);
-        return true;
-    }
+var CreateImageNav = function(title, id, src) {
+    return { type: 'image', title: title, id: id, src: src };
 };
 
-var CreateNavigation = function(title, selections, rootPath, init, callback) {
-    var node = document.createElement("Div");
-    node.className = 'NavigationMain';
+var CreateHeaderNav = function(title) {
+    return { type: 'header', title: title };
+};
 
-    var nav = document.createElement("Div");
-    nav.className = 'NavigationTitle';
+var CreateNav = function(title, id) {
+    return { type: 'normal', title: title, id: id };
+};
 
-    var titleNode = document.createElement("Div");
-    titleNode.className = 'Title';
-    titleNode.appendChild(document.createTextNode(title));
-    nav.appendChild(titleNode);
+var CreateNavigation = (function() {
+    return function(selections, init, callback) {
+        var nav = document.createElement("Div");
+        nav.className = 'Navigation';
 
-    for(var i in selections) {
-        var sub = document.createElement("A");
-        sub.className = "Pages NoStyle ButtonLink";
-        sub.href = escape(rootPath + i);
-        sub.id = i;
+        var current = null;
+        var map = {};
 
-        sub.addEventListener('click', changePage, false);
-        sub.addEventListener('click', function(e) { return preventDefaultLink(e); }, false);
-        sub.addEventListener('keydown', keyToClick(changePage), false);
+        for(var i = 0; i < selections.length; i++) {
+            var selection = selections[i];
 
-        sub.appendChild(document.createTextNode(selections[i].title));
+            map[selection.id] = selection;
 
-        var arrow = document.createElement("Div");
-        arrow.className = "Arrow";
-        arrow.appendChild(document.createTextNode(">"));
-        sub.appendChild(arrow);
+            var sub;
+            switch (selection.type) {
+                case 'image':
+                    sub = createImageSelection(selection.title, selection.id, selection.src);
+                    break;
+                case 'header':
+                    sub = createHeaderSelection(selection.title);
+                    break;
+                case 'normal':
+                    sub = createSelection(selection.title, selection.id);
+                    break;
+            }
+            selection.titleNode = sub;
 
-        selections[i].titleNode = sub;
+            var pageWrapper = document.createElement("Div");
+            pageWrapper.appendChild(selection.titleNode);
+            selection.node = pageWrapper;
 
-        var pageWrapper = document.createElement("Div");
-        pageWrapper.appendChild(selections[i].node);
-        selections[i].node = pageWrapper;
+            nav.appendChild(sub);
+        }
 
-        nav.appendChild(sub);
-    }
+        var obj = {
+            node: nav,
+            select: function(id, no_state) {
+                var selection = map[id];
+              
+                if (current == id) {
+                   return;
+                }
 
-    var content = document.createElement("Div");
-    content.className = 'NavigationContent';
-    
-    var page = selections[init].node;
-    var current = init;
-    var num = 0;
+                map[id].titleNode.classList.add('Selected');
 
-    content.appendChild(page);
+                if (current) {
+                  map[current].titleNode.classList.remove('Selected');
+                }
 
-    node.appendChild(nav);
-    node.appendChild(content);
-
-    var obj = {
-        node: node,
-        changePage: function(id, noTransition) {
-            var selection = selections[id];
-            var newPage = selection.node;
-            current = id;
-            if(noTransition) {
-                content.replaceChild(newPage, page);
-                page = newPage;
-            } else {
-                transition.slide(
-                    content, newPage,
-                    function(status) {
-                        if(status == transition.SUCCESS) {
-                            page = newPage;
-                        }
-                    }
-                );
+                current = id;
+                callback(id, no_state);
             }
         }
-    }
 
-    return obj;
+        obj.select(init);
 
-    function changePage(e) {
-        var id = e.currentTarget.id;
-        callback(id, current);
-        obj.changePage(id);
-    }
-};
+        return obj;
+
+        function changePage(e) {
+            var id = e.currentTarget.id;
+            obj.select(id);
+        }
+
+        function createImageSelection(title, id, src) {
+            var sub = createSelectionBase(id)
+            sub.className += ' Image HeaderFont';
+
+            var img = document.createElement('img');
+            img.src = src;
+            img.alt = '';
+
+            sub.appendChild(img);
+            sub.appendChild(document.createTextNode(title));
+
+            return sub;
+        }
+
+        function createHeaderSelection(title) {
+            var sub = document.createElement("span");
+            sub.className += 'Pages Header HeaderFont';
+            sub.appendChild(document.createTextNode(title));
+            return sub;
+        }
+
+        function createSelection(title, id) {
+            var sub = createSelectionBase(id);
+            sub.appendChild(document.createTextNode(title));
+            return sub;
+        }
+
+        function createSelectionBase(id) {
+            var sub = document.createElement("a");
+            sub.className = "Pages NoStyle ButtonLink";
+            sub.href = '/' + escape(id);
+            sub.id = id;
+
+            sub.addEventListener('click', changePage, false);
+            sub.addEventListener('click', function(e) { return preventDefaultLink(e); }, false);
+            sub.addEventListener('keydown', keyToClick(changePage), false);
+
+            return sub;
+        }
+    };
+})();
 
 var CreatePageTitle = function(title) {
     var node = document.createElement("Div");

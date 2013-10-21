@@ -1,4 +1,5 @@
-var pages = null;
+var data = {};
+var page_handler = null;
 
 (function() {
 
@@ -20,50 +21,7 @@ var init = function() {
             data.about.title
         ));
 
-        var page = location.pathname.split('/');
-        if (page[1].length == 0) {
-            page = 'home';
-        } else if (page[1] == 'soft') {
-            page = 'software';
-        } else {
-            page = page[1];
-        }
-
-        var p = {
-            'home': {
-                text: 'Home',
-                pageFunc: CreateHomePage
-            },
-            'music': {
-                text: 'Music',
-                pageFunc: CreateMusicPage
-            },
-            'software': {
-                text: 'Software',
-                pageFunc: CreateSoftPage
-            },
-            'resumes': {
-                text: 'Resumes / CVs',
-                pageFunc: CreateResumesPage
-            }
-        };
-
-        for (var i in p) {
-            if (window.history && window.history.pushState && i != page) {
-                window.setTimeout(
-                    (function(i) {
-                        return function() {
-                            p[i].page = p[i].pageFunc();
-                        }
-                    })(i),
-                    0
-                );
-            } else if (i == page) {
-                p[i].page = p[i].pageFunc();
-            }
-        }
-
-        pages = CreatePageHandler(main, p, 'home');
+        page_handler = CreatePageHandler(main);
     } catch(e) {
         if (console) {
             console.log(e.message);
