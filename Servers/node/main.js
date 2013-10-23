@@ -5,6 +5,12 @@ var data = require('./data');
 
 var app = express();
 
+
+var port = 8001;
+if (process.argv.length > 2) {
+  port = parseInt(process.argv[2], 10);
+}
+
 app.get(/^\/data(\/.*)?$/, function(request, response) {
   var file = data.get(request.path);
   if (file.isAttachment()) {
@@ -48,7 +54,7 @@ app.get(/.*/, chooseClient, function(request, response, next) {
   next();
 }, sendClientFile);
 
-app.listen(8001);
+app.listen(port);
 
 function chooseClient(request, response, next) {
   response.locals.client = clients.getClient(request);
