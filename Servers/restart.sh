@@ -1,5 +1,5 @@
 killall nodejs
 cd node/
-nohup nodejs main.js &
+nodejs main.js > log
 cd ../
 

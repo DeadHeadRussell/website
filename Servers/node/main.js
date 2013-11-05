@@ -5,6 +5,8 @@ var data = require('./data');
 
 var app = express();
 
+app.use(express.logger());
+
 app.get(/^\/data(\/.*)?$/, function(request, response) {
   var file = data.get(request.path);
   if (file.isAttachment()) {
