@@ -1,10 +1,25 @@
-website
-=======
+# Personal Website
 
-Personal website
+![Website Screenshot](https://raw.github.com/DeadHeadRussell/website/master/Servers/data/images/personalProjects/Personal%20Website.png)
 
-Running
-=======
+This is my personal website. On it, you can browse through various musical and software projects of mine. I am currently working on a subscription based system in which a user can sign up for update notifications.
 
-node.js is required to run the server.  After installing node.js, run `node main.js` from the `Servers/node` folder.  If any changes are made to the client javascript or css, the `build.sh` script must be run before the javascript and css files will reflect those changes.
+## Running
+
+My website has the following dependencies:
+* node.js
+* bash or windows cmd
+
+To launch the server, run:
+```bash
+cd <project_dir>/Servers/node
+node main.js <port_number>
+```
+
+To minify the client code, run:
+```bash
+cd <project_dir>/Clients
+./build.sh
+```
+By default, the HTML files look for the minified versions of the JavaScript and CSS.
 
