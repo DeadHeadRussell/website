@@ -9,7 +9,7 @@ function getReadme(repo, callback) {
   var markdown_url = 'https://api.github.com/markdown/raw';
 
   var headers = {
-    'Authorization': 'token f19514e3161cedb12ca0ed3b957e0723ba762712'
+    'Authorization': 'token ' // PUT TOKEN HERE
   };
 
   // TODO: Check if rate limited, and if so, return error status.
