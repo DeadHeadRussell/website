@@ -7,13 +7,13 @@ var data = null;
 exports.get = function(path) {
   path_parts = path.split('/');
   path_parts.shift();
-  path_parts.shift();
 
   if (path[path.length - 1] == '/') {
     path_parts.pop();
   }
 
   var is_attachment = false;
+  // This is not technically correct.
   if (path.indexOf('.mp3') >= 0 || path.indexOf('.zip') >= 0) {
     is_attachment = true;
   }

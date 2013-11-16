@@ -377,36 +377,50 @@
   "softwareProjects": [
     {
       "name": "Personal Website",
+      "file": "README.md",
+      "contentType": "github",
       "description": "This is the source for both the server side and client side code required for running this website. Node.js required to run the server.",
       "repository_name": "website"
     },
     {
       "name": "Defend Your Castle",
+      "file": "README.md",
+      "contentType": "github",
       "description": "Lovingly ripped off of the popular flash game. I created this game for a UI assignment at the University of Waterloo. The goal of this game is to kill all of the attacking stick figures by dropping them from a great hight before they knock down your castle.",
       "repository_name": "defend-your-castle"
     },
     {
       "name": "Soccer Emulator",
+      "file": "README.md",
+      "contentType": "github",
       "description": "A soccer emulator I made for as a mini-game for an online, text-based RPG. NOTE: Windows only",
       "repository_name": "soccer-emulator"
     },
     {
       "name": "Carz",
+      "file": "README.md",
+      "contentType": "github",
       "description": "A game I originally saw on a TI-83 graphing calculator.Try to keep your car inside the lines. NOTE: Windows only. Sometimes has framerate issues and runs too fast",
       "repository_name": "carz"
     },
     {
       "name": "Conway's Game of Life",
+      "file": "README.md",
+      "contentType": "github",
       "description": "An implementation of Conway's Game of Life using OpenGL",
       "repository_name": "game-of-life"
     },
     {
       "name": "Pong",
+      "file": "README.md",
+      "contentType": "github",
       "description": "Pong, teh awesome game. Implemented with C++ and OpenGL. What more can be said? NOTE: Windows only",
       "repository_name": "pong"
     },
     {
       "name": "Hearts",
+      "file": "README.md",
+      "contentType": "github",
       "description": "An implementation of hearts I made while learning perl. Needless to say, I have not used perl since.",
       "repository_name": "terminal-hearts"
     }
@@ -416,85 +430,107 @@
     {
       "name": "Synthesis Engine Prototype",
       "description": "Prototype of the new concept synthesis engine spec, with a focus on performance.",
-      "company": "Primal Inc."
+      "company": "Primal Inc.",
+      "contentType": "text"
     },
     {
       "name": "Label-to-Concept Engine Prototype",
       "description": "Prototype of the new label-to-concept engine spec, with a focus on result quality.",
-      "company": "Primal Inc"
+      "company": "Primal Inc",
+      "contentType": "text"
     },
     {
       "name": "Content Scoring Engine Prototype",
       "description": "Prototype of the new content scoring engine spec, with a focus on a smoother range of content scores.",
-      "company": "Primal Inc."
+      "company": "Primal Inc.",
+      "contentType": "text"
     },
     {
       "name": "Virtual Surround Sound Driver",
       "description": "Driver that takes stereo input audio and outputs 5.1 virtual surround sound.",
-      "company": "Microsoft Corp."
+      "company": "Microsoft Corp.",
+      "contentType": "text"
     },
     {
       "name": "Accessibility API",
       "description": "Accessibility features for a public API that enable blind and low vision users to consume applicaitons written with the API.",
-      "company": "Google Inc."
+      "company": "Google Inc.",
+      "contentType": "text"
     },
     {
       "name": "Internal Native Client Demo",
       "description": "Native client application used for demo certain native client capabilities.",
-      "company": "Google Inc."
+      "company": "Google Inc.",
+      "contentType": "text"
     },
     {
       "name": "Speech Enabled Text Adventure",
       "description": "Browser extension that allows speech to text input and text to speech output for text adventure games based on the Parchment engine.",
-      "company": "Google Inc."
+      "company": "Google Inc.",
+      "contentType": "text"
     },
     {
       "name": "Internal TouchUI Demo",
       "description": "Clone of an existing internal demo as a web application using TouchUI",
-      "company": "Sybase Inc"
+      "company": "Sybase Inc",
+      "contentType": "text"
     },
     {
       "name": "TouchUI",
       "description": "Library to help create Web Applications that mimick native applications for mobile devices.",
-      "company": "Sybase Inc."
+      "company": "Sybase Inc.",
+      "contentType": "text"
     },
     {
       "name": "Audio Driver Emulator",
       "description": "Implemented an audio driver for the Symbian OS emulator on Windows for a specific line of smartphones.",
-      "company": "Qualcomm Inc."
+      "company": "Qualcomm Inc.",
+      "contentType": "text"
     },
     {
       "name": "Issue Tracking System",
       "description": "New web front end for the internal work item tracking system.",
-      "company": "Canadian Space Agency"
+      "company": "Canadian Space Agency",
+      "contentType": "text"
     },
     {
       "name": "ASReml Batch",
       "description": "Tool for running large number of ASReml calculations and for running further statistical calculations over the results.",
-      "company": "Pacific Data Management"
+      "company": "Pacific Data Management",
+      "contentType": "text"
     }
   ],
 
   "schoolProjects": [
     {
+      "name": "Second Screen",
       "course": "Design Project",
-      "description": "Automatic meeting transcription tool, recognizing both who is speaking and what is being said."
+      "description": "Automatic meeting transcription tool, recognizing both who is speaking and what is being said.",
+      "contentType": "text"
     },
     {
-      "course": "Introduction to Computer Graphics (CS 488)",
-      "description": "OpenGL application featuring flocking, L-System plants, terrain erosion and water rippling systems."
+      "name": "Introduction to Computer Graphics",
+      "course": "CS 488",
+      "description": "OpenGL application featuring flocking, L-System plants, terrain erosion and water rippling systems.",
+      "contentType": "text"
     },
     {
-      "course": "Computational Vision (CS 489)",
-      "description": "Panoramic stitching program that takes arbitrary images and recognizes both if and how they are connected, and then composes the connected images."
+      "name": "Computational Vision",
+      "course": "CS 489",
+      "description": "Panoramic stitching program that takes arbitrary images and recognizes both if and how they are connected, and then composes the connected images.",
+      "contentType": "text"
     },
     {
-      "course": "Operating Systems (SE 350)",
-      "description": "Simple, real-time operating system implemented for a Motorola 68k series chip."
+      "name": "Operating Systems",
+      "course": "SE 350",
+      "description": "Simple, real-time operating system implemented for a Motorola 68k series chip.",
+      "contentType": "text"
     },
     {
-      "course": "Software Abstraction (CS 246)",
-      "description": "Euchre game implemented with GTK++."
+      "name": "Software Abstraction",
+      "course": "CS 246",
+      "description": "Euchre game implemented with GTK++.",
+      "contentType": "text"
     }
   ]
 }

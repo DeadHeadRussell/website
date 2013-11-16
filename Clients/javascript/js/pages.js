@@ -19,7 +19,7 @@ function CreatePages() {
   AddMap('music', 'music/artists');
   AddPage('music/artists');
   AddPage('music/equipment');
-  AddMap('software', 'sofware/personal');
+  AddMap('software', 'software/personal');
   AddPage('software/personal');
   AddPage('software/school');
   AddPage('software/work');
@@ -35,6 +35,13 @@ var CreatePageHandler = function(node) {
   var init_id = location.pathname.substr(1);
   if (!init_id) {
     init_id = 'home';
+  }
+
+  if (!pages[init_id]) {
+    init_id = init_id.substr(0, init_id.indexOf('/'));
+    if (!pages[init_id]) {
+      init_id = 'home';
+    }
   }
 
   while (!pages[init_id].page) {
@@ -136,9 +143,6 @@ function CreatePage_home() {
   var content = document.createElement('Div');
   content.className = 'home Page three_box';
 
-  var head = CreatePageHead('Welcome.', '');
-  content.appendChild(head);
-
   var links = CreateBoxView(elems, goToPage);
   content.appendChild(links);
 
@@ -194,10 +198,6 @@ function CreatePage_home() {
   }
 }
 
-function CreatePage_music() {
-  return CreatePage_music_artists();
-}
-
 function CreatePage_music_artists() {
   var box_objects = [];
   for (var i = 0; i < data.artists.length; i++) {
@@ -214,7 +214,6 @@ function CreatePage_music_artists() {
   var node = document.createElement('div');
   node.className = 'artists Page three_box';
 
-  node.appendChild(CreatePageHead('Artists', ''));
   node.appendChild(CreateBoxView(box_objects, GotoArtist));
 
   return {
@@ -242,7 +241,6 @@ function CreatePage_music_equipment() {
   var node = document.createElement('div');
   node.className = 'equipment Page two_box';
 
-  node.appendChild(CreatePageHead('Equipment', ''));
   node.appendChild(CreateBoxView(box_objects, GotoEquipment));
 
   return {
@@ -254,10 +252,6 @@ function CreatePage_music_equipment() {
   }
 }
 
-function CreatePage_software() {
-  return CreatePage_software_personal();
-}
-
 function CreatePage_software_personal() {
   var projects_node = document.createElement('div');
   projects_node.className = 'softwareProjects Page';
@@ -267,17 +261,16 @@ function CreatePage_software_personal() {
     var project = data.softwareProjects[i];
 
     var project = {
-      id: project.name,
-      title: project.name,
       path: 'https://github.com/deadheadrussell/' + escape(project.repository_name),
-      imgSrc: '/data/images/personalProjects/' + project.name + '.png'
+      repo: project.repository_name,
+      content: project.content,
+      contentType: project.contentType
     };
 
     projects.push(project);
   }
 
-  projects_node.appendChild(CreatePageHead('Personal Projects', ''));
-  projects_node.appendChild(CreateBoxView(projects));
+  projects_node.appendChild(CreateStream(projects));
 
   return {
     node: projects_node
@@ -288,17 +281,20 @@ function CreatePage_software_school() {
   var school_node = document.createElement('div');
   school_node.className = 'softwareProjects Page';
 
-  school_node.appendChild(CreatePageHead('School Projects', ''));
-
+  var projects = [];
   for (var i = 0; i < data.schoolProjects.length; i++) {
     var project = data.schoolProjects[i];
 
-    var descriptionNode = document.createElement('span');
-    descriptionNode.appendChild(document.createTextNode(project.description));
+    projects.push({
+      title: project.name,
+      subtitle: project.course,
+      text: project.description,
+      contentType: project.contentType
+    });
 
-    var projectNode = CreateSubSection(project.course, '', descriptionNode);
-    school_node.appendChild(projectNode);
   }
+
+  school_node.appendChild(CreateStream(projects));
 
   return {
     node: school_node
@@ -308,26 +304,24 @@ function CreatePage_software_school() {
 function CreatePage_software_work() {
   var work_node = document.createElement('div');
   work_node.className = 'softwareProjects Page';
-
-  work_node.appendChild(CreatePageHead('Work Projects', ''));
   
+  var projects = [];
   for (var i = 0; i < data.workProjects.length; i++) {
     var project = data.workProjects[i];
 
-    var descriptionNode = document.createElement('span');
-    descriptionNode.appendChild(document.createTextNode(project.description));
-
-    var projectNode = CreateSubSection(project.name, project.company, descriptionNode);
-    work_node.appendChild(projectNode);
+    projects.push({
+      title: project.name,
+      subtitle: project.company,
+      text: project.description,
+      contentType: project.contentType
+    });
   }
+
+  work_node.appendChild(CreateStream(projects));
 
   return {
     node: work_node
   };
-}
-
-function CreatePage_resumes() {
-  return CreatePage_resumes_software();
 }
 
 function CreatePage_resumes_software() {

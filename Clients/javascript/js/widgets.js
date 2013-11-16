@@ -283,6 +283,60 @@ function CreateBoxView(elems, callback) {
     }
 }
 
+function CreateGithubPost(elem) {
+    var root = document.createElement('div');
+    root.className = 'Post Clickable';
+
+    var link = document.createElement('a');
+    link.target = '_blank';
+    link.href = elem.path;
+    root.appendChild(link);
+
+    github.getReadme('deadheadrussell/' + elem.repo, function(readme) {
+      link.innerHTML = readme;
+    });
+ 
+    return root;
+}
+
+function CreatePost(elem) {
+    var root = document.createElement('div');
+    root.className = 'Post Text';
+
+    var title = document.createElement('h1');
+    title.innerText = elem.title;
+    root.appendChild(title);
+
+    var subtitle = document.createElement('h2');
+    subtitle.innerText = elem.subtitle;
+    root.appendChild(subtitle);
+
+    var content = document.createElement('p');
+    content.innerText = elem.text;
+    root.appendChild(content);
+
+    return root;
+}
+
+function CreateStream(elems, callback) {
+    var root = document.createElement('div');
+    root.className = 'Stream';
+
+    for (var i = 0; i < elems.length; i++) {
+        var elem = elems[i];
+
+        var post = null;
+        if (elem.contentType == 'github') {
+            post = CreateGithubPost(elem);
+        } else {
+            post = CreatePost(elem);
+        }
+        root.appendChild(post);
+    }
+
+    return root;
+}
+
 function CreateAudioPlayer() {
     var node = document.createElement("Div");
     node.className = "AudioPlayer Audio";

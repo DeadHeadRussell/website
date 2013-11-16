@@ -195,32 +195,6 @@
     width: 95%;
 }
 
-.softwareProjects A {
-    width: 31%;
-}
-
-.softwareProjects P {
-    width: 75%;
-    margin: auto;
-
-    margin-top: 15px;
-    margin-bottom: 15px;
-
-    padding: 5px 5px;
-
-    border: 1px solid gray;
-    border-right: none;
-    border-top: none;
-    border-radius: 0px 0px 0px 5px;
-}
-
-.softwareProjects .SubSection {
-  display: inline-block;
-  vertical-align: top;
-  width: 320px;
-  margin: 10px;
-}
-
 .about {
     width: 100%;
 }

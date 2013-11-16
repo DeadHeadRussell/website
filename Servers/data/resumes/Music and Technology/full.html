@@ -3,29 +3,29 @@
 
   <style>
 
-  body {
+  .resume {
     width: 95%;
     max-width: 800px;
     margin: auto;
     margin-top: 15px;
   }
 
-  body > div, .iediv {
+  .resume .iediv {
     position: relative;
     padding-bottom: 10px;
     border-top: 1px solid lightgrey;
     clear: both;
   }
 
-  body > div:first-child {
+  .resume .iediv:first-of-type {
     border-top: none;
   }
 
-  body > div:last-child {
+  .resume .iediv:last-child {
     padding-bottom: 0px;
   }
 
-  H3 {
+  .resume H3 {
     margin-top: 0.5em;
     margin-bottom: 10px;
     font-family: sans-serif;
@@ -33,74 +33,103 @@
     font-variant: small-caps;
   }
 
-  H4 {
+  .resume H4 {
     margin-top: 0px;
     margin-bottom: 5px;
   }
 
-  span {
+  .resume span {
     font-weight: 700;
   }
 
-  .it {
+  .resume .it {
     font-style: italic;
+    padding-bottom: 15px;
   }
 
-  .name {
+  .resume .name {
     text-align: left;
     margin-bottom: 0px;
   }
   
-  .website,
-  .email,
-  .phone {
+  .resume .website,
+  .resume .email,
+  .resume .phone,
+  .resume .github {
     float: right;
     clear: right;
   }
 
-  .class {
-    font-weight: 700;
-  }
-
-  .github {
+  .resume .github {
     margin-bottom: 15px;
   }
 
-  .link {
+  .resume .class {
+    font-weight: 700;
+  }
+
+  .resume .university:not(:first-of-type) {
+    display: inline-block;
+    margin-top: 16px;
+  }
+
+  .resume .link {
     margin-top: 0.5em;
     margin-right: 10px;
     float: right;
   }
 
-  ul {
+  .resume ul {
     margin-top: 0px;
     margin-bottom: 10px;
   }
 
+  @media print {
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    
+    .awards {
+      border-top: none !important;
+      margin-top: 25px;
+    }
+  }
+
   </style>
 </head>
-
-<body>
+<body class='resume'>
   <div class="info iediv">
     <div class="website">
-      <a href="http://ajrussell.ca" target="_blank">ajrussell.ca</a>
+      <a href="http://ajrussell.ca/" target="_blank">ajrussell.ca</a>
     </div>
     <div class="email">
       <a href="mailto:deadhead.russell@gmail.com" target="_blank">deadhead.russell@gmail.com</a>
     </div>
-    <div class="phone">1-226-789-3957</div>
+    <div class="github">
+      <a href="https://github.com/deadheadrussell/" target="_blank">github.com/deadheadrussell</a>
+    </div>
     <h2 class="name">Andrew Russell</h2>
-    <div class="class">4B Software Engineer</div>
+    <div class="class">Masters in Music and Technology</div>
   </div>
   
   <div class="edu iediv">
     <h3>Education</h3>
+    <span class="university">Carnegie Mellon University;</span> Sep 2013 - Apr 2015
+    <div class="it">Candidate for Masters in Music and Technology</div>
+
     <span>University of Waterloo;</span> Sep 2008 - Apr 2013
     <div class="it">Candidate for Bachelor of Software Engineering, Honours Software Engineering</div>
   </div>
 
   <div class="courses iediv">
     <h3>Relevant Courses</h3>
+
+    <span> Machine Learning for Signal Processing</span> (18-797)
+    <ul>
+      <li>Learn about how machine learning techniques are used to help process digital signals</li>
+      <li>Will complete a group project on a topic to be determined</li>
+    </ul>
 
     <span>Second Screen</span> (Design Project)
     <ul>
@@ -218,34 +247,6 @@
       <ul>
         <li>Launched an internal development application using Java, JSP and JavaScript</li>
         <li>Wrote SQL queries for Oracle 10g Database</li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="proj iediv">
-    <h3>Personal Projects</h3>
-
-    <div class="github">
-      Source code for most personal projects can be found at:
-      <a href="https://github.com/deadheadrussell/" target="_blank">github.com/deadheadrussell</a>
-    </div>
-
-    <div>
-      <span>Personal Website</span>
-      <ul>
-        <li>Used node.js and Google Go to implement the server</li>
-        <li>Strong focus on client side JavaScript</li>
-        <li>Used HTML5 (JavaScript and CSS3) technologies with fallbacks for legacy browsers</li>
-      </ul>
-    </div>
-
-    <div>
-      <span>Soccer Emulator</span>
-      <ul>
-        <li>Created a text-based soccer game simulation that takes team stats as input</li>
-        <li>Outputs play by play game summary and final scores</li>
-        <li>Simulated various single game issues such as morale</li>
-        <li>Developed a learning mechanism so that teams would improve after each game</li>
       </ul>
     </div>
   </div>

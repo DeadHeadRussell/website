@@ -4,8 +4,10 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "phantom-proxy": "0.1.792",
     "express": "3.0.4",
-    "ejs": "0.8.3"
+    "ejs": "0.8.3",
+    "request": "2.27.0"
   }
 }
 

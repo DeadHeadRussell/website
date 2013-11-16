@@ -1,7 +1,8 @@
-website
+Personal Website
 =======
 
-Personal website
+This is my personal website. On it, you can browse through various musical and software projects of mine. I am currently working on a subscription service so that users can subscribe to receive updates whenever I release a new project.
+
 
 Running
 =======
