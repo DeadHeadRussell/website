@@ -266,7 +266,13 @@ function CreatePage_music_equipment() {
 
 function createSubEquipment(id) {
   var box_objects = [];
-  var guitars = getEquipment(id);
+  var equipment = [];
+  for (var i = 0; i < data.equipment.length; i++) {
+    if (data.equipment[i].name == id) {
+      equipment = data.equipment[i].equipment;
+      break;
+    }
+  }
   for (var i = 0; i < guitars.length; i++) {
     var guitar = guitars[i];
     box_objects.push({
