@@ -161,6 +161,7 @@
   display: block;
   margin-bottom: 2px;
   padding-left: 2px;
+  line-height: 21px;
 }
 
 .Navigation > .Pages.Image {
@@ -176,6 +177,12 @@
   font-weight: 700;
   font-variant: small-caps;
   color: #555;
+}
+
+.Navigation > .Pages.Sub {
+  height: 18px;
+  line-height: 18px;
+  font-size: 15px;
 }
 
 .Navigation > .Pages > img {
@@ -209,8 +216,12 @@
   -ms-transition-duration: 250ms;
 }
 
-.Boxes>A:hover,
-.Boxes>A:focus {
+.Boxes>A.NoLink {
+  cursor: default;
+}
+
+.Boxes>A:not(.NoLink):hover,
+.Boxes>A:not(.NoLink):focus {
   box-shadow: 0px 0px 5px black;
 }
 
@@ -366,7 +377,7 @@
   margin-left: 20px;
 }
 
-A.NoStyle {
+a.NoStyle {
   color: black;
   text-decoration: none;
 }
@@ -376,7 +387,7 @@ A.NoStyle {
 
   color: black;
   text-shadow: 0px 0px 1px rgba(1, 1, 1, 0);
-  text-size: 18px;
+  font-size: 16px;
 
   cursor: pointer;
 
@@ -406,7 +417,7 @@ A.NoStyle {
 }
 
 .ButtonLink {
-  text-size: 18px;
+  font-size: 16px;
   vertical-align: middle;
 
   cursor: pointer;
@@ -423,4 +434,5 @@ A.NoStyle {
 
 .ButtonLink.Selected {
   background: #88D07C;
-  }
+}
+

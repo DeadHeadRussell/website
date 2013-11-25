@@ -50,6 +50,10 @@ var CreateNav = function(title, id) {
     return { type: 'normal', title: title, id: id };
 };
 
+var CreateSubNav = function(title, id) {
+    return { type: 'sub', title: title, id: id };
+}
+
 var CreateNavigation = (function() {
     return function(selections, init, callback) {
         var nav = document.createElement("Div");
@@ -73,6 +77,9 @@ var CreateNavigation = (function() {
                     break;
                 case 'normal':
                     sub = createSelection(selection.title, selection.id);
+                    break;
+                case 'sub':
+                    sub = createSubSelection(selection.title, selection.id);
                     break;
             }
             selection.titleNode = sub;
@@ -128,7 +135,7 @@ var CreateNavigation = (function() {
         }
 
         function createHeaderSelection(title) {
-            var sub = document.createElement("span");
+            var sub = document.createElement('span');
             sub.className += 'Pages Header HeaderFont';
             sub.appendChild(document.createTextNode(title));
             return sub;
@@ -137,6 +144,15 @@ var CreateNavigation = (function() {
         function createSelection(title, id) {
             var sub = createSelectionBase(id);
             sub.appendChild(document.createTextNode(title));
+            return sub;
+        }
+
+        function createSubSelection(title, id) {
+            var sub = createSelectionBase(id);
+            sub.className += ' Sub';
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(title));
+            sub.appendChild(li);
             return sub;
         }
 
@@ -246,8 +262,7 @@ function CreateBoxView(elems, callback) {
         var a = document.createElement("A");
         a.className = 'NoStyle';
         if (!callback) {
-          a.href = elem.path;
-          a.setAttribute('target', '_blank');
+          a.className += ' NoLink';
         } else {
           a.href = escape(elem.path);
 

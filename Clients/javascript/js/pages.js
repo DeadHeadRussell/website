@@ -22,7 +22,7 @@ function CreatePages() {
   AddPage('music/equipment/guitars');
   AddPage('music/equipment/pedals');
   AddPage('music/equipment/amps');
-  AddPage('music/equipment/keybaords');
+  AddPage('music/equipment/keyboards');
   AddPage('music/equipment/mixers');
   AddPage('music/equipment/microphones');
   AddMap('software', 'software/personal');
@@ -218,7 +218,7 @@ function CreatePage_music_artists() {
     box_objects.push({
       id: artist.name,
       title: artist.name,
-      path: '/music/artists/' + artist.name,
+      path: 'music/artists/' + artist.name,
       imgSrc: '/data/images/artists/' + artist.name + '/main.jpg'
     });
   }
@@ -233,7 +233,7 @@ function CreatePage_music_artists() {
   };
 
   function GotoArtist(id) {
-    page_handler.select(id);
+    page_handler.gotoPage(id.path);
   }
 }
 
@@ -243,9 +243,9 @@ function CreatePage_music_equipment() {
     var equipment = data.equipment[i];
 
     box_objects.push({
-      id: equipment.name,
+      id: equipment.id,
       title: equipment.name,
-      path: '/music/equipment/' + equipment.name,
+      path: 'music/equipment/' + equipment.id,
       imgSrc: '/data/images/equipment/' + equipment.name + '/main.jpg'
     });
   }
@@ -260,7 +260,7 @@ function CreatePage_music_equipment() {
   };
 
   function GotoEquipment(id) {
-    page_handler.select(id);
+    page_handler.gotoPage(id.path);
   }
 }
 
@@ -273,30 +273,34 @@ function createSubEquipment(id) {
       break;
     }
   }
-  for (var i = 0; i < guitars.length; i++) {
-    var guitar = guitars[i];
+  for (var i = 0; i < equipment.length; i++) {
+    var guitar = equipment[i];
     box_objects.push({
       id: guitar.name,
       title: guitar.name,
-      path: '/data/images/equipment/' + id + '/' + guitar.name + '.jpg'
+      imgSrc: '/data/images/equipment/' + id + '/' + guitar.name + '.jpg'
     });
   }
 
   var node = document.createElement('div');
-  node.className = 'equipment Page two_box';
+  node.className = 'equipment Page same_height';
   node.appendChild(CreateBoxView(box_objects));
   return node;
 }
 
 function CreatePage_music_equipment_guitars() {
+  var node = createSubEquipment('Guitars');
+  node.className += ' guitars';
   return {
-    node: createSubEquipment('Guitars')
+    node: node
   };
 }
 
 function CreatePage_music_equipment_pedals() {
+  var node = createSubEquipment('Guitar Pedals');
+  node.className += ' pedals';
   return {
-    node: createSubEquipment('Guitar Pedals')
+    node: node
   };
 }
 
