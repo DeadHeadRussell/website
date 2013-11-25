@@ -19,6 +19,12 @@ function CreatePages() {
   AddMap('music', 'music/artists');
   AddPage('music/artists');
   AddPage('music/equipment');
+  AddPage('music/equipment/guitars');
+  AddPage('music/equipment/pedals');
+  AddPage('music/equipment/amps');
+  AddPage('music/equipment/keybaords');
+  AddPage('music/equipment/mixers');
+  AddPage('music/equipment/microphones');
   AddMap('software', 'software/personal');
   AddPage('software/personal');
   AddPage('software/school');
@@ -57,6 +63,12 @@ var CreatePageHandler = function(node) {
       CreateHeaderNav('Music'),
       CreateNav('Artists', 'music/artists'),
       CreateNav('Equipment', 'music/equipment'),
+      CreateSubNav('Guitars', 'music/equipment/guitars'),
+      CreateSubNav('Guitar Pedals', 'music/equipment/pedals'),
+      CreateSubNav('Guitar Amplifiars', 'music/equipment/amps'),
+      CreateSubNav('Keyboards', 'music/equipment/keyboards'),
+      CreateSubNav('Mixing Boards', 'music/equipment/mixers'),
+      CreateSubNav('Microphones', 'music/equipment/microphones'),
       CreateHeaderNav('Projects'),
       CreateNav('Personal', 'software/personal'),
       CreateNav('School', 'software/school'),
@@ -250,6 +262,60 @@ function CreatePage_music_equipment() {
   function GotoEquipment(id) {
     page_handler.select(id);
   }
+}
+
+function createSubEquipment(id) {
+  var box_objects = [];
+  var guitars = getEquipment(id);
+  for (var i = 0; i < guitars.length; i++) {
+    var guitar = guitars[i];
+    box_objects.push({
+      id: guitar.name,
+      title: guitar.name,
+      path: '/data/images/equipment/' + id + '/' + guitar.name + '.jpg'
+    });
+  }
+
+  var node = document.createElement('div');
+  node.className = 'equipment Page two_box';
+  node.appendChild(CreateBoxView(box_objects));
+  return node;
+}
+
+function CreatePage_music_equipment_guitars() {
+  return {
+    node: createSubEquipment('Guitars')
+  };
+}
+
+function CreatePage_music_equipment_pedals() {
+  return {
+    node: createSubEquipment('Guitar Pedals')
+  };
+}
+
+function CreatePage_music_equipment_amps() {
+  return {
+    node: createSubEquipment('Guitar Amplifiers')
+  };
+}
+
+function CreatePage_music_equipment_keyboards() {
+  return {
+    node: createSubEquipment('Keyboards')
+  };
+}
+
+function CreatePage_music_equipment_mixers() {
+  return {
+    node: createSubEquipment('Mixing Boards')
+  };
+}
+
+function CreatePage_music_equipment_microphones() {
+  return {
+    node: createSubEquipment('Microphones')
+  };
 }
 
 function CreatePage_software_personal() {
