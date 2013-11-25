@@ -3,7 +3,7 @@ var pages = {};
 function AddPage(id) {
   pages[id] = {
     id: id,
-    page: (window['CreatePage_' + id.replace('/', '_')])()
+    page: (window['CreatePage_' + id.replace(/\//g, '_')])()
   };
 }
 
