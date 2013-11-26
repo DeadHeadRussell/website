@@ -18,6 +18,9 @@ function CreatePages() {
   AddPage('home');
   AddMap('music', 'music/artists');
   AddPage('music/artists');
+  AddPage('music/artists/solo');
+  AddPage('music/artists/cam_jervis_experience');
+  AddPage('music/artists/the_orfs');
   AddPage('music/equipment');
   AddPage('music/equipment/guitars');
   AddPage('music/equipment/pedals');
@@ -62,6 +65,9 @@ var CreatePageHandler = function(node) {
       CreateImageNav('Home', 'home', '/data/images/about/' + data.about.image),
       CreateHeaderNav('Music'),
       CreateNav('Artists', 'music/artists'),
+      CreateSubNav('Solo Works', 'music/artists/solo'),
+      CreateSubNav('Cam Jervis Experience', 'music/artists/cam_jervis_experience'),
+      CreateSubNav('The Orfs', 'music/artists/the_orfs'),
       CreateNav('Equipment', 'music/equipment'),
       CreateSubNav('Guitars', 'music/equipment/guitars'),
       CreateSubNav('Guitar Pedals', 'music/equipment/pedals'),
@@ -218,7 +224,7 @@ function CreatePage_music_artists() {
     box_objects.push({
       id: artist.name,
       title: artist.name,
-      path: 'music/artists/' + artist.name,
+      path: 'music/artists/' + artist.id,
       imgSrc: '/data/images/artists/' + artist.name + '/main.jpg'
     });
   }
@@ -235,6 +241,24 @@ function CreatePage_music_artists() {
   function GotoArtist(id) {
     page_handler.gotoPage(id.path);
   }
+}
+
+function CreatePage_music_artists_solo() {
+  return {
+    node: document.createElement('div')
+  };
+}
+
+function CreatePage_music_artists_cam_jervis_experience() {
+  return {
+    node: document.createElement('div')
+  };
+}
+
+function CreatePage_music_artists_the_orfs() {
+  return {
+    node: document.createElement('div')
+  };
 }
 
 function CreatePage_music_equipment() {
