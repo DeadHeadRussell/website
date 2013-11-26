@@ -259,6 +259,7 @@
 
   "equipment": [
     {
+      "id": "guitars",
       "name": "Guitars",
       "equipment": [
         {
@@ -272,6 +273,7 @@
       ]
     },
     {
+      "id": "pedals",
       "name": "Guitar Pedals",
       "equipment": [
         {
@@ -279,11 +281,11 @@
           "description": ""
         },
         {
-          "name": "Electro-Harmonix Little Big Pi Muff",
+          "name": "Little Big Pi Muff",
           "description": ""
         },
         {
-          "name": "Boss CS-3 Compressor",
+          "name": "CS-3 Comp.",
           "description": ""
         },
         {
@@ -299,7 +301,7 @@
           "description": ""
         },
         {
-          "name": "TC Electronic RPT-1 Nova Repeater",
+          "name": "TC Elec. RPT-1 Nova Repeater",
           "description": ""
         },
         {
@@ -313,6 +315,7 @@
       ]
     },
     {
+      "id": "amps",
       "name": "Guitar Amplifiers",
       "equipment": [
         {
@@ -322,6 +325,7 @@
       ]
     },
     {
+      "id": "keybaords",
       "name": "Keyboards",
       "equipment": [
         {
@@ -331,6 +335,7 @@
       ]
     },
     {
+      "id": "mixers",
       "name": "Mixing Boards",
       "equipment": [
         {
@@ -344,6 +349,7 @@
       ]
     },
     {
+      "id": "microphones",
       "name": "Microphones",
       "equipment": [
         {

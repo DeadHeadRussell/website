@@ -21,6 +21,19 @@
     margin: 0;
 }
 
+.same_height A>img {
+    width: auto;
+    height: 400px;
+}
+
+.same_height.guitars A>img {
+    height: 400px;
+}
+
+.same_height.pedals A>img {
+    height: 217px;
+}
+
 .home .contact,
 .home .sites {
     display: inline-block;

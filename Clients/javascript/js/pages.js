@@ -3,7 +3,7 @@ var pages = {};
 function AddPage(id) {
   pages[id] = {
     id: id,
-    page: (window['CreatePage_' + id.replace('/', '_')])()
+    page: (window['CreatePage_' + id.replace(/\//g, '_')])()
   };
 }
 
@@ -19,6 +19,12 @@ function CreatePages() {
   AddMap('music', 'music/artists');
   AddPage('music/artists');
   AddPage('music/equipment');
+  AddPage('music/equipment/guitars');
+  AddPage('music/equipment/pedals');
+  AddPage('music/equipment/amps');
+  AddPage('music/equipment/keyboards');
+  AddPage('music/equipment/mixers');
+  AddPage('music/equipment/microphones');
   AddMap('software', 'software/personal');
   AddPage('software/personal');
   AddPage('software/school');
@@ -57,6 +63,12 @@ var CreatePageHandler = function(node) {
       CreateHeaderNav('Music'),
       CreateNav('Artists', 'music/artists'),
       CreateNav('Equipment', 'music/equipment'),
+      CreateSubNav('Guitars', 'music/equipment/guitars'),
+      CreateSubNav('Guitar Pedals', 'music/equipment/pedals'),
+      CreateSubNav('Guitar Amplifiars', 'music/equipment/amps'),
+      CreateSubNav('Keyboards', 'music/equipment/keyboards'),
+      CreateSubNav('Mixing Boards', 'music/equipment/mixers'),
+      CreateSubNav('Microphones', 'music/equipment/microphones'),
       CreateHeaderNav('Projects'),
       CreateNav('Personal', 'software/personal'),
       CreateNav('School', 'software/school'),
@@ -206,7 +218,7 @@ function CreatePage_music_artists() {
     box_objects.push({
       id: artist.name,
       title: artist.name,
-      path: '/music/artists/' + artist.name,
+      path: 'music/artists/' + artist.name,
       imgSrc: '/data/images/artists/' + artist.name + '/main.jpg'
     });
   }
@@ -221,7 +233,7 @@ function CreatePage_music_artists() {
   };
 
   function GotoArtist(id) {
-    page_handler.select(id);
+    page_handler.gotoPage(id.path);
   }
 }
 
@@ -231,9 +243,9 @@ function CreatePage_music_equipment() {
     var equipment = data.equipment[i];
 
     box_objects.push({
-      id: equipment.name,
+      id: equipment.id,
       title: equipment.name,
-      path: '/music/equipment/' + equipment.name,
+      path: 'music/equipment/' + equipment.id,
       imgSrc: '/data/images/equipment/' + equipment.name + '/main.jpg'
     });
   }
@@ -248,8 +260,72 @@ function CreatePage_music_equipment() {
   };
 
   function GotoEquipment(id) {
-    page_handler.select(id);
+    page_handler.gotoPage(id.path);
   }
+}
+
+function createSubEquipment(id) {
+  var box_objects = [];
+  var equipment = [];
+  for (var i = 0; i < data.equipment.length; i++) {
+    if (data.equipment[i].name == id) {
+      equipment = data.equipment[i].equipment;
+      break;
+    }
+  }
+  for (var i = 0; i < equipment.length; i++) {
+    var guitar = equipment[i];
+    box_objects.push({
+      id: guitar.name,
+      title: guitar.name,
+      imgSrc: '/data/images/equipment/' + id + '/' + guitar.name + '.jpg'
+    });
+  }
+
+  var node = document.createElement('div');
+  node.className = 'equipment Page same_height';
+  node.appendChild(CreateBoxView(box_objects));
+  return node;
+}
+
+function CreatePage_music_equipment_guitars() {
+  var node = createSubEquipment('Guitars');
+  node.className += ' guitars';
+  return {
+    node: node
+  };
+}
+
+function CreatePage_music_equipment_pedals() {
+  var node = createSubEquipment('Guitar Pedals');
+  node.className += ' pedals';
+  return {
+    node: node
+  };
+}
+
+function CreatePage_music_equipment_amps() {
+  return {
+    node: createSubEquipment('Guitar Amplifiers')
+  };
+}
+
+function CreatePage_music_equipment_keyboards() {
+  return {
+    node: createSubEquipment('Keyboards')
+  };
+}
+
+function CreatePage_music_equipment_mixers() {
+  return {
+    node: createSubEquipment('Mixing Boards')
+  };
+}
+
+function CreatePage_music_equipment_microphones() {
+  return {
+    node: createSubEquipment('Microphones')
+  };
 }
 
 function CreatePage_software_personal() {
