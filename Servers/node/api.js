@@ -21,10 +21,14 @@ function getReadme(repo, callback) {
   };
 
   request(readme_options, function(error, response, body) {
-    var response = JSON.parse(body);
+    try {
+      var response = JSON.parse(body);
+    } catch(e) {
+      return callback(createContent(e), 'text/plain');
+    }
 
     if (!response.content) {
-      callback(createContent('Error fetching README', 'text/plain'));
+      return callback(createContent('Error fetching README', 'text/plain'));
     }
 
     var markdown = new Buffer(response.content.replace(/\n/g, ''), 'base64').toString('ascii');
