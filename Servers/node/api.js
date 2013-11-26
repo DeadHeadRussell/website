@@ -47,10 +47,12 @@ function getReadme(repo, callback) {
   });
 }
 
-function createContent(content, contentType) {
+function createContent(content, contentType, userAgent) {
+  userAgent = userAgent || '';
   return {
     getContent: function() { return content; },
     getContentType: function() { return contentType; }
+    getUserAgent: function() { return userAgent; }
   };
 }
 
