@@ -11,7 +11,8 @@ function getReadme(repo, callback) {
   var markdown_url = 'https://api.github.com/markdown/raw';
 
   var headers = {
-    'Authorization': 'token ' + GITHUB_TOKEN
+    'Authorization': 'token ' + GITHUB_TOKEN,
+    'UserAgent': 'ajrussell.ca'
   };
 
   // TODO: Check if rate limited, and if so, return error status.
@@ -47,12 +48,10 @@ function getReadme(repo, callback) {
   });
 }
 
-function createContent(content, contentType, userAgent) {
-  userAgent = userAgent || '';
+function createContent(content, contentType) {
   return {
     getContent: function() { return content; },
-    getContentType: function() { return contentType; },
-    getUserAgent: function() { return userAgent; }
+    getContentType: function() { return contentType; }
   };
 }
 

@@ -43,7 +43,6 @@ app.listen(port);
 function getApi(request, response, next, path) {
   api.call(path, function(api_response) {
     response.set('Content-Type', api_response.getContentType());
-    response.set('User-Agent', api_response.getUserAgent());
     response.send(api_response.getContent());
   });
 }
