@@ -12,7 +12,7 @@ function getReadme(repo, callback) {
 
   var headers = {
     'Authorization': 'token ' + GITHUB_TOKEN,
-    'UserAgent': 'ajrussell.ca'
+    'User-Agent': 'ajrussell.ca'
   };
 
   // TODO: Check if rate limited, and if so, return error status.
@@ -25,10 +25,12 @@ function getReadme(repo, callback) {
     try {
       var response = JSON.parse(body);
     } catch(e) {
-      return callback(createContent(e), 'text/plain');
+      console.error('API.getReadme:', body);
+      return callback(createContent(body), 'text/plain');
     }
 
     if (!response.content) {
+      console.error('API.getReadme:', response);
       return callback(createContent('Error fetching README', 'text/plain'));
     }
 
