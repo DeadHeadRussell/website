@@ -1,3 +1,4 @@
 .svn
 nohup.out
 *.log
+node_modules
