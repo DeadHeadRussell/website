@@ -11,7 +11,8 @@ function getReadme(repo, callback) {
   var markdown_url = 'https://api.github.com/markdown/raw';
 
   var headers = {
-    'Authorization': 'token ' + GITHUB_TOKEN
+    'Authorization': 'token ' + GITHUB_TOKEN,
+    'User-Agent': 'ajrussell.ca'
   };
 
   // TODO: Check if rate limited, and if so, return error status.
@@ -21,10 +22,16 @@ function getReadme(repo, callback) {
   };
 
   request(readme_options, function(error, response, body) {
-    var response = JSON.parse(body);
+    try {
+      var response = JSON.parse(body);
+    } catch(e) {
+      console.error('API.getReadme:', body);
+      return callback(createContent(body), 'text/plain');
+    }
 
     if (!response.content) {
-      callback(createContent('Error fetching README', 'text/plain'));
+      console.error('API.getReadme:', response);
+      return callback(createContent('Error fetching README', 'text/plain'));
     }
 
     var markdown = new Buffer(response.content.replace(/\n/g, ''), 'base64').toString('ascii');

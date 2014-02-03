@@ -31,6 +31,7 @@
 
   "artists": [
     {
+      "id": "solo",
       "name": "Solo Works",
       "start": "1990-07-21",
       "description": "My own solo endevours. From solo live vocal/ guitar performances to full band studio recordings, most of my musical endevours have been solo efforts.",
@@ -158,6 +159,7 @@
       ]
     },
     {
+      "id": "cam_jervis_experience",
       "name": "The Cam Jervis Experience",
       "start": "2008-01-01",
       "end": "2008-09-01",
@@ -192,6 +194,7 @@
       ]
     },
     {
+      "id": "the_orfs",
       "name": "The Orfs",
       "start": "2009-05-01",
       "end": "2010-10-01",
