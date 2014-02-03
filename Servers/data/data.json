@@ -36,6 +36,17 @@
       "description": "My own solo endevours. From solo live vocal/ guitar performances to full band studio recordings, most of my musical endevours have been solo efforts.",
       "albums": [
         {
+          "name": "FAWM",
+          "description": "Songs from FAWM (February Album Writing Month) 2014",
+          "link": "fawm.org/fawmers/deadhead/",
+          "songs": [
+            {
+              "What Can I Say?",
+              "description": "Jazz-rock instrumental",
+              "recording": true
+            }
+          ]
+        {
           "name": "YouTube",
           "description": "Check out my YouTube channel. I have many videos of me playing both covers and original songs.",
           "link": "http://www.youtube.com/user/DeadHeadRussell",
