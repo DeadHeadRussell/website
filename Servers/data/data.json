@@ -37,11 +37,16 @@
         {
           "name": "FAWM",
           "description": "Songs from FAWM (February Album Writing Month) 2014",
-          "link": "fawm.org/fawmers/deadhead/",
+          "link": "http://fawm.org/fawmers/deadhead/",
           "songs": [
             {
-              "What Can I Say?",
+              "name": "What Can I Say?",
               "description": "Jazz-rock instrumental",
+              "recording": true
+            },
+            {
+              "name": "All In Time",
+              "description": "Wistful Folk Song",
               "recording": true
             }
           ]
