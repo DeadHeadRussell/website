@@ -4,7 +4,7 @@ var data_path_root = '../data/';
 var data_path = 'data.json';
 var data = null;
 
-exports.get = function(path) {
+exports.get = function(path, download) {
   path_parts = path.split('/');
   path_parts.shift();
   path_parts.shift();
@@ -14,7 +14,7 @@ exports.get = function(path) {
   }
 
   var is_attachment = false;
-  if (path.indexOf('.mp3') >= 0 || path.indexOf('.zip') >= 0) {
+  if (download) {
     is_attachment = true;
   }
 
