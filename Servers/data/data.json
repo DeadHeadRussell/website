@@ -41,13 +41,18 @@
           "songs": [
             {
               "name": "What Can I Say?",
-              "description": "Jazz-rock instrumental",
+              "description": "Jazz-rock instrumental\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic written by Andrew Russell.",
               "recording": true
             },
             {
               "name": "All In Time",
-              "description": "Wistful Folk Song",
+              "description": "Wistful Folk Song\n\n<b>Credits:</b>\nViola: Sean Brennan\nGuitars: Andrew Russell\nVocals: Andrew Russell\nMusic and Lyrics written by Andrew Russell.",
               "recording": true
+            },
+            {
+               "name": "A Winter's Day",
+               "description": "Driven Rock Adventure\n\n<b>Credits:<b>All instruments played by Andrew Russell\nLyrics written by Nadia Cripps\nMusic by Andrew Russell.",
+               "recording": true
             }
           ]
         },
