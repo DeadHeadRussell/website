@@ -13,7 +13,7 @@ if (process.argv.length > 2) {
 }
 
 app.get(/^\/data(\/.*)?$/, function(request, response) {
-  var file = data.get(request.path);
+  var file = data.get(request.path, request.query.download == "true");
   if (file.isAttachment()) {
     response.attachment(file.getName());
   }
