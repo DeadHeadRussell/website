@@ -51,8 +51,13 @@
             },
             {
                "name": "A Winter's Day",
-               "description": "Driven Rock Adventure\n\n<b>Credits:<b>All instruments played by Andrew Russell\nLyrics written by Nadia Cripps\nMusic by Andrew Russell.",
+               "description": "Driven Rock Adventure\n\n<b>Credits:</b>All instruments played by Andrew Russell\nLyrics written by <a href=\"http://nadiacripps.bandcamp.com\">Nadia Cripps</a>\nMusic by Andrew Russell.",
                "recording": true
+            },
+            {
+              "name": "One Fall Afternoon",
+              "description:" "Sappy Love Song\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Andrew Russell.",
+              "recording": true
             }
           ]
         },
