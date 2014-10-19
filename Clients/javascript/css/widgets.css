@@ -85,8 +85,6 @@
 .Main > .Page {
   padding-top: 25px;
   padding-bottom: 21px;
-  border-left: 1px solid #BBB;
-  border-right: 1px solid #BBB;
   width: calc(100% - 177px);
   min-height: calc(100% - 88px);
 }
@@ -103,15 +101,53 @@
   border-bottom: 1px solid grey;
 }
 
-.List {
-  display: inline-block;
+.SongList {
   margin: 6px 10px;
   vertical-align: top;
 }
 
-.List>.Title {
-  font-weight: 700;
-  border-bottom: 2px solid grey;
+.SongList>.Description {
+  width: 50%;
+  float: right;
+}
+
+.SongList>.Description>.Download {
+  float: right;
+}
+
+.SongList>.Description>div {
+  min-height: 12px;
+}
+
+.SongList>.Description>div>div:first-of-type {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.SongList>.Song {
+  outline: none;
+  cursor: pointer;
+}
+
+.SongList>.Song>* {
+  vertical-align: middle;
+}
+
+.SongList>.Song>.Play {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  outline: 0;
+  background-image: url('/images/icons/Play_Up.png');
+}
+
+.SongList>.Song:hover>.Play {
+  background-image: url('/images/icons/Play_Down.png');
+}
+
+.SongList>.Song:hover>span {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 .SubSection {
@@ -243,10 +279,35 @@
 }
 
 .Post {
+  font-size: 1em;
+}
+
+.Post:not(.Clickable),
+.Post > a {
   display: block;
   width: 80%;
   padding: 0.67em 10%;
-  border-bottom: 1px solid #AAA;
+}
+
+.Post h1 {
+  font-size: 2em;
+  border-bottom: 1px solid #ddd;
+}
+
+.Post img {
+  width: 100%;
+  margin-left: 0;
+}
+
+.Post > a {
+  color: black;
+  outline: none;
+  text-decoration: none;
+}
+
+.Post > a.Link {
+  outline: none;
+  text-decoration: none;
 }
 
 .Post.Clickable {
@@ -255,44 +316,7 @@
 }
 
 .Post.Clickable:hover {
-  box-shadow: inset 0 0 15px 0 black;
-}
-
-.Post > a {
-  color: black;
-  text-decoration: none;
-}
-
-.Post:last-of-type {
-  border-bottom: none;
-}
-
-.Post.Clickable {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif;
-}
-
-.Post.Clickable h1 {
-  font-size: 2.5em;
-  border-bottom: 1px solid #ddd;
-}
-
-.Post.Clickable img {
-  width: 100%;
-  margin-left: 0;
-}
-
-.Post.Text > h1 {
-  display: inline-block;
-  margin: 0;
-  margin-top: 10px;
-  font-size: 24px;
-}
-
-.Post.Text > h2 {
-  float: right;
-  margin: 0;
-  margin-top: 16px;
-  font-size: 18px;
+  box-shadow: inset 0 0 15px 0 rgb(116, 218, 94);
 }
 
 .Audio {

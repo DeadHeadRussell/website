@@ -1,8 +1,8 @@
 Body {
     padding: 0;
     margin: 0;
-    font-family: "Segoe UI Light";
-    font: "Segoe UI Light";
+    font-family: "Segoe UI", Helvetica, arial, freesans, clean, sans-serif;
+    font: font-family: "Segoe UI", Helvetica, arial, freesans, clean, sans-serif;
     background: white;
     background: -webkit-linear-gradient(horizontal, #EEF, #FFF 50%);
     background: -moz-linear-gradient(horizontal, #EEF, #FFF 50%);

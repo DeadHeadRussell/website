@@ -178,53 +178,6 @@ var CreatePageTitle = function(title) {
     return node;
 };
 
-var CreateList = function(title, items, callback) {
-    var node = document.createElement("Div");
-    node.className = 'List';
-    
-    var titleNode = document.createElement("Div");
-    titleNode.className = 'Title';
-    titleNode.appendChild(document.createTextNode(title));
-    node.appendChild(titleNode);
-
-    for(var i = 0; i < items.length; i++) {
-        var item = items[i];
-        var itemNode = document.createElement("Div");
-        itemNode.id = item.id;
-        itemNode.className = 'Item';
-        if(item.node) {
-            itemNode.appendChild(item.node);
-        } else if(item.text) {
-            itemNode.appendChild(document.createTextNode(item.text));
-        }
-        if(callback) {
-            var eventHandler = function(obj) {
-                return function(e) {
-                    callback(obj);
-                    return true;
-                };
-            }(item);
-            var clickNode = itemNode.children[0];
-            clickNode.setAttribute('tabindex', '0');
-            clickNode.addEventListener('click', eventHandler, false);
-            clickNode.addEventListener('keydown', keyToClick(eventHandler), false);
-
-            if(item.callback) {
-                var itemEventHandler = function(obj) {
-                    return function(e) {
-                        item.callback(obj);
-                    };
-                }(item);
-                clickNode.addEventListener('mouseover', itemEventHandler, false);
-                clickNode.addEventListener('focus', itemEventHandler, false);
-            }
-        }
-        node.appendChild(itemNode);
-    }
-
-    return node;
-};
-
 var CreateSubSection = function(title, subtitle, content) {
     var node = document.createElement("Div");
     node.className = 'SubSection';
@@ -314,23 +267,64 @@ function CreateGithubPost(elem) {
     return root;
 }
 
-function CreatePost(elem) {
-    var root = document.createElement('div');
-    root.className = 'Post Text';
+function CreatePost(elem, callback) {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'Post Text';
+
+    if (elem.path) {
+        var root = document.createElement('a');
+        root.href = escape(elem.path);
+
+        var clickHandler = function(elem) {
+            return function(e) {
+                callback(elem);
+                return true;
+            }
+        }(elem);
+
+        root.addEventListener('click', function(e) { return preventDefaultLink(e); }, false);
+        root.addEventListener('click', clickHandler, false);
+        root.addEventListener('keydown', keyToClick(clickHandler), false);
+ 
+        wrapper.appendChild(root);
+        wrapper.className += ' Clickable';
+    } else if (elem.link) {
+      var root = document.createElement('a');
+      root.target = '_blank';
+      root.href = elem.link;
+      wrapper.appendChild(root);
+      wrapper.className += ' Clickable';
+    } else {
+      root = wrapper;
+    }
 
     var title = document.createElement('h1');
-    title.innerText = elem.title;
+    title.textContent = elem.title;
     root.appendChild(title);
 
-    var subtitle = document.createElement('h2');
-    subtitle.innerText = elem.subtitle;
-    root.appendChild(subtitle);
+    if (elem.subtitle) {
+        var subtitle = document.createElement('h2');
+        subtitle.textContent = elem.subtitle;
+        root.appendChild(subtitle);
+    }
 
-    var content = document.createElement('p');
-    content.innerText = elem.text;
-    root.appendChild(content);
+    if (elem.imgSrc) {
+        var img = document.createElement('img');
+        img.src = elem.imgSrc;
+        root.appendChild(img);
+    }
 
-    return root;
+    if (elem.text) {
+        var content = document.createElement('p');
+        content.textContent = elem.text;
+        root.appendChild(content);
+    }
+
+    if (elem.content) {
+        root.appendChild(elem.content);
+    }
+
+    return wrapper;
 }
 
 function CreateStream(elems, callback) {
@@ -342,15 +336,90 @@ function CreateStream(elems, callback) {
 
         var post = null;
         if (elem.contentType == 'github') {
-            post = CreateGithubPost(elem);
+            post = CreateGithubPost(elem, callback);
         } else {
-            post = CreatePost(elem);
+            post = CreatePost(elem, callback);
         }
         root.appendChild(post);
     }
 
     return root;
 }
+
+function CreateAlbum(artist, album, index) {
+    var node = document.createElement('div');
+    node.className = 'SongList';
+    
+    var descriptionNode = document.createElement('div');
+    descriptionNode.className = 'Description';
+    node.appendChild(descriptionNode);
+
+    var download = document.createElement('a');
+    download.textContent = 'Download Album';
+    download.className = 'Download';
+    download.href = '/data/audio/' + artist.name + '/' + album.name + '.zip';
+    node.appendChild(download);
+
+    for(var i = 0; i < album.songs.length; i++) {
+        var song = album.songs[i];
+        var songNode = document.createElement('div');
+        songNode.className = 'Song';
+        songNode.setAttribute('role', 'button');
+        songNode.setAttribute('tabIndex', '0');
+        
+        var playButton = document.createElement('div');
+        playButton.className = 'control play';
+        songNode.appendChild(playButton);
+
+        var songName = document.createElement('span');
+        songName.textContent = song.name;
+        songNode.appendChild(songName);
+        
+        var playHandler = function(song_index) {
+            return function(e) {
+                playSong(song_index);
+                return true;
+            };
+        }(i);
+
+        songNode.addEventListener('click', playHandler, false);
+        songNode.addEventListener('keydown', keyToClick(playHandler), false);
+
+        var descriptionHandler = function(obj) {
+            return function(e) {
+                showDescription(obj);
+            };
+        }(song);
+
+        songNode.addEventListener('mouseover', descriptionHandler, false);
+        songNode.addEventListener('focus', descriptionHandler, false);
+
+        node.appendChild(songNode);
+    }
+    return node;
+
+    function playSong(song_index) {
+        page_handler.audioPlayer.play(index + '/' + song_index);
+    }
+
+    function showDescription(song) {
+        descriptionNode.innerHTML = '';
+
+        var link = document.createElement('a');
+        link.textContent = 'Download';
+        link.className = 'Download';
+        link.href = '/data/audio/' + artist.name + '/' + album.name + '/' + song.name + '.mp3';
+        descriptionNode.appendChild(link);
+
+        var desc = document.createElement('div');
+        var nodes = song.description.split('\n');
+        desc.innerHTML = '<div>' + song.name + '</div>';
+        for (var i = 0; i < nodes.length; i++) {
+            desc.innerHTML += '<div>' + nodes[i] + '</div>';
+        }
+        descriptionNode.appendChild(desc);
+    }
+};
 
 function CreateAudioPlayer() {
     var node = document.createElement("Div");

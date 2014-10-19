@@ -1,6 +1,6 @@
 (function() {
 
-var README_URL = 'http://beta.ajrussell.ca/api/getReadme/';
+var README_URL = 'http://ajrussell.ca/api/getReadme/';
 
 function getReadme(repo, callback) {
   utils.get(README_URL + repo, function(response_text) {

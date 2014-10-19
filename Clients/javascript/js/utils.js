@@ -7,7 +7,6 @@ function get(url, callback) {
     'readystatechange',
     function(e) {
       if(e.target.readyState === 4 && e.target.status === 200) {
-        console.log(e);
         callback(e.target.responseText);
       }
     },
@@ -23,7 +22,6 @@ function post(url, data, callback) {
     'readystatechange',
     function(e) {
       if(e.target.readyState === 4 && e.target.status === 200) {
-        console.log(e);
         callback(e.target.responseText);
       }
     },

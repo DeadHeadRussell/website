@@ -81,7 +81,7 @@ var CreatePageHandler = function(node) {
       CreateNav('Work', 'software/work'),
       CreateHeaderNav('Resumes'),
       CreateNav('Software Engineering', 'resumes/software'),
-      CreateNav('Music and Technology', 'resumes/music_tech'),
+      //CreateNav('Music and Technology', 'resumes/music_tech'),
     ],
     init_id,
     select
@@ -97,7 +97,7 @@ var CreatePageHandler = function(node) {
   obj = {
     gotoPage: function(id) {
       if (!pages[id].page) {
-        return gotoPage(pages[id].to);
+        return obj.gotoPage(pages[id].map);
       }
       navigation.select(id);
     },
@@ -148,54 +148,23 @@ var CreatePageHandler = function(node) {
       }
     }
     page = newPage;
+    window.scrollTo(0, 0);
   }
 };
 
 function CreatePage_home() {
   var elems = [
-    {id: 'music/artists', title: 'Music', path: '/music/artists', imgSrc: '/images/music.jpg'},
+    {id: 'music', title: 'Music', path: '/music/artists', imgSrc: '/images/music.jpg'},
     {id: 'software', title: 'Software', path: '/software',  imgSrc: '/images/software.jpg'},
-    {id: 'resumes', title: 'Resumes', path: '/resumes', imgSrc: '/images/resumes.jpg'}
+    {id: 'resumes', title: 'Resumes', path: '/resumes', imgSrc: '/images/resumes.jpg'},
+    {title: 'Contact', text: 'deadhead.russell@gmail.com'}
   ];
 
   var content = document.createElement('Div');
-  content.className = 'home Page three_box';
+  content.className = 'home Page';
 
-  var links = CreateBoxView(elems, goToPage);
+  var links = CreateStream(elems, goToPage);
   content.appendChild(links);
-
-  var sitesList = [];
-  for(var i = 0; i < data.sites.length; i++) {
-    var site = data.sites[i];
-    var siteNode = document.createElement('Div');
-    var titleNode = document.createElement('Div');
-    var linkNode = document.createElement('A');
-    linkNode.appendChild(document.createTextNode(site.name));
-    linkNode.href = site.link;
-    linkNode.setAttribute('target', '_blank');
-    titleNode.appendChild(linkNode);
-    siteNode.appendChild(titleNode);
-    var descNode = document.createElement('Div');
-    descNode.appendChild(document.createTextNode(site.desc));
-    siteNode.appendChild(descNode);
-    sitesList.push({
-      id: site.name,
-      node: siteNode
-    });
-  }
-  var sites = CreateList('Awesome Sites', sitesList);
-  sites.className += ' sites';
-  content.appendChild(sites);
-
-  var contactEmail = {
-    id: 'contactEmail',
-    node: document.createElement('A')
-  };
-  contactEmail.node.appendChild(document.createTextNode(data.contact.email));
-  contactEmail.node.href = 'mailto:' + data.contact.email;
-  var contact = CreateList('Contact', [ contactEmail ]);
-  contact.className += ' contact';
-  content.appendChild(contact);
 
   var obj = {
     node: content,
@@ -230,9 +199,9 @@ function CreatePage_music_artists() {
   }
 
   var node = document.createElement('div');
-  node.className = 'artists Page three_box';
+  node.className = 'artists Page';
 
-  node.appendChild(CreateBoxView(box_objects, GotoArtist));
+  node.appendChild(CreateStream(box_objects, GotoArtist));
 
   return {
     node: node
@@ -243,21 +212,86 @@ function CreatePage_music_artists() {
   }
 }
 
+function createArtist(id) {
+  var artist = null;
+  var artist_index = -1;
+  for (var i = 0; i < data.artists.length; i++) {
+    if (data.artists[i].id == id) {
+      artist = data.artists[i];
+      artist_index = i;
+      break;
+    }
+  }
+
+  var posts = [];
+  posts.push({
+    title: artist.name,
+    subtitle: artist.start,
+    imgSrc: '/data/images/artists/' + artist.name + '/main.jpg',
+    text: artist.description
+  });
+
+  for (var i = 0; i < artist.albums.length; i++) {
+    var album = artist.albums[i];
+    var post = {
+      title: album.name,
+      link: !album.songs.length && album.link,
+      content: createAlbum(album, artist_index + '/' + i)
+    };
+
+    posts.push(post);
+  }
+
+  var node = document.createElement('div');
+  node.className = 'artist Page';
+  node.appendChild(CreateStream(posts));
+
+  return node;
+
+  function createAlbum(album, index) {
+    var root = document.createElement('div');
+    root.className = 'album';
+
+    if (album.songs.length == 0) {
+      var img = document.createElement('img');
+      img.src = '/data/images/artists/' + artist.name + '/' + album.name + '.png';
+      root.appendChild(img);
+    }
+
+    var desc = document.createElement('p');
+    desc.innerHTML = album.description;
+    root.appendChild(desc);
+
+    if (album.songs.length > 0) {
+      if (album.link) {
+        var link = document.createElement('a');
+        link.textContent = album.link;
+        link.href = album.link;
+        link.target = '_blank';
+        root.appendChild(link);
+      }
+      root.appendChild(CreateAlbum(artist, album, index));
+    }
+
+    return root;
+  }
+}
+
 function CreatePage_music_artists_solo() {
   return {
-    node: document.createElement('div')
+    node: createArtist('solo')
   };
 }
 
 function CreatePage_music_artists_cam_jervis_experience() {
   return {
-    node: document.createElement('div')
+    node: createArtist('cam_jervis_experience')
   };
 }
 
 function CreatePage_music_artists_the_orfs() {
   return {
-    node: document.createElement('div')
+    node: createArtist('the_orfs')
   };
 }
 
@@ -275,7 +309,7 @@ function CreatePage_music_equipment() {
   }
 
   var node = document.createElement('div');
-  node.className = 'equipment Page two_box';
+  node.className = 'equipment Page';
 
   node.appendChild(CreateBoxView(box_objects, GotoEquipment));
 
@@ -289,18 +323,18 @@ function CreatePage_music_equipment() {
 }
 
 function createSubEquipment(id) {
-  var box_objects = [];
-  var equipment = [];
+  var equipment = null;
   for (var i = 0; i < data.equipment.length; i++) {
     if (data.equipment[i].name == id) {
       equipment = data.equipment[i].equipment;
       break;
     }
   }
+
+  var box_objects = [];
   for (var i = 0; i < equipment.length; i++) {
     var guitar = equipment[i];
     box_objects.push({
-      id: guitar.name,
       title: guitar.name,
       imgSrc: '/data/images/equipment/' + id + '/' + guitar.name + '.jpg'
     });
@@ -308,7 +342,8 @@ function createSubEquipment(id) {
 
   var node = document.createElement('div');
   node.className = 'equipment Page same_height';
-  node.appendChild(CreateBoxView(box_objects));
+  node.appendChild(CreateStream(box_objects));
+
   return node;
 }
 
@@ -445,9 +480,7 @@ function createResumePage(id) {
     function(resume_node) {
       return function(e) {
         if(e.target.readyState === 4 && e.target.status === 200) {
-          console.log(e);
           resume_node.innerHTML = e.target.responseText;
-          resume_node.insertBefore(resume_node.firstChild);
         }
       };
     }(resume_node),
