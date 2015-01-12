@@ -14,10 +14,12 @@ function getDefaultClient() {
 }
 
 function getClient(request) {
+  /*
   var user_agent = request.get('user-agent');
   if (search_engines.indexOf(user_agent) >= 0) {
     return noscript_client;
   }
+  */
 
   return getDefaultClient();
 }
