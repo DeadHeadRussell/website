@@ -4,7 +4,7 @@ var apis = {
   'getReadme': getReadme
 };
 
-var GITHUB_TOKEN = 'fd9f84ff1a16df1abb31136afbea2acca472c1c9';
+var GITHUB_TOKEN = '';
 
 function getReadme(repo, callback) {
   var readme_url = 'https://api.github.com/repos/' + repo + '/readme';
