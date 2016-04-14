@@ -30,7 +30,7 @@ app.get('/rock_opera', function(req, res) {
 });
 
 app.get('/rock_opera/:file', function(req, res) {
-  res.sendFile(req.params.file, {root: '../../Clients/rock_opera'});
+  res.sendfile(req.params.file, {root: '../../Clients/rock_opera'});
 });
 
 app.get(/^\/([^\/]*)(\/.*)?$/, chooseClient, function(request, response, next) {

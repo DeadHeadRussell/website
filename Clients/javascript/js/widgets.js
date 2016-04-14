@@ -372,7 +372,7 @@ function CreateAlbum(artist, album, index) {
         songNode.appendChild(playButton);
 
         var songName = document.createElement('span');
-        songName.textContent = song.name;
+        songName.textContent = parseSongName(song.name);
         songNode.appendChild(songName);
         
         var playHandler = function(song_index) {
@@ -413,7 +413,7 @@ function CreateAlbum(artist, album, index) {
 
         var desc = document.createElement('div');
         var nodes = song.description.split('\n');
-        desc.innerHTML = '<div>' + song.name + '</div>';
+        desc.innerHTML = '<div>' + parseSongName(song.name) + '</div>';
         for (var i = 0; i < nodes.length; i++) {
             desc.innerHTML += '<div>' + nodes[i] + '</div>';
         }
@@ -650,7 +650,7 @@ function CreateAudioPlayer() {
         title.appendChild(albumDiv);
 
         var songDiv = document.createElement("Div");
-        songDiv.appendChild(document.createTextNode(currentlyPlaying.song.name));
+        songDiv.appendChild(document.createTextNode(parseSongName(currentlyPlaying.song.name)));
         songDiv.className = 'Song';
         title.appendChild(songDiv);
     }
@@ -679,3 +679,6 @@ function keyToClick(clickHandler, keys) {
     };
 }
 
+function parseSongName(name) {
+    return name.split(', ').join(' => ');
+}
