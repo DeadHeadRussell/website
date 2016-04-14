@@ -150,51 +150,12 @@
               "name": "Sleep",
               "description": "Phish Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Trey Anastasio and Tom Marshall",
               "recording": true
-            {
-              "name": "What Can I Say?",
-              "description": "Jazz-rock instrumental\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic written by Andrew Russell.",
-              "recording": true
-            },
-            {
-              "name": "All In Time",
-              "description": "Wistful Folk Song\n\n<b>Credits:</b>\nViola: Sean Brennan\nGuitars: Andrew Russell\nVocals: Andrew Russell\nMusic and Lyrics written by Andrew Russell.",
-              "recording": true
-            },
-            {
-               "name": "A Winter's Day",
-               "description": "Driven Rock Adventure\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nLyrics written by <a href=\"http://nadiacripps.bandcamp.com\">Nadia Cripps</a>\nMusic by Andrew Russell.",
-               "recording": true
-            },
-            {
-              "name": "One Fall Afternoon",
-              "description": "Sappy Love Song\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Andrew Russell.",
-              "recording": true
-            }
-          ]
-        },
-        {
-          "name": "Covers",
-          "description": "A recent collections of recordings that I have done.  These songs are all covers from various artists",
-          "songs": [
-            {
-              "name": "Waste",
-              "description": "Phish Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Trey Anastasio and Tom Marshall",
-              "recording": true
-            },
-            {
-              "name": "Suburban War",
-              "description": "Arcade Fire Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Arcade Fire",
-              "recording": true
-            },
-            {
-              "name": "Sleep",
-              "description": "Phish Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Trey Anastasio and Tom Marshall",
-              "recording": true
             },
             {
               "name": "Wagon Wheel",
               "description": "Darius Rucker Cover\n\n<b>Credits:</b>\nVocals: Heather and Andrew Russell\nGuitar: Andrew Russell\nPiano: John Russell\nBass: Valerie Russell\nDrums: Chris Russell\nMusic and Lyrics written by Bob Dylan and Ketch Secor",
               "recording": true
+            }
           ]
         },
         {
