@@ -25,8 +25,8 @@ var gets = {
 };
 
 app.get('/rock_opera', function(req, res) {
-  app.set('views', '../../Clients/rock_opera');
-  res.render('main', data.getJsonObject());
+  app.set('views', '../../Clients/rock_opera/');
+  res.render('main.ejs', data.getJsonObject());
 });
 
 app.get('/rock_opera/:file', function(req, res) {
