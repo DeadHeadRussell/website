@@ -21,7 +21,7 @@ function play(index) {
     audioTag.src = src;
     audioTag.load();
     audioTag.play();
-    statusTag.innerHTML = 'Now Playing: ' + (current + 1) + '. ' + getCurrentSongName();
+    statusTag.innerHTML = 'Now Playing: ' + getCurrentSongIndex() + '. ' + parseSongName(getCurrentSongName());
   }
 
   for (var i = 0; i < songsTags.length; i++) {
@@ -37,5 +37,16 @@ function getCurrentSongName() {
     return songsTags[current].dataset.songName;
   }
   return songsTags[current].getAttribute('data-song-name');
+}
+
+function getCurrentSongIndex() {
+  if (songsTags[current].dataset) {
+    return songsTags[current].dataset.songIndex;
+  }
+  return songsTags[current].getAttribute('data-song-index');
+}
+
+function parseSongName(name) {
+  return name.split(', ').join(' => ');
 }
 

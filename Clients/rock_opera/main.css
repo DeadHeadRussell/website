@@ -7,11 +7,11 @@ html {
 }
 
 body {
-    font-family: "Segoe UI", Helvetica, arial, freesans, clean, sans-serif;
-    background: white;
-    background: -webkit-linear-gradient(horizontal, #EEF, #FFF 50%);
-    background: -moz-linear-gradient(horizontal, #EEF, #FFF 50%);
-    background: -ms-linear-gradient(horizontal, #EEF, #FFF 50%);
+  background: white;
+  background: -webkit-linear-gradient(horizontal, #EEF, #FFF 50%);
+  background: -moz-linear-gradient(horizontal, #EEF, #FFF 50%);
+  background: -ms-linear-gradient(horizontal, #EEF, #FFF 50%);
+  font-family: "Segoe UI", Helvetica, arial, freesans, clean, sans-serif;
 }
 
 .main {
@@ -21,6 +21,7 @@ body {
 
   margin: 0;
   padding: 0;
+  padding-bottom: 40px;
 }
 
 .header {
@@ -53,7 +54,7 @@ body {
 }
 
 .status {
-  flex: 1 1 auto;
+  flex: 0 0 100%;
   font-size: 1.2em;
 }
 

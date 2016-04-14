@@ -38,12 +38,12 @@
   </header>
 
   <div class='audio'>
+    <p id='status' class='status'>Now Playing: 1. <%= parseSongName(album.songs[0].name) %></p>
     <audio class='player' id='audio' preload='auto' tabindex='0' controls='' type='audio/mpeg'>
       <source type='audio/mp3' src='<%= getFirstSong('mp3') %>'>
       <source type='audio/ogg' src='<%= getFirstSong('ogg') %>'>
       Sorry, your browser does not support HTML5 audio. Please download the album using the above link to listen to it.
     </audio>
-    <p id='status' class='status'>Now Playing: 1. <%= parseSongName(album.songs[0].name) %></p>
     <div class='error' id='error'></div>
   </div>
 
@@ -58,13 +58,14 @@
   </section>
 
   <section class='content' id='songs'>
-    <% for (var i = 0; i < album.songs.length; i++) {
+    <% var extra = 0;
+      for (var i = 0; i < album.songs.length; i++) {
       var song = album.songs[i]; %>
-      <div class='song <%= i == 0 ? 'current' : '' %>' data-song-name='<%= song.name %>'>
+      <div class='song <%= i == 0 ? 'current' : '' %>' data-song-name='<%= song.name %>' data-song-index='<%= (i + extra + 1) %>'>
         <button class='play-btn' onclick='play(<%= i %>)'>
           <img class='play-btn-icon' src='/rock_opera/play.svg'>
         </button>
-        <p class='name'><%= i + 1 %>. <%= parseSongName(song.name) %></p>
+        <p class='name'><%= (i + extra) + 1 %>. <%= parseSongName(song.name) %></p>
         <div class='description'>
           <% var pgs = song.description.split('\n');
             for (var j = 0; j < pgs.length; j++) { %>
@@ -72,7 +73,10 @@
           <% } %>
         </div>
       </div>
-    <% } %>
+      <% if (song.name.indexOf(', ') >= 0) {
+        extra++;
+      }
+    } %>
   </section>
 
   <script type='text/javascript' src='/rock_opera/main.js'></script>
