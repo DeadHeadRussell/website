@@ -72,6 +72,10 @@ body {
   font-weight: 600;
 }
 
+.subtitle {
+  margin: 0;
+}
+
 .song {
   display: flex;
   flex-flow: row wrap;
@@ -110,6 +114,11 @@ body {
 }
 
 .song .description {
+  flex: 0 0 100%;
+  padding: 0 50px;
+}
+
+.song .lyrics {
   flex: 0 0 100%;
   padding: 0 50px;
 }

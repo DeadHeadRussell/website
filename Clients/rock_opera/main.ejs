@@ -50,6 +50,8 @@
   <section class='content'>
     <p class='title'>Rock Opera - Yet to be named</p>
     <p class='subtitle'>Running time: 62ish minutes</p>
+    <p class='subtitle'><b>Note:</b> These are all demos. This means that some instruments are synthesized and all singing parts, including the female ones, are sung by me.</p>
+
     <p class='title-description'>I started writing this Rock Opera sometime in the early-2010's. I don't really remember the exact date. I had recently been listening to The Who's Tommy and Quadrophenia and was very caught up in the overall flow of the music. I had written many songs before, but had never written a story told by music.</p>
     <p class='title-description'>It took me a while to get started. I didn't have a clue what to write about at first. It wasn't until I happened to be playing guitar one day, and played two of my older songs "Farther Away" and "Boy" back-to-back that I got an idea. The two songs fit well together musically, and there was an opportunity for a story. "Farther Away" was written as a grade 12 English project. Instead of writing a book report, I was able to convince my English teacher to write a song. The book in question is Oryx and Crake by Margaret Atwood (I highly recommend it!!) and this rock opera has been heavily influenced by it. "Boy", on the other hand, was an unnamed song (yes, I know, I'm terrible at naming things) from I don't even know when. I first remember playing it during a lunch hour in Grade 9, though it probably did not have any lyrics back then. It was simply a song complaining about relationships, as highschool students are wont to do. I have also rewritten parts of its intro many times. From these two songs, I started writing.</p>
     <p class='title-description'>Progress was slow until I started grad school at CMU. I was in the music and tech department and had the opportunity to take composition lessons as part of the program. It was here that my teacher, Nancy Galbraith, convinced me to leave my comfort zone and expand the arrangements. At first, I was just going to write it for my typical four piece band, but it got expanded to include the flute, viola, trumpet, percussion, and four part SATB vocals. I also made more progress here due to actually having weekly lessons where I was expected to make progress.</p>
@@ -67,11 +69,14 @@
         </button>
         <p class='name'><%= (i + extra) + 1 %>. <%= parseSongName(song.name) %></p>
         <div class='description'>
-          <% var pgs = song.description.split('\n');
-            for (var j = 0; j < pgs.length; j++) { %>
-            <p><%= pgs[j] %></p>
-          <% } %>
+          <p><%- song.description.split('\n').join('</p><p>') %></p>
         </div>
+        <% if (song.lyrics) { %>
+          <p class='lyrics'>
+            <b>Lyrics:</b><br><br>
+            <%- song.lyrics.split('\n').join('<br>') %>
+          </p>
+        <% } %>
       </div>
       <% if (song.name.indexOf(', ') >= 0) {
         extra++;
