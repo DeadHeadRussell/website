@@ -26,11 +26,11 @@ var gets = {
 
 app.get('/rock_opera', function(req, res) {
   app.set('views', '../../Clients/rock_opera');
-  response.render('main', data.getJsonObject());
+  res.render('main', data.getJsonObject());
 });
 
 app.get('/rock_opera/:file', function(req, res) {
-  response.sendFile(req.params.file, {root: '../../Clients/rock_opera'});
+  res.sendFile(req.params.file, {root: '../../Clients/rock_opera'});
 });
 
 app.get(/^\/([^\/]*)(\/.*)?$/, chooseClient, function(request, response, next) {
