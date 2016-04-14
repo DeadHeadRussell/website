@@ -35,6 +35,56 @@
       "description": "My own solo endevours. From solo live vocal/ guitar performances to full band studio recordings, most of my musical endevours have been solo efforts.",
       "albums": [
         {
+          "name": "Rock Opera",
+          "description": "A rock opera that I've been working on. I still need better titles for everything... Click <a href='/rock_opera'>here</a> for more info / storyline",
+          "songs": [
+            {
+              "name": "Farther Away",
+              "recording": true
+            },
+            {
+              "name": "Here We Are",
+              "recording": true
+            },
+            {
+              "name": "Boy",
+              "recording": true
+            },
+            {
+              "name": "Parents",
+              "recording": true
+            },
+            {
+              "name": "Friends, The Meeting",
+              "recording": true
+            },
+            {
+              "name": "Losing, Looking Back",
+              "recording": true
+            },
+            {
+              "name": "Owner",
+              "recording": true
+            },
+            {
+              "name": "Escape",
+              "recording": true
+            },
+            {
+              "name": "Dusty Road",
+              "recording": true
+            },
+            {
+              "name": "Lost Soul",
+              "recording": true
+            },
+            {
+              "name": "New Life",
+              "recording": true
+            }
+          ]
+        },
+        {
           "name": "YouTube",
           "description": "Check out my YouTube channel. I have many videos of me playing both covers and original songs.",
           "link": "http://www.youtube.com/user/DeadHeadRussell",
@@ -45,6 +95,21 @@
           "description": "Songs from FAWM (February Album Writing Month) 2014",
           "link": "http://fawm.org/fawmers/deadhead/",
           "songs": [
+            {
+              "name": "Hold On",
+              "description": "Free flowing tune\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic written by Andrew Russell.",
+              "recording": true
+            },
+            {
+              "name": "Left Alive",
+              "description": "Song of abandonment\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic written by Andrew Russell.",
+              "recording": true
+            },
+            {
+              "name": "Life Has Never Been So Kind",
+              "description": "Mournful, sad, crying\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic written by Andrew Russell.",
+              "recording": true
+            },
             {
               "name": "What Can I Say?",
               "description": "Jazz-rock instrumental\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic written by Andrew Russell.",
@@ -85,7 +150,51 @@
               "name": "Sleep",
               "description": "Phish Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Trey Anastasio and Tom Marshall",
               "recording": true
+            {
+              "name": "What Can I Say?",
+              "description": "Jazz-rock instrumental\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic written by Andrew Russell.",
+              "recording": true
+            },
+            {
+              "name": "All In Time",
+              "description": "Wistful Folk Song\n\n<b>Credits:</b>\nViola: Sean Brennan\nGuitars: Andrew Russell\nVocals: Andrew Russell\nMusic and Lyrics written by Andrew Russell.",
+              "recording": true
+            },
+            {
+               "name": "A Winter's Day",
+               "description": "Driven Rock Adventure\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nLyrics written by <a href=\"http://nadiacripps.bandcamp.com\">Nadia Cripps</a>\nMusic by Andrew Russell.",
+               "recording": true
+            },
+            {
+              "name": "One Fall Afternoon",
+              "description": "Sappy Love Song\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Andrew Russell.",
+              "recording": true
             }
+          ]
+        },
+        {
+          "name": "Covers",
+          "description": "A recent collections of recordings that I have done.  These songs are all covers from various artists",
+          "songs": [
+            {
+              "name": "Waste",
+              "description": "Phish Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Trey Anastasio and Tom Marshall",
+              "recording": true
+            },
+            {
+              "name": "Suburban War",
+              "description": "Arcade Fire Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Arcade Fire",
+              "recording": true
+            },
+            {
+              "name": "Sleep",
+              "description": "Phish Cover\n\n<b>Credits:</b>\nAll instruments played by Andrew Russell\nMusic and Lyrics written by Trey Anastasio and Tom Marshall",
+              "recording": true
+            },
+            {
+              "name": "Wagon Wheel",
+              "description": "Darius Rucker Cover\n\n<b>Credits:</b>\nVocals: Heather and Andrew Russell\nGuitar: Andrew Russell\nPiano: John Russell\nBass: Valerie Russell\nDrums: Chris Russell\nMusic and Lyrics written by Bob Dylan and Ketch Secor",
+              "recording": true
           ]
         },
         {
