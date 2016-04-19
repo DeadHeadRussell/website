@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box;
+}
+
+*, :before, :after {
+  box-sizing: inherit;
+}
+
+body {
+  padding-bottom: 30px;
+  background: white;
+  background: -webkit-linear-gradient(horizontal, #EEF, #FFF 50%);
+  background: -moz-linear-gradient(horizontal, #EEF, #FFF 50%);
+  background: -ms-linear-gradient(horizontal, #EEF, #FFF 50%);
+  font-family: "Segoe UI", Helvetica, arial, freesans, clean, sans-serif;
+}
+
+.download {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.2em;
+}
+
+@media (max-width: 1100px) {
+  .download {
+    display: block;
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 95%;
+    max-width: 800px;
+    margin: auto;
+    text-align: right;
+  }
+}
+

@@ -33,6 +33,22 @@ app.get('/rock_opera/:file', function(req, res) {
   res.sendfile(req.params.file, {root: '../../Clients/rock_opera'});
 });
 
+app.get('/resume', function(req, res) {
+  app.set('views', '../../Clients/resume/');
+  data.getResumeData('Software Resume', function(err, resumeData) {
+    if (err) {
+      console.error(err);
+      res.send(500);
+    } else {
+      res.render('main.ejs', {resume: resumeData});
+    }
+  });
+});
+
+app.get('/resume/:file', function(req, res) {
+  res.sendfile(req.params.file, {root: '../../Clients/resume'});
+});
+
 app.get(/^\/([^\/]*)(\/.*)?$/, chooseClient, function(request, response, next) {
   var get_call = request.params[0];
   var path = '';

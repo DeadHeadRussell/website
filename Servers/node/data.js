@@ -41,7 +41,11 @@ exports.getOptions = function() {
 
 exports.getJsonObject = function() {
   return data;
-}
+};
+
+exports.getResumeData = function(name, cb) {
+  fs.readFile(data_path_root + 'resumes/' + name + '/part.html', cb);
+};
 
 refreshData();
 
