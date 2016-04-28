@@ -26,8 +26,13 @@
     return 'data/audio/Solo Works/Rock Opera/' + album.songs[0].name + '.' + ext;
   }
 
-  function parseSongName(name) {
-    return name.split(', ').join(' => ');
+  function parseSongName(name, num) {
+    return name
+      .split(', ')
+      .map(function (name, i) {
+        return (num + i) + '. ' + name;
+      })
+      .join(' => ');
   }
 %>
 
@@ -38,7 +43,7 @@
   </header>
 
   <div class='audio'>
-    <p id='status' class='status'>Now Playing: 1. <%= parseSongName(album.songs[0].name) %></p>
+    <p id='status' class='status'>Now Playing: <%= parseSongName(album.songs[0].name, 1) %></p>
     <audio class='player' id='audio' preload='auto' tabindex='0' controls='' type='audio/mpeg'>
       <source type='audio/mp3' src='<%= getFirstSong('mp3') %>'>
       <source type='audio/ogg' src='<%= getFirstSong('ogg') %>'>
@@ -68,7 +73,7 @@
         <button class='play-btn' onclick='play(<%= i %>)'>
           <img class='play-btn-icon' src='/rock_opera/play.svg'>
         </button>
-        <p class='name'><%= (i + extra) + 1 %>. <%= parseSongName(song.name) %></p>
+        <p class='name'><%= parseSongName(song.name, i + extra + 1) %></p>
         <div class='description'>
           <p><%- song.description.split('\n').join('</p><p>') %></p>
         </div>
