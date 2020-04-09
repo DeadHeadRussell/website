@@ -1,34 +1,26 @@
 {
   "name": "website",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
-    "start": "webpack --mode development && node ./dist/compile ./dist",
-    "host": "cd ./dist && python -m SimpleHTTPServer",
-    "genData": "pipenv run python ./src/generate_json/run.py ./data ./src/public/data.json"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "data": "jsonnet ./data/data.jsonnet > data.json"
   },
   "author": "Andrew Russell",
   "dependencies": {
-    "@material-ui/core": "^1.5.1",
-    "@material-ui/icons": "^2.0.3",
-    "markdown": "^0.5.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-jss": "^8.6.1",
-    "showdown": "^1.8.6"
+    "@material-ui/core": "^4.9.7",
+    "@material-ui/icons": "^4.9.1",
+    "next": "^9.3.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "showdown": "^1.9.1"
   },
-  "main": "index.js",
+  "license": "MIT",
+  "description": "",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-react-require": "^3.0.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0",
-    "webpack-node-externals": "^1.7.2"
-  },
-  "keywords": [],
-  "license": "ISC",
-  "description": ""
+    "@types/node": "^13.11.0",
+    "@types/react": "^16.9.32",
+    "typescript": "^3.8.3"
+  }
 }

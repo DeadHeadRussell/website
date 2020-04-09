@@ -1,0 +1,48 @@
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import {useTheme} from '@material-ui/styles';
+import PauseIcon from '@material-ui/icons/Pause';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import SkipNextIcon from '@material-ui/icons/SkipNext';
+import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
+
+
+export const AudioPlaybackControls = ({player, playbackState}) => {
+  const theme = useTheme();
+  const sm = useMediaQuery(theme.breakpoints.down('sm'));
+  const iconSize = sm ? 'small' : 'default';
+
+  const previous = () => player.previous();
+  const pause = () => player.pause();
+  const play = () => player.play();
+  const next = () => player.next();
+
+  return (
+    <Grid container spacing={0} wrap='nowrap'>
+      <Grid item>
+        <IconButton aria-label='previous song' onClick={previous}>
+          <SkipPreviousIcon fontSize={iconSize} />
+        </IconButton>
+      </Grid>
+      {playbackState.playing ? (
+        <Grid item>
+          <IconButton aria-label='pause song' onClick={pause}>
+            <PauseIcon fontSize={iconSize} />
+          </IconButton>
+        </Grid>
+      ) : (
+        <Grid item>
+          <IconButton aria-label='play song' onClick={play}>
+            <PlayArrowIcon fontSize={iconSize} />
+          </IconButton>
+        </Grid>
+      )}
+      <Grid item>
+        <IconButton aria-label='next song' onClick={next}>
+          <SkipNextIcon fontSize={iconSize} />
+        </IconButton>
+      </Grid>
+    </Grid>
+  );
+};

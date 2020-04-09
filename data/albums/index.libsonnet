@@ -1,0 +1,22 @@
+{
+  cam_jervis: import './cam_jervis.libsonnet',
+  cam_tapes: import './cam_tapes.libsonnet',
+  cmu_session: import './cmu_session.libsonnet',
+  covers: import './covers.libsonnet',
+  epic: import './epic.libsonnet',
+  fawm_2020: import './fawm_2020.libsonnet',
+  fawm_2019: import './fawm_2019.libsonnet',
+  fawm_2018: import './fawm_2018.libsonnet',
+  fawm_2017: import './fawm_2017.libsonnet',
+  fawm_2016: import './fawm_2016.libsonnet',
+  fawm_2015: import './fawm_2015.libsonnet',
+  fawm_2014: import './fawm_2014.libsonnet',
+  jazz_fun: import './jazz_fun.libsonnet',
+  leading_off: import './leading_off.libsonnet',
+  midi: import './midi.libsonnet',
+  misc: import './misc.libsonnet',
+  orfs: import './orfs.libsonnet',
+  rock_opera: import './rock_opera.libsonnet',
+  yags: import './yags.libsonnet',
+  zags: import './zags.libsonnet'
+}
