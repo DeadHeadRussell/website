@@ -31,6 +31,18 @@ utils.makeAlbum(
       description = 'Laid back fold'
     ),
     utils.makeSong(
+      'Crash Symbol',
+      '2008',
+      'The Cam Jervis Experience',
+      [
+        utils.makeCredit('Garry Garneau', 'Lead Vocals, Drums, Lyrics'),
+        utils.makeCredit('Andrew Russell', 'Guitar'),
+        utils.makeCredit('Adam Baigent', 'Guitar, Music'),
+        utils.makeCredit('Cam Jervis', 'Bass Guitar'),
+      ],
+      description = 'Rock Rock Rock'
+    ),
+    utils.makeSong(
       'Farmhouse',
       '2008',
       'Phish',

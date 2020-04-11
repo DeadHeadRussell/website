@@ -6,6 +6,63 @@ utils.makeAlbum(
   'Various',
   [
     utils.makeSong(
+      'Higher',
+      '2019',
+      artist = 'The Naked and Famous',
+      credits = [
+        utils.makeCredit('Heather Russell', 'Lead Vocals'),
+        utils.makeCredit('Andrew Russell', 'Backing Vocals, Guitar, Bass Guitar'),
+        utils.makeCredit('The Naked and Famous', 'Music, Lyrics')
+      ],
+      lyrics = |||
+        [Verse 1]
+        Like we understood
+        Made with adrenaline
+        Seeping out through the skin
+        Like only lovers could
+        Here's where we begin
+        Time is the medicine
+        To heal these needs
+        That only raise our voices
+
+        [Chorus]
+        Higher higher
+        Tonight we raise the dead
+        Tonight we bury this in
+        Fire fire
+        Under the shape of years
+        And the weight that brought us here
+
+        [Verse 2]
+        But we can separate
+        To form these hearts in stone
+        Rewrite this pain we own
+        Caught here in the wake
+        Nothing but genuine
+        Built on a skeleton
+        Of fractured parts
+        That only raise our voices
+
+        [Chorus]
+
+        [Bridge]
+        Better believe the sea of changes
+        And put these battered bones to rest
+        Nothing invisible or nameless
+        Leave no reason to confess
+
+        [Chorus]
+
+        [Bridge]
+        Better believe the sea of changes
+        And put these battered bones to rest
+        Nothing invisible or nameless
+        Leave no reason to confess
+        And raise our voices
+        Higher higher
+      |||
+    ),
+    utils.makeSong(
       'Beggar\'s Guild',
       '2018',
       artist = 'Roadkill Ghost Choir',
