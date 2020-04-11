@@ -15,12 +15,13 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Link from 'next/link';
-import {useEffect, useState, FC, ReactNode} from 'react';
+import React, {useEffect, useState, FC, ReactNode} from 'react';
 
 import {Category} from '../data';
 import {AlbumIcon} from './album/icon';
 import {AlbumLink} from './album/link';
 import {AudioControls} from './audioPlayer';
+import {CategoryLink} from './category/link';
 import {License} from './license';
 
 
@@ -134,11 +135,13 @@ export const App: FC<AppProps> = ({categories, children}) => {
       </List>
       <List>
         {categories.map(category => (
-          <>
+          <React.Fragment key={category.name}>
             <Divider />
-            <ListItem>
-              <ListItemText primary={category.name} />
-            </ListItem>
+            <CategoryLink category={category}>
+              <ListItem button>
+                <ListItemText primary={category.name} />
+              </ListItem>
+            </CategoryLink>
             {category.albums.map(album => (
               <AlbumLink key={album.name} album={album}>
                 <ListItem button>
@@ -149,7 +152,7 @@ export const App: FC<AppProps> = ({categories, children}) => {
                 </ListItem>
               </AlbumLink>
             ))}
-          </>
+          </React.Fragment>
         ))}
       </List>
     </div>
@@ -177,9 +180,6 @@ export const App: FC<AppProps> = ({categories, children}) => {
             >
               Andrew Russell - Musician
             </Typography>
-            <Link href='/edit'>
-              <Button> </Button>
-            </Link>
           </Toolbar>
         </AppBar>
       </Hidden>

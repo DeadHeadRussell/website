@@ -87,7 +87,7 @@ export const SongInfo = ({open, song, handleClose}) => {
                 <Typography variant='h5' align='center'>Credits</Typography>
                 <List>
                   {song.credits.map(credit => (
-                    <ListItem>
+                    <ListItem key={credit.who}>
                       <ListItemText primary={credit.who} secondary={credit.role} />
                     </ListItem>
                   ))}

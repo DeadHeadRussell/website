@@ -1,15 +1,9 @@
-import {useRouter} from 'next/router';
-
 import {Album} from '../../components/album';
 import {Root} from '../../components/root';
 import data, {albums} from '../../data';
 
 
-export default () => {
-  const router = useRouter();
-
-  const albumLink = router.query.id;
-  const songLink = router.query.song;
+const AlbumPage = ({albumLink, songLink}) => {
   const album = albums.find(album => album.link == albumLink);
   const song = album && album.songs.find(song => song.link == songLink);
 
@@ -22,5 +16,18 @@ export default () => {
       )}
     </Root>
   );
-}
+};
+
+export const getStaticPaths = async () => {
+  const paths = albums.map(album => `/albums/${album.link}`);
+  return {paths, fallback: false};
+};
+
+export const getStaticProps = async ({params}) => {
+  const albumLink = params.id;
+  const songLink = params.song || null;
+  return {props: {albumLink, songLink}};
+};
+
+export default AlbumPage;
 

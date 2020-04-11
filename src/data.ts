@@ -1,5 +1,3 @@
-import dynamic from 'next/dynamic';
-
 import {default as untypedRawData} from '../data.json';
 
 const rawData: RawData = untypedRawData;
@@ -105,6 +103,8 @@ export const data: Data = {
   })
 };
 
+export const categories = data.categories;
+
 export const albums = data.categories.flatMap(category => category.albums);
 
 export const highlightedAlbums = [
@@ -114,5 +114,8 @@ export const highlightedAlbums = [
 ];
 
 export const songs = data.categories.flatMap(category => category.albums.flatMap(album => album.songs));
+
+const names = songs.map(song => song.name).sort();
+console.log(names);
 
 export default data;

@@ -90,5 +90,6 @@ utils.makeAlbum(
   description = |||
     Recordings done at CMU with the wonderful Riccardo.
     Bass and drums were recorded at home in BC while the guitars and vocals were in the studio. The higher quality audio really shines through on these recordings. I guess that's what a great studio gets you!
-  |||
+  |||,
+  external = 'https://www.cmu.edu/cfa/music/people/Bios/schulz_riccardo.html'
 )

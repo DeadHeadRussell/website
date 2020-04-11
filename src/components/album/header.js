@@ -54,12 +54,7 @@ export const AlbumHeader = ({album, link}) => {
           <Typography variant='h3' align='center' gutterBottom>
             {album.name}
           </Typography>
-          <Typography
-            color='textSecondary'
-            dangerouslySetInnerHTML={{
-              __html: converter.makeHtml(album.tagline)
-            }}
-          />
+          <Typography color='textSecondary'>{album.tagline}</Typography>
         </CardContent>
       </Wrapper>
       <CardActions>

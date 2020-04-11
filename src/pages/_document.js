@@ -13,6 +13,7 @@ export default class RootDocument extends Document {
           <meta itemProp='description' content="Andrew Russell's musical website" />
           <meta itemProp='image' content='/profile.jpg' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' />
+          <link rel='icon' type='image/png' href='/favicon.png' />
         </Head>
         <body>
           <Main />
