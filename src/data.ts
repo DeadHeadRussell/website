@@ -114,5 +114,6 @@ export const highlightedAlbums = [
 ];
 
 export const songs = data.categories.flatMap(category => category.albums.flatMap(album => album.songs));
+export const initialSong = songs.findIndex(song => song.link == 'no_light');
 
 export default data;

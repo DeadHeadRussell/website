@@ -1,11 +1,11 @@
-import {songs} from './data';
+import {songs, initialSong} from './data';
 
 
 export class AudioPlayer {
-  constructor(songs) {
+  constructor(songs, currentSong = 0) {
     this.listeners = [];
     this.songs = songs;
-    this.currentSong = 0;
+    this.currentSong = currentSong;
 
     if (typeof window !== 'undefined') {
       this.player;
@@ -108,5 +108,5 @@ export class AudioPlayer {
   }
 }
 
-export const globalPlayer = new AudioPlayer(songs);
+export const globalPlayer = new AudioPlayer(songs, initialSong);
 
