@@ -115,7 +115,4 @@ export const highlightedAlbums = [
 
 export const songs = data.categories.flatMap(category => category.albums.flatMap(album => album.songs));
 
-const names = songs.map(song => song.name).sort();
-console.log(names);
-
 export default data;
