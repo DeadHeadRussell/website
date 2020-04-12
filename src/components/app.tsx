@@ -135,7 +135,7 @@ export const App: FC<AppProps> = ({categories, children}) => {
       </List>
       <List>
         {categories.map(category => (
-          <React.Fragment key={category.name}>
+          <React.Fragment key={category.link}>
             <Divider />
             <CategoryLink category={category}>
               <ListItem button>
@@ -143,7 +143,7 @@ export const App: FC<AppProps> = ({categories, children}) => {
               </ListItem>
             </CategoryLink>
             {category.albums.map(album => (
-              <AlbumLink key={album.name} album={album}>
+              <AlbumLink key={album.link} album={album}>
                 <ListItem button>
                   <ListItemAvatar>
                     <AlbumIcon album={album} />

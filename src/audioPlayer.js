@@ -30,7 +30,11 @@ export class AudioPlayer {
 
   play = song => {
     if (song) {
-      this.setSong(this.songs.findIndex(s => s.name == song.name));
+      const newIndex = this.songs.findIndex(s =>
+        s.link == song.link &&
+        s.album.link == song.album.link
+      );
+      this.setSong(newIndex);
     }
 
     this.player.play();

@@ -21,7 +21,7 @@ export const AlbumGrid = ({albums}) => {
     <div className={classes.grid}>
       <Grid container spacing={4}>
         {albums.map(album => (
-          <Grid key={album.name} item xs={12} sm={6} md={6} lg={4}>
+          <Grid key={album.link} item xs={12} sm={6} md={6} lg={4}>
             <AlbumHeader album={album} link={true} />
           </Grid>
         ))}
