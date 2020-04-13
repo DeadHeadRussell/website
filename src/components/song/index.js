@@ -74,7 +74,7 @@ export const Song = ({playIndex, song, active}) => {
               aria-label='download song'
               component='a'
               href={song.music}
-              download={`${song.name}.mp3`}
+              download={`${song.name}.${song.extension}`}
             >
               <SaveAltIcon />
             </IconButton>

@@ -90,6 +90,7 @@ utils.makeAlbum(
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Music, Lyrics'),
         utils.makeCredit('Andrew Russell', 'Vocals, Guitar, Music, Lyrics')
       ],
+      video = true,
       description = 'There might also be shorts involved...',
       lyrics = |||
         Sweaters are great

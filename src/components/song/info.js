@@ -48,10 +48,19 @@ export const SongInfo = ({open, song, handleClose}) => {
             color='primary'
             component='a'
             href={song.music}
-            download={`${song.name}.mp3`}
+            download={`${song.name}.${song.extension}`}
           >
             Download
           </Button>
+          {song.external && (
+            <Button
+              color='primary'
+              component='a'
+              href={song.external}
+            >
+              Link
+            </Button>
+          )}
         </CardActions>
 
         <Grid container spacing={2} direction='column'>

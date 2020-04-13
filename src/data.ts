@@ -30,6 +30,7 @@ export interface RawSong {
   link: string;
   date: string;
   artist?: string;
+  video: boolean;
   description?: string;
   lyrics?: string;
   credits?: RawCredit[];
@@ -59,6 +60,8 @@ export interface Song extends RawSong {
   album: Album;
   music: string;
   artist: string;
+  video: boolean;
+  extension: string;
   credits: Credit[];
 }
 
@@ -75,11 +78,13 @@ export const data: Data = {
           art: `/albums/${rawAlbum.link}/art.jpg`,
           archive: `/albums/${rawAlbum.link}/archive.zip`,
           songs: (rawAlbum.songs || []).map(rawSong => {
+            const extension = rawSong.video ? 'mp4' : 'mp3';
             return {
               ...rawSong,
               album: (null as unknown as Album), // we assign the album below.
-              music: `/albums/${rawAlbum.link}/songs/${rawSong.link}.mp3`,
+              music: `/albums/${rawAlbum.link}/songs/${rawSong.link}.${extension}`,
               artist: rawSong.artist || 'Andrew Russell',
+              extension,
               credits: (rawSong.credits || []).length > 0
                 ? (rawSong.credits || [])
                 : [{"who": "Andrew Russell", "role": "Everything"}]

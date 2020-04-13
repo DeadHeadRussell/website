@@ -11,7 +11,7 @@ export const AudioPlayerDownload = ({song}) => (
         aria-label='download song'
         component='a'
         href={song.url}
-        download={`${song.name}.mp3`}
+        download={`${song.name}.${song.extension}`}
       >
         <SaveAltIcon />
       </IconButton>

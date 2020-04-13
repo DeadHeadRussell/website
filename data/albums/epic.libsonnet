@@ -34,11 +34,11 @@ utils.makeAlbum(
         Now you've travelled the world over.
         You've been pretty far.
         You'd like to settle down a while.
-        After having travelled so far.
+        After having travelled so hard.
 
         But no matter where you go,
         You've seen better days.
-        But no matter where you like,
+        But no matter where you look,
         The horizon always turns your gaze.
 
         The horizon always turns your gaze.
