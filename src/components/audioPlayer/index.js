@@ -12,6 +12,8 @@ import {AudioPlayerSongDisplay} from './songDisplay';
 import {AudioTimeControls} from './timeControls';
 import {AudioVolumeControls} from './volumeControls';
 
+import '../../mediaKeys';
+
 
 const useStyles = makeStyles(theme => ({
   drawer: {

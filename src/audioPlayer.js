@@ -71,6 +71,11 @@ export class AudioPlayer {
     this.handleUpdate();
   }
 
+  seekOffset = offset => {
+    this.player.currentTime += offset;
+    this.handleUpdate();
+  };
+
   get song() {
     return this.songs[this.currentSong];
   }
@@ -99,6 +104,10 @@ export class AudioPlayer {
 
   get duration() {
     return (this._player && this._player.duration) || 0;
+  }
+
+  get playbackRate() {
+    return (this._player && this._player.playbackRate) || 1;
   }
 
   get volume() {
