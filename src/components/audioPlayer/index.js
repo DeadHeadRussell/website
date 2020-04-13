@@ -13,6 +13,7 @@ import {AudioTimeControls} from './timeControls';
 import {AudioVolumeControls} from './volumeControls';
 
 import '../../mediaKeys';
+import '../../notifications';
 
 
 const useStyles = makeStyles(theme => ({

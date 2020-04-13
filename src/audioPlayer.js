@@ -2,6 +2,12 @@ import {songs, initialSong} from './data';
 
 
 export class AudioPlayer {
+  static actions = ['PLAY', 'PAUSE', 'PREVIOUS', 'NEXT', 'SEEK']
+    .reduce((actions, action) => {
+      actions[action] = action;
+      return actions;
+    }, {});
+
   constructor(songs, currentSong = 0) {
     this.listeners = [];
     this.songs = songs;
@@ -19,8 +25,8 @@ export class AudioPlayer {
     };
   };
 
-  handleUpdate = () => {
-    this.listeners.forEach(listener => listener());
+  handleUpdate = action => {
+    this.listeners.forEach(listener => listener(action));
   };
 
   setSong = currentSong => {
@@ -38,42 +44,40 @@ export class AudioPlayer {
     }
 
     this.player.play();
-    this.handleUpdate();
+    this.handleUpdate(AudioPlayer.actions.PLAY);
   }
 
   pause = () => {
     this.player.pause();
-    this.handleUpdate();
+    this.handleUpdate(AudioPlayer.actions.PAUSE);
   }
 
   previous = () => {
     const isPlaying = this.playing;
     this.setSong((this.currentSong - 1 + this.songs.length) % this.songs.length);
     if (isPlaying) {
-      this.play();
-    } else {
-      this.handleUpdate();
+      this.player.play();
     }
+    this.handleUpdate(AudioPlayer.actions.PREVIOUS);
   }
 
   next = forcePlay => {
     const isPlaying = this.playing;
     this.setSong((this.currentSong + 1) % this.songs.length);
     if (isPlaying || forcePlay) {
-      this.play();
-    } else {
-      this.handleUpdate();
+      this.player.play();
     }
+    this.handleUpdate(AudioPlayer.actions.NEXT);
   }
 
   seek = newTime => {
     this.player.currentTime = newTime;
-    this.handleUpdate();
+    this.handleUpdate(AudioPlayer.actions.SEEK);
   }
 
   seekOffset = offset => {
     this.player.currentTime += offset;
-    this.handleUpdate();
+    this.handleUpdate(AudioPlayer.actions.SEEK);
   };
 
   get song() {
