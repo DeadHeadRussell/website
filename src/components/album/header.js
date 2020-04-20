@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/styles';
 import showdown from 'showdown';
 
-import {globalPlayer} from '../../audioPlayer';
+import {getPlayer} from '../../audioPlayer';
 import {AlbumLink} from './link';
 
 const converter = new showdown.Converter({
@@ -36,12 +36,12 @@ const useStyles = makeStyles(theme => ({
 export const AlbumHeader = ({album, link}) => {
   const classes = useStyles();
 
-  const play = song => () => globalPlayer.play(song);
+  const play = song => () => getPlayer().play(album, song);
 
   const Wrapper = link
     ? ({children}) => (
       <CardActionArea>
-        <AlbumLink album={album}>{children}</AlbumLink>
+        <AlbumLink albumLink={album.link}>{children}</AlbumLink>
       </CardActionArea>
     )
     : ({children}) => children;

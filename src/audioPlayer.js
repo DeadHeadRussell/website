@@ -1,6 +1,3 @@
-import {songs, initialSong} from './data';
-
-
 export class AudioPlayer {
   static actions = ['PLAY', 'PAUSE', 'PREVIOUS', 'NEXT', 'SEEK']
     .reduce((actions, action) => {
@@ -34,11 +31,11 @@ export class AudioPlayer {
     this.player.src = this.song.music;
   }
 
-  play = song => {
+  play = (album, song) => {
     if (song) {
       const newIndex = this.songs.findIndex(s =>
         s.link == song.link &&
-        s.album.link == song.album.link
+        s.album.link == album.link
       );
       this.setSong(newIndex);
     }
@@ -125,5 +122,15 @@ export class AudioPlayer {
   }
 }
 
-export const globalPlayer = new AudioPlayer(songs, initialSong);
+let _player = null;
+
+export const getPlayer = (songs = null, initialSong = 0) => {
+  if (!_player) {
+    if (!songs) {
+      throw new Error('A songs list is required');
+    }
+    _player = new AudioPlayer(songs, initialSong);
+  }
+  return _player;
+};
 

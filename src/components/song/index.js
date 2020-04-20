@@ -11,27 +11,28 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import {useRouter} from 'next/router';
 import {useEffect, useState} from 'react';
 
-import {globalPlayer} from '../../audioPlayer';
+import {getPlayer} from '../../audioPlayer';
 import {usePlayback} from '../../utils';
 import {SongInfo} from './info';
 
 
-export const Song = ({playIndex, song, active}) => {
+export const Song = ({playIndex, album, song, active}) => {
   const [showInfo, setShowInfo] = useState(false);
   const router = useRouter();
-  const playbackState = usePlayback(globalPlayer, false);
+  const player = getPlayer();
+  const playbackState = usePlayback(player, false);
 
   useEffect(() => {
     setShowInfo(active);
   }, [active]);
 
   const isCurrentSong = playbackState.song === song;
-  const pause = () => globalPlayer.pause();
-  const play = () => globalPlayer.play(song);
+  const pause = () => player.pause();
+  const play = () => player.play(album, song);
 
   const openInfo = () => setShowInfo(true);
   const closeInfo = () => {
-    router.replace(router.pathname, `/albums/${song.album.link}`);
+    router.replace(router.pathname, `/albums/${album.link}`);
     setShowInfo(false);
   };
 
@@ -65,7 +66,7 @@ export const Song = ({playIndex, song, active}) => {
         <Button variant='outlined' color='primary' onClick={openInfo}>
           Info
         </Button>
-        <SongInfo open={showInfo} song={song} handleClose={closeInfo} />
+        <SongInfo open={showInfo} album={album} song={song} handleClose={closeInfo} />
       </TableCell>
       <Hidden xsDown>
         <TableCell>

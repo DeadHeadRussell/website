@@ -54,7 +54,13 @@ export const Album = ({album, song}) => {
 					<Table className={classes.table}>
 						<TableBody>
 							{album.songs.map((listSong, index) => (
-								<Song key={index} playIndex={index + 1} song={listSong} active={song === listSong} />
+								<Song
+                  key={index}
+                  playIndex={index + 1}
+                  album={album}
+                  song={listSong}
+                  active={song === listSong}
+                />
 							))}
 						</TableBody>
 					</Table>

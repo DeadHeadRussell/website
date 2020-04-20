@@ -1,10 +1,3 @@
-import {default as untypedRawData} from '../data.json';
-
-const rawData: RawData = untypedRawData;
-
-// TODO: Split out artists
-// TODO: Add in all music and make this data great!!!
-
 export interface RawData {
   categories: RawCategory[];
 }
@@ -50,14 +43,12 @@ export interface Category extends RawCategory {
 }
 
 export interface Album extends RawAlbum {
-  category: Category;
   art: string;
   archive: string;
   songs: Song[];
 }
 
 export interface Song extends RawSong {
-  album: Album;
   music: string;
   artist: string;
   video: boolean;
@@ -67,58 +58,121 @@ export interface Song extends RawSong {
 
 export interface Credit extends RawCredit {}
 
-export const data: Data = {
-  categories: rawData.categories.map(rawCategory => {
-    const category = {
-      ...rawCategory,
-      albums: rawCategory.albums.map(rawAlbum => {
-        const album = {
-          ...rawAlbum,
-          category: (null as unknown as Category), // we assign the category below.
-          art: `/albums/${rawAlbum.link}/art.jpg`,
-          archive: `/albums/${rawAlbum.link}/archive.zip`,
-          songs: (rawAlbum.songs || []).map(rawSong => {
-            const extension = rawSong.video ? 'mp4' : 'mp3';
-            return {
-              ...rawSong,
-              album: (null as unknown as Album), // we assign the album below.
-              music: `/albums/${rawAlbum.link}/songs/${rawSong.link}.${extension}`,
-              artist: rawSong.artist || 'Andrew Russell',
-              extension,
-              credits: (rawSong.credits || []).length > 0
-                ? (rawSong.credits || [])
-                : [{"who": "Andrew Russell", "role": "Everything"}]
-            };
-          })
-        };
+export interface MenuAlbum {
+  link: string;
+  name: string;
+  art: string;
+}
 
-        album.songs.forEach(song => {
-          song.album = album;
-        });
-        
-        return album;
-      })
-    };
+export interface MenuCategory {
+  link: string;
+  name: string;
+  albums: MenuAlbum[];
+}
 
-    category.albums.forEach(album => {
-      album.category = category;
-    });
+export interface MenuData {
+  categories: MenuCategory[];
+}
 
-    return category;
-  })
+export interface AudioPlayerAlbum {
+  link: string;
+  name: string;
+  art: string;
+}
+
+export interface AudioPlayerSong {
+  link: string;
+  name: string;
+  artist: string;
+  music: string;
+  extension: string;
+  album: AudioPlayerAlbum;
+}
+
+export interface AudioPlayerData {
+  songs: AudioPlayerSong[];
+  initialSong: number;
+}
+
+export interface ProcessedData {
+  data: Data;
+  categories: Category[];
+  albums: Album[];
+  menuData: MenuData;
+  audioPlayerData: AudioPlayerData;
+}
+
+export const processMenuData = (categories: Category[]): MenuData => ({
+  categories: categories.map(category => ({
+    link: category.link,
+    name: category.name,
+    albums: category.albums.map(album => ({
+      link: album.link,
+      name: album.name,
+      art: album.art
+    }))
+  }))
+});
+
+export const processAudioPlayerData = (albums: Album[]): AudioPlayerData => {
+  const songs = albums.flatMap(album => album.songs.map(song => ({
+    link: song.link,
+    name: song.name,
+    artist: song.artist,
+    music: song.music,
+    extension: song.extension,
+    album: {
+      link: album.link,
+      name: album.name,
+      art: album.art
+    }
+  })));
+  return {
+    songs,
+    initialSong: songs.findIndex(song => song.link === 'no_light')
+  };
 };
 
-export const categories = data.categories;
+export const processAlbum = (rawAlbum: RawAlbum): Album => ({
+  ...rawAlbum,
+  art: `/albums/${rawAlbum.link}/art.jpg`,
+  archive: `/albums/${rawAlbum.link}/archive.zip`,
+  songs: (rawAlbum.songs || []).map(rawSong => {
+    const extension = rawSong.video ? 'mp4' : 'mp3';
+    return {
+      ...rawSong,
+      music: `/albums/${rawAlbum.link}/songs/${rawSong.link}.${extension}`,
+      artist: rawSong.artist || 'Andrew Russell',
+      extension,
+      credits: (rawSong.credits || []).length > 0
+        ? (rawSong.credits || [])
+        : [{"who": "Andrew Russell", "role": "Everything"}]
+    };
+  })
+});
 
-export const albums = data.categories.flatMap(category => category.albums);
+export const processAlbums = (rawAlbums: RawAlbum[]): Album[] => rawAlbums.map(processAlbum);
 
-export const highlightedAlbums = [
-  data.categories[0].albums[0],
-  data.categories[1].albums[0],
-  data.categories[2].albums[0]
-];
+export const processCategory = (rawCategory: RawCategory): Category => ({
+  ...rawCategory,
+  albums: processAlbums(rawCategory.albums)
+});
 
-export const songs = data.categories.flatMap(category => category.albums.flatMap(album => album.songs));
-export const initialSong = songs.findIndex(song => song.link == 'no_light');
+export const processCategories = (rawCategories: RawCategory[]): Category[] => rawCategories.map(processCategory);
 
-export default data;
+export const processData = (rawData: RawData): ProcessedData => {
+  const data: Data = {
+    categories: processCategories(rawData.categories)
+  };
+
+  const categories = data.categories;
+  const albums = data.categories.flatMap(category => category.albums);
+  const songs = data.categories.flatMap(category => category.albums.flatMap(album => album.songs));
+  return {
+    data,
+    categories,
+    albums,
+    menuData: processMenuData(categories),
+    audioPlayerData: processAudioPlayerData(albums)
+  };
+}

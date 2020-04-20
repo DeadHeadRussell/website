@@ -17,7 +17,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Link from 'next/link';
 import React, {useEffect, useState, FC, ReactNode} from 'react';
 
-import {Category} from '../data';
+import {getPlayer} from '../audioPlayer';
+import {AudioPlayerData, MenuData} from '../data';
 import {AlbumIcon} from './album/icon';
 import {AlbumLink} from './album/link';
 import {AudioControls} from './audioPlayer';
@@ -81,20 +82,19 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export interface AppProps {
-  categories: Category[];
+  audioPlayerData: AudioPlayerData;
+  menuData: MenuData;
   children: ReactNode;
 }
 
-import {usePlayback} from '../utils';
-import {globalPlayer} from '../audioPlayer';
-export const App: FC<AppProps> = ({categories, children}) => {
-  const pbs = usePlayback(globalPlayer, true);
-
+export const App: FC<AppProps> = ({audioPlayerData, menuData, children}) => {
   const classes = useStyles();
 
   const [smallOpen, setSmallOpen] = useState(false);
 
   const handleDrawerToggle = () => setSmallOpen(!smallOpen);
+
+  getPlayer(audioPlayerData.songs, audioPlayerData.initialSong);
 
   const drawerContent = (
     <div className={classes.drawerContent}>
@@ -134,19 +134,19 @@ export const App: FC<AppProps> = ({categories, children}) => {
         </Link>
       </List>
       <List>
-        {categories.map(category => (
+        {menuData.categories.map(category => (
           <React.Fragment key={category.link}>
             <Divider />
-            <CategoryLink category={category}>
+            <CategoryLink categoryLink={category.link}>
               <ListItem button>
                 <ListItemText primary={category.name} />
               </ListItem>
             </CategoryLink>
             {category.albums.map(album => (
-              <AlbumLink key={album.link} album={album}>
+              <AlbumLink key={album.link} albumLink={album.link}>
                 <ListItem button>
                   <ListItemAvatar>
-                    <AlbumIcon album={album} />
+                    <AlbumIcon albumArt={album.art} />
                   </ListItemAvatar>
                   <ListItemText primary={album.name} />
                 </ListItem>

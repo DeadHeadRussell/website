@@ -2,8 +2,6 @@ import {makeStyles} from '@material-ui/styles';
 import {FC, ReactNode} from 'react';
 import Link from 'next/link';
 
-import {Album, Song} from '../../data';
-
 
 const useStyles = makeStyles(theme => ({
   link: {
@@ -14,14 +12,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export interface AlbumLinkProps {
-  album: Album;
-  song?: Song;
+  albumLink: string;
+  songLink?: string;
   children: ReactNode;
 }
 
-export const AlbumLink: FC<AlbumLinkProps> = ({album, song, children}) => {
+export const AlbumLink: FC<AlbumLinkProps> = ({albumLink, songLink, children}) => {
   const classes = useStyles();
-  const query = song ? {song: song.link} : {};
+  const query = songLink ? {song: songLink} : {};
   
   return (
     <Link
@@ -30,7 +28,7 @@ export const AlbumLink: FC<AlbumLinkProps> = ({album, song, children}) => {
         query
       }}
       as={{
-        pathname: `/albums/${album.link}`,
+        pathname: `/albums/${albumLink}`,
         query
       }}
     >

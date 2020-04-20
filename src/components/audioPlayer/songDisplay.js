@@ -37,27 +37,27 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const AudioPlayerSongDisplay = ({song}) => {
+export const AudioPlayerSongDisplay = ({album, song}) => {
   const classes = useStyles();
 
   return (
-    <AlbumLink album={song.album} song={song}>
+    <AlbumLink albumLink={album.link} songLink={song.link}>
       <ButtonBase className={classes.songButton}>
         <Tooltip
           classes={{tooltip: classes.songNameTooltip}}
           arrow
-          title={song.name + ' - ' + song.album.name + ' - ' + song.artist}
+          title={song.name + ' - ' + album.name + ' - ' + song.artist}
         >
           <Grid container spacing={2} wrap='nowrap'>
             <Grid item>
               <Hidden smDown>
-                <AlbumIcon album={song.album} />
+                <AlbumIcon albumArt={album.art} />
               </Hidden>
             </Grid>
             <Grid item>
               <Typography className={classes.songName}>{song.name}</Typography>
               <Hidden smDown>
-                <Typography className={classes.songName}>{song.album.name} - {song.artist}</Typography>
+                <Typography className={classes.songName}>{album.name} - {song.artist}</Typography>
               </Hidden>
             </Grid>
           </Grid>

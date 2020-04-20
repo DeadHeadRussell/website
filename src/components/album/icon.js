@@ -1,9 +1,9 @@
 import Avatar from '@material-ui/core/Avatar';
 
-export const AlbumIcon = ({album}) => (
+export const AlbumIcon = ({albumArt}) => (
   <Avatar
     variant='square'
-    src={album.art}
+    src={albumArt}
     alt='Album Art'
   />
 );

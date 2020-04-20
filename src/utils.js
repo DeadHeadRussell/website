@@ -47,6 +47,7 @@ export function usePlayback(player, useMs) {
   const delay = useMs ? 50 : 250;
 
   const createState = () => ({
+    album: player.song?.album,
     song: player.song,
     playing: player.playing,
     currentTime: player.currentTime,

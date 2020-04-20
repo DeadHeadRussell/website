@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/styles';
 import showdown from 'showdown';
 
-import {globalPlayer} from '../../audioPlayer';
+import {getPlayer} from '../../audioPlayer';
 
 
 const converter = new showdown.Converter({
@@ -24,17 +24,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const SongInfo = ({open, song, handleClose}) => {
+export const SongInfo = ({open, album, song, handleClose}) => {
   const classes = useStyles();
 
-  const play = () => globalPlayer.play(song);
+  const play = () => getPlayer().play(album, song);
 
   return (
     <Drawer anchor='right' open={open} onClose={handleClose}>
       <div className={classes.details}>
         <Typography variant='h4' align='center'>{song.name}</Typography>
         <Typography variant='h5' align='center' gutterBottom>
-          {song.album.name} - {song.artist}
+          {album.name} - {song.artist}
         </Typography>
 
         <CardActions>
