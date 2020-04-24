@@ -24,6 +24,7 @@ import {AlbumLink} from './album/link';
 import {AudioControls} from './audioPlayer';
 import {CategoryLink} from './category/link';
 import {License} from './license';
+import {Subscribe} from './subscribe';
 
 
 const drawerWidth = 240;
@@ -74,6 +75,7 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
 
   content: {
+    position: 'relative',
     flexGrow: 1,
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(3)
@@ -214,6 +216,7 @@ export const App: FC<AppProps> = ({audioPlayerData, menuData, children}) => {
         <Hidden mdUp>
           <div className={classes.toolbar} />
         </Hidden>
+        <Subscribe />
         {children}
         <License />
         <div className={classes.toolbar} />

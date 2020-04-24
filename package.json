@@ -11,8 +11,9 @@
   },
   "author": "Andrew Russell",
   "dependencies": {
-    "@material-ui/core": "^4.9.7",
+    "@material-ui/core": "^4.9.11",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.50",
     "idelic-safety-net": "^1.2.0",
     "next": "^9.3.1",
     "react": "^16.13.1",
