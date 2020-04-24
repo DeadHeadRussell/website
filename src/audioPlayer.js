@@ -1,5 +1,9 @@
+import {setupListensCount} from './listensCount';
+import {setupMediaKeys} from './mediaKeys';
+import {createNotifications} from './notifications';
+
 export class AudioPlayer {
-  static actions = ['PLAY', 'PAUSE', 'PREVIOUS', 'NEXT', 'SEEK']
+  actions = ['PLAY', 'PAUSE', 'PREVIOUS', 'NEXT', 'SEEK']
     .reduce((actions, action) => {
       actions[action] = action;
       return actions;
@@ -41,12 +45,12 @@ export class AudioPlayer {
     }
 
     this.player.play();
-    this.handleUpdate(AudioPlayer.actions.PLAY);
+    this.handleUpdate(this.actions.PLAY);
   }
 
   pause = () => {
     this.player.pause();
-    this.handleUpdate(AudioPlayer.actions.PAUSE);
+    this.handleUpdate(this.actions.PAUSE);
   }
 
   previous = () => {
@@ -55,7 +59,7 @@ export class AudioPlayer {
     if (isPlaying) {
       this.player.play();
     }
-    this.handleUpdate(AudioPlayer.actions.PREVIOUS);
+    this.handleUpdate(this.actions.PREVIOUS);
   }
 
   next = forcePlay => {
@@ -64,17 +68,17 @@ export class AudioPlayer {
     if (isPlaying || forcePlay) {
       this.player.play();
     }
-    this.handleUpdate(AudioPlayer.actions.NEXT);
+    this.handleUpdate(this.actions.NEXT);
   }
 
   seek = newTime => {
     this.player.currentTime = newTime;
-    this.handleUpdate(AudioPlayer.actions.SEEK);
+    this.handleUpdate(this.actions.SEEK);
   }
 
   seekOffset = offset => {
     this.player.currentTime += offset;
-    this.handleUpdate(AudioPlayer.actions.SEEK);
+    this.handleUpdate(this.actions.SEEK);
   };
 
   get song() {
@@ -130,6 +134,9 @@ export const getPlayer = (songs = null, initialSong = 0) => {
       throw new Error('A songs list is required');
     }
     _player = new AudioPlayer(songs, initialSong);
+    createNotifications(_player);
+    setupMediaKeys(_player);
+    setupListensCount(_player);
   }
   return _player;
 };
