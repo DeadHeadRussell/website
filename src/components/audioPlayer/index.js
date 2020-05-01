@@ -19,7 +19,8 @@ import '../../notifications';
 const useStyles = makeStyles(theme => ({
   drawer: {
     maxHeight: 90,
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+    overflow: 'visible'
   }
 }));
 

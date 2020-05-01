@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     },
 
     [theme.breakpoints.down('xs')]: {
-      maxWidth: 'calc(100vw - 410px)'
+      maxWidth: 'calc(100vw - 320px)'
     }
   },
 
@@ -56,9 +56,7 @@ export const AudioPlayerSongDisplay = ({album, song}) => {
             </Grid>
             <Grid item>
               <Typography className={classes.songName}>{song.name}</Typography>
-              <Hidden smDown>
-                <Typography className={classes.songName}>{album.name} - {song.artist}</Typography>
-              </Hidden>
+              <Typography className={classes.songName} variant='small'>{album.name} - {song.artist}</Typography>
             </Grid>
           </Grid>
         </Tooltip>

@@ -33,16 +33,6 @@ export function formatTime(time, useMs) {
   }
 }
 
-export function parseFormattedTime(timeStr) {
-  if (timeStr && timeStr.includes(':')) {
-    const [minutesStr, secondsStr] = timeStr.split(':');
-    const minutes = parseInt(minutesStr, 10);
-    const seconds = parseInt(secondsStr, 10);
-    return minutes * 60 + seconds;
-  }
-  return parseInt(timeStr, 10);
-}
-
 export function usePlayback(player, useMs) {
   const delay = useMs ? 50 : 250;
 
