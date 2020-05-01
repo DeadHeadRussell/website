@@ -6,7 +6,11 @@ utils.makeAlbum(
   'Improvs on a grand piano',
   [
     utils.makeSong(
-      'Impromptu 2',
+      'Impromptu 5',
+      '2020'
+    ),
+    utils.makeSong(
+      'Impromptu 4',
       '2020'
     ),
     utils.makeSong(
@@ -15,11 +19,7 @@ utils.makeAlbum(
       description = 'This one takes a while to get going, but it really gets going'
     ),
     utils.makeSong(
-      'Impromptu 4',
-      '2020'
-    ),
-    utils.makeSong(
-      'Impromptu 5',
+      'Impromptu 2',
       '2020'
     )
   ],
