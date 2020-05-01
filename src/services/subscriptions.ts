@@ -3,13 +3,14 @@ import {db} from './database';
 init();
 
 export async function init() {
-  db.exec('CREATE TABLE IF NOT EXISTS subscriptions (id INTEGER NOT NULL PRIMARY KEY, email TEXT UNIQUE, type TEXT, date INTEGER)');
+  db.exec('CREATE TABLE IF NOT EXISTS subscriptions (id INTEGER NOT NULL PRIMARY KEY, email TEXT UNIQUE, name TEXT, type TEXT, date INTEGER)');
 }
 
-export function addSubscription(email, type) {
+export function addSubscription(email, name, type) {
   return new Promise((resolve, reject) => {
-    db.run('INSERT INTO subscriptions (email, type, date) VALUES ($email, $type, $date)', {
+    db.run('INSERT INTO subscriptions (email, name, type, date) VALUES ($email, $name, $type, $date)', {
       $email: email,
+      $name: name,
       $type: type,
       $date: Date.now()
     }, function(err) {

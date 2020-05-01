@@ -16,7 +16,7 @@ async function addSubscriptionHandler(req, res) {
     if (!req.body || !req.body.email) {
       res.status(400).json({message: 'Invalid POST body'});
     } else {
-      await addSubscription(req.body.email, req.body.type);
+      await addSubscription(req.body.email, req.body.name, req.body.type);
       res.status(200).json({success: true});
     }
   } catch (err) {

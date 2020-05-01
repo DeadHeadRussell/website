@@ -52,6 +52,7 @@ const useStyles = makeStyles(theme => ({
 
 export const Subscribe = () => {
   const [open, setOpen] = useState(false);
+  const [nameInput, setNameInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [typeInput, setTypeInput] = useState('');
   const [success, setSuccess] = useState(false);
@@ -59,6 +60,10 @@ export const Subscribe = () => {
   const [error, setError] = useState(null);
 
   const classes = useStyles();
+
+  const updateNameInput = event => {
+    setNameInput(event.target.value);
+  };
 
   const updateEmailInput = event => {
     setEmailInput(event.target.value);
@@ -79,6 +84,7 @@ export const Subscribe = () => {
         ['content-type']: 'application/json'
       },
       body: {
+        name: nameInput,
         email: emailInput,
         type: typeInput
       }
@@ -133,6 +139,12 @@ export const Subscribe = () => {
                 <TextField
                   className={classes.field}
                   autoFocus
+                  label='Name'
+                  value={nameInput}
+                  onChange={updateNameInput}
+                />
+                <TextField
+                  className={classes.field}
                   type='email'
                   required={true}
                   label='Email'
