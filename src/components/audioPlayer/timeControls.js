@@ -57,7 +57,7 @@ export const AudioTimeControls = ({player, playbackState}) => {
         </Grid>
       </Hidden>
       <Hidden mdUp>
-        <Grid className={classes.smallText} item variant='small'>
+        <Grid className={classes.smallText} item variant='body2'>
           {playbackState.currentTimeFormatted}/{playbackState.durationFormatted}
         </Grid>
       </Hidden>

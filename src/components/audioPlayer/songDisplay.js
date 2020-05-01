@@ -56,7 +56,7 @@ export const AudioPlayerSongDisplay = ({album, song}) => {
             </Grid>
             <Grid item>
               <Typography className={classes.songName}>{song.name}</Typography>
-              <Typography className={classes.songName} variant='small'>{album.name} - {song.artist}</Typography>
+              <Typography className={classes.songName} variant='body2'>{album.name} - {song.artist}</Typography>
             </Grid>
           </Grid>
         </Tooltip>
