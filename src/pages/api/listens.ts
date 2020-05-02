@@ -16,7 +16,7 @@ async function addListenHandler(req, res) {
     if (!req.body || !req.body.album || !req.body.song) {
       res.status(400).json({message: 'Invalid POST body'});
     } else {
-      await addListen(req.body.album, req.body.song);
+      await addListen(req.body.album, req.body.song, req.socket.remoteAddress);
       res.status(200).json({success: true});
     }
   } catch (err) {
