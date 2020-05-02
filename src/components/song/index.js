@@ -26,7 +26,7 @@ export const Song = ({playIndex, album, song, active}) => {
     setShowInfo(active);
   }, [active]);
 
-  const isCurrentSong = playbackState.song === song;
+  const isCurrentSong = playbackState.song.link === song.link;
   const pause = () => player.pause();
   const play = () => player.play(album, song);
 
