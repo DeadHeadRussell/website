@@ -24,6 +24,7 @@ export interface RawSong {
   date: string;
   artist?: string;
   video: boolean;
+  sheetMusic: boolean;
   description?: string;
   lyrics?: string;
   credits?: RawCredit[];
@@ -51,8 +52,8 @@ export interface Album extends RawAlbum {
 export interface Song extends RawSong {
   music: string;
   artist: string;
-  video: boolean;
   extension: string;
+  sheetMusic?: string;
   credits: Credit[];
 }
 
@@ -146,7 +147,11 @@ export const processAlbum = (rawAlbum: RawAlbum): Album => ({
       extension,
       credits: (rawSong.credits || []).length > 0
         ? (rawSong.credits || [])
-        : [{"who": "Andrew Russell", "role": "Everything"}]
+        : [{"who": "Andrew Russell", "role": "Everything"}],
+      ...(rawSong.sheetMusic
+        ? {sheetMusic: `/albums/${rawAlbum.link}/songs/${rawSong.link}.pdf`}
+        : {}
+      )
     };
   })
 });

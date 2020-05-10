@@ -61,6 +61,17 @@ export const SongInfo = ({open, album, song, handleClose}) => {
               Link
             </Button>
           )}
+          {song.sheetMusic && (
+            <Button
+              color='primary'
+              component='a'
+              href={song.sheetMusic}
+              //download={`${song.name}.pdf`}
+              target='blank'
+            >
+              Sheet Music
+            </Button>
+          )}
         </CardActions>
 
         <Grid container spacing={2} direction='column'>
