@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
   subscribe: {
     position: 'sticky',
     left: `calc(100% - ${theme.spacing(2)}px)`,
-    top: `calc(100% - ${theme.spacing(20)}px)`
+    top: `calc(100% - ${theme.spacing(20)}px)`,
+    zIndex: 10000
   },
 
   dialogContent: {
