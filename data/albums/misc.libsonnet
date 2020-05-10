@@ -94,6 +94,12 @@ utils.makeAlbum(
 
         Its time to go home
       |||
+    ),
+    utils.makeSong(
+      'Once Majestic',
+      '2020',
+      description = 'Grand solo piano composition.  This is the first composition done primarily at the grand piano.',
+      sheetMusic = true
     )
   ],
   description = |||

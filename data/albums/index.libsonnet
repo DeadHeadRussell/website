@@ -12,6 +12,7 @@
   fawm_2015: import './fawm_2015.libsonnet',
   fawm_2014: import './fawm_2014.libsonnet',
   grand_piano_series: import './grand_piano_series.libsonnet',
+  home_concert_series: import './home_concert_series.libsonnet',
   jazz_fun: import './jazz_fun.libsonnet',
   leading_off: import './leading_off.libsonnet',
   midi: import './midi.libsonnet',

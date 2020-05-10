@@ -62,7 +62,7 @@ utils.makeAlbum(
         Got inspired by a Rachmaninoff Elegy Op. 3 No. 1, so I wrote something in that style.
         This took 3-4 long days of writing and still could use tons of work, but... FAWM. Also, my playing sucks, I had to record a lot of this one hand at a time... then heavily edit those sections as well. Huzzah for MIDI!
       |||,
-      sheetMusic = 'https://drive.google.com/file/d/1jINeNnp4tNpMuPjKa0Xv-CzC5UO_2iSo/view?usp=drivesdk'
+      sheetMusic = true
     ),
     utils.makeSong(
       'Silently Tapping upon the Glass',
@@ -156,7 +156,7 @@ utils.makeAlbum(
         
         Performed by myself. Err... mostly. Kind of. Every note here was played on a piano. Just... usually really slowly, and one hand at a time. Or sometimes even multiple takes for a single hand. And then edited heavily after that.
       |||,
-      sheetMusic = 'https://drive.google.com/file/d/1_rCrIqsKW6ffR4WbCjdgCogYI0dbhihn/view'
+      sheetMusic = true
     ),
     utils.makeSong(
       'Prelude in F Minor',
@@ -164,14 +164,14 @@ utils.makeAlbum(
       description = |||
         There's just something about me and manhattans when it comes to piano. It just changes how I write piano music.
         Anyhoo, regular disclaimer that I "played" this piece. Aka, one hand... err... one part of one hand at a time. Then made lots of edits. So don't go claiming I'm great at playing piano after listening to this.
-     |||,
-     sheetMusic = 'https://drive.google.com/file/d/1Te6mYF2S2sOfFP8GE6HKZZt9BUK9eCkq/view?usp=sharing'
-   ),
+      |||,
+      sheetMusic = true
+    ),
     utils.makeSong(
       'Rhapsody of Uncertainty',
       '2020-02',
       description = 'A rhapsody. \'nuff said.',
-      sheetMusic = 'https://drive.google.com/file/d/1reiEiuUB-lvR4jW-Bj0r25WVLMZerxNC/view?usp=sharing'
+      sheetMusic = true
     ),
     utils.makeSong(
       'Impromptu 1',
@@ -191,7 +191,7 @@ utils.makeAlbum(
         utils.makeCredit('Andrew Russell', 'Vocals, Guitar, Music'),
         utils.makeCredit('Nancy Gunderson', 'Lyrics')
       ],
-      description = 'Yet another FAWM collab with the wonderful Hummingbear.  I managed to rope my wife into singing one yet again! (And by that, I mean she wanted to sing to these lyrics � )',
+      description = 'Yet another FAWM collab with the wonderful Hummingbear.  I managed to rope my wife into singing one yet again! (And by that, I mean she wanted to sing to these lyrics 😀)',
       lyrics = |||
         The seed
         The seed
