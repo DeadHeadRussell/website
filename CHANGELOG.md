@@ -19,6 +19,10 @@ Changes, both released, upcoming and in progress are kept here.
     - API endpoint?
     - Second JSON file so it can be chunked properly?
 
+- Provide an option to the zip script to look for diffs.
+
+- Rethink song link / URL / info panel.
+
 ### Security
 - Get HTTPS Cert
 

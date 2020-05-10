@@ -53,7 +53,7 @@ export interface Song extends RawSong {
   music: string;
   artist: string;
   extension: string;
-  sheetMusic?: string;
+  sheetMusicLink: string | null;
   credits: Credit[];
 }
 
@@ -143,15 +143,14 @@ export const processAlbum = (rawAlbum: RawAlbum): Album => ({
     return {
       ...rawSong,
       music: `/albums/${rawAlbum.link}/songs/${rawSong.link}.${extension}`,
+      sheetMusicLink: rawSong.sheetMusic
+        ? `/albums/${rawAlbum.link}/songs/${rawSong.link}.pdf`
+        : null,
       artist: rawSong.artist || 'Andrew Russell',
       extension,
       credits: (rawSong.credits || []).length > 0
         ? (rawSong.credits || [])
         : [{"who": "Andrew Russell", "role": "Everything"}],
-      ...(rawSong.sheetMusic
-        ? {sheetMusic: `/albums/${rawAlbum.link}/songs/${rawSong.link}.pdf`}
-        : {}
-      )
     };
   })
 });

@@ -65,8 +65,7 @@ export const SongInfo = ({open, album, song, handleClose}) => {
             <Button
               color='primary'
               component='a'
-              href={song.sheetMusic}
-              //download={`${song.name}.pdf`}
+              href={song.sheetMusicLink}
               target='blank'
             >
               Sheet Music

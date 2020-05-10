@@ -21,9 +21,9 @@ const AlbumPage = ({album, menuData, audioPlayerData}) => {
 
   const initialSongLink = song
     ? song.link
-    : album.songs[0].link;
+    : album.songs.length > 0 ? album.songs[0].link : null;
 
-  const initialSong = audioPlayerData.songs.findIndex(playerSong => playerSong.link === initialSongLink);
+  const initialSong = initialSongLink && audioPlayerData.songs.findIndex(playerSong => playerSong.link === initialSongLink);
 
   return (
     <Root title={album.name} menuData={menuData} audioPlayerData={audioPlayerData} initialSong={initialSong}>
