@@ -74,6 +74,11 @@ const useStyles = makeStyles(theme => ({
 
   toolbar: theme.mixins.toolbar,
 
+  toolbarBottom: {
+    ...theme.mixins.toolbar,
+    height: 77
+  },
+
   content: {
     position: 'relative',
     flexGrow: 1,
@@ -85,18 +90,19 @@ const useStyles = makeStyles(theme => ({
 
 export interface AppProps {
   audioPlayerData: AudioPlayerData;
+  initialSong?: number;
   menuData: MenuData;
   children: ReactNode;
 }
 
-export const App: FC<AppProps> = ({audioPlayerData, menuData, children}) => {
+export const App: FC<AppProps> = ({audioPlayerData, initialSong, menuData, children}) => {
   const classes = useStyles();
 
   const [smallOpen, setSmallOpen] = useState(false);
 
   const handleDrawerToggle = () => setSmallOpen(!smallOpen);
 
-  getPlayer(audioPlayerData.songs, audioPlayerData.initialSong);
+  getPlayer(audioPlayerData.songs, initialSong !== undefined ? initialSong : audioPlayerData.initialSong);
 
   const drawerContent = (
     <div className={classes.drawerContent}>
@@ -219,7 +225,7 @@ export const App: FC<AppProps> = ({audioPlayerData, menuData, children}) => {
         <Subscribe />
         {children}
         <License />
-        <div className={classes.toolbar} />
+        <div className={classes.toolbarBottom} />
       </main>
       <AudioControls />
     </div>
