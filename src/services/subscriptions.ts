@@ -8,7 +8,7 @@ export async function init() {
 
 export function addSubscription(email, name, type) {
   return new Promise((resolve, reject) => {
-    db.run('INSERT INTO subscriptions (email, name, type, date) VALUES ($email, $name, $type, $date)', {
+    db.run('INSERT OR REPLACE INTO subscriptions (email, name, type, date) VALUES ($email, $name, $type, $date)', {
       $email: email,
       $name: name,
       $type: type,
