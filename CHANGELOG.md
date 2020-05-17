@@ -23,6 +23,8 @@ Changes, both released, upcoming and in progress are kept here.
 
 - Rethink song link / URL / info panel.
 
+- Make album header horizontal
+
 ### Security
 - Get HTTPS Cert
 
@@ -30,6 +32,7 @@ Changes, both released, upcoming and in progress are kept here.
 ## [Unreleased]
 ### Changed
 - Data description format allows linking to other albums or songs
+- Add dates to album card
 
 ### Fixed
 - Fix user IP in listens table...

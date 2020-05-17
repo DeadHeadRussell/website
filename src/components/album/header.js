@@ -30,10 +30,14 @@ const useStyles = makeStyles(theme => ({
 
   albumText: {
     flexGrow: 1
+  },
+
+  content: {
+    marginTop: theme.spacing(2)
   }
 }));
 
-export const AlbumHeader = ({album, link}) => {
+export const AlbumHeader = ({album, link, small}) => {
   const classes = useStyles();
 
   const play = song => () => getPlayer().play(album, song);
@@ -51,10 +55,13 @@ export const AlbumHeader = ({album, link}) => {
       <Wrapper>
         <CardMedia title='Album Art' className={classes.albumArt} image={album.art} />
         <CardContent className={classes.albumText}>
-          <Typography variant='h3' align='center' gutterBottom>
+          <Typography variant='h3' align='center'>
             {album.name}
           </Typography>
-          <Typography color='textSecondary'>{album.tagline}</Typography>
+          <Typography variant='subtitle2' align='center'>
+            {album.date}
+          </Typography>
+          <Typography className={classes.content} color='textSecondary'>{album.tagline}</Typography>
         </CardContent>
       </Wrapper>
       <CardActions>
