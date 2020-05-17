@@ -3,7 +3,7 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import {makeStyles} from '@material-ui/styles';
 
-import {AlbumHeader} from './header';
+import {HorizontalAlbumHeader} from './horizontalHeader';
 import {Description} from '../description';
 import {Song} from '../song';
 
@@ -19,14 +19,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const Album = ({album, song}) => {
+export const Album = ({album, category, song}) => {
   const classes = useStyles();
 
   return (
     <>
       <section className={classes.headerContent}>
-        <Container maxWidth='sm'>
-          <AlbumHeader album={album} />
+        <Container maxWidth='lg'>
+          <HorizontalAlbumHeader album={album} category={category} />
         </Container>
 			</section>
 			{album.description && (

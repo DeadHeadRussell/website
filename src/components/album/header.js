@@ -7,14 +7,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/styles';
-import showdown from 'showdown';
 
 import {getPlayer} from '../../audioPlayer';
 import {AlbumLink} from './link';
 
-const converter = new showdown.Converter({
-  simpleLineBreaks: true
-});
 
 const useStyles = makeStyles(theme => ({
   album: {
@@ -37,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const AlbumHeader = ({album, link, small}) => {
+export const AlbumHeader = ({album, link}) => {
   const classes = useStyles();
 
   const play = song => () => getPlayer().play(album, song);

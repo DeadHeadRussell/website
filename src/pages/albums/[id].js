@@ -6,7 +6,7 @@ import {processData} from '../../data';
 import {readData} from '../../dataReader';
 
 
-const AlbumPage = ({album, menuData, audioPlayerData}) => {
+const AlbumPage = ({album, category, menuData, audioPlayerData}) => {
   const router = useRouter();
   if (router.asPath.includes('?song=') && !router.query.song) {
     router.query.song = router.asPath
@@ -27,7 +27,7 @@ const AlbumPage = ({album, menuData, audioPlayerData}) => {
 
   return (
     <Root title={album.name} menuData={menuData} audioPlayerData={audioPlayerData} initialSong={initialSong}>
-      <Album album={album} song={song} />
+      <Album album={album} category={category} song={song} />
     </Root>
   );
 };
@@ -41,12 +41,13 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({params}) => {
   const rawData = await readData();
-  const {albums, menuData, audioPlayerData} = processData(rawData);
+  const {albums, categories, menuData, audioPlayerData} = processData(rawData);
 
   const albumLink = params.id;
   const album = albums.find(album => album.link == albumLink);
+  const category = categories.find(category => category.albums.find(album => album.link == albumLink));
 
-  return {props: {album, menuData, audioPlayerData}};
+  return {props: {album, category, menuData, audioPlayerData}};
 };
 
 export default AlbumPage;
