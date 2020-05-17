@@ -28,13 +28,16 @@ Changes, both released, upcoming and in progress are kept here.
 
 
 ## [Unreleased]
+### Added
+- Contact info page
+
 ### Changed
 - Data description format allows linking to other albums or songs
 - Add dates to album card
 - Make album header horizontal on album page
 
 ### Fixed
-- Fix user IP in listens table...
+- Fix user IP in listens table
 
 
 # [2020-05-10] - 2020-05-10

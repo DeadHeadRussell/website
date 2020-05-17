@@ -140,6 +140,16 @@ export const App: FC<AppProps> = ({audioPlayerData, initialSong, menuData, child
             </ListItem>
           </a>
         </Link>
+        <Link href='/contact'>
+          <a className={classes.link}>
+            <ListItem button>
+              <ListItemAvatar>
+                <span />
+              </ListItemAvatar>
+              <ListItemText primary='Contact' />
+            </ListItem>
+          </a>
+        </Link>
       </List>
       <List>
         {menuData.categories.map(category => (
