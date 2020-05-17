@@ -17,37 +17,58 @@ import {SongInfo} from './info';
 
 
 export const Song = ({playIndex, album, song, active}) => {
-  const [showInfo, setShowInfo] = useState(false);
-  const router = useRouter();
-  const player = getPlayer();
-  const playbackState = usePlayback(player, false);
+  const PlaybackCell = () => {
+    const player = getPlayer();
+    const playbackState = usePlayback(player, false);
 
-  useEffect(() => {
-    setShowInfo(active);
-  }, [active]);
+    const isCurrentSong = playbackState.song.link === song.link;
+    const pause = () => player.pause();
+    const play = () => player.play(album, song);
+    return (isCurrentSong && playbackState.playing) ? (
+      <IconButton aria-label='pause song' onClick={pause}>
+        <PauseIcon />
+      </IconButton>
+    ) : (
+      <IconButton aria-label='play song' onClick={play}>
+        <PlayArrowIcon />
+      </IconButton>
+    );
+  };
 
-  const isCurrentSong = playbackState.song.link === song.link;
-  const pause = () => player.pause();
-  const play = () => player.play(album, song);
+  const InfoCell = () => {
+    const [showInfo, setShowInfo] = useState(false);
+    const router = useRouter();
+    useEffect(() => {
+      setShowInfo(active);
+    }, [active]);
 
-  const openInfo = () => setShowInfo(true);
-  const closeInfo = () => {
-    router.replace(router.pathname, `/albums/${album.link}`);
-    setShowInfo(false);
+    const openInfo = () => {
+      router.replace(router.pathname, `/albums/${album.link}?song=${song.link}`, {
+        shallow: true
+      });
+      setShowInfo(true);
+    };
+    const closeInfo = () => {
+      router.replace(router.pathname, `/albums/${album.link}`, {
+        shallow: true
+      });
+      setShowInfo(false);
+    };
+
+    return (
+      <>
+        <Button variant='outlined' color='primary' onClick={openInfo}>
+          Info
+        </Button>
+        <SongInfo open={showInfo} album={album} song={song} handleClose={closeInfo} />
+      </>
+    );
   };
 
   return (
     <TableRow>
       <TableCell>
-        {(isCurrentSong && playbackState.playing) ? (
-          <IconButton aria-label='pause song' onClick={pause}>
-            <PauseIcon />
-          </IconButton>
-        ) : (
-          <IconButton aria-label='play song' onClick={play}>
-            <PlayArrowIcon />
-          </IconButton>
-        )}
+        <PlaybackCell />
       </TableCell>  
       <TableCell>
         <Typography variant='h6'>{playIndex}.</Typography>
@@ -63,10 +84,7 @@ export const Song = ({playIndex, album, song, active}) => {
         </Typography>
       </TableCell>
       <TableCell>
-        <Button variant='outlined' color='primary' onClick={openInfo}>
-          Info
-        </Button>
-        <SongInfo open={showInfo} album={album} song={song} handleClose={closeInfo} />
+        <InfoCell />
       </TableCell>
       <Hidden xsDown>
         <TableCell>

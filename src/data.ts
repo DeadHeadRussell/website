@@ -99,6 +99,7 @@ export interface ProcessedData {
   data: Data;
   categories: Category[];
   albums: Album[];
+  songs: Song[];
   menuData: MenuData;
   audioPlayerData: AudioPlayerData;
 }
@@ -176,6 +177,7 @@ export const processData = (rawData: RawData): ProcessedData => {
     data,
     categories,
     albums,
+    songs,
     menuData: processMenuData(categories),
     audioPlayerData: processAudioPlayerData(albums)
   };

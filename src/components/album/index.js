@@ -1,17 +1,12 @@
 import Container from '@material-ui/core/Container';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/styles';
-import showdown from 'showdown';
 
 import {AlbumHeader} from './header';
+import {Description} from '../description';
 import {Song} from '../song';
 
-
-const converter = new showdown.Converter({
-  simpleLineBreaks: true
-});
 
 const useStyles = makeStyles(theme => ({
   headerContent: {
@@ -37,15 +32,7 @@ export const Album = ({album, song}) => {
 			{album.description && (
 				<section>
 					<Container maxWidth='md'>
-						{album.description.split('\n').map((text, i) => (
-							<Typography
-								key={i}
-								align='justify'
-								dangerouslySetInnerHTML={{
-									__html: converter.makeHtml(text)
-								}}
-							/>
-						))}
+            <Description description={album.description} />
 					</Container>
 				</section>
 			)}

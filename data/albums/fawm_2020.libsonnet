@@ -179,7 +179,7 @@ utils.makeAlbum(
       description = |||
         8 minutes cut out of a 30 minute improv session. It sounded so much like a piece already composed that I decided to upload it verbatim here. Will probably go back and give it some more coherence at some point.
 
-        Multiple (3 or 4) themes from this same improv session went on to become Rhapsody of Uncertainty.
+        Multiple (3 or 4) themes from this same improv session went on to become [[song:fawm_2020.rhapsody_of_uncertainty|Rhapsody of Uncertainty]].
       |||
     ),
     utils.makeSong(

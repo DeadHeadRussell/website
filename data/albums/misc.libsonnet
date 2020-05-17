@@ -57,7 +57,7 @@ utils.makeAlbum(
     utils.makeSong(
       'The Pensive Pest',
       '2017',
-      description = 'This one came out of The Electric Tapes from FAWM 2017'
+      description = 'This one came out of [[song:fawm_2017.the_electric_tapes|The Electric Tapes]] from [[album:fawm_2017|FAWM 2017]]'
     ),
     utils.makeSong(
       'Waiting for the Sky to Fall',

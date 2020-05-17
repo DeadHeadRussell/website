@@ -463,7 +463,7 @@ utils.makeAlbum(
     ),
   ],
   description = |||
-    Lavish Dude is myself and Sean Brennan kicking ass over a weekend during FAWM.  36 hours.  11 songs.  1hr of rocking out.
+    [[category:lavish_dude|Lavish Dude]] is myself and Sean Brennan kicking ass over a weekend during FAWM.  36 hours.  11 songs.  1hr of rocking out.
   |||,
   external = 'https://fawm.org/fawmers/lavishdude/'
 )

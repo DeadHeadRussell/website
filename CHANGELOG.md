@@ -14,8 +14,6 @@ Changes, both released, upcoming and in progress are kept here.
 	- Embeded optional video player
   - Add current playlist.  Queue up albums or songs?
 
-- Data description format allows linking to other albums or songs
-
 - Optimize the site
   - Move audio player into its own JSON file
     - API endpoint?
@@ -30,6 +28,9 @@ Changes, both released, upcoming and in progress are kept here.
 
 
 ## [Unreleased]
+### Changed
+- Data description format allows linking to other albums or songs
+
 ### Fixed
 - Fix user IP in listens table...
 

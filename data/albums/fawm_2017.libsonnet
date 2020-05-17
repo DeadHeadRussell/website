@@ -116,7 +116,7 @@ utils.makeAlbum(
     utils.makeSong(
       'The Electric Tapes',
       '2017-02',
-      description = 'Part three of the improv tour.  This time the electric guitar makes it\'s appearance.  This is probably my least favourite of the bunch, but has churned out one of my favourites in The Pensive Pest.'
+      description = 'Part three of the improv tour.  This time the electric guitar makes it\'s appearance.  This is probably my least favourite of the bunch, but has churned out one of my favourites in [[song:misc.the_pensive_pest|The Pensive Pest]].'
     ),
     utils.makeSong(
       'The Basement Gallery',

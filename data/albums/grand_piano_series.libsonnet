@@ -26,7 +26,7 @@ utils.makeAlbum(
   description = |||
     My wife's aunt graciously left us a baby grand piano when she moved out of Toronto.  These songs are a series of improvisations done on that grand piano.
     The instrument is a beautiful Weinbach made in Czechia.
-    It starts at Impromptu 2 since Impromptu 1 is a part of FAWM 2020.  It's well worth the listen so go check it out!!
+    It starts at Impromptu 2 since [[song:fawm_2020.impromptu_1|Impromptu 1]] is a part of [[album:fawm_2020|FAWM 2020]].  It's well worth the listen so go check it out!!
   |||
 )
 

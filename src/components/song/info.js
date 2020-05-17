@@ -10,6 +10,7 @@ import {makeStyles} from '@material-ui/styles';
 import showdown from 'showdown';
 
 import {getPlayer} from '../../audioPlayer';
+import {Description} from '../description';
 
 
 const converter = new showdown.Converter({
@@ -76,16 +77,7 @@ export const SongInfo = ({open, album, song, handleClose}) => {
         <Grid container spacing={2} direction='column'>
           {song.description && (
             <Grid item>
-              {song.description.split('\n').map((paragraph, i) => (
-                <Typography
-                  key={i}
-                  align='justify'
-                  paragraph
-                  dangerouslySetInnerHTML={{
-                    __html: converter.makeHtml(paragraph)
-                  }}
-                />
-              ))}
+              <Description description={song.description} />
             </Grid>
           )}
           {song.lyrics && (
