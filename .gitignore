@@ -5,3 +5,4 @@ public/albums
 out/
 data.json
 assets/
+.*.swp

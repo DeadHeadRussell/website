@@ -7,6 +7,8 @@ Changes, both released, upcoming and in progress are kept here.
   - Add Primal Fusion band songs
   - Get music from FAWM 2019 from Nick Coranado
 
+- RSS Feed in "Subscribe" modal
+
 ### Changed
 - Improve audio player
 	- Embeded optional video player
@@ -28,6 +30,8 @@ Changes, both released, upcoming and in progress are kept here.
 
 
 ## [Unreleased]
+### Fixed
+- Fix user IP in listens table...
 
 
 # [2020-05-10] - 2020-05-10
