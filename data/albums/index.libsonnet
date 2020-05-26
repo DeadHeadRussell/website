@@ -1,6 +1,7 @@
 {
   cam_jervis: import './cam_jervis.libsonnet',
   cam_tapes: import './cam_tapes.libsonnet',
+  compositional_improvs: import './compositional_improvs.libsonnet',
   cmu_session: import './cmu_session.libsonnet',
   covers: import './covers.libsonnet',
   epic: import './epic.libsonnet',
@@ -11,7 +12,6 @@
   fawm_2016: import './fawm_2016.libsonnet',
   fawm_2015: import './fawm_2015.libsonnet',
   fawm_2014: import './fawm_2014.libsonnet',
-  grand_piano_series: import './grand_piano_series.libsonnet',
   home_concert_series: import './home_concert_series.libsonnet',
   jazz_fun: import './jazz_fun.libsonnet',
   leading_off: import './leading_off.libsonnet',

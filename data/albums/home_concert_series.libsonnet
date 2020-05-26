@@ -6,8 +6,38 @@ utils.makeAlbum(
   'Mini concerts done from the comfort of home',
   [
     utils.makeSong(
+      'Home Concert - 2020-05-17 - Solo Piano',
+      '2020',
+      credits = [
+        utils.makeCredit('Andrew Russell', 'Piano'),
+        utils.makeCredit('See Above', 'Music')
+      ],
+      description = |||
+        Notturno - Edvard Grieg
+        Here's That Rainy Day - Jimmy Van Heusen
+        Improv - Andrew Russell
+        Three To Get Ready - David Brubeck
+        (Up a) Lazy River - Hoagy Carmichael
+        Quiet Nights of Quiet Stars (Corcovado) - Antônio Carlos Jobim
+      |||
+    ),
+    utils.makeSong(
       'Home Concert - 2020-05-10 - Solo Piano',
-      '2020'
+      '2020',
+      credits = [
+        utils.makeCredit('Andrew Russell', 'Piano'),
+        utils.makeCredit('See Above', 'Music')
+      ],
+      description = |||
+        Improv - Andrew Russell
+        Ruby, My Dear - Thelonius Monk
+        Waltz for Debby - Bill Evans
+        Georgia on My Mind - Hoagy Carmichael
+        Improv - Andrew Russell
+        Lazy Bones - Hoagy Carmichael
+        Blue in Green - Bill Evans
+        Improv - Andrew Russell
+      |||
     )
   ],
   description = |||

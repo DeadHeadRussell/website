@@ -1,9 +1,9 @@
 local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
-  'Grand Piano Series',
+  'Compositional Improvs',
   '2020',
-  'Improvs on a grand piano',
+  'Improvs to spur creativity and aid the composition process',
   [
     utils.makeSong(
       'Impromptu 5',
@@ -20,11 +20,16 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'Impromptu 2',
-      '2020'
+      '2020',
+      credits = [
+        utils.makeCredit('Andrew Russell', 'Piano, Improv'),
+        utils.makeCredit('Hoarce Silver', 'Music of "Peace"')
+      ],
+      description = 'Starts of with Peace by Horace Silver'
     )
   ],
   description = |||
-    My wife's aunt graciously left us a baby grand piano when she moved out of Toronto.  These songs are a series of improvisations done on that grand piano.
+    My wife's aunt graciously left us a baby grand piano when she moved out of Toronto.  These Impromptus are a series of improvisations done on that grand piano to fuel my compositions.
     The instrument is a beautiful Weinbach made in Czechia.
     It starts at Impromptu 2 since [[song:fawm_2020.impromptu_1|Impromptu 1]] is a part of [[album:fawm_2020|FAWM 2020]].  It's well worth the listen so go check it out!!
   |||
