@@ -27,6 +27,14 @@ Changes, both released, upcoming and in progress are kept here.
 - Get HTTPS Cert
 
 
+## Unreleased
+### Added
+- New query API for listens
+
+### Removed
+- Old "query" API for listens
+
+
 ## [2020-05-17] - 2020-05-17
 ### Added
 - Contact info page
