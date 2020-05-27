@@ -22,7 +22,7 @@ Changes, both released, upcoming and in progress are kept here.
 - Rethink song link / URL / info panel.
 
 
-## Unreleased
+## [2020-05-27] - 2020-05-27
 ### Added
 - New query API for listens
 - RSS Feed in "Subscribe" modal
