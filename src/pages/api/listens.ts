@@ -1,5 +1,5 @@
 import {isSecure} from '../../services/secure';
-import {addListen, getListens, getListensCount} from '../../services/listens';
+import {addListen, getListens} from '../../services/listens';
 
 export default async (req, res) => {
   if (req.method === 'POST') {
@@ -31,7 +31,7 @@ async function getListensHandler(req, res) {
       res.status(400).json({message: 'Invalid token'});
     } else {
       if (req.query.group) {
-        const listens = await getListens();
+        const listens: any[] = (await getListens()) as any[];
         const groupParser = parseGroupQuery(req.query.group);
         const aggregateParser = parseAggregateQuery(req.query.aggregate);
 
