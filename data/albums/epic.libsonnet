@@ -11,7 +11,7 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'The Journey',
-      '2011 - 2012',
+      '2012',
       description = 'This song has gone on to be one of my more commonly played ones, both live and recorded.',
       lyrics = |||
         [Verse 1]

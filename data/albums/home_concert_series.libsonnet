@@ -7,7 +7,7 @@ utils.makeAlbum(
   [
     utils.makeSong(
       'Home Concert - 2020-05-17 - Solo Piano',
-      '2020',
+      '2020-05-17',
       credits = [
         utils.makeCredit('Andrew Russell', 'Piano'),
         utils.makeCredit('See Above', 'Music')
@@ -23,7 +23,7 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'Home Concert - 2020-05-10 - Solo Piano',
-      '2020',
+      '2020-05-10',
       credits = [
         utils.makeCredit('Andrew Russell', 'Piano'),
         utils.makeCredit('See Above', 'Music')

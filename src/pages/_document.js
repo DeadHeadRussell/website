@@ -14,6 +14,7 @@ export default class RootDocument extends Document {
           <meta itemProp='image' content='/profile.jpg' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' />
           <link rel='icon' type='image/png' href='/favicon.png' />
+          <link rel='alternate' type='application/rss+xml' href='http://ajrussell.ca/feed.xml' />
         </Head>
         <body>
           <Main />
