@@ -1,11 +1,13 @@
 import Container from '@material-ui/core/Container';
+import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import {makeStyles} from '@material-ui/styles';
+import {FC} from 'react';
 
-import {HorizontalAlbumHeader} from './horizontalHeader';
+import {Album as AlbumType, Category, Song as SongType} from '../../data';
 import {Description} from '../description';
 import {Song} from '../song';
+import {HorizontalAlbumHeader} from './horizontalHeader';
 
 
 const useStyles = makeStyles(theme => ({
@@ -19,7 +21,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const Album = ({album, category, song}) => {
+export interface AlbumProps {
+  album: AlbumType;
+  category: Category;
+  song?: SongType;
+}
+
+export const Album: FC<AlbumProps> = ({album, category, song}) => {
   const classes = useStyles();
 
   return (

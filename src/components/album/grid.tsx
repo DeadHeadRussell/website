@@ -1,6 +1,8 @@
 import Grid from '@material-ui/core/Grid';
-import {makeStyles} from '@material-ui/styles';
+import {makeStyles} from '@material-ui/core/styles';
+import {FC} from 'react';
 
+import {Album} from '../../data';
 import {AlbumHeader} from './header';
 
 
@@ -14,7 +16,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const AlbumGrid = ({albums}) => {
+export interface AlbumGridProps {
+  albums: Album[];
+}
+
+export const AlbumGrid: FC<AlbumGridProps> = ({albums}) => {
   const classes = useStyles();
 
   return (

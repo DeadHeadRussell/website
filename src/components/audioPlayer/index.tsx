@@ -1,13 +1,14 @@
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import {makeStyles, useTheme} from '@material-ui/styles';
-import {useContext} from 'react';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
+import {useContext, FC} from 'react';
 
 import {getPlayer} from '../../audioPlayer';
 import {usePlayback} from '../../utils';
 import {AudioPlayerDownload} from './download';
 import {AudioPlaybackControls} from './playbackControls';
+import {AudioPlayerPlaylist} from './playlist';
 import {AudioPlayerSongDisplay} from './songDisplay';
 import {AudioTimeControls} from './timeControls';
 import {AudioVolumeControls} from './volumeControls';
@@ -24,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const AudioControls = () => {
+export const AudioControls: FC = () => {
   const classes = useStyles();
   const theme = useTheme();
   const xs = useMediaQuery(theme.breakpoints.down('xs'));
@@ -45,10 +46,13 @@ export const AudioControls = () => {
       {playbackState.song ? (
         <Grid container spacing={spacing} justify={justify} alignItems='center' wrap='nowrap'>
           <Grid item>
-            <AudioPlayerSongDisplay album={playbackState.album} song={playbackState.song} />
+            <AudioPlayerSongDisplay song={playbackState.song} />
           </Grid>
           <Grid item>
-            <AudioPlayerDownload song={playbackState.song} />
+            <Grid container spacing={0} wrap='nowrap'>
+              <AudioPlayerPlaylist player={player} playbackState={playbackState} />
+              <AudioPlayerDownload song={playbackState.song} />
+            </Grid>
           </Grid>
           <Grid item md={3} lg={4}>
             <AudioTimeControls player={player} playbackState={playbackState} />

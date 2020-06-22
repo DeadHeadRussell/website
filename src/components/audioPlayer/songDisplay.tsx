@@ -1,12 +1,14 @@
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
+import {makeStyles} from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/styles';
+import {FC} from 'react';
 
 import {AlbumIcon} from '../album/icon';
 import {AlbumLink} from '../album/link';
+import {AudioPlayerAlbum, AudioPlayerSong} from '../../audioPlayer';
 
 
 const useStyles = makeStyles(theme => ({
@@ -37,26 +39,35 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const AudioPlayerSongDisplay = ({album, song}) => {
+export interface AudioPlayerSongDisplayProps {
+  song: AudioPlayerSong;
+  alwaysShowArt?: boolean;
+}
+
+export const AudioPlayerSongDisplay: FC<AudioPlayerSongDisplayProps> = ({song, alwaysShowArt}) => {
   const classes = useStyles();
 
   return (
-    <AlbumLink albumLink={album.link} songLink={song.link}>
+    <AlbumLink albumLink={song.album.link} songLink={song.link}>
       <ButtonBase className={classes.songButton}>
         <Tooltip
           classes={{tooltip: classes.songNameTooltip}}
           arrow
-          title={song.name + ' - ' + album.name + ' - ' + song.artist}
+          title={song.name + ' - ' + song.album.name + ' - ' + song.artist}
         >
           <Grid container spacing={2} wrap='nowrap'>
             <Grid item>
-              <Hidden smDown>
-                <AlbumIcon albumArt={album.art} />
-              </Hidden>
+              {alwaysShowArt ? (
+                <AlbumIcon albumArt={song.album.art} />
+              ) : (
+                <Hidden smDown>
+                  <AlbumIcon albumArt={song.album.art} />
+                </Hidden>
+              )}
             </Grid>
             <Grid item>
               <Typography className={classes.songName}>{song.name}</Typography>
-              <Typography className={classes.songName} variant='body2'>{album.name} - {song.artist}</Typography>
+              <Typography className={classes.songName} variant='body2'>{song.album.name} - {song.artist}</Typography>
             </Grid>
           </Grid>
         </Tooltip>

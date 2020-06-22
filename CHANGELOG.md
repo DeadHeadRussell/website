@@ -8,18 +8,38 @@ Changes, both released, upcoming and in progress are kept here.
   - Get music from FAWM 2019 from Nick Coranado
 
 ### Changed
+- Song lists
+  - Song Durations
+
 - Improve audio player
 	- Embeded optional video player
-  - Add current playlist.  Queue up albums or songs?
+  - Play random album
+  - Suggest next album on complete
 
 - Optimize the site
-  - Move audio player into its own JSON file
-    - API endpoint?
-    - Second JSON file so it can be chunked properly?
+  - Reduce initial load sizes
 
 - Provide an option to the zip script to look for diffs.
 
 - Rethink song link / URL / info panel.
+
+### Fixed
+- No JS support
+  - Menu does not appear
+  - Audio player does nothing but is visible
+  - Play buttons / subscribe button / info panels
+
+- Audio Player
+  - Small size layout
+
+
+## Next
+### Added
+- Recet Feed
+- Add playlists
+- Change playlist if current playlist is untouched
+- View current playlist
+- Queue up albums and songs
 
 
 ## [2020-05-27] - 2020-05-27

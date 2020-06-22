@@ -14,7 +14,7 @@ import AddIcon from '@material-ui/icons/Add';
 import CheckIcon from '@material-ui/icons/Check';
 import Alert from '@material-ui/lab/Alert';
 import net from 'idelic-safety-net';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, FC} from 'react';
 
 
 const useStyles = makeStyles(theme => ({
@@ -61,30 +61,30 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const Subscribe = () => {
+export const Subscribe: FC = () => {
   const [open, setOpen] = useState(false);
   const [nameInput, setNameInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [typeInput, setTypeInput] = useState('');
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const classes = useStyles();
 
-  const updateNameInput = event => {
-    setNameInput(event.target.value);
+  const updateNameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNameInput(event.currentTarget.value);
   };
 
-  const updateEmailInput = event => {
-    setEmailInput(event.target.value);
+  const updateEmailInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmailInput(event.currentTarget.value);
   };
 
-  const updateTypeInput = event => {
-    setTypeInput(event.target.value);
+  const updateTypeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTypeInput(event.currentTarget.value);
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     setError(null);

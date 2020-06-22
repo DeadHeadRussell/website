@@ -1,10 +1,14 @@
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import {makeStyles, useTheme} from '@material-ui/styles';
+import Slider from '@material-ui/core/Slider';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import {FC} from 'react';
+
+import {AudioPlayer} from '../../audioPlayer';
+import {PlaybackState} from '../../utils';
 
 
 const useStyles = makeStyles(theme => ({
@@ -29,12 +33,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const AudioTimeControls = ({player, playbackState}) => {
+export interface AudioTimeControlsProps {
+  player: AudioPlayer;
+  playbackState: PlaybackState;
+}
+
+export const AudioTimeControls: FC<AudioTimeControlsProps> = ({player, playbackState}) => {
   const classes = useStyles();
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const seek = (_, newTime) => player.seek(newTime);
+  const seek = (_: any, newTime: number | number[]) => player.seek(newTime as number);
 
   return (
     <Grid container spacing={sm ? 0 : 2} alignItems='center' wrap='nowrap'>
@@ -57,8 +66,8 @@ export const AudioTimeControls = ({player, playbackState}) => {
         </Grid>
       </Hidden>
       <Hidden mdUp>
-        <Grid className={classes.smallText} item variant='body2'>
-          {playbackState.currentTimeFormatted}/{playbackState.durationFormatted}
+        <Grid className={classes.smallText} item>
+          <Typography variant='body2'>{playbackState.currentTimeFormatted}/{playbackState.durationFormatted}</Typography>
         </Grid>
       </Hidden>
     </Grid>

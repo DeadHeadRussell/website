@@ -1,9 +1,11 @@
+import {NextApiRequest} from 'next';
+
 const token = process.env.SECURE_TOKEN;
 if (!token) {
-  console.error('No token provided!');
+  throw new Error('No token provided!');
 }
 
-export function isSecure(req) {
+export function isSecure(req: NextApiRequest) {
   return token && req.query && req.query.token === token;
 }
 

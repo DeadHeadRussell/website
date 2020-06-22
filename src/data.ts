@@ -28,15 +28,12 @@ export interface RawSong {
   description?: string;
   lyrics?: string;
   credits?: RawCredit[];
+  external?: string;
 }
 
 export interface RawCredit {
   who: string;
   role: string;
-}
-
-export interface Data extends RawData {
-  categories: Category[];
 }
 
 export interface Category extends RawCategory {
@@ -75,33 +72,19 @@ export interface MenuData {
   categories: MenuCategory[];
 }
 
-export interface AudioPlayerAlbum {
-  link: string;
-  name: string;
-  art: string;
+export interface FeedItem {
+  category: Category;
+  album: Album;
+  songs: Song[];
 }
 
-export interface AudioPlayerSong {
-  link: string;
-  name: string;
-  artist: string;
-  music: string;
-  extension: string;
-  album: AudioPlayerAlbum;
-}
-
-export interface AudioPlayerData {
-  songs: AudioPlayerSong[];
-  initialSong: number;
-}
+export type Feed = FeedItem[];
 
 export interface ProcessedData {
-  data: Data;
   categories: Category[];
   albums: Album[];
   songs: Song[];
-  menuData: MenuData;
-  audioPlayerData: AudioPlayerData;
+  menu: MenuData;
 }
 
 export const processMenuData = (categories: Category[]): MenuData => ({
@@ -115,25 +98,6 @@ export const processMenuData = (categories: Category[]): MenuData => ({
     }))
   }))
 });
-
-export const processAudioPlayerData = (albums: Album[]): AudioPlayerData => {
-  const songs = albums.flatMap(album => album.songs.map(song => ({
-    link: song.link,
-    name: song.name,
-    artist: song.artist,
-    music: song.music,
-    extension: song.extension,
-    album: {
-      link: album.link,
-      name: album.name,
-      art: album.art
-    }
-  })));
-  return {
-    songs,
-    initialSong: songs.findIndex(song => song.link === 'no_light')
-  };
-};
 
 export const processAlbum = (rawAlbum: RawAlbum): Album => ({
   ...rawAlbum,
@@ -166,19 +130,14 @@ export const processCategory = (rawCategory: RawCategory): Category => ({
 export const processCategories = (rawCategories: RawCategory[]): Category[] => rawCategories.map(processCategory);
 
 export const processData = (rawData: RawData): ProcessedData => {
-  const data: Data = {
-    categories: processCategories(rawData.categories)
-  };
-
-  const categories = data.categories;
-  const albums = data.categories.flatMap(category => category.albums);
-  const songs = data.categories.flatMap(category => category.albums.flatMap(album => album.songs));
+  const categories = processCategories(rawData.categories);
+  const albums = categories.flatMap(category => category.albums);
+  const songs = categories.flatMap(category => category.albums.flatMap(album => album.songs));
   return {
-    data,
     categories,
     albums,
     songs,
-    menuData: processMenuData(categories),
-    audioPlayerData: processAudioPlayerData(albums)
+    menu: processMenuData(categories)
   };
 }
+

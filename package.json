@@ -27,6 +27,9 @@
   "devDependencies": {
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
+    "@types/showdown": "^1.9.3",
+    "@types/sqlite3": "^3.1.6",
+    "@types/wicg-mediasession": "^1.0.4",
     "feed": "^4.2.0",
     "rss": "^1.2.2",
     "typescript": "^3.8.3"

@@ -1,12 +1,16 @@
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import {makeStyles, useTheme} from '@material-ui/styles';
+import Slider from '@material-ui/core/Slider';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import {FC} from 'react';
+
+import {AudioPlayer} from '../../audioPlayer';
+import {PlaybackState} from '../../utils';
 
 
 const useStyles = makeStyles(theme => ({
@@ -15,7 +19,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const AudioVolumeControls = ({player, playbackState}) => {
+export interface AudioVolumeControlsProps {
+  player: AudioPlayer;
+  playbackState: PlaybackState;
+}
+
+export const AudioVolumeControls: FC<AudioVolumeControlsProps> = ({player, playbackState}) => {
   const classes = useStyles();
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
@@ -36,7 +45,7 @@ export const AudioVolumeControls = ({player, playbackState}) => {
           <Slider
             aria-label='volume slider'
             value={playbackState.volume}
-            onChange={(_, newValue) => player.setVolume(newValue / 100)}
+            onChange={(_: any, newValue: number | number[]) => player.setVolume((newValue as number) / 100)}
           />
         </Grid>
       </Hidden>

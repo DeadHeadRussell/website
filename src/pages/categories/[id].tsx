@@ -1,29 +1,47 @@
+import {GetStaticPaths, GetStaticProps} from 'next';
+import {FC} from 'react';
+
+import {createPlaylistFromAlbums} from '../../audioPlayer';
 import {AlbumGrid} from '../../components/album/grid';
 import {Root} from '../../components/root';
-import {processData} from '../../data';
+import {processData, Category, MenuData} from '../../data';
 import {readData} from '../../dataReader';
 
 
-const CategoryPage = ({category, menuData, audioPlayerData}) => (
-  <Root title={category.name} menuData={menuData} audioPlayerData={audioPlayerData}>
+export interface CategoryPageProps {
+  category: Category;
+  menu: MenuData;
+}
+
+const CategoryPage: FC<CategoryPageProps> = ({category, menu}) => (
+  <Root title={category.name} menu={menu} initialPlaylist={createPlaylistFromAlbums(category.albums)}>
     <AlbumGrid albums={category.albums} />
   </Root>
 );
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const rawData = await readData();
   const {categories} = processData(rawData);
   const paths = categories.map(category => `/categories/${category.link}`);
   return {paths, fallback: false};
 };
 
-export const getStaticProps = async ({params}) => {
+export const getStaticProps: GetStaticProps<CategoryPageProps> = async ({params}) => {
+  if (!params || !params.id) {
+    throw Error('Missing category link in URL');
+  }
+
   const rawData = await readData();
-  const {categories, menuData, audioPlayerData} = processData(rawData);
+  const {categories, menu} = processData(rawData);
 
   const categoryLink = params.id;
   const category = categories.find(category => category.link == categoryLink);
-  return {props: {category, menuData, audioPlayerData}};
+
+  if (!category) {
+    throw new Error('Missing category');
+  }
+
+  return {props: {category, menu}};
 };
 
 export default CategoryPage;

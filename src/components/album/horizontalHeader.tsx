@@ -1,9 +1,13 @@
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/styles';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import {FC} from 'react';
 
-import {getPlayer} from '../../audioPlayer';
+import {createPlaylistFromAlbum, Playlist} from '../../audioPlayer';
+import {Album, Category} from '../../data';
+import {PlayButton} from '../playButton';
 
 
 const useStyles = makeStyles(theme => ({
@@ -32,10 +36,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const HorizontalAlbumHeader = ({album, category}) => {
-  const classes = useStyles();
+export interface HorizontalAlbumHeaderProps {
+  album: Album;
+  category: Category;
+  playlist?: Playlist;
+  hidePlay?: boolean;
+  hideDownload?: boolean;
+}
 
-  const play = song => () => getPlayer().play(album, song);
+export const HorizontalAlbumHeader: FC<HorizontalAlbumHeaderProps> = ({album, category, playlist, hidePlay, hideDownload}) => {
+  const classes = useStyles();
 
   return (
     <div className={classes.album}>
@@ -58,26 +68,24 @@ export const HorizontalAlbumHeader = ({album, category}) => {
               <Grid container spacing={2}>
                 {album.songs && album.songs.length > 0 && (
                   <>
-                    <Grid item>
-                      <Button
-                        color='primary'
-                        size='small'
-                        onClick={play(album.songs[0])}
-                      >
-                        Play
-                      </Button>
-                    </Grid>
-                    <Grid item>
-                      <Button
-                        color='primary'
-                        size='small'
-                        component='a'
-                        href={album.archive}
-                        download={`${album.name}.zip`}
-                      >
-                        Download
-                      </Button>
-                    </Grid>
+                    {!hidePlay && (
+                      <Grid item>
+                        <PlayButton playlist={playlist || createPlaylistFromAlbum(album)} size='small' />
+                      </Grid>
+                    )}
+                    {!hideDownload && (
+                      <Grid item>
+                        <Button
+                          color='primary'
+                          size='small'
+                          component='a'
+                          href={album.archive}
+                          download={`${album.name}.zip`}
+                        >
+                          Download
+                        </Button>
+                      </Grid>
+                    )}
                   </>
                 )}
                 {album.external && (
@@ -86,9 +94,12 @@ export const HorizontalAlbumHeader = ({album, category}) => {
                       color='primary'
                       size='small'
                       component='a'
+                      target='_blank'
                       href={album.external}
                     >
                       Link
+                      &nbsp;
+                      <OpenInNewIcon fontSize='small' />
                     </Button>
                   </Grid>
                 )}

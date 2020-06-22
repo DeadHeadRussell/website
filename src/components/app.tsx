@@ -10,15 +10,17 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
+import {makeStyles} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import MenuIcon from '@material-ui/icons/Menu';
+import UpdateIcon from '@material-ui/icons/Update';
 import Link from 'next/link';
 import React, {useEffect, useState, FC, ReactNode} from 'react';
 
-import {getPlayer} from '../audioPlayer';
-import {AudioPlayerData, MenuData} from '../data';
+import {getPlayer, Playlist} from '../audioPlayer';
+import {MenuData} from '../data';
 import {AlbumIcon} from './album/icon';
 import {AlbumLink} from './album/link';
 import {AudioControls} from './audioPlayer';
@@ -72,6 +74,11 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none'
   },
 
+  menuIcon: {
+    marginLeft: 1,
+    fontSize: 38
+  },
+
   toolbar: theme.mixins.toolbar,
 
   toolbarBottom: {
@@ -89,20 +96,25 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export interface AppProps {
-  audioPlayerData: AudioPlayerData;
-  initialSong?: number;
-  menuData: MenuData;
+  initialPlaylist: Playlist;
+  menu: MenuData;
   children: ReactNode;
 }
 
-export const App: FC<AppProps> = ({audioPlayerData, initialSong, menuData, children}) => {
+export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
   const classes = useStyles();
 
   const [smallOpen, setSmallOpen] = useState(false);
 
   const handleDrawerToggle = () => setSmallOpen(!smallOpen);
 
-  getPlayer(audioPlayerData.songs, initialSong !== undefined ? initialSong : audioPlayerData.initialSong);
+  const player = getPlayer();
+
+  useEffect(() => {
+    if (initialPlaylist && !player.touched) {
+      player.setPlaylist(initialPlaylist);
+    }
+  }, [initialPlaylist]);
 
   const drawerContent = (
     <div className={classes.drawerContent}>
@@ -140,11 +152,21 @@ export const App: FC<AppProps> = ({audioPlayerData, initialSong, menuData, child
             </ListItem>
           </a>
         </Link>
+        <Link href='/recent'>
+          <a className={classes.link}>
+            <ListItem button>
+              <ListItemAvatar>
+                <UpdateIcon className={classes.menuIcon} fontSize='inherit' />
+              </ListItemAvatar>
+              <ListItemText primary='Recent' />
+            </ListItem>
+          </a>
+        </Link>
         <Link href='/contact'>
           <a className={classes.link}>
             <ListItem button>
               <ListItemAvatar>
-                <span />
+                <MailOutlineIcon className={classes.menuIcon} fontSize='inherit' />
               </ListItemAvatar>
               <ListItemText primary='Contact' />
             </ListItem>
@@ -152,7 +174,7 @@ export const App: FC<AppProps> = ({audioPlayerData, initialSong, menuData, child
         </Link>
       </List>
       <List>
-        {menuData.categories.map(category => (
+        {menu.categories.map(category => (
           <React.Fragment key={category.link}>
             <Divider />
             <CategoryLink categoryLink={category.link}>

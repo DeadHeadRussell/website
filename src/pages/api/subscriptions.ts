@@ -1,7 +1,9 @@
+import {NextApiRequest, NextApiResponse} from 'next';
+
 import {isSecure} from '../../services/secure';
 import {addSubscription, getSubscriptions} from '../../services/subscriptions';
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     await addSubscriptionHandler(req, res);
   } else if (req.method === 'GET') {
@@ -11,7 +13,7 @@ export default async (req, res) => {
   }
 };
 
-async function addSubscriptionHandler(req, res) {
+async function addSubscriptionHandler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!req.body || !req.body.email) {
       res.status(400).json({message: 'Invalid POST body'});
@@ -24,7 +26,7 @@ async function addSubscriptionHandler(req, res) {
   }
 }
 
-async function getSubscriptionsHandler(req, res) {
+async function getSubscriptionsHandler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!isSecure(req)) {
       res.status(400).json({message: 'Invalid token'});

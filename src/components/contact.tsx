@@ -1,7 +1,8 @@
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
+import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/styles';
+import {FC} from 'react';
 
 
 const useStyles = makeStyles(theme => ({
@@ -12,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export const Contact = () => {
+export const Contact: FC = () => {
   const classes = useStyles();
 
   return (

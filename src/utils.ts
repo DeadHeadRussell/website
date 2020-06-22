@@ -1,14 +1,17 @@
 import {useEffect, useRef, useState} from 'react';
 
-export function useInterval(callback, delay) {
+import {AudioPlayer, AudioPlayerAlbum, AudioPlayerSong, Playlist} from './audioPlayer';
+
+
+export function useInterval(callback: () => void, delay: number): void {
   const savedCallback = useRef();
   useEffect(() => {
-    savedCallback.current = callback;
+    savedCallback.current = callback as any;
   }, [callback]);
 
   useEffect(() => {
     function tick() {
-      savedCallback.current();
+      (savedCallback.current as unknown as () => void)();
     }
     if (delay !== null) {
       const id = setInterval(tick, delay);
@@ -17,7 +20,7 @@ export function useInterval(callback, delay) {
   }, [delay]);
 }
 
-export function formatTime(time, useMs) {
+export function formatTime(time: number, useMs?: boolean): string {
   const minutes = Math.floor(time / 60);
   const seconds = Math.floor(time % 60);
   const ms = Math.floor(time * 1000 % 1000);
@@ -33,10 +36,25 @@ export function formatTime(time, useMs) {
   }
 }
 
-export function usePlayback(player, useMs) {
+export interface PlaybackState {
+  playlist: Playlist;
+  currentSong: number;
+  album?: AudioPlayerAlbum;
+  song?: AudioPlayerSong;
+  playing: boolean;
+  currentTime: number;
+  currentTimeFormatted: string;
+  duration: number;
+  durationFormatted: string;
+  volume: number;
+}
+
+export function usePlayback(player: AudioPlayer, useMs?: boolean): PlaybackState {
   const delay = useMs ? 50 : 250;
 
   const createState = () => ({
+    playlist: player.playlist,
+    currentSong: player.currentSong,
     album: player.song?.album,
     song: player.song,
     playing: player.playing,

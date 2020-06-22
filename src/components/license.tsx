@@ -1,5 +1,6 @@
+import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/styles';
+import {FC} from 'react';
 
 const useStyles = makeStyles(theme => ({
   license: {
@@ -10,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const License = () => {
+export const License: FC = () => {
   const classes = useStyles();
 
   return (

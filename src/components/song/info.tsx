@@ -5,12 +5,16 @@ import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/styles';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import {FC} from 'react';
 import showdown from 'showdown';
 
-import {getPlayer} from '../../audioPlayer';
+import {createPlaylistFromAlbum, createSong} from '../../audioPlayer';
+import {Album, Song} from '../../data';
 import {Description} from '../description';
+import {PlayButton} from '../playButton';
 
 
 const converter = new showdown.Converter({
@@ -25,10 +29,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const SongInfo = ({open, album, song, handleClose}) => {
-  const classes = useStyles();
+export interface SongInfoProps {
+  open: boolean;
+  album: Album;
+  song: Song;
+  handleClose: () => void;
+}
 
-  const play = () => getPlayer().play(album, song);
+export const SongInfo: FC<SongInfoProps> = ({open, album, song, handleClose}) => {
+  const classes = useStyles();
 
   return (
     <Drawer anchor='right' open={open} onClose={handleClose}>
@@ -39,12 +48,10 @@ export const SongInfo = ({open, album, song, handleClose}) => {
         </Typography>
 
         <CardActions>
-          <Button
-            color='primary'
-            onClick={play}
-          >
-            Play
-          </Button>
+          <PlayButton
+            playlist={createPlaylistFromAlbum(album)}
+            song={createSong(album, song)}
+          />
           <Button
             color='primary'
             component='a'
@@ -57,12 +64,15 @@ export const SongInfo = ({open, album, song, handleClose}) => {
             <Button
               color='primary'
               component='a'
+              target='_blank'
               href={song.external}
             >
               Link
+              &nbsp;
+              <OpenInNewIcon fontSize='small' />
             </Button>
           )}
-          {song.sheetMusic && (
+          {(song.sheetMusic && song.sheetMusicLink) && (
             <Button
               color='primary'
               component='a'

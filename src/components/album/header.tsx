@@ -5,10 +5,14 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
+import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/styles';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import {FC, ReactNode} from 'react';
 
-import {getPlayer} from '../../audioPlayer';
+import {createPlaylistFromAlbum} from '../../audioPlayer';
+import {Album} from '../../data';
+import {PlayButton} from '../playButton';
 import {AlbumLink} from './link';
 
 
@@ -33,18 +37,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const AlbumHeader = ({album, link}) => {
+export interface AlbumHeaderProps {
+  album: Album;
+  link?: boolean;
+}
+
+export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
   const classes = useStyles();
 
-  const play = song => () => getPlayer().play(album, song);
-
-  const Wrapper = link
+  const Wrapper: FC<{}> = link
     ? ({children}) => (
       <CardActionArea>
         <AlbumLink albumLink={album.link}>{children}</AlbumLink>
       </CardActionArea>
     )
-    : ({children}) => children;
+    : ({children}) => <>{children}</>;
 
   return (
     <Card className={classes.album}>
@@ -67,13 +74,7 @@ export const AlbumHeader = ({album, link}) => {
               {album.songs && album.songs.length > 0 && (
                 <>
                   <Grid item>
-                    <Button
-                      color='primary'
-                      size='small'
-                      onClick={play(album.songs[0])}
-                    >
-                      Play
-                    </Button>
+                    <PlayButton playlist={createPlaylistFromAlbum(album)} size='small' />
                   </Grid>
                   <Grid item>
                     <Button
@@ -94,9 +95,12 @@ export const AlbumHeader = ({album, link}) => {
                     color='primary'
                     size='small'
                     component='a'
+                    target='_blank'
                     href={album.external}
                   >
                     Link
+                    &nbsp;
+                    <OpenInNewIcon fontSize='small' />
                   </Button>
                 </Grid>
               )}
