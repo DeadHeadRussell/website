@@ -33,7 +33,7 @@ Changes, both released, upcoming and in progress are kept here.
   - Small size layout
 
 
-## Next
+## [2020-06-22] - 2020-06-22
 ### Added
 - Recet Feed
 - Add playlists
