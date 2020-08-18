@@ -7,6 +7,7 @@ import {FC} from 'react';
 
 import {createPlaylistFromAlbum, Playlist} from '../../audioPlayer';
 import {Album, Category} from '../../data';
+import {formatTime} from '../../utils';
 import {PlayButton} from '../playButton';
 
 
@@ -57,7 +58,7 @@ export const HorizontalAlbumHeader: FC<HorizontalAlbumHeaderProps> = ({album, ca
           </Typography>
           <div className={classes.headline}>
             <Typography variant='subtitle1'>
-              {category.name} • {album.date}
+              {category.name} • {album.date} • {formatTime(album.duration)}
             </Typography>
           </div>
           <Typography color='textSecondary'>{album.tagline}</Typography>

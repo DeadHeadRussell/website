@@ -8,16 +8,19 @@ utils.makeAlbum(
     utils.makeSong(
       'Rainy Day',
       '2018-02',
+      241,
       description = 'Calming acoustic tones'
     ),
     utils.makeSong(
       'I-279 South to Pittsburgh',
       '2018-02',
+      384,
       description = 'Jammin\' road song'
     ),
     utils.makeSong(
       'Waiting for Something, In Vain',
-      '2018-02'
+      '2018-02',
+      377
     )
   ],
   description = |||

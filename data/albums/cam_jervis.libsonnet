@@ -8,6 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Road to Want',
       '2008',
+      358,
       'The Cam Jervis Experience',
       [
         utils.makeCredit('Andrew Russell', 'Lead Guitar'),
@@ -21,6 +22,7 @@ utils.makeAlbum(
     utils.makeSong(
       'On Either Side',
       '2008',
+      193,
       'The Cam Jervis Experience',
       [
         utils.makeCredit('Garry Garneau', 'Lead Vocals, Russian Lap Harp, Lyrics'),
@@ -33,6 +35,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Crash Symbol',
       '2008',
+      102,
       'The Cam Jervis Experience',
       [
         utils.makeCredit('Garry Garneau', 'Lead Vocals, Drums, Lyrics'),
@@ -45,6 +48,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Farmhouse',
       '2008',
+      255,
       'Phish',
       [
         utils.makeCredit('Andrew Russell', 'Lead Vocals, Lead Guitar, Drums'),
@@ -57,6 +61,7 @@ utils.makeAlbum(
     utils.makeSong(
       'El Scorcho',
       '2008',
+      284,
       'Weezer',
       [
         utils.makeCredit('Garry Garneau', 'Lead Vocals'),

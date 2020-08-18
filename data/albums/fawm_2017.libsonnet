@@ -8,21 +8,25 @@ utils.makeAlbum(
     utils.makeSong(
       'Let\'s Go',
       '2017-02',
+      189,
       description = 'A good opener for FAWM.'
     ),
     utils.makeSong(
       'The River',
       '2017-02',
+      325,
       description = 'A through composition.  I really like how it ends, but the opening half hasn\'t aged well in my opinion.'
     ),
     utils.makeSong(
       'Manhattan Sessions',
       '2017-02',
+      1265,
       description = 'There\'s just something about manhattans opening up my piano creativity.  Hence this 20 min improv extravaganza.  There are a number of distinct sections.  I used to have names and timestamps for them all but... no clue where they went.'
     ),
     utils.makeSong(
       'Kiddy Pool',
       '2017-02',
+      433,
       artist = 'David L Graham and Andrew Russell',
       credits = [
         utils.makeCredit('Andrew Russell', 'All Instruments, Music'),
@@ -70,16 +74,19 @@ utils.makeAlbum(
     utils.makeSong(
       'Morning Meadow',
       '2017-02',
+      233,
       description = 'An exploration into DADGAD.  One guitar.  Many layers.'
     ),
     utils.makeSong(
       'The Spicy Burrito Saga',
       '2017-02',
+      629,
       description = 'Following up on the Manhattan Sessions, I decided to try a similar concept with other instruments.  Here\'s 10 minutes of acoustic guitar improv.  There are four distinct sections.'
     ),
     utils.makeSong(
       'In The Confession Booth',
       '2017-02',
+      178,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Lyrics'),
@@ -116,25 +123,30 @@ utils.makeAlbum(
     utils.makeSong(
       'The Electric Tapes',
       '2017-02',
+      1580,
       description = 'Part three of the improv tour.  This time the electric guitar makes it\'s appearance.  This is probably my least favourite of the bunch, but has churned out one of my favourites in [[song:misc.the_pensive_pest|The Pensive Pest]].'
     ),
     utils.makeSong(
       'The Basement Gallery',
       '2017-02',
+      638,
       description = '4 of 5 done.  Bass guitar.  So low.  So smooth.  So go.'
     ),
     utils.makeSong(
       'Then',
-      '2017-02'
+      '2017-02',
+      245
     ),
     utils.makeSong(
       'Meandering Musings',
       '2017-02',
+      287,
       description = 'Out of instruments, I have a different take on the improv.  I start with an acoustic guitar track, 100% improv.  Then layer the bass, then keys, then electric guitar.  Every take improv\'d and every take done without listening back to what I did previously.  It was... fun!'
     ),
     utils.makeSong(
       'No Prophet',
       '2017-02',
+      362,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Lyrics'),
@@ -174,6 +186,7 @@ utils.makeAlbum(
     utils.makeSong(
       'The Road to Nowhere',
       '2017-02',
+      235,
       artist = 'Amanda West and Andrew Russell',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments, Music'),
@@ -215,6 +228,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Up to Something',
       '2017-02',
+      205,
       artist = 'Amanda West, Sean Brennan and Andrew Russell',
       credits = [
         utils.makeCredit('Sean Brennan', 'Viola'),
@@ -225,6 +239,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Travel Song',
       '2017-02',
+      156,
       artist = 'Nancy Gunderson, Kristen Machina and Andrew Russell',
       credits = [
         utils.makeCredit('Kristen Machina', 'Vocals'),

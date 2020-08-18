@@ -8,6 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Has That Ever Crossed Your Mind',
       '2014-01',
+      208,
       credits = [
         utils.makeCredit('Andrew Russell', 'Vocals, Guitars, Bass Guitar, Music, Lyrics'),
         utils.makeCredit('Christopher Russell', 'Drums'),
@@ -53,6 +54,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Moving',
       '2014-01',
+      438,
       credits = [
         utils.makeCredit('Andrew Russell', 'Vocals, Guitars, Bass Guitar, Drums, Music, Lyrics'),
         utils.makeCredit('Riccardo Schultz + CMU Students', 'Studio Engineers')

@@ -11,8 +11,9 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {FC} from 'react';
 import showdown from 'showdown';
 
-import {createPlaylistFromAlbum, createSong} from '../../audioPlayer';
+import {createPlaylistFromAlbum, createSong, getPlayer} from '../../audioPlayer';
 import {Album, Song} from '../../data';
+import {usePlayback} from '../../utils';
 import {Description} from '../description';
 import {PlayButton} from '../playButton';
 
@@ -39,6 +40,17 @@ export interface SongInfoProps {
 export const SongInfo: FC<SongInfoProps> = ({open, album, song, handleClose}) => {
   const classes = useStyles();
 
+  const player = getPlayer();
+  const playbackState = usePlayback(player, false);
+  const playlist = createPlaylistFromAlbum(album);
+  const playerSong = createSong(album, song);
+
+  const play = (seconds: number) => {
+    player.setPlaylist(playlist);
+    player.play(playerSong);
+    setTimeout(() => player.seek(seconds), 100);
+  };
+
   return (
     <Drawer anchor='right' open={open} onClose={handleClose}>
       <div className={classes.details}>
@@ -49,8 +61,8 @@ export const SongInfo: FC<SongInfoProps> = ({open, album, song, handleClose}) =>
 
         <CardActions>
           <PlayButton
-            playlist={createPlaylistFromAlbum(album)}
-            song={createSong(album, song)}
+            playlist={playlist}
+            song={playerSong}
           />
           <Button
             color='primary'
@@ -87,7 +99,7 @@ export const SongInfo: FC<SongInfoProps> = ({open, album, song, handleClose}) =>
         <Grid container spacing={2} direction='column'>
           {song.description && (
             <Grid item>
-              <Description description={song.description} />
+              <Description description={song.description} onPlay={play} />
             </Grid>
           )}
           {song.lyrics && (

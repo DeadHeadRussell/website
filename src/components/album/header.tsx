@@ -12,6 +12,7 @@ import {FC, ReactNode} from 'react';
 
 import {createPlaylistFromAlbum} from '../../audioPlayer';
 import {Album} from '../../data';
+import {formatTime} from '../../utils';
 import {PlayButton} from '../playButton';
 import {AlbumLink} from './link';
 
@@ -62,7 +63,7 @@ export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
             {album.name}
           </Typography>
           <Typography variant='subtitle2' align='center'>
-            {album.date}
+            {album.date} • {formatTime(album.duration)}
           </Typography>
           <Typography className={classes.content} color='textSecondary'>{album.tagline}</Typography>
         </CardContent>

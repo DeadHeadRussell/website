@@ -8,16 +8,19 @@ utils.makeAlbum(
     utils.makeSong(
       'What Can I Say?',
       '2014-02',
+      131,
       description = 'Jazz-rock instrumental'
     ),
     utils.makeSong(
       'All In Time',
       '2014-02',
+      352,
       description = 'Wistful folk song'
     ),
     utils.makeSong(
       'A Winter\'s Day',
       '2014-02',
+      180,
       artist = 'Nadia Cripps and Andrew Russell',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments, Music'),
@@ -28,6 +31,7 @@ utils.makeAlbum(
     utils.makeSong(
       'One Fall Afternoon',
       '2014-02',
+      340,
       description = 'Sappy love song'
     )
   ],

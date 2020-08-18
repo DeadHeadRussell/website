@@ -8,6 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Beware the Terrors',
       '2015',
+      461,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Lyrics'),
@@ -57,11 +58,13 @@ utils.makeAlbum(
     utils.makeSong(
       'The Pensive Pest',
       '2017',
+      369,
       description = 'This one came out of [[song:fawm_2017.the_electric_tapes|The Electric Tapes]] from [[album:fawm_2017|FAWM 2017]]'
     ),
     utils.makeSong(
       'Waiting for the Sky to Fall',
       '2016',
+      310,
       description = 'One of my finest compositions, both from a lyrical and musical point of view.',
       lyrics = |||
         [Verse 1]
@@ -98,6 +101,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Once Majestic',
       '2020',
+      393,
       description = 'Grand solo piano composition.  This is the first composition done primarily at the grand piano.',
       sheetMusic = true
     )

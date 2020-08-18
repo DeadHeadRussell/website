@@ -8,11 +8,13 @@ utils.makeAlbum(
     utils.makeSong(
       'What Am I?',
       '2010',
+      287,
       description = 'Guitar led, instrumental rock song'
     ),
     utils.makeSong(
       'Has That Ever Crossed Your Mind',
       '2011',
+      210,
       lyrics = |||
         I have shown you what you've never seen before
         I have helped you take your first walk 'cross the floor
@@ -50,6 +52,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Six Wide Lanes',
       '2012',
+      156,
       artist = 'Heather and Andrew Russell',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments, Music, Lyrics'),
@@ -94,6 +97,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Mellow Song',
       '2010',
+      272,
       artist = 'Heather and Andrew Russell',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments, Music, Lyrics'),
@@ -104,6 +108,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Die Die Die',
       '2010',
+      496,
       lyrics = |||
         [Verse 1]
         I don't care what you do to me
@@ -162,16 +167,19 @@ utils.makeAlbum(
     utils.makeSong(
       'Jazzy #5',
       '2010',
+      390,
       description = 'Instrumental jazz song.  There\'s also a #2.'
     ),
     utils.makeSong(
       'KOR Waltz',
       '2010',
+      622,
       description = 'Jazz-rock waltz'
     ),
     utils.makeSong(
       'Riding Past',
       '2014',
+      216,
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments, Music'),
         utils.makeCredit('Pat Lowther', 'Lyrics')

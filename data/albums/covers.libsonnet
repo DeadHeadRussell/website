@@ -8,6 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Higher',
       '2019',
+      187,
       artist = 'The Naked and Famous',
       credits = [
         utils.makeCredit('Heather Russell', 'Lead Vocals'),
@@ -65,6 +66,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Beggar\'s Guild',
       '2018',
+      276,
       artist = 'Roadkill Ghost Choir',
       credits = [
         utils.makeCredit('Kristen Machina', 'Vocals'),
@@ -137,6 +139,7 @@ utils.makeAlbum(
     utils.makeSong(
       'In Hell I\'ll be in Good Company',
       '2018',
+      242,
       artist = 'Dead South',
       credits = [
         utils.makeCredit('Christopher Russell', 'Whistlin\', Drums'),
@@ -167,6 +170,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Long Black Veil',
       '2016',
+      296,
       artist = 'Traditional',
       credits = [
         utils.makeCredit('Heather Russell', 'Vocals'),
@@ -222,6 +226,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Waste',
       '2012-02',
+      280,
       artist = 'Phish',
       credits = [
         utils.makeCredit('Andrew Russell', 'All Instruments'),
@@ -269,6 +274,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Suburban War',
       '2012-02',
+      295,
       artist = 'Arcade Fire',
       credits = [
         utils.makeCredit('Andrew Russell', 'All Instruments'),
@@ -278,6 +284,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Sleep',
       '2012-02',
+      137,
       artist = 'Phish',
       credits = [
         utils.makeCredit('Andrew Russell', 'All Instruments'),
@@ -287,6 +294,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Wagon Wheel',
       '2015-12',
+      276,
       artist = 'Darius Rucker',
       credits = [
         utils.makeCredit('Heather Russell', 'Vocals'),
@@ -300,6 +308,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Gone',
       '2012-02',
+      244,
       artist = 'Phish',
       credits = [
         utils.makeCredit('Heather Russell', 'Vocals, Piano'),

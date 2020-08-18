@@ -7,11 +7,13 @@ utils.makeAlbum(
   [
     utils.makeSong(
       'Reborn',
-      '2008-08'
+      '2008-08',
+      291
     ),
     utils.makeSong(
       'Touch of Nothing',
-      '2008-08'
+      '2008-08',
+      519
     )
   ]
 )

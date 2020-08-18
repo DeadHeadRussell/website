@@ -8,6 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Falling Down',
       '2019-02',
+      179,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Andrew Russell', 'Vocals, Guitar, Bass Guitar, Drums, Music, Lyrics'),
@@ -63,6 +64,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Escape',
       '2019-02',
+      390,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Drums, Music, Lyrics'),
@@ -107,6 +109,7 @@ utils.makeAlbum(
     utils.makeSong(
       'I\'m Back',
       '2019-02',
+      230,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Music, Lyrics'),
@@ -152,6 +155,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Ulterior Motives',
       '2019-02',
+      215,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Drums, Music, Lyrics'),
@@ -199,6 +203,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Precious Bean',
       '2019-02',
+      301,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Music, Lyrics'),
@@ -262,6 +267,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Lost at Sea',
       '2019-02',
+      142,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Music, Lyrics'),
@@ -303,6 +309,7 @@ utils.makeAlbum(
     utils.makeSong(
       'In My Way',
       '2019-02',
+      441,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Andrew Russell', 'Vocals, Guitars, Bass Guitar, Drums, Music, Lyrics'),
@@ -319,6 +326,7 @@ utils.makeAlbum(
     utils.makeSong(
       'It Was You',
       '2019-02',
+      275,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Lyrics'),
@@ -357,6 +365,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Getting out of a Funk',
       '2019-02',
+      392,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Music, Lyrics'),
@@ -412,6 +421,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Lifting Me Away',
       '2019-02',
+      322,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Lyrics'),
@@ -454,6 +464,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Universal Serial Blues',
       '2019-02',
+      298,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Viola'),

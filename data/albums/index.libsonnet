@@ -12,6 +12,7 @@
   fawm_2016: import './fawm_2016.libsonnet',
   fawm_2015: import './fawm_2015.libsonnet',
   fawm_2014: import './fawm_2014.libsonnet',
+  fifty_ninety_2020: import './5090_2020.libsonnet',
   home_concert_series: import './home_concert_series.libsonnet',
   jazz_fun: import './jazz_fun.libsonnet',
   leading_off: import './leading_off.libsonnet',

@@ -48,10 +48,11 @@
     [if std.length(external) > 0 then 'external']: external
   },
 
-  makeSong(name, date, artist = '', credits = [], video = false, description = '', lyrics = '', sheetMusic = false, external = ''):: {
+  makeSong(name, date, duration, artist = '', credits = [], video = false, description = '', lyrics = '', sheetMusic = false, external = ''):: {
     name: name,
     link: utils.makeLink(name),
     date: date,
+    duration: duration,
     artist: artist,
     credits: credits,
     video: video,

@@ -17,7 +17,7 @@ import {useEffect, useState, FC} from 'react';
 
 import {createPlaylistFromAlbum, createSong, getPlayer, Playlist} from '../../audioPlayer';
 import {Album, Song as SongType} from '../../data';
-import {usePlayback} from '../../utils';
+import {formatTime, usePlayback} from '../../utils';
 import {SongInfo} from './info';
 
 
@@ -135,6 +135,9 @@ export const Song: FC<SongProps> = ({playIndex, album, song, playlist, active, h
       </TableCell>
       <TableCell>
         <Typography className={classes.dateCell}>{song.date}</Typography>
+      </TableCell>
+      <TableCell>
+        <Typography>{formatTime(song.duration)}</Typography>
       </TableCell>
       <TableCell>
         <MoreCell />

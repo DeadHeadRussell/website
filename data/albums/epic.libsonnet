@@ -7,11 +7,13 @@ utils.makeAlbum(
   [
     utils.makeSong(
       'hehehe...',
-      '2010'
+      '2010',
+      275,
     ),
     utils.makeSong(
       'The Journey',
       '2012',
+      858,
       description = 'This song has gone on to be one of my more commonly played ones, both live and recorded.',
       lyrics = |||
         [Verse 1]
@@ -50,16 +52,19 @@ utils.makeAlbum(
     utils.makeSong(
       'Epic Story',
       '2011',
+      317,
       description = 'This song was originally written for a grade 12 English project. It was about the elements of an epic.'
     ),
     utils.makeSong(
       'Change',
       '2008',
+      264,
       description = 'I think I wrote 0.5 - 1 lines of lyrics before I decided I didn\'t like them.'
     ),
     utils.makeSong(
       'I See',
       '2008',
+      266,
       description = 'Partially inspired by one of my favourite books at the time, World Without End by Sean Russell (no relation).',
       lyrics = |||
         [Verse 1]
@@ -111,11 +116,13 @@ utils.makeAlbum(
     utils.makeSong(
       'Deleted',
       '2010',
+      957,
       description = 'I originally wrote this using my digital piano\'s recording feature.  I then accidentally deleted it and didn\'t realize until over a week later.  I then had to rewrite this from memory.  Hence the name.'
     ),
     utils.makeSong(
       'Now',
       '2008',
+      235,
       description = 'One of my favourites still to this day. It deserves a higher quality recording.'
     )
   ],

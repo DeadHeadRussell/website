@@ -22,6 +22,7 @@ export interface RawSong {
   name: string;
   link: string;
   date: string;
+  duration: number;
   artist?: string;
   video: boolean;
   sheetMusic: boolean;
@@ -43,6 +44,7 @@ export interface Category extends RawCategory {
 export interface Album extends RawAlbum {
   art: string;
   archive: string;
+  duration: number;
   songs: Song[];
 }
 
@@ -103,6 +105,9 @@ export const processAlbum = (rawAlbum: RawAlbum): Album => ({
   ...rawAlbum,
   art: `/albums/${rawAlbum.link}/art.jpg`,
   archive: `/albums/${rawAlbum.link}/archive.zip`,
+  duration: (rawAlbum.songs || [])
+  .map(song => song.duration)
+  .reduce((total, duration) => total + duration, 0),
   songs: (rawAlbum.songs || []).map(rawSong => {
     const extension = rawSong.video ? 'mp4' : 'mp3';
     return {

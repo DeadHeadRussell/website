@@ -8,6 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'I\'m One',
       '2013',
+      188,
       artist = 'The Who',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments'),
@@ -62,6 +63,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Down by the Water',
       '2013',
+      231,
       artist = 'The Decemberists',
       credits = [
         utils.makeCredit('Heather Russell', 'Vocals'),
@@ -103,6 +105,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Dupree\'s Diamond Blues',
       '2013',
+      237,
       artist = 'Grateful Dead',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments'),
@@ -169,6 +172,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Scarlet Begonias',
       '2012',
+      583,
       artist = 'Grateful Dead',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments'),
@@ -222,6 +226,7 @@ utils.makeAlbum(
     utils.makeSong(
       'No Place Like the Right Time',
       '2012',
+      223,
       artist = 'Donna the Buffalo',
       credits = [
         utils.makeCredit('Heather Russell', 'Vocals'),
@@ -271,6 +276,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Why Don\'t You Save Me',
       '2011',
+      503,
       video = true,
       lyrics = |||
         [Verse 1]
@@ -323,6 +329,7 @@ utils.makeAlbum(
     utils.makeSong(
       'F is For Frogs',
       '2011',
+      204,
       video = true,
       lyrics = |||
         [Verse 1]
@@ -358,6 +365,7 @@ utils.makeAlbum(
     utils.makeSong(
       'The Journey',
       '2011',
+      317,
       video = true,
       lyrics = |||
         [Verse 1]
@@ -397,6 +405,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Farther Away',
       '2010',
+      621,
       video = true,
       lyrics = |||
         [Verse 1]
@@ -433,6 +442,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Don\'t Think Twice, It\'s All Right',
       '2011',
+      277,
       artist = 'Bob Dylan',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments'),
@@ -489,12 +499,14 @@ utils.makeAlbum(
     utils.makeSong(
       'KOR Waltz',
       '2010',
+      444,
       video = true,
       external = 'https://www.youtube.com/watch?v=HnWOT5zHQP8&list=PL6A7D4203E4BA8C2C&index=11'
     ),
     utils.makeSong(
       'You\'ll Know My Name',
       '2011',
+      87,
       artist = 'Phish',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments'),
@@ -531,18 +543,21 @@ utils.makeAlbum(
     utils.makeSong(
       'Los Hoya Jam',
       '2010',
+      397,
       video = true,
       external = 'https://www.youtube.com/watch?v=J9v5pUTjmRg&list=PL6A7D4203E4BA8C2C&index=13'
     ),
     utils.makeSong(
       'hehehe...',
       '2010',
+      266,
       video = true,
       external = 'https://www.youtube.com/watch?v=NrZx_BGyyL0&list=PL6A7D4203E4BA8C2C&index=14'
     ),
     utils.makeSong(
       'Back on the Train',
       '2010',
+      438,
       artist = 'Phish',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments'),
@@ -576,6 +591,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Rocking in the Free World',
       '2010',
+      634,
       artist = 'Neil Young',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments'),

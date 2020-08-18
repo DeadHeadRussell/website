@@ -8,6 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Yearning',
       '2018',
+      179,
       artist = 'Bob Conway and Andrew Russell',
       credits = [
         utils.makeCredit('Andrew Russell', 'All instruments, Music'),

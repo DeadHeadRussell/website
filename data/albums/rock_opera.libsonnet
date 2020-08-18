@@ -8,6 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Farther Away',
       '2014',
+      256,
       description = |||
         The intro is set during the not-so-far-distant future in a region of the world that is being hit hard by climate change. The local farmers are struggling to grow their crops, leaving them with little money. Because of this, they have to turn to other means to survive.
         Farther Away starts with a mother lamenting about her living conditions. She recently sold her only daughter so that she would have enough money to struggle out a living. It has finally sunk in that she will never get to see her daugter again.
@@ -50,6 +51,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Here We Are',
       '2014',
+      207,
       description = |||
         Ah, so here we are. The intro is done and here comes the bulk of Act I. This song introduces the four themes found in this act.
       |||
@@ -57,6 +59,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Boy',
       '2014',
+      287,
       description = |||
         We now fast forward a few years and find ourselves in a richer part of the world. Life looks great, families are well fed, well educated, and well entertained. This songs introduces to the protagonist of our story; a Boy in his senior year of highschool. He sings about his issues as he struggles to maintain a relationship.
       |||,
@@ -86,6 +89,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Parents',
       '2014',
+      307,
       description = |||
         We follow the Boy as he arrives home after school. His father is there waiting for him, upset that he is so late. His father berates him for not working towards finding a career path as the Boy complains that he isn't given enough space. After being chewed out, the Boy overhears his mother questioning how they are raising their child.
       |||,
@@ -144,6 +148,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Friends => The Meeting',
       '2014',
+      604,
       description = |||
         This is both song 5 and 6, as they flow directly into one another. The Boy, being banished to his room, complains to his friends while he does his school work. His friends try to pressure him to sneak out late at night to have some fun. The Boy is conflicted, not wanting to disobey even more, but eventually caves in and follows them out.
         Fast foward to later that night, the Boy and his friends are up to no good. They wind up at a whore house where his friends ask the Madam to treat him well. The madam takes the Boy to their newest possession, the Girl sold in the first song.
@@ -233,6 +238,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Losing => Looking Back',
       '2016',
+      559,
       description = |||
         The intro to Act II goes back to the mother of the Girl. Life has not gotten any better after selling her daughter. Their town is in ruins due to recent floods and there is no help in sight.
         Looking Back starts off the main part of Act II which is a flashback of what happend to the Girl after she was sold. It introduces the four themes found in Act II.
@@ -260,6 +266,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Owner',
       '2016',
+      240,
       description = |||
         The Girl, recently being sold, is introduced to her new owner. He tells her what her life will now be like, as she as terrified about what is happening.
       |||,
@@ -305,6 +312,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Escape',
       '2016',
+      252,
       description = |||
         One of the other slaves she lives with attempts to make an escape and pulls the Girl along. She is thrilled about getting away, but at the same time, she is terrified about being caught. The worst happens, and they are caught. The Girl quickly burst out crying that she was forced to go along. The owner lets her off the hook as he big plans for her, but the Girl never sees the other slave again.
       |||
@@ -312,6 +320,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Dusty Road',
       '2016',
+      238,
       description = |||
         Note: Please don't listen to this song. My narration is terrible. Like... so bad that I'd like to blot it out of my memory entirely. Saying that...
         The new job for the girl is a sex scam. She attracts rich tourists who think they can have it all while her Owner bursts in their room before anything can happen and blackmails them for their money. The Girl is being well treated and fed during all this and her determination to make something out of her life grows.
@@ -353,6 +362,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Lost Soul',
       '2016',
+      300,
       description = |||
         Nothing good lasts for long. The Girl is sold to the whorehouse where the Boy found her. Once again, the Girl's life is throw to tatters and she loses all hope that she will ever have a good life.
       |||,
@@ -397,6 +407,7 @@ utils.makeAlbum(
     utils.makeSong(
       'New Life',
       '2016',
+      542,
       description = |||
         Flash back over, we are back in the present. After recounting her life to the Boy, she wants to just be left alone. The Boy refuses, wanting to help her out. He realises that he has to do something about this problem and vows to dedicate his life to it.
       |||,

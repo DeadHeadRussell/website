@@ -8,6 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'No Light',
       '2020-02',
+      279,
       description = 'Rock. Depressing',
       lyrics = |||
         [Intro]
@@ -42,6 +43,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Labour of Love',
       '2020-02',
+      220,
       description = |||
         Was wanting to do my yearly DADGAD song late one night when I got the idea for this one, but it had more of a morning feel to it so I waited until the next morning to write it!
       |||
@@ -49,6 +51,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Lone Roamer',
       '2020-02',
+      247,
       description = |||
         Wanted to write an acoustic grunge song, but this came out instead.... I'll find that grunge song one day.
 
@@ -58,6 +61,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Elegy of Fear',
       '2020-02',
+      351,
       description = |||
         Got inspired by a Rachmaninoff Elegy Op. 3 No. 1, so I wrote something in that style.
         This took 3-4 long days of writing and still could use tons of work, but... FAWM. Also, my playing sucks, I had to record a lot of this one hand at a time... then heavily edit those sections as well. Huzzah for MIDI!
@@ -67,6 +71,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Silently Tapping upon the Glass',
       '2020-02',
+      314,
       artist = 'Stephen Wordsmith and Andrew Russell',
       credits = [
         utils.makeCredit('Andrew Russell', 'All Instruments and Music'),
@@ -130,11 +135,13 @@ utils.makeAlbum(
     utils.makeSong(
       'Trafilata al Bronzo',
       '2020-02',
+      282,
       description = 'Jumped into my head just a few hours before I had to catch a plane. 100% FAWM quality. Yet another song where I had to ask what to name it / what genre / how to describe it. No definitive answers. If you know where this names come, I guess you like pasta?'
     ),
     utils.makeSong(
       'Variations on a Theme of Raindrop Prelude (Chopin)',
       '2020-02',
+      587,
       artist = 'Christopher and Andrew Russell',
       credits = [
         utils.makeCredit('Christopher and Andrew Russell', 'Everything')
@@ -161,6 +168,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Prelude in F Minor',
       '2020-02',
+      223,
       description = |||
         There's just something about me and manhattans when it comes to piano. It just changes how I write piano music.
         Anyhoo, regular disclaimer that I "played" this piece. Aka, one hand... err... one part of one hand at a time. Then made lots of edits. So don't go claiming I'm great at playing piano after listening to this.
@@ -170,12 +178,14 @@ utils.makeAlbum(
     utils.makeSong(
       'Rhapsody of Uncertainty',
       '2020-02',
+      806,
       description = 'A rhapsody. \'nuff said.',
       sheetMusic = true
     ),
     utils.makeSong(
       'Impromptu 1',
       '2020-02',
+      484,
       description = |||
         8 minutes cut out of a 30 minute improv session. It sounded so much like a piece already composed that I decided to upload it verbatim here. Will probably go back and give it some more coherence at some point.
 
@@ -185,6 +195,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Seed into Tree',
       '2020-02',
+      194,
       artist = 'Nancy Gunderson, Kristen Machina and Andrew Russell',
       credits = [
         utils.makeCredit('Kristen Machina', 'Vocals'),
@@ -244,6 +255,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Dance of the Dead',
       '2020-02',
+      288,
       description = |||
         My morning songs always seem to end up happier than my other songs. Its weird considering that I usually write them before I have my coffee...
         I just picture dancing skeletons when listening to this, and there's definitely some Garcia and Grisman influence poking through. Hence the title.
@@ -252,6 +264,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Back to Frozen',
       '2020-02',
+      244,
       artist = 'Adnama17 and Andrew Russell',
       credits = [
         utils.makeCredit('Andrew Russell', 'Vocals, Guitar, Bass Guitar, Music'),
@@ -305,6 +318,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Seeking an End',
       '2020-02',
+      258,
       description = 'Well, I hit 14... not much else to say about this one.  ...well, other than most of this came from that same 30 min piano improv session. Could probably turn it into something much better than this, but not with the time remaining in FAWM!'
     )
   ],

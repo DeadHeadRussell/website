@@ -7,20 +7,24 @@ utils.makeAlbum(
   [
     utils.makeSong(
       'Impromptu 5',
-      '2020-03-21'
+      '2020-03-21',
+      789
     ),
     utils.makeSong(
       'Impromptu 4',
-      '2020-03-21'
+      '2020-03-21',
+      180
     ),
     utils.makeSong(
       'Impromptu 3',
       '2020-03-21',
+      350,
       description = 'This one takes a while to get going, but it really gets going'
     ),
     utils.makeSong(
       'Impromptu 2',
       '2020-03-21',
+      474,
       credits = [
         utils.makeCredit('Andrew Russell', 'Piano, Improv'),
         utils.makeCredit('Hoarce Silver', 'Music of "Peace"')

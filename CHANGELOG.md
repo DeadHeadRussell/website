@@ -8,9 +8,6 @@ Changes, both released, upcoming and in progress are kept here.
   - Get music from FAWM 2019 from Nick Coranado
 
 ### Changed
-- Song lists
-  - Song Durations
-
 - Improve audio player
 	- Embeded optional video player
   - Play random album
@@ -31,6 +28,15 @@ Changes, both released, upcoming and in progress are kept here.
 
 - Audio Player
   - Small size layout
+
+
+## [2020-08-18] - 2020-08-18
+### Added
+- Ability to link to timestamp in a song.
+
+### Changed
+- Song lists
+  - Song Durations
 
 
 ## [2020-06-22] - 2020-06-22

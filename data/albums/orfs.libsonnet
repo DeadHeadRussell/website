@@ -8,6 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'One Foot in the Graveyard',
       '2009-11-26',
+      250,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -20,6 +21,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Baby It\'s You',
       '2009-11-26',
+      174,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -32,6 +34,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Walk My Way',
       '2009-11-26',
+      206,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -44,6 +47,7 @@ utils.makeAlbum(
     utils.makeSong(
       'One Night Stand',
       '2009-11-26',
+      184,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -56,6 +60,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Lipstick On My Collar',
       '2009-11-26',
+      260,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -68,6 +73,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Bring a Woman to Me',
       '2009-11-26',
+      151,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -80,6 +86,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Unrequited Love',
       '2009-11-26',
+      131,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -92,6 +99,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Keep on Rocking',
       '2009-11-26',
+      211,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -104,6 +112,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Moma\'s Gone Insane',
       '2009-11-26',
+      220,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -116,6 +125,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Cosmic Dragons',
       '2009-11-26',
+      180,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -128,6 +138,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Sailing Alone',
       '2009-11-26',
+      339,
       'Grant Kozuchar',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals, Lead Guitar, Music and Lyrics'),
@@ -140,6 +151,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Maggot Brains',
       '2009-11-26',
+      369,
       'Funkadelic',
       [
         utils.makeCredit('Grant Kozuchar', 'Vocals and Lead Guitar'),

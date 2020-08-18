@@ -8,11 +8,13 @@ utils.makeAlbum(
     utils.makeSong(
       'Hold On',
       '2015-02',
+      352,
       description = 'Free flowing tune'
     ),
     utils.makeSong(
       'Left Alive',
       '2015-02',
+      311,
       description = 'Song of abandonment',
       lyrics = |||
         Not at home, now alone
@@ -47,6 +49,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Life Has Never Been So Kind',
       '2015-02',
+      272,
       description = 'Mournful, sad, crying',
       lyrics = |||
         I am trying
@@ -85,6 +88,7 @@ utils.makeAlbum(
     utils.makeSong(
       'A Song About Sweaters',
       '2015-02',
+      226,
       artist = 'Lavish Dude',
       credits = [
         utils.makeCredit('Sean Brennan', 'Vocals, Viola, Music, Lyrics'),
