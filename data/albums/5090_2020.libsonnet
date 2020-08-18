@@ -8,7 +8,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Ocean Journey (i1)',
       '2020-07-05',
-      1191,
+      1139,
       description = |||
         [[time:0]] - Rising Tide
         [[time:345]] - Rough Seas
@@ -19,7 +19,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Dream Big (i2)',
       '2020-07-12',
-      1411,
+      1191,
       description = |||
         [[time:0]] - Plod On
         [[time:251]] - Building Out
@@ -31,7 +31,7 @@ utils.makeAlbum(
     utils.makeSong(
       'Life Moves On (i3)',
       '2020-08-08',
-      1139,
+      1411,
       description = |||
         [[time:0]] - Playpen
         [[time:310.6]] - Worn Down
@@ -39,6 +39,15 @@ utils.makeAlbum(
         [[time:671]] - Life Moves On
         [[time:954]] - Replay
       |||
+    ),
+    utils.makeSong(
+      'Fantasia in C# Minor',
+      '2020-08-18',
+      348,
+      description = |||
+        I recorded multiple takes over 45 mins just to realize that I never hit the record button... It was much better the first time around, I swear.
+      |||,
+      sheetMusic = true
     )
   ],
   description = |||
