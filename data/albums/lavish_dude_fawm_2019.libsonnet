@@ -1,7 +1,8 @@
 local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
-  'Leading Off',
+  'Lavish Dude FAWM 2019',
+  'FAWM 2019',
   '2019-02-08 - 2019-02-10',
   'LAVISH DUDE',
   [

@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'MIDI',
+  'MIDI',
   '2008 - 2015',
   'Various',
   [

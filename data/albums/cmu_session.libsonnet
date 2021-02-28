@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'CMU Session',
+  'CMU Session',
   '2014-01',
   'Recording session at CMU\'s studio',
   [

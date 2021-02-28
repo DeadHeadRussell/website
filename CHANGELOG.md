@@ -19,7 +19,9 @@ Changes, both released, upcoming and in progress are kept here.
 - Optimize the site
   - Reduce initial load sizes
 
-- Provide an option to the zip script to look for diffs.
+- ZipScript
+  - Provide an option to the zip script to look for diffs.
+  - Provide option to do single album
 
 - Rethink song link / URL / info panel.
 
@@ -31,6 +33,14 @@ Changes, both released, upcoming and in progress are kept here.
 
 - Audio Player
   - Small size layout
+
+
+## [2021-02-28] - 2021-02-28
+### Added
+- New album data
+
+### Changed
+- New ID field to allow multiple albums with the same name. ID is used in links instead of name now.
 
 
 ## [2020-08-18] - 2020-08-18

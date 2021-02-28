@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'The Cam Jervis Experience',
+  'The Cam Jervis Experience',
   '2008',
   'Originals and covers played in my high school band',
   [

@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   '\'Cam Tapes',
+  '\'Cam Tapes',
   '2010 - 2013',
   'Webcam recording series',
   [

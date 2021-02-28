@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'Compositional Improvs',
+  'Compositional Improvs',
   '2020',
   'Improvs to spur creativity and aid the composition process',
   [

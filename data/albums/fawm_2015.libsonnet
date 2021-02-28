@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'FAWM 2015',
+  'FAWM 2015',
   '2015-02-01 - 2015-02-28',
   'Songs from FAWM 2015 (February Album Writers Month)',
   [

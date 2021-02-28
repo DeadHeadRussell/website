@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'YAGS',
+  'YAGS',
   '2017 - 2019',
   'OST for Yearning: A Gay Story',
   [

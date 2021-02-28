@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'Rock Opera',
+  'Rock Opera',
   'Early 2010\'s - ???',
   'A rock opera that I\'ve been working on. I still need better titles for everything...',
   [

@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   '50/90 2020',
+  '50/90 2020',
   '2020-07-04 - 2020-10-01',
   'Practical Piano Playing',
   [

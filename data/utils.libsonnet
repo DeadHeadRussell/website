@@ -38,9 +38,10 @@
     albums: albums
   },
 
-  makeAlbum(name, date, tagline, songs, description = '', external = ''):: {
+  makeAlbum(id, name, date, tagline, songs, description = '', external = ''):: {
+    id: id,
     name: name,
-    link: utils.makeLink(name),
+    link: utils.makeLink(id),
     date: date,
     tagline: tagline,
     songs: songs,

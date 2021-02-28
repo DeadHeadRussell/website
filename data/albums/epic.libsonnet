@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'Epic',
+  'Epic',
   '2008 - 2015',
   'The most brilliant rock album no one has ever heard.',
   [

@@ -9,6 +9,7 @@ export interface RawCategory {
 }
 
 export interface RawAlbum {
+  id: string;
   name: string;
   link: string;
   date: string;

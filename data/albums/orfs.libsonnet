@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'The Orfs - Live',
+  'The Orfs - Live',
   '2009-11-26',
   'Maxwell\'s Music House - 2009-11-26',
   [

@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'ZAGS',
+  'ZAGS',
   '2019 - 2020',
   'OST for Zen: A Gay Sequel',
   [

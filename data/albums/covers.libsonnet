@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'Covers',
+  'Covers',
   '2010 - 2018',
   'Various',
   [

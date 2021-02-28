@@ -2,6 +2,7 @@ local utils = import '../utils.libsonnet';
 
 utils.makeAlbum(
   'Home Concert Series',
+  'Home Concert Series',
   '2020',
   'Mini concerts done from the comfort of home',
   [
