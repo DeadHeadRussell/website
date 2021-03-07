@@ -35,6 +35,19 @@ Changes, both released, upcoming and in progress are kept here.
   - Small size layout
 
 
+## [2021-03-07] - 2021-03-07
+### Added
+- Chosen - album
+- FAWM 2021 - album
+- New section level description command parsing
+- New section level list description command
+
+### Changed
+- Lavish Dude album ordering
+- Time description command now has optional display
+- Better zip script errors
+
+
 ## [2021-02-28] - 2021-02-28
 ### Added
 - New album data
