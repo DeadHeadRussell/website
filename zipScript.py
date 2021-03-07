@@ -13,13 +13,17 @@ def pretty_name(album_path):
     return os.path.basename(album_path)
 
 def find_song(album_link, song_link):
-    return next(
-        song
-        for category in data['categories']
-        for album in category.get('albums', [])
-        for song in album.get('songs', [])
-        if song['link'] == song_link and album['link'] == album_link
-    )
+    try:
+        return next(
+            song
+            for category in data['categories']
+            for album in category.get('albums', [])
+            for song in album.get('songs', [])
+            if song['link'] == song_link and album['link'] == album_link
+        )
+    except Exception as e:
+        print(f'Error finding: {album_link} {song_link}')
+        raise e
 
 def archive_file(archive, file_path, archive_name):
     with archive.open(archive_name, mode='w') as archive_file:
