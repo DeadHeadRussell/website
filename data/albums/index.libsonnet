@@ -1,10 +1,12 @@
 {
   cam_jervis: import './cam_jervis.libsonnet',
   cam_tapes: import './cam_tapes.libsonnet',
+  chosen: import './chosen.libsonnet',
   compositional_improvs: import './compositional_improvs.libsonnet',
   cmu_session: import './cmu_session.libsonnet',
   covers: import './covers.libsonnet',
   epic: import './epic.libsonnet',
+  fawm_2021: import './fawm_2021.libsonnet',
   fawm_2020: import './fawm_2020.libsonnet',
   fawm_2019: import './fawm_2019.libsonnet',
   fawm_2018: import './fawm_2018.libsonnet',

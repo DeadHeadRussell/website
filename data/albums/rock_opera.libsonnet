@@ -461,7 +461,6 @@ utils.makeAlbum(
     )
   ],
   description = |||
-    Running time: 62ish minutes
     Note: These are all demos. This means that so me instruments are synthesized and all singing parts, including the female ones, are sung by me.
     I started writing this Rock Opera sometime in the early-2010's. I don't really remember the exact date. I had recently been listening to The Who's Tommy and Quadrophenia and was very caught up in the overall flow of the music. I had written many songs before, but had never written a story told by music.
     It took me a while to get started. I didn't have a clue what to write about at first. It wasn't until I happened to be playing guitar one day, and played two of my older songs 'Farther Away' and 'Boy' back-to-back that I got an idea. The two songs fit well together musically, and there was an opportunity for a story. 'Farther Away' was written as a grade 12 English project. Instead of writing a book report, I was able to convince my English teacher to write a song. The book in question is Oryx and Crake by Margaret Atwood (I highly recommend it!!) and this rock opera has been heavily influenced by it. 'Boy', on the other hand, was an unnamed song (yes, I know, I'm terrible at naming things) from I don't even know when. I first remember playing it during a lunch hour in Grade 9, though it probably did not have any lyrics back then. It was simply a song complaining about relationships, as highschool students are wont to do. I have also rewritten parts of its intro many times. From these two songs, I started writing.
