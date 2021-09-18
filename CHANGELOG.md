@@ -9,6 +9,8 @@ Changes, both released, upcoming and in progress are kept here.
 
 - Add "sections" to songs
 
+- "Repeat" option to songs
+
 
 ### Changed
 - Improve audio player
@@ -18,6 +20,7 @@ Changes, both released, upcoming and in progress are kept here.
 
 - Optimize the site
   - Reduce initial load sizes
+  - Move all songs to static host
 
 - ZipScript
   - Provide an option to the zip script to look for diffs.
