@@ -11,7 +11,7 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {FC, ReactNode} from 'react';
 
 import {createPlaylistFromAlbum} from '../../audioPlayer';
-import {Album} from '../../data';
+import {Album, Category} from '../../data';
 import {formatTime} from '../../utils';
 import {PlayButton} from '../playButton';
 import {AlbumLink} from './link';
@@ -39,17 +39,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export interface AlbumHeaderProps {
+  category: Category;
   album: Album;
   link?: boolean;
 }
 
-export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
+export const AlbumHeader: FC<AlbumHeaderProps> = ({category, album, link}) => {
   const classes = useStyles();
 
   const Wrapper: FC<{}> = link
     ? ({children}) => (
       <CardActionArea>
-        <AlbumLink albumLink={album.link}>{children}</AlbumLink>
+        <AlbumLink categoryLink={category.link} albumLink={album.link}>{children}</AlbumLink>
       </CardActionArea>
     )
     : ({children}) => <>{children}</>;
@@ -71,11 +72,11 @@ export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
       <CardActions>
         {((album.songs && album.songs.length > 0) || album.external) && (
           <div>
-            <Grid container spacing={2} justify='center'>
+            <Grid container spacing={2} justifyContent='center'>
               {album.songs && album.songs.length > 0 && (
                 <>
                   <Grid item>
-                    <PlayButton playlist={createPlaylistFromAlbum(album)} size='small' />
+                    <PlayButton playlist={createPlaylistFromAlbum(category, album)} size='small' />
                   </Grid>
                   <Grid item>
                     <Button

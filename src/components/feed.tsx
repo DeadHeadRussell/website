@@ -61,6 +61,7 @@ export const Feed: FC<FeedProps> = ({title, feed}) => {
                   <Song
                     key={song.link}
                     playIndex={index + 1}
+                    category={item.category}
                     album={item.album}
                     song={song}
                     playlist={playlist}

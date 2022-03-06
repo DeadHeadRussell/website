@@ -20,7 +20,6 @@ import {useState, FC} from 'react';
 import {AudioPlayer, AudioPlayerSong} from '../../audioPlayer';
 import {PlaybackState} from '../../utils';
 import {AlbumIcon} from '../album/icon';
-import {AlbumLink} from '../album/link';
 import {AudioPlayerSongDisplay} from './songDisplay';
 
 

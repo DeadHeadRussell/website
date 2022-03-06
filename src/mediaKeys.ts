@@ -1,10 +1,12 @@
 import {AudioPlayer} from './audioPlayer';
 
+/*
 declare global {
   interface MediaSession {
     setPositionState: (a: any) => void;
   }
 }
+ */
 
 export function setupMediaKeys(player: AudioPlayer) {
   if (typeof window !== 'undefined' && window.navigator.mediaSession) {

@@ -1,7 +1,7 @@
 import {GetStaticPaths, GetStaticProps} from 'next';
-import {FC} from 'react';
+import React, {FC} from 'react';
 
-import {createPlaylistFromAlbums} from '../../audioPlayer';
+import {createPlaylistFromCategory} from '../../audioPlayer';
 import {AlbumGrid} from '../../components/album/grid';
 import {Root} from '../../components/root';
 import {processData, Category, MenuData} from '../../data';
@@ -14,8 +14,8 @@ export interface CategoryPageProps {
 }
 
 const CategoryPage: FC<CategoryPageProps> = ({category, menu}) => (
-  <Root title={category.name} menu={menu} initialPlaylist={createPlaylistFromAlbums(category.albums)}>
-    <AlbumGrid albums={category.albums} />
+  <Root title={category.name} menu={menu} initialPlaylist={createPlaylistFromCategory(category)}>
+    <AlbumGrid albums={category.albums.map(album => ({category, album}))} />
   </Root>
 );
 

@@ -12,7 +12,7 @@ import {FC} from 'react';
 import showdown from 'showdown';
 
 import {createPlaylistFromAlbum, createSong, getPlayer} from '../../audioPlayer';
-import {Album, Song} from '../../data';
+import {Album, Category, Song} from '../../data';
 import {usePlayback} from '../../utils';
 import {Description} from '../description';
 import {PlayButton} from '../playButton';
@@ -32,18 +32,19 @@ const useStyles = makeStyles(theme => ({
 
 export interface SongInfoProps {
   open: boolean;
+  category: Category;
   album: Album;
   song: Song;
   handleClose: () => void;
 }
 
-export const SongInfo: FC<SongInfoProps> = ({open, album, song, handleClose}) => {
+export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handleClose}) => {
   const classes = useStyles();
 
   const player = getPlayer();
   const playbackState = usePlayback(player, false);
-  const playlist = createPlaylistFromAlbum(album);
-  const playerSong = createSong(album, song);
+  const playlist = createPlaylistFromAlbum(category, album);
+  const playerSong = createSong(category, album, song);
 
   const play = (seconds: number) => {
     player.setPlaylist(playlist);
@@ -68,7 +69,7 @@ export const SongInfo: FC<SongInfoProps> = ({open, album, song, handleClose}) =>
             color='primary'
             component='a'
             href={song.music}
-            download={`${song.name}.${song.extension}`}
+            download={song.fileName}
           >
             Download
           </Button>
@@ -99,7 +100,7 @@ export const SongInfo: FC<SongInfoProps> = ({open, album, song, handleClose}) =>
         <Grid container spacing={2} direction='column'>
           {song.description && (
             <Grid item>
-              <Description description={song.description} onPlay={play} />
+              <Description description={song.description} onPlay={play} context={{category, album, song}} />
             </Grid>
           )}
           {song.lyrics && (

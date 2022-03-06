@@ -1,10 +1,14 @@
-import {Album, Feed, Song} from './data';
+import {Category, Album, Feed, FeedItem, Song} from './data';
 import {setupListensCount} from './listensCount';
 import {setupMediaKeys} from './mediaKeys';
 import {createNotifications} from './notifications';
 
 export type Action = 'PLAY' | 'PAUSE' | 'PREVIOUS' | 'NEXT' | 'SEEK';
 export type Actions = {[Key in Action]: Key};
+
+export interface AudioPlayerCategory {
+  link: string;
+}
 
 export interface AudioPlayerAlbum {
   link: string;
@@ -17,8 +21,9 @@ export interface AudioPlayerSong {
   name: string;
   artist: string;
   music: string;
-  extension: string;
+  fileName: string;
   album: AudioPlayerAlbum;
+  category: AudioPlayerCategory;
 }
 
 export type AudioPlayerListener = (action: Action) => void;
@@ -27,7 +32,10 @@ export interface AudioPlayerSongLink {
   link: string;
   album: {
     link: string;
-  }
+  };
+  category: {
+    link: string;
+  };
 }
 
 export type Playlist = AudioPlayerSong[];
@@ -115,6 +123,10 @@ export class AudioPlayer {
     } else {
       this.pause();
     }
+  }
+
+  isPlaying = (song: AudioPlayerSongLink): boolean => {
+    return songMatcher(this.song)(song);
   }
 
   play = (song?: AudioPlayerSongLink): void => {
@@ -230,39 +242,42 @@ export const getPlayer = (initialPlaylist: Playlist = []) => {
   return _player;
 };
 
-export const createPlaylistFromAlbums = (albums: Album[]): Playlist => {
-  return albums.map(album => createPlaylistFromAlbum(album)).flat(1);
+export const createPlaylistFromCategory = (category: Category): Playlist => {
+  return category.albums.map(album => createPlaylistFromAlbum(category, album)).flat(1);
+}
+
+export const createPlaylistFromAlbums = (albums: {category: Category, album: Album}[]): Playlist => {
+  return albums.map(({category, album}) => createPlaylistFromAlbum(category, album)).flat(1);
 };
 
-export const createPlaylistFromAlbum = (album: Album, songs?: Song[]): Playlist => {
+export const createPlaylistFromAlbum = (category: Category, album: Album, songs?: Song[]): Playlist => {
   if (!songs) {
     songs = album.songs;
   }
-  return createPlaylistFromItems(songs.map(song => ({album, song})));
+  return songs.map(song => createSong(category, album, song));
 };
 
 export const createPlaylistFromFeed = (feed: Feed): Playlist => {
-  return feed.map(item => createPlaylistFromAlbum(item.album, item.songs)).flat(1);
+  return feed.map(item => createPlaylistFromAlbum(item.category, item.album, item.songs)).flat(1);
 };
 
-export const createPlaylistFromItems = (items: {album: Album, song: Song}[]): Playlist => {
-  return items.map(item => createSong(item.album, item.song));
-};
-
-export const createSong = (album: Album, song: Song): AudioPlayerSong => ({
+export const createSong = (category: Category, album: Album, song: Song): AudioPlayerSong => ({
   link: song.link,
   name: song.name,
   artist: song.artist,
   music: song.music,
-  extension: song.extension,
+  fileName: song.fileName,
   album: {
     link: album.link,
     name: album.name,
     art: album.art
+  },
+  category: {
+    link: category.link
   }
 });
 
-function songMatcher(song: AudioPlayerSongLink) {
-  return (s: AudioPlayerSongLink) => song.link === s.link && song.album.link === s.album.link;
+export function songMatcher(song?: AudioPlayerSongLink) {
+  return (s: AudioPlayerSongLink): boolean => !!song && song.link === s.link && song.album.link === s.album.link && song.category.link === s.category.link;
 }
 

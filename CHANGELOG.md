@@ -20,7 +20,6 @@ Changes, both released, upcoming and in progress are kept here.
 
 - Optimize the site
   - Reduce initial load sizes
-  - Move all songs to static host
 
 - ZipScript
   - Provide an option to the zip script to look for diffs.
@@ -36,6 +35,23 @@ Changes, both released, upcoming and in progress are kept here.
 
 - Audio Player
   - Small size layout
+
+- Subscribe Button
+  - Phone screen position fixes
+
+
+## [2022-03-05] - 2022-03-05
+### Added
+- FAWM 2022 - album
+- Lavish Dude / FAWM 2022 - album
+- Embeded images in descriptions
+
+### Changed
+- Albums are now unique based off of category link + album link instead of just album link
+- All files now hosted from external static file host
+
+### Security
+- Updated packages to recent versions
 
 
 ## [2021-03-07] - 2021-03-07

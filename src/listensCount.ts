@@ -14,6 +14,7 @@ export function setupListensCount(player: AudioPlayer): void {
           ['content-type']: 'application/json'
         },
         body: {
+          category: player.song.category.link,
           album: player.song.album.link,
           song: player.song.link
         }

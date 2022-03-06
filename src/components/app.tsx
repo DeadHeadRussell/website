@@ -183,7 +183,7 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
               </ListItem>
             </CategoryLink>
             {category.albums.map(album => (
-              <AlbumLink key={album.link} albumLink={album.link}>
+              <AlbumLink key={album.link} categoryLink={category.link} albumLink={album.link}>
                 <ListItem button>
                   <ListItemAvatar>
                     <AlbumIcon albumArt={album.art} />

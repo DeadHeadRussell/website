@@ -1,5 +1,5 @@
 import {GetStaticProps} from 'next';
-import {FC} from 'react';
+import React, {FC} from 'react';
 
 import {createPlaylistFromFeed} from '../audioPlayer';
 import {Feed} from '../components/feed';
@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps<RecentPageProps> = async () => {
     .sort((itemA, itemB) => itemA.date > itemB.date ? -1 : 1)
     .reduce((feed, item) => {
       const [previous] = feed.slice(-1);
-      if (previous && previous.album.link === item.album.link) {
+      if (previous && previous.category.link === item.category.link && previous.album.link === item.album.link) {
         previous.songs.push(item.song);
       } else {
         feed.push({

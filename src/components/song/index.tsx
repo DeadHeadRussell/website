@@ -15,8 +15,8 @@ import SaveAltIcon from '@material-ui/icons/SaveAlt';
 import {useRouter} from 'next/router';
 import {useEffect, useState, FC} from 'react';
 
-import {createPlaylistFromAlbum, createSong, getPlayer, Playlist} from '../../audioPlayer';
-import {Album, Song as SongType} from '../../data';
+import {createPlaylistFromAlbum, createSong, getPlayer, Playlist, songMatcher} from '../../audioPlayer';
+import {Album, Category, Song as SongType} from '../../data';
 import {formatTime, usePlayback} from '../../utils';
 import {SongInfo} from './info';
 
@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
 
 export interface SongProps {
   playIndex: number;
+  category: Category;
   album: Album;
   song: SongType;
   playlist?: Playlist;
@@ -36,18 +37,20 @@ export interface SongProps {
   hideInfo?: boolean;
 }
 
-export const Song: FC<SongProps> = ({playIndex, album, song, playlist, active, hideInfo}) => {
+export const Song: FC<SongProps> = ({playIndex, category, album, song, playlist, active, hideInfo}) => {
   const classes = useStyles();
 
   const PlaybackCell = () => {
+    const playerSong = createSong(category, album, song);
+
     const player = getPlayer();
     const playbackState = usePlayback(player, false);
 
-    const isCurrentSong = playbackState.song?.link === song.link;
+    const isCurrentSong = player.isPlaying(playerSong);
     const pause = () => player.pause();
     const play = () => {
-      player.setPlaylist(playlist || createPlaylistFromAlbum(album));
-      player.play(createSong(album, song));
+      player.setPlaylist(playlist || createPlaylistFromAlbum(category, album));
+      player.play(playerSong);
     };
     return (isCurrentSong && playbackState.playing) ? (
       <IconButton aria-label='pause song' onClick={pause}>
@@ -75,17 +78,17 @@ export const Song: FC<SongProps> = ({playIndex, album, song, playlist, active, h
     const openMenu = (e: React.MouseEvent<any>) => setAnchorEl(e.currentTarget);
     const closeMenu = () => setAnchorEl(null);
 
-    const playNext = () => player.addSong(createSong(album, song), player.currentSong + 1);
-    const addSong = () => player.addSong(createSong(album, song));
+    const playNext = () => player.addSong(createSong(category, album, song), player.currentSong + 1);
+    const addSong = () => player.addSong(createSong(category, album, song));
 
     const openInfo = () => {
-      router.replace(router.pathname, `/albums/${album.link}?song=${song.link}`, {
+      router.replace(router.pathname, `/albums/${category.link}/${album.link}?song=${song.link}`, {
         shallow: true
       });
       setShowInfo(true);
     };
     const closeInfo = () => {
-      router.replace(router.pathname, `/albums/${album.link}`, {
+      router.replace(router.pathname, `/albums/${category.link}/${album.link}`, {
         shallow: true
       });
       setShowInfo(false);
@@ -114,7 +117,7 @@ export const Song: FC<SongProps> = ({playIndex, album, song, playlist, active, h
             <MenuItem onClick={openInfo}>Song Info</MenuItem>
           )}
         </Menu>
-        <SongInfo open={showInfo} album={album} song={song} handleClose={closeInfo} />
+        <SongInfo open={showInfo} category={category} album={album} song={song} handleClose={closeInfo} />
       </>
     );
   };
@@ -149,7 +152,7 @@ export const Song: FC<SongProps> = ({playIndex, album, song, playlist, active, h
               aria-label='download song'
               component='a'
               href={song.music}
-              download={`${song.name}.${song.extension}`}
+              download={song.fileName}
             >
               <SaveAltIcon />
             </IconButton>

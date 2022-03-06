@@ -1,3 +1,5 @@
+const staticUrl = process.env.NEXT_PUBLIC_STATIC_URL;
+
 export interface RawData {
   categories: RawCategory[];
 }
@@ -52,7 +54,7 @@ export interface Album extends RawAlbum {
 export interface Song extends RawSong {
   music: string;
   artist: string;
-  extension: string;
+  fileName: string;
   sheetMusicLink: string | null;
   credits: Credit[];
 }
@@ -87,6 +89,8 @@ export interface ProcessedData {
   categories: Category[];
   albums: Album[];
   songs: Song[];
+  highlightedCategory?: Category;
+  highlightedAlbum?: Album;
   menu: MenuData;
 }
 
@@ -102,35 +106,48 @@ export const processMenuData = (categories: Category[]): MenuData => ({
   }))
 });
 
-export const processAlbum = (rawAlbum: RawAlbum): Album => ({
+export function createCategoryLink(category: RawCategory, file: string) {
+  return `${staticUrl}/music/${category.link}/${file}`;
+}
+
+export function createAlbumLink(category: RawCategory, album: RawAlbum, file: string) {
+  return createCategoryLink(category, `${album.link}/${file}`);
+}
+
+export function createSongLink(category: RawCategory, album: RawAlbum, song: RawSong, ext: string) {
+  return createAlbumLink(category, album, `songs/${song.link}.${ext}`);
+}
+
+export const processAlbum = (rawCategory: RawCategory, rawAlbum: RawAlbum): Album => ({
   ...rawAlbum,
-  art: `/albums/${rawAlbum.link}/art.jpg`,
-  archive: `/albums/${rawAlbum.link}/archive.zip`,
+  art: createAlbumLink(rawCategory, rawAlbum, 'art.jpg'),
+  archive: createAlbumLink(rawCategory, rawAlbum, 'archive.zip'),
   duration: (rawAlbum.songs || [])
-  .map(song => song.duration)
-  .reduce((total, duration) => total + duration, 0),
+    .map(song => song.duration)
+    .reduce((total, duration) => total + duration, 0),
   songs: (rawAlbum.songs || []).map(rawSong => {
     const extension = rawSong.video ? 'mp4' : 'mp3';
     return {
       ...rawSong,
-      music: `/albums/${rawAlbum.link}/songs/${rawSong.link}.${extension}`,
+      music: createSongLink(rawCategory, rawAlbum, rawSong, extension),
       sheetMusicLink: rawSong.sheetMusic
-        ? `/albums/${rawAlbum.link}/songs/${rawSong.link}.pdf`
+        ? createSongLink(rawCategory, rawAlbum, rawSong, 'pdf')
         : null,
       artist: rawSong.artist || 'Andrew Russell',
-      extension,
+      fileName: `${rawSong.name}.${extension}`,
       credits: (rawSong.credits || []).length > 0
         ? (rawSong.credits || [])
-        : [{"who": "Andrew Russell", "role": "Everything"}],
+        : [{'who': 'Andrew Russell', 'role': 'Everything'}],
     };
   })
 });
 
-export const processAlbums = (rawAlbums: RawAlbum[]): Album[] => rawAlbums.map(processAlbum);
+export const processAlbums = (rawCategory: RawCategory): Album[] => rawCategory.albums
+  .map(album => processAlbum(rawCategory, album));
 
 export const processCategory = (rawCategory: RawCategory): Category => ({
   ...rawCategory,
-  albums: processAlbums(rawCategory.albums)
+  albums: processAlbums(rawCategory)
 });
 
 export const processCategories = (rawCategories: RawCategory[]): Category[] => rawCategories.map(processCategory);
@@ -143,6 +160,8 @@ export const processData = (rawData: RawData): ProcessedData => {
     categories,
     albums,
     songs,
+    highlightedCategory: categories.find(category => category.link === 'solo_projects'),
+    highlightedAlbum: albums.find(album => album.link === 'chosen'),
     menu: processMenuData(categories)
   };
 }

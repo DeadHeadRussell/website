@@ -1,12 +1,13 @@
 import {ServerStyleSheets} from '@material-ui/core/styles';
-import Document, {Head, Main, NextScript} from 'next/document';
+import Document, {Head, Html, Main, NextScript} from 'next/document';
+import React from 'react';
 
 import {theme} from '../theme';
 
 export default class RootDocument extends Document {
   render() {
     return (
-      <html lang='en'>
+      <Html lang='en'>
         <Head>
           <meta name='theme-color' content={theme.palette.primary.main} />
           <meta itemProp='name' content='Andrew Russell' />
@@ -20,7 +21,7 @@ export default class RootDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

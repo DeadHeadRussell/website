@@ -48,7 +48,7 @@ export const AudioPlayerSongDisplay: FC<AudioPlayerSongDisplayProps> = ({song, a
   const classes = useStyles();
 
   return (
-    <AlbumLink albumLink={song.album.link} songLink={song.link}>
+    <AlbumLink categoryLink={song.category.link} albumLink={song.album.link} songLink={song.link}>
       <ButtonBase className={classes.songButton}>
         <Tooltip
           classes={{tooltip: classes.songNameTooltip}}

@@ -18,7 +18,7 @@ export const AudioPlayerDownload: FC<AudioPlayerDownloadProps> = ({song}) => (
         aria-label='download song'
         component='a'
         href={song.music}
-        download={`${song.name}.${song.extension}`}
+        download={song.fileName}
       >
         <SaveAltIcon />
       </IconButton>

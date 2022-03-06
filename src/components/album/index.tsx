@@ -40,7 +40,7 @@ export const Album: FC<AlbumProps> = ({album, category, song}) => {
 			{album.description && (
 				<section>
 					<Container maxWidth='md'>
-            <Description description={album.description} />
+            <Description description={album.description} context={{category, album}} />
 					</Container>
 				</section>
 			)}
@@ -52,6 +52,7 @@ export const Album: FC<AlbumProps> = ({album, category, song}) => {
 								<Song
                   key={index}
                   playIndex={index + 1}
+                  category={category}
                   album={album}
                   song={listSong}
                   active={song === listSong}

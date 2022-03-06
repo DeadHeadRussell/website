@@ -12,23 +12,24 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export interface AlbumLinkProps {
+  categoryLink: string;
   albumLink: string;
   songLink?: string;
   children: ReactNode;
 }
 
-export const AlbumLink: FC<AlbumLinkProps> = ({albumLink, songLink, children}) => {
+export const AlbumLink: FC<AlbumLinkProps> = ({categoryLink, albumLink, songLink, children}) => {
   const classes = useStyles();
   const query = songLink ? {song: songLink} : {};
   
   return (
     <Link
       href={{
-        pathname: '/albums/[id]',
+        pathname: '/albums/[categoryId]/[id]',
         query
       }}
       as={{
-        pathname: `/albums/${albumLink}`,
+        pathname: `/albums/${categoryLink}/${albumLink}`,
         query
       }}
     >

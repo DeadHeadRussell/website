@@ -21,7 +21,7 @@ async function addSubscriptionHandler(req: NextApiRequest, res: NextApiResponse)
       await addSubscription(req.body.email, req.body.name, req.body.type);
       res.status(200).json({success: true});
     }
-  } catch (err) {
+  } catch (err: any) {
     res.status(500).json({error: err.message});
   }
 }
@@ -34,7 +34,7 @@ async function getSubscriptionsHandler(req: NextApiRequest, res: NextApiResponse
       const subscriptions = await getSubscriptions();
       res.status(200).json(subscriptions);
     }
-  } catch (err) {
+  } catch (err: any) {
     res.status(500).json({error: err.message});
   }
 }

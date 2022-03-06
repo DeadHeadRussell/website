@@ -105,7 +105,7 @@ export const Subscribe: FC = () => {
       await request.response;
       setLoading(false);
       setSuccess(true);
-    } catch (e) {
+    } catch (e: any) {
       setLoading(false);
       setError('Subscription failed. Please try again or reach out to deadhead.russell@gmail.com');
     }

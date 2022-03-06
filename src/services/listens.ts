@@ -4,6 +4,7 @@ init();
 
 export interface Listen {
   id: number;
+  category_link: string;
   album_link: string;
   song_link: string;
   date: number;
@@ -15,11 +16,19 @@ export async function init() {
   db.exec('ALTER TABLE listens ADD COLUMN user_ip TEXT', function(err) {
     // pass
   });
+  db.exec('ALTER TABLE listens ADD COLUMN category_link TEXT', function(err) {
+    // pass
+  });
+
+  db.exec('UPDATE listens SET category_link = \'<old>\' WHERE category_link IS NULL', function(err) {
+    // pass
+  });
 }
 
-export function addListen(album: string, song: string, userIp: string): Promise<void> {
+export function addListen(category: string, album: string, song: string, userIp: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    db.run('INSERT INTO listens (album_link, song_link, date, user_ip) VALUES ($album, $song, $date, $user_ip)', {
+    db.run('INSERT INTO listens (category_link, album_link, song_link, date, user_ip) VALUES ($category, $album, $song, $date, $user_ip)', {
+      $category: category,
       $album: album,
       $song: song,
       $date: Date.now(),
