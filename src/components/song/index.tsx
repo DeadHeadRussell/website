@@ -54,7 +54,7 @@ export interface SongProps {
 
 export const Song: FC<SongProps> = ({playIndex, category, album, song, playlist, active, noInfoRouting}) => {
   const classes = useStyles();
-  const [hover, setHover] = useState(null);
+  const [hover, setHover] = useState<boolean>(false);
 
   const PlaybackCell = () => {
     const [anchorEl, setAnchorEl] = useState(null);
