@@ -14,6 +14,12 @@ import {PlaybackState} from '../../utils';
 
 
 const useStyles = makeStyles(theme => ({
+  slider: {
+    [theme.breakpoints.up('md')]: {
+      position: 'relative',
+      top: 2
+    }
+  },
   volumeText: {
     width: 28
   }
@@ -28,7 +34,7 @@ export const AudioVolumeControls: FC<AudioVolumeControlsProps> = ({player, playb
   const classes = useStyles();
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
-  const iconSize = sm ? 'small' : 'default';
+  const iconSize = sm ? 'small' : 'medium';
 
   const decreaseVolume = () => player.setVolume(player.volume - 0.1);
   const increaseVolume = () => player.setVolume(player.volume + 0.1);
@@ -41,7 +47,7 @@ export const AudioVolumeControls: FC<AudioVolumeControlsProps> = ({player, playb
         </IconButton>
       </Grid>
       <Hidden xsDown>
-        <Grid item xs>
+        <Grid className={classes.slider} item xs>
           <Slider
             aria-label='volume slider'
             value={playbackState.volume}

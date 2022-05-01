@@ -14,6 +14,9 @@ import {PlaybackState} from '../../utils';
 const useStyles = makeStyles(theme => ({
   slider: {
     [theme.breakpoints.down('sm')]: {
+      '@media (pointer: coarse)': {
+        top: -22
+      },
       position: 'absolute',
       left: 0,
       top: -15,
@@ -23,6 +26,10 @@ const useStyles = makeStyles(theme => ({
       margin: 0,
       paddingLeft: '0 !important',
       paddingRight: '0 !important'
+    },
+    [theme.breakpoints.up('md')]: {
+      position: 'relative',
+      top: 2
     }
   },
 

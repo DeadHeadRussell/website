@@ -10,36 +10,36 @@ utils.makeAlbum(
       'Ocean Journey (i1)',
       '2020-07-05',
       1139,
-      description = |||
-        [[time:0]] - Rising Tide
-        [[time:345]] - Rough Seas
-        [[time:522]] - Aftermath
-        [[time:863]] - Return Home
-      |||
+      sections = [
+        utils.makeSection(0, 'Rising Tide'),
+        utils.makeSection(345, 'Rough Seas'),
+        utils.makeSection(522, 'Aftermath'),
+        utils.makeSection(863, 'Return Home')
+      ]
     ),
     utils.makeSong(
       'Dream Big (i2)',
       '2020-07-12',
       1191,
-      description = |||
-        [[time:0]] - Plod On
-        [[time:251]] - Building Out
-        [[time:480]] - A Time of Dreams
-        [[time:707]] - Back to Reality
-        [[time:1050]] - To Dream Again
-      |||
+      sections = [
+        utils.makeSection(0, 'Plod On'),
+        utils.makeSection(251, 'Building Out'),
+        utils.makeSection(480, 'A Time of Dreams'),
+        utils.makeSection(707, 'Back to Reality'),
+        utils.makeSection(1050, 'To Dream Again')
+      ]
     ),
     utils.makeSong(
       'Life Moves On (i3)',
       '2020-08-08',
       1411,
-      description = |||
-        [[time:0]] - Playpen
-        [[time:310.6]] - Worn Down
-        [[time:550.6]] - Lamenting the Past
-        [[time:671]] - Life Moves On
-        [[time:954]] - Replay
-      |||
+      sections = [
+        utils.makeSection(0, 'Playpen'),
+        utils.makeSection(310.6, 'Worn Down'),
+        utils.makeSection(550.6, 'Lamenting the Past'),
+        utils.makeSection(671, 'Life Moves On'),
+        utils.makeSection(954, 'Replay')
+      ]
     ),
     utils.makeSong(
       'Fantasia in C# Minor',

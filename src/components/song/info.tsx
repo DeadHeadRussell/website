@@ -5,15 +5,16 @@ import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {FC} from 'react';
 import showdown from 'showdown';
 
 import {createPlaylistFromAlbum, createSong, getPlayer} from '../../audioPlayer';
 import {Album, Category, Song} from '../../data';
-import {usePlayback} from '../../utils';
+import {formatTime, usePlayback} from '../../utils';
 import {Description} from '../description';
 import {PlayButton} from '../playButton';
 
@@ -23,10 +24,29 @@ const converter = new showdown.Converter({
 });
 
 const useStyles = makeStyles(theme => ({
+  drawer: {
+    height: 'calc(100% - 81px)'
+  },
+
   details: {
-    minWidth: 400,
-    maxWidth: 600,
-    padding: theme.spacing(4)
+    padding: theme.spacing(4),
+    paddingBottom: 81,
+
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '65%',
+      margin: '0 auto'
+    },
+
+    [theme.breakpoints.up('md')]: {
+      minWidth: 400,
+      maxWidth: 600,
+    }
+  },
+
+  link: {
+    color: '#00e',
+    cursor: 'pointer',
+    textDecoration: 'none'
   }
 }));
 
@@ -40,6 +60,8 @@ export interface SongInfoProps {
 
 export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handleClose}) => {
   const classes = useStyles();
+  const theme = useTheme();
+  const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
   const player = getPlayer();
   const playbackState = usePlayback(player, false);
@@ -52,13 +74,14 @@ export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handle
     setTimeout(() => player.seek(seconds), 100);
   };
 
+  const anchor = sm ? 'bottom' : 'right';
+
   return (
-    <Drawer anchor='right' open={open} onClose={handleClose}>
+    <Drawer classes={{paper: classes.drawer}} anchor={anchor} open={open} onClose={handleClose}>
       <div className={classes.details}>
         <Typography variant='h4' align='center'>{song.name}</Typography>
-        <Typography variant='h5' align='center' gutterBottom>
-          {album.name} - {song.artist}
-        </Typography>
+        <Typography variant='h5' align='center'>{album.name} - {song.artist}</Typography>
+        <Typography variant='h6' align='center'  gutterBottom>{song.date}</Typography>
 
         <CardActions>
           <PlayButton
@@ -101,6 +124,36 @@ export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handle
           {song.description && (
             <Grid item>
               <Description description={song.description} onPlay={play} context={{category, album, song}} />
+            </Grid>
+          )}
+          {song.sections.length > 0 && (
+            <Grid item>
+              <>
+                <Typography variant='h5' align='center'>Sections</Typography>
+                <List>
+                  {song.sections.map((section, i) => {
+                    const nextSection = (i + 1) < song.sections.length
+                      ? song.sections[i + 1]
+                      : null;
+
+                    const timeDisplay = nextSection
+                      ? formatTime(section.startTime) + ' - ' + formatTime(nextSection.startTime)
+                      : formatTime(section.startTime) + ' - ' + formatTime(song.duration);
+
+                    return (
+                      <div key={section.startTime}>
+                        <a
+                          className={classes.link}
+                          onClick={() => play(section.startTime)}
+                        >
+                          {timeDisplay}
+                        </a>
+                        <span>: {section.title}</span>
+                      </div>
+                    );
+                  })}
+                </List>
+              </>
             </Grid>
           )}
           {song.lyrics && (

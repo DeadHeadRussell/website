@@ -20,7 +20,7 @@ export interface AudioPlaybackControlsProps {
 export const AudioPlaybackControls: FC<AudioPlaybackControlsProps> = ({player, playbackState}) => {
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
-  const iconSize = sm ? 'small' : 'default';
+  const iconSize = sm ? 'small' : 'medium';
 
   const previous = () => player.previous();
   const pause = () => player.pause();

@@ -52,6 +52,7 @@ export class AudioPlayer {
   listeners: AudioPlayerListener[] = [];
   playlist: Playlist = [];
   currentSong: number = 0;
+  repeat: string | null = null;
 
   _player: null | HTMLAudioElement = null;
   _touched: boolean = false;
@@ -139,6 +140,13 @@ export class AudioPlayer {
     this.handleUpdate(this.actions.PLAY);
   }
 
+  playIndex = (index: number): void => {
+    this.setSong(index);
+    this.player.play();
+    this._touched = true;
+    this.handleUpdate(this.actions.PLAY);
+  }
+
   pause = (): void => {
     this.player.pause();
     this.handleUpdate(this.actions.PAUSE);
@@ -176,7 +184,19 @@ export class AudioPlayer {
   seekOffset = (offset: number): void => {
     this.player.currentTime += offset;
     this.handleUpdate(this.actions.SEEK);
-  };
+  }
+
+  repeatOne = (): void => {
+    this.repeat = 'one';
+  }
+
+  repeatAll = (): void => {
+    this.repeat = 'all';
+  }
+
+  repeatOff = (): void => {
+    this.repeat = null;
+  }
 
   get song(): AudioPlayerSong | undefined {
     return this.playlist[this.currentSong];
@@ -188,7 +208,7 @@ export class AudioPlayer {
       if (this.song) {
         this._player.src = this.song.music;
       }
-      this._player.addEventListener('ended', () => this.next(true));
+      this._player.addEventListener('ended', () => this.onEnded());
       window.document.body.appendChild(this._player);
     }
     return this._player;
@@ -197,6 +217,18 @@ export class AudioPlayer {
   destroy(): void {
     this._player && this._player.remove();
     this._player = null;
+  }
+
+  onEnded(): void {
+    const isLastSong = this.currentSong + 1 >= this.playlist.length;
+    if (this.repeat == 'one') {
+      this.seek(0);
+      this.play();
+    } else if (this.repeat == 'all' && isLastSong) {
+      this.playIndex(0);
+    } else {
+      this.next(true);
+    }
   }
 
   get playing(): boolean {

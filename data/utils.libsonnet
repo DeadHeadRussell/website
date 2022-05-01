@@ -49,7 +49,7 @@
     [if std.length(external) > 0 then 'external']: external
   },
 
-  makeSong(name, date, duration, artist = '', credits = [], video = false, description = '', lyrics = '', sheetMusic = false, external = ''):: {
+  makeSong(name, date, duration, artist = '', credits = [], video = false, sections = [], description = '', lyrics = '', sheetMusic = false, external = ''):: {
     name: name,
     link: utils.makeLink(name),
     date: date,
@@ -57,6 +57,7 @@
     artist: artist,
     credits: credits,
     video: video,
+    sections: sections,
     sheetMusic: sheetMusic,
     [if std.length(description) > 0 then 'description']: description,
     [if std.length(lyrics) > 0 then 'lyrics']: lyrics,
@@ -66,5 +67,11 @@
   makeCredit(who, role):: {
     who: who,
     role: role
+  },
+
+  makeSection(startTime, title):: {
+    startTime: startTime,
+    title: title
   }
+
 }

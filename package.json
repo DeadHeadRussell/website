@@ -7,7 +7,6 @@
     "start": "next start",
     "export": "next build && next export",
     "data": "jsonnet ./data/data.jsonnet > data.json",
-    "assets": "python3 ./zipScript.py ./assets/albums",
     "rss": "node ./rssScript.js ./data.json ./assets ./public/"
   },
   "author": "Andrew Russell",

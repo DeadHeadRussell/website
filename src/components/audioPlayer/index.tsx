@@ -18,6 +18,10 @@ import '../../notifications';
 
 
 const useStyles = makeStyles(theme => ({
+  test: {
+    zIndex: 1301
+  },
+
   drawer: {
     maxHeight: 90,
     padding: theme.spacing(2),
@@ -38,13 +42,14 @@ export const AudioControls: FC = () => {
 
   return (
     <Drawer
+      className={classes.test}
       classes={{paper: classes.drawer}}
       anchor='bottom'
       variant='permanent'
       open
     >
       {playbackState.song ? (
-        <Grid container spacing={spacing} justify={justify} alignItems='center' wrap='nowrap'>
+        <Grid container spacing={spacing} justifyContent={justify} alignItems='center' wrap='nowrap'>
           <Grid item>
             <AudioPlayerSongDisplay song={playbackState.song} />
           </Grid>

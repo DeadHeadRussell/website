@@ -30,7 +30,7 @@ export const AlbumGrid: FC<AlbumGridProps> = ({albums}) => {
     <div className={classes.grid}>
       <Grid container spacing={4}>
         {albums.map(({category, album}) => (
-          <Grid key={album.link} item xs={12} sm={6} md={6} lg={4}>
+          <Grid key={category.link + '_' + album.link} item xs={12} sm={6} md={6} lg={4}>
             <AlbumHeader category={category} album={album} link={true} />
           </Grid>
         ))}

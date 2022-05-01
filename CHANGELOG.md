@@ -7,9 +7,7 @@ Changes, both released, upcoming and in progress are kept here.
   - Add Primal Fusion band songs
   - Get music from FAWM 2019 from Nick Coranado
 
-- Add "sections" to songs
-
-- "Repeat" option to songs
+- Sortable playlist
 
 
 ### Changed
@@ -25,14 +23,22 @@ Changes, both released, upcoming and in progress are kept here.
   - Provide an option to the zip script to look for diffs.
   - Provide option to do single album
 
-- Rethink song link / URL / info panel.
-
 ### Fixed
 - No JS support
   - Menu does not appear
   - Audio player does nothing but is visible
   - Play buttons / subscribe button / info panels
 
+
+## [2022-04-30] - 2022-04-30
+### Added
+- Add "sections" to songs
+- "Repeat" option to songs / playlists
+
+### Changed
+- Song table layout
+
+### Fixed
 - Audio Player
   - Small size layout
 

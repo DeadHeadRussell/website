@@ -27,17 +27,23 @@ export interface RawSong {
   date: string;
   duration: number;
   artist?: string;
+  credits: RawCredit[];
   video: boolean;
   sheetMusic: boolean;
+  sections: RawSection[];
   description?: string;
   lyrics?: string;
-  credits?: RawCredit[];
   external?: string;
 }
 
 export interface RawCredit {
   who: string;
   role: string;
+}
+
+export interface RawSection {
+  startTime: number;
+  title: string;
 }
 
 export interface Category extends RawCategory {
@@ -57,9 +63,12 @@ export interface Song extends RawSong {
   fileName: string;
   sheetMusicLink: string | null;
   credits: Credit[];
+  sections: Section[];
 }
 
 export interface Credit extends RawCredit {}
+
+export interface Section extends RawSection {}
 
 export interface MenuAlbum {
   link: string;
@@ -135,9 +144,10 @@ export const processAlbum = (rawCategory: RawCategory, rawAlbum: RawAlbum): Albu
         : null,
       artist: rawSong.artist || 'Andrew Russell',
       fileName: `${rawSong.name}.${extension}`,
-      credits: (rawSong.credits || []).length > 0
+      credits: rawSong.credits.length > 0
         ? (rawSong.credits || [])
         : [{'who': 'Andrew Russell', 'role': 'Everything'}],
+      sections: rawSong.sections
     };
   })
 });

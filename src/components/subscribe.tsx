@@ -19,15 +19,20 @@ import {useEffect, useState, FC} from 'react';
 
 const useStyles = makeStyles(theme => ({
   subscribe: {
-    position: 'sticky',
-    left: `calc(100% - ${theme.spacing(2)}px)`,
-    top: `calc(100% - ${theme.spacing(20)}px)`,
-    zIndex: 10000
+    position: 'fixed',
+    right: theme.spacing(2),
+    bottom: theme.spacing(2) + 81,
+    zIndex: 1
   },
 
   dialogContent: {
-    width: 400,
-    paddingTop: 0
+    paddingTop: 0,
+    [theme.breakpoints.up('sm')]: {
+      width: 400
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '100%'
+    }
   },
 
   field: {

@@ -48,7 +48,7 @@ export const Feed: FC<FeedProps> = ({title, feed}) => {
       </Container>
       <Container maxWidth='md'>
         {feed.map(item => (
-          <Paper key={item.album.link} className={classes.paper}>
+          <Paper key={item.category.link + '_' + item.album.link} className={classes.paper}>
             <HorizontalAlbumHeader
               album={item.album}
               category={item.category}
@@ -65,7 +65,7 @@ export const Feed: FC<FeedProps> = ({title, feed}) => {
                     album={item.album}
                     song={song}
                     playlist={playlist}
-                    hideInfo={true}
+                    noInfoRouting={true}
                   />
                 ))}
               </TableBody>

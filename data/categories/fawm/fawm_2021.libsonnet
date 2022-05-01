@@ -13,7 +13,7 @@ utils.makeAlbum(
       artist = 'The Andrew Russell Trio',
       description = |||
         And thus kicks of my FAWM 2021 jazz kick. No clue why this happened - I just had jazz on my mind.
-        This one was was inspired by Herbie Hancock's Maiden Voyage, but it wound up closer to Vince Guaraldi or Esbjörn Svensson Trio.I
+        This one was was inspired by Herbie Hancock's Maiden Voyage, but it wound up closer to Vince Guaraldi or Esbjörn Svensson Trio.
       |||,
       sheetMusic = true
     ),
@@ -307,17 +307,18 @@ utils.makeAlbum(
       'White Russian Winter',
       '2021-02',
       1202,
+      sections = [
+        utils.makeSection(0, 'Mvmt 1'),
+        utils.makeSection(540, 'Mvmt 2'),
+        utils.makeSection(720, 'Mvmt 3'),
+        utils.makeSection(1075, 'Mvmt 4')
+      ],
       description = |||
         Hoooo boy. So I was having a lull in my songwriting and decided to do an improv session on the piano. White Russian in hand, winter storm out the window, I was all set.
 
         Then this came out. Good news, I would like to turn it / parts of it into my next sonata. Bad news, that will take a long freakin' time and heck if I'm going to spend the rest of my FAWM on this.
 
         Warning: 20 mins long. Don't feel like you have to listen to it all.
-
-        [[time:0|Mvmt 1: 00:00 - 09:00]]
-        [[time:540|Mvmt 2: 09:00 - 12:00]]
-        [[time:720|Mvmt 3: 12:00 - 17:55]]
-        [[time:1075|Mvmt 4: 17:55 - 20:02]]
       |||
     )
   ],
