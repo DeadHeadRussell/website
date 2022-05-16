@@ -1,3 +1,4 @@
+import {makeStyles} from '@material-ui/core/styles';
 import {GetStaticProps} from 'next';
 import React, {FC} from 'react';
 
@@ -16,23 +17,43 @@ export interface IndexPageProps {
   menu: MenuData;
 }
 
-const IndexPage: FC<IndexPageProps> = ({highlightedAlbums, menu}) => (
-  <Root menu={menu} initialPlaylist={createPlaylistFromAlbums(highlightedAlbums)}>
-    <AlbumGrid albums={highlightedAlbums} />
-  </Root>
-);
+const useStyles = makeStyles(theme => ({
+  logo: {
+    display: 'block',
+    width: '80%',
+    maxWidth: 800,
+    margin: 'auto'
+  }
+}));
+
+const IndexPage: FC<IndexPageProps> = ({highlightedAlbums, menu}) => {
+  const classes = useStyles();
+
+  return (
+    <Root menu={menu} initialPlaylist={createPlaylistFromAlbums(highlightedAlbums)}>
+      <img className={classes.logo} src='/logo-transparent.png' alt='logo' />
+      <AlbumGrid albums={highlightedAlbums} />
+    </Root>
+  );
+};
 
 export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
   const rawData = await readData();
   const {categories, menu} = processData(rawData);
-  if (categories.length < 3 || categories[0].albums.length < 1 || categories[1].albums.length < 1 || categories[2].albums.length < 1) {
+  const highlightedAlbums = categories.flatMap(category => [{
+    category,
+    album: category.albums[0]
+  }, {
+    category,
+    album: category.albums[1]
+  }, {
+    category,
+    album: category.albums[2]
+  }]);
+  if (highlightedAlbums.length < 3) {
     throw new Error('Missing categories or albums');
   }
 
-  const highlightedAlbums = categories.slice(0, 3).map(category => ({
-    category,
-    album: category.albums[0]
-  }));
   return {props: {highlightedAlbums, menu}};
 };
 

@@ -39,16 +39,13 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2)
   },
-  
-  title: {
-    width: '100%',
-    color: theme.palette.common.white,
-    textShadow: '0px 0px 4px #333',
-    marginLeft: 40 + theme.spacing(2)
-  },
 
   header: {
     background: theme.palette.primary.main
+  },
+
+  logo: {
+    height: '5em'
   },
 
   drawer: {
@@ -120,21 +117,7 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
     <div className={classes.drawerContent}>
       <Hidden smDown>
         <ListItem className={classes.header}>
-          <Typography
-            variant='h6'
-            noWrap
-          >
-            <ListItemText
-              primary='Andrew Russell'
-              secondary='Musician'
-              primaryTypographyProps={{
-                className: classes.title
-              }}
-              secondaryTypographyProps={{
-                className: classes.title
-              }}
-            />
-          </Typography>
+          <img className={classes.logo} src='/logo.png' alt='Logo' />
         </ListItem>
         <Divider />
       </Hidden>
@@ -144,7 +127,7 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
             <ListItem button>
               <ListItemAvatar>
                 <Avatar
-                  src='/profile.jpg'
+                  src='/avatar.png'
                   alt='Profile'
                 />
               </ListItemAvatar>
@@ -212,14 +195,7 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              className={classes.title}
-              color='inherit'
-              variant='h6'
-              noWrap
-            >
-              Andrew Russell - Musician
-            </Typography>
+            <img className={classes.logo} src='/logo.png' alt='Logo' />
           </Toolbar>
         </AppBar>
       </Hidden>

@@ -21,7 +21,7 @@ export const Contact: FC = () => {
       <Paper className={classes.paper}>
         <Typography variant='h3' align='center' gutterBottom>Contact</Typography>
         <Typography variant='body1'>
-          Email: <a href='mailto:deadhead.russell@gmail.com'>deadhead.russell@gmail.com</a>
+          Email: <a href='mailto:lavishdude.band@gmail.com'>lavishdude.band@gmail.com</a>
         </Typography>
       </Paper>
     </Container>

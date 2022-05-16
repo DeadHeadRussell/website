@@ -143,47 +143,6 @@ export const Subscribe: FC = () => {
           <DialogContent className={classes.dialogContent}>
             <Grid container spacing={2} direction='column'>
               <Grid item>
-                <Typography variant='h4'>RSS Feed</Typography>
-                <Grid container direction='column'>
-                  <Grid item>
-                    <TextField
-                      className={classes.field}
-                      inputProps={{
-                        className: classes.feedInput
-                      }}
-                      value='http://ajrussell.ca/feed.xml'
-                      disabled
-                    />
-                  </Grid>
-                  <Grid item>
-                    <a
-                      className={classes.subscribeLink}
-                      href='https://feedly.com/i/subscription/feed%2Fhttp%3A%2F%2Fajrussell.ca%2Ffeed.xml'
-                      target='blank'
-                    >
-                      <img
-                        src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png'
-                        alt='follow us in feedly'
-                        width='66'
-                        height='20'
-                      />
-                    </a>
-                    <a
-                      className={classes.subscribeLink}
-                      href='http://ajrussell.ca/feed.xml'
-                      target='blank'
-                    >
-                      <img
-                        src='/rss.png'
-                        alt='rss feed'
-                        width='20'
-                        height='20'
-                      />
-                    </a>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item>
                 <Typography variant='h4'>Mailing List</Typography>
                 {loading ? (
                   <CircularProgress className={classes.loadProgress} size={48} />

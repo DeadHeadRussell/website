@@ -142,11 +142,11 @@ export const processAlbum = (rawCategory: RawCategory, rawAlbum: RawAlbum): Albu
       sheetMusicLink: rawSong.sheetMusic
         ? createSongLink(rawCategory, rawAlbum, rawSong, 'pdf')
         : null,
-      artist: rawSong.artist || 'Andrew Russell',
+      artist: rawSong.artist || 'Lavish Dude',
       fileName: `${rawSong.name}.${extension}`,
       credits: rawSong.credits.length > 0
         ? (rawSong.credits || [])
-        : [{'who': 'Andrew Russell', 'role': 'Everything'}],
+        : [{'who': 'Lavish Dude', 'role': 'Everything'}],
       sections: rawSong.sections
     };
   })

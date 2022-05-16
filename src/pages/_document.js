@@ -10,12 +10,11 @@ export default class RootDocument extends Document {
       <Html lang='en'>
         <Head>
           <meta name='theme-color' content={theme.palette.primary.main} />
-          <meta itemProp='name' content='Andrew Russell' />
-          <meta itemProp='description' content="Andrew Russell's musical website" />
+          <meta itemProp='name' content='Lavish Dude' />
+          <meta itemProp='description' content="Lavish Dude band website" />
           <meta itemProp='image' content='/profile.jpg' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' />
           <link rel='icon' type='image/png' href='/favicon.png' />
-          <link rel='alternate' type='application/rss+xml' href='http://ajrussell.ca/feed.xml' />
         </Head>
         <body>
           <Main />

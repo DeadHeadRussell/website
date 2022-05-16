@@ -14,11 +14,11 @@ interface RootProps extends AppProps {
 
 export const Root: FC<RootProps> = ({title, children, ...appProps}) => (
   <>
-    <CssBaseline />
     <Head>
-      <title>{title ? (title + ' - ') : ''}Andrew Russell</title>
+      <title>{title ? (title + ' - ') : ''}Lavish Dude</title>
     </Head>
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <App {...appProps}>
         {children}
       </App>
