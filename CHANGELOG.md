@@ -11,6 +11,8 @@ Changes, both released, upcoming and in progress are kept here.
 
 
 ### Changed
+- Automate deploys
+
 - Improve audio player
 	- Embeded optional video player
   - Play random album
@@ -29,6 +31,20 @@ Changes, both released, upcoming and in progress are kept here.
   - Audio player does nothing but is visible
   - Play buttons / subscribe button / info panels
 
+
+## [2022-05-15] - 2022-05-15
+### Added
+- New listener ID cookie saved to listens table
+- New referrer column on listens table
+- Filter query params to listens API
+- Multi level grouping to listens API
+- Aggregations on the group level
+
+### Changed
+- Better error messages for listens API
+
+### Fixed
+- Removed jank when mouse moves from song info panel to audio player or back
 
 ## [2022-04-30] - 2022-04-30
 ### Added
