@@ -16,7 +16,8 @@ export function setupListensCount(player: AudioPlayer): void {
         body: {
           category: player.song.category.link,
           album: player.song.album.link,
-          song: player.song.link
+          song: player.song.link,
+          referrer: document.referrer
         }
       });
     }

@@ -11,7 +11,9 @@ export interface Subscription {
 }
 
 export async function init() {
-  db.exec('CREATE TABLE IF NOT EXISTS subscriptions (id INTEGER NOT NULL PRIMARY KEY, email TEXT UNIQUE, name TEXT, type TEXT, date INTEGER)');
+  db.serialize(() => {
+    db.exec('CREATE TABLE IF NOT EXISTS subscriptions (id INTEGER NOT NULL PRIMARY KEY, email TEXT UNIQUE, name TEXT, type TEXT, date INTEGER)');
+  });
 }
 
 export function addSubscription(email: string, name: string, type: string): Promise<void> {
