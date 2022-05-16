@@ -1,8 +1,6 @@
-import Cookies from 'cookies';
 import {NextApiRequest, NextApiResponse} from 'next';
-import {v4 as uuid} from 'uuid';
 
-import {cookiesKey, COOKIE_LISTENER_ID} from '../../services/cookies';
+import {getListenerId} from '../../services/cookies';
 import {Filter} from '../../services/databaseFilters';
 import {addListen, getListens, InputListen, Listen, SONG_SEP} from '../../services/listens';
 import {isSecure} from '../../services/secure';
@@ -86,15 +84,7 @@ async function addListenHandler(req: NextApiRequest, res: NextApiResponse) {
     } else {
       const userIpValue = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
       const userIp = Array.isArray(userIpValue) ? userIpValue[0] : userIpValue || '';
-
-      const cookies = new Cookies(req, res, {keys: [cookiesKey]});
-      const listenerId = cookies.get(COOKIE_LISTENER_ID, {signed: true}) || uuid();
-      const cookieExpiry = new Date();
-      cookieExpiry.setFullYear(cookieExpiry.getFullYear() + 10);
-      cookies.set(COOKIE_LISTENER_ID, listenerId, {
-        signed: true,
-        expires: cookieExpiry
-      });
+      const listenerId = getListenerId(req, res);
 
       const listen: InputListen = {
         category_link: req.body.category,

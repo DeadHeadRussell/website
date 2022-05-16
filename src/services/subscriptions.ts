@@ -2,26 +2,36 @@ import {db} from './database';
 
 init();
 
-export interface Subscription {
-  id: number;
+export interface InputSubscription {
   email: string;
   name: string;
   type: string;
+  listener_id: string;
+}
+
+export interface Subscription extends InputSubscription {
+  id: number;
   date: number;
+}
+
+function errorHandler(err: any) {
+  // pass
 }
 
 export async function init() {
   db.serialize(() => {
     db.exec('CREATE TABLE IF NOT EXISTS subscriptions (id INTEGER NOT NULL PRIMARY KEY, email TEXT UNIQUE, name TEXT, type TEXT, date INTEGER)');
+    db.exec('ALTER TABLE subscriptions ADD COLUMN listener_id TEXT', errorHandler);
   });
 }
 
-export function addSubscription(email: string, name: string, type: string): Promise<void> {
+export function addSubscription(subscription: InputSubscription): Promise<void> {
   return new Promise((resolve, reject) => {
-    db.run('INSERT OR REPLACE INTO subscriptions (email, name, type, date) VALUES ($email, $name, $type, $date)', {
-      $email: email,
-      $name: name,
-      $type: type,
+    db.run('INSERT OR REPLACE INTO subscriptions (email, name, type, date, listener_id) VALUES ($email, $name, $type, $date, $listener_id)', {
+      $email: subscription.email,
+      $name: subscription.name,
+      $type: subscription.type,
+      $listener_id: subscription.listener_id,
       $date: Date.now()
     }, function(err) {
       if (err) {
