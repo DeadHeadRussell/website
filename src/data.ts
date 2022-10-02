@@ -6,6 +6,7 @@ export interface Category {
   name: string;
   link: string;
   albums: Album[];
+  album: Record<string, Album>;
 }
 
 export interface Album {
@@ -18,9 +19,15 @@ export interface Album {
   archive: string;
   duration: number;
   songs: Song[];
+  song: Record<string, Song>;
   description?: string;
   external?: string;
   category: Category;
+  links: Record<string, {
+    embedUrl: string;
+    musicUrl: string;
+    albumId: string;
+  }>;
 }
 
 export interface Song {
@@ -46,7 +53,10 @@ export interface Credit {
   role: string;
 }
 
-export interface Section {}
+export interface Section {
+  title: string;
+  startTime: number;
+}
 
 export interface MenuAlbum {
   link: string;
@@ -58,6 +68,7 @@ export interface MenuCategory {
   link: string;
   name: string;
   albums: MenuAlbum[];
+  Icon?: any;
 }
 
 export interface MenuData {
@@ -96,7 +107,7 @@ function createMenuCategory(category: Category, includeAlbums: boolean, Icon: an
 }
 
 function createCategory(link: string, name: string, albums: Album[]): Category {
-  const category = {link, name};
+  const category: any = {link, name};
   category.albums = albums
       .map(album => ({
         ...album,
@@ -106,14 +117,14 @@ function createCategory(link: string, name: string, albums: Album[]): Category {
       }));
  
   category.album = category.albums
-      .reduce((albumObj, album) => {
+      .reduce((albumObj: any, album: Album) => {
         albumObj[album.link] = album;
         return albumObj;
-      }, {});
+      }, {} as any);
 
-  category.albums.forEach(album => {
+  category.albums.forEach((album: Album) => {
     if (album.songs) {
-      album.songs = album.songs.map(song => {
+      album.songs = album.songs.map((song: Song) => {
         const extension = song.video ? 'mp4' : 'mp3';
         return {
           ...song,
@@ -127,24 +138,24 @@ function createCategory(link: string, name: string, albums: Album[]): Category {
       });
 
       album.song = album.songs
-        .reduce((songObj, song) => {
+        .reduce((songObj: any, song: Song) => {
           songObj[song.link] = song;
           return songObj
-        }, {});
+        }, {} as any);
 
       album.duration = album.songs
-        .map(song => song.duration)
-        .reduce((total, duration) => total + duration, 0);
+        .map((song: Song) => song.duration)
+        .reduce((total: number, duration: number) => total + duration, 0);
     } else {
       album.songs = [];
-      album.song = {}
+      album.song = {};
     }
   });
 
-  return category;
+  return category as Category;
 }
 
-function createAlbum(link: string, name: string, date: string, tagline: string, description: string, other: {} = {}): Album {
+function createAlbum(link: string, name: string, date: string, tagline: string, description: string, other: any = {}): Album {
   return {
     link,
     name,
@@ -155,10 +166,10 @@ function createAlbum(link: string, name: string, date: string, tagline: string, 
     external: other.external,
     songs: other.songs,
     duration: other.duration
-  };
+  } as any as Album;
 }
 
-function createSong(name: string, date: string, duration: number, credits: Credit[], other: {} = {}): Song {
+function createSong(name: string, date: string, duration: number, credits: Credit[], other: any = {}): Song {
   return {
     link: name.toLowerCase().replace(/[!@#$%^&*()-_+=,.'"<>?\\]/g, '').replace('/ +/g', '-'),
     name,
@@ -172,7 +183,7 @@ function createSong(name: string, date: string, duration: number, credits: Credi
     lyrics: other.lyrics,
     external: other.external,
     sections: []
-  };
+  } as any as Song;
 }
 
 function createCredit(who: string, role: string): Credit {

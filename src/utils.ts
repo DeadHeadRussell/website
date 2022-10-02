@@ -21,8 +21,8 @@ export function useInterval(callback: () => void, delay: number): void {
 }
 
 export function formatTime(time: number, useMs?: boolean): string {
-  if (!time) {
-    return null;
+  if (!time && time !== 0) {
+    return '';
   }
 
   const minutes = Math.floor(time / 60);

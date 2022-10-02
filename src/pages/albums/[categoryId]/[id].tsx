@@ -34,8 +34,8 @@ const AlbumPage: FC<AlbumPageProps> = ({albumLink, categoryLink}) => {
     router.query.song = (songQuery || '').split('=')[1]
   }
 
-  const songLink = router.query.song;
-  const song = album && songLink && album.song[songLink];
+  const songLink = Array.isArray(router.query.song) ? router.query.song[0] : router.query.song;
+  const song = (album && songLink) ? album.song[songLink] : undefined;
 
   const playlist = createPlaylistFromAlbum(category, album);
 
@@ -50,14 +50,14 @@ const AlbumPage: FC<AlbumPageProps> = ({albumLink, categoryLink}) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   const paths = Object.values(categories).flatMap(category => category.albums.map(
     album => `/albums/${category.link}/${album.link}`
   ));
   return {paths, fallback: false};
 };
 
-export const getStaticProps: GetStaticProps<AlbumPageProps> = async ({params}) => {
+export const getStaticProps: GetStaticProps<AlbumPageProps> = ({params}) => {
   if (!params || !params.categoryId) {
     throw Error('Missing category link in URL');
   }
@@ -66,8 +66,8 @@ export const getStaticProps: GetStaticProps<AlbumPageProps> = async ({params}) =
     throw Error('Missing album link in URL');
   }
 
-  const categoryLink = params.categoryId
-  const albumLink = params.id;
+  const categoryLink = Array.isArray(params.categoryId) ? params.categoryId[0] : params.categoryId;
+  const albumLink = Array.isArray(params.id) ? params.id[0] : params.id;
 
   return {props: {categoryLink, albumLink}};
 };

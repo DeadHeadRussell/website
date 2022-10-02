@@ -6,7 +6,7 @@ import {Root} from '../components/root';
 import {menu} from '../data';
 
 
-const AboutPage: FC<ContactPageProps> = () => (
+const AboutPage: FC<{}> = () => (
   <Root menu={menu}>
     <About />
   </Root>

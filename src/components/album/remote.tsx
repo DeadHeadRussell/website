@@ -6,7 +6,6 @@ import {FC, Fragment} from 'react';
 
 import {Album as AlbumType} from '../../data';
 import {Description} from '../description';
-import {HorizontalAlbumHeader} from './horizontalHeader';
 
 
 const useStyles = makeStyles(theme => ({
@@ -94,14 +93,13 @@ const useStyles = makeStyles(theme => ({
 
   insertEmbed: {
     width: '100%',
-    height: '100%',
     height: 800,
     minHeight: 800,
     marginTop: theme.spacing(2)
   }
 }));
 
-export interface AlbumProps {
+export interface RemoteAlbumProps {
   album: AlbumType;
 }
 
@@ -130,11 +128,11 @@ const StreamingBar: FC<RemoteAlbumProps> = ({album}) => {
 
 const AlbumDescription: FC<RemoteAlbumProps> = ({album}) => {
   const classes = useStyles();
-  return (
+  return album.description ? (
     <div className={classes.description}>
       <Description description={album.description} context={{album}} />
     </div>
-  );
+  ) : null;
 };
 
 const Player: FC<RemoteAlbumProps> = ({album}) => {
@@ -212,36 +210,34 @@ export const RemoteAlbum: FC<RemoteAlbumProps> = ({album}) => {
   );
 };
 
-        /*
-      <div className={classes.column + ' ' + classes.insertColumn}>
-      </div>
+/*
+Apple Music
+<iframe
+  style={{width:'100%',maxWidth:660,overflow:'hidden',background:'transparent'}}
+  allow='autoplay *; encrypted-media *; fullscreen *; clipboard-write'
+  frameborder='0'
+  height='450'
+  sandbox='allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation'
+  src={album.links.apple.embedUrl}
+/>
 
-        Apple Music
-        <iframe
-          style={{width:'100%',maxWidth:660,overflow:'hidden',background:'transparent'}}
-          allow='autoplay *; encrypted-media *; fullscreen *; clipboard-write'
-          frameborder='0'
-          height='450'
-          sandbox='allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation'
-          src={album.links.apple.embedUrl}
-        />
+YouTube
+<iframe
+  width='560'
+  height='560'
+  src={album.links.youtube.embedUrl}
+  frameborder='0'
+  allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+  allowFullScreen
+/>
 
-        YouTube
-        <iframe
-          width='560'
-          height='560'
-          src={album.links.youtube.embedUrl}
-          frameborder='0'
-          allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-          allowFullScreen
-        />
+Amazon Music
+<iframe
+  id='AmazonMusicEmbedB0BFCSDY51'
+  src={album.links.amazon.embedUrl}
+  width='100%'
+  height='550px'
+  style={{border:'1px solid rgba(0, 0, 0, 0.12)'}}
+/>
+*/
 
-        Amazon Music
-        <iframe
-          id='AmazonMusicEmbedB0BFCSDY51'
-          src={album.links.amazon.embedUrl}
-          width='100%'
-          height='550px'
-          style={{border:'1px solid rgba(0, 0, 0, 0.12)'}}
-        />
-        */

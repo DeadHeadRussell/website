@@ -34,7 +34,7 @@ export const Album: FC<AlbumProps> = ({album, category, song}) => {
     <>
       <section className={classes.headerContent}>
         <Container maxWidth='lg'>
-          <HorizontalAlbumHeader album={album} category={category} />
+          <HorizontalAlbumHeader album={album} />
         </Container>
 			</section>
 			{album.description && (

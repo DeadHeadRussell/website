@@ -1,4 +1,4 @@
-import {Category, Album, Feed, FeedItem, Song} from './data';
+import {Category, Album, Song} from './data';
 import {setupListensCount} from './listensCount';
 import {setupMediaKeys} from './mediaKeys';
 import {createNotifications} from './notifications';
@@ -287,10 +287,6 @@ export const createPlaylistFromAlbum = (category: Category, album: Album, songs?
     songs = album.songs;
   }
   return songs.map(song => createSong(category, album, song));
-};
-
-export const createPlaylistFromFeed = (feed: Feed): Playlist => {
-  return feed.map(item => createPlaylistFromAlbum(item.category, item.album, item.songs)).flat(1);
 };
 
 export const createSong = (category: Category, album: Album, song: Song): AudioPlayerSong => ({

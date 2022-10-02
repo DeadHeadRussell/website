@@ -34,7 +34,9 @@ export const getStaticProps: GetStaticProps<CategoryPageProps> = ({params}) => {
     throw Error('Missing category link in URL');
   }
 
-  return {props: {categoryLink: params.id}};
+  const categoryLink = Array.isArray(params.id) ? params.id[0] : params.id;
+
+  return {props: {categoryLink}};
 };
 
 export default CategoryPage;
