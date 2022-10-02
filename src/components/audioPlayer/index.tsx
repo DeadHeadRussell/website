@@ -40,7 +40,8 @@ export const AudioControls: FC = () => {
   const spacing = xs ? 0 : 1;
   const justify = xs ? 'space-around' : 'center';
 
-  return (
+  // TODO: Error if it cannot find the song.
+  return playbackState.song ? (
     <Drawer
       className={classes.test}
       classes={{paper: classes.drawer}}
@@ -48,32 +49,27 @@ export const AudioControls: FC = () => {
       variant='permanent'
       open
     >
-      {playbackState.song ? (
-        <Grid container spacing={spacing} justifyContent={justify} alignItems='center' wrap='nowrap'>
-          <Grid item>
-            <AudioPlayerSongDisplay song={playbackState.song} />
-          </Grid>
-          <Grid item>
-            <Grid container spacing={0} wrap='nowrap'>
-              <AudioPlayerPlaylist player={player} playbackState={playbackState} />
-              <AudioPlayerDownload song={playbackState.song} />
-            </Grid>
-          </Grid>
-          <Grid item md={3} lg={4}>
-            <AudioTimeControls player={player} playbackState={playbackState} />
-          </Grid>
-          <Grid item>
-            <AudioPlaybackControls player={player} playbackState={playbackState} />
-          </Grid>
-          <Grid item sm={4} md={2} lg={2}>
-            <AudioVolumeControls player={player} playbackState={playbackState} />
+      <Grid container spacing={spacing} justifyContent={justify} alignItems='center' wrap='nowrap'>
+        <Grid item>
+          <AudioPlayerSongDisplay song={playbackState.song} />
+        </Grid>
+        <Grid item>
+          <Grid container spacing={0} wrap='nowrap'>
+            <AudioPlayerPlaylist player={player} playbackState={playbackState} />
+            <AudioPlayerDownload song={playbackState.song} />
           </Grid>
         </Grid>
-      ) : (
-        // TODO: Error if it cannot find the song.
-        null
-      )}
+        <Grid item md={3} lg={4}>
+          <AudioTimeControls player={player} playbackState={playbackState} />
+        </Grid>
+        <Grid item>
+          <AudioPlaybackControls player={player} playbackState={playbackState} />
+        </Grid>
+        <Grid item sm={4} md={2} lg={2}>
+          <AudioVolumeControls player={player} playbackState={playbackState} />
+        </Grid>
+      </Grid>
     </Drawer>
-  );
+  ) : null;
 }
 

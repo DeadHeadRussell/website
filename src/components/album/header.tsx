@@ -39,18 +39,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export interface AlbumHeaderProps {
-  category: Category;
   album: Album;
   link?: boolean;
 }
 
-export const AlbumHeader: FC<AlbumHeaderProps> = ({category, album, link}) => {
+export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
   const classes = useStyles();
 
   const Wrapper: FC<{}> = link
     ? ({children}) => (
       <CardActionArea>
-        <AlbumLink categoryLink={category.link} albumLink={album.link}>{children}</AlbumLink>
+        <AlbumLink categoryLink={album.category.link} albumLink={album.link}>{children}</AlbumLink>
       </CardActionArea>
     )
     : ({children}) => <>{children}</>;
@@ -64,7 +63,7 @@ export const AlbumHeader: FC<AlbumHeaderProps> = ({category, album, link}) => {
             {album.name}
           </Typography>
           <Typography variant='subtitle2' align='center'>
-            {album.date} • {formatTime(album.duration)}
+            {[album.date, formatTime(album.duration)].filter(v => !!v).join(' • ')}
           </Typography>
           <Typography className={classes.content} color='textSecondary'>{album.tagline}</Typography>
         </CardContent>
@@ -76,7 +75,7 @@ export const AlbumHeader: FC<AlbumHeaderProps> = ({category, album, link}) => {
               {album.songs && album.songs.length > 0 && (
                 <>
                   <Grid item>
-                    <PlayButton playlist={createPlaylistFromAlbum(category, album)} size='small' />
+                    <PlayButton playlist={createPlaylistFromAlbum(album.category, album)} size='small' />
                   </Grid>
                   <Grid item>
                     <Button

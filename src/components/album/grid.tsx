@@ -9,18 +9,12 @@ import {AlbumHeader} from './header';
 const useStyles = makeStyles(theme => ({
   grid: {
     width: '100%',
-
-    [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(2)
-    }
+    padding: theme.spacing(2)
   }
 }));
 
 export interface AlbumGridProps {
-  albums: {
-    category: Category;
-    album: Album;
-  }[];
+  albums: Album[];
 }
 
 export const AlbumGrid: FC<AlbumGridProps> = ({albums}) => {
@@ -29,9 +23,9 @@ export const AlbumGrid: FC<AlbumGridProps> = ({albums}) => {
   return (
     <div className={classes.grid}>
       <Grid container spacing={4}>
-        {albums.map(({category, album}) => (
-          <Grid key={category.link + '_' + album.link} item xs={12} sm={6} md={6} lg={4}>
-            <AlbumHeader category={category} album={album} link={true} />
+        {albums.map(album => (
+          <Grid key={album.category.link + '_' + album.link} item xs={12} sm={6} md={6} lg={4}>
+            <AlbumHeader album={album} link={true} />
           </Grid>
         ))}
       </Grid>

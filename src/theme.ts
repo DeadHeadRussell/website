@@ -17,6 +17,9 @@ export const theme = createTheme({
     },
     type: 'light'
   },
+  typography: {
+    fontFamily: 'Questrial'
+  },
   overrides: {
     MuiTableCell: {
       root: {

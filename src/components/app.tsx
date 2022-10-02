@@ -13,7 +13,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import {makeStyles} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MenuIcon from '@material-ui/icons/Menu';
 import UpdateIcon from '@material-ui/icons/Update';
 import Link from 'next/link';
@@ -85,20 +85,18 @@ const useStyles = makeStyles(theme => ({
 
   content: {
     position: 'relative',
-    flexGrow: 1,
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(3)
-    }
+    flexGrow: 1
   }
 }));
 
 export interface AppProps {
-  initialPlaylist: Playlist;
+  initialPlaylist?: Playlist;
+  showSubscribe?: boolean;
   menu: MenuData;
   children: ReactNode;
 }
 
-export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
+export const App: FC<AppProps> = ({initialPlaylist, menu, showSubscribe, children}) => {
   const classes = useStyles();
 
   const [smallOpen, setSmallOpen] = useState(false);
@@ -116,67 +114,52 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
   const drawerContent = (
     <div className={classes.drawerContent}>
       <Hidden smDown>
-        <ListItem className={classes.header}>
-          <img className={classes.logo} src='/logo.png' alt='Logo' />
-        </ListItem>
-        <Divider />
-      </Hidden>
-      <List>
         <Link href='/'>
           <a className={classes.link}>
-            <ListItem button>
-              <ListItemAvatar>
-                <Avatar
-                  src='/avatar.png'
-                  alt='Profile'
-                />
-              </ListItemAvatar>
-              <ListItemText primary='Home' />
+            <ListItem className={classes.header}>
+              <img className={classes.logo} src='/logo.png' alt='Logo' />
             </ListItem>
           </a>
         </Link>
-        <Link href='/recent'>
-          <a className={classes.link}>
-            <ListItem button>
-              <ListItemAvatar>
-                <UpdateIcon className={classes.menuIcon} fontSize='inherit' />
-              </ListItemAvatar>
-              <ListItemText primary='Recent' />
-            </ListItem>
-          </a>
-        </Link>
-        <Link href='/contact'>
-          <a className={classes.link}>
-            <ListItem button>
-              <ListItemAvatar>
-                <MailOutlineIcon className={classes.menuIcon} fontSize='inherit' />
-              </ListItemAvatar>
-              <ListItemText primary='Contact' />
-            </ListItem>
-          </a>
-        </Link>
-      </List>
+      </Hidden>
       <List>
         {menu.categories.map(category => (
           <React.Fragment key={category.link}>
-            <Divider />
             <CategoryLink categoryLink={category.link}>
               <ListItem button>
+                {category.Icon ? (
+                  <ListItemAvatar>
+                    <category.Icon className={classes.menuIcon} fontSize='inherit' />
+                  </ListItemAvatar>
+                ) : null}
                 <ListItemText primary={category.name} />
               </ListItem>
             </CategoryLink>
             {category.albums.map(album => (
-              <AlbumLink key={category.link + '_' + album.link} categoryLink={category.link} albumLink={album.link}>
-                <ListItem button>
-                  <ListItemAvatar>
-                    <AlbumIcon albumArt={album.art} />
-                  </ListItemAvatar>
-                  <ListItemText primary={album.name} />
-                </ListItem>
-              </AlbumLink>
+              <React.Fragment key={category.link + '_' + album.link}>
+                <AlbumLink categoryLink={category.link} albumLink={album.link}>
+                  <ListItem button>
+                    <ListItemAvatar>
+                      <AlbumIcon albumArt={album.art} />
+                    </ListItemAvatar>
+                    <ListItemText primary={album.name} />
+                  </ListItem>
+                </AlbumLink>
+                <Divider />
+              </React.Fragment>
             ))}
           </React.Fragment>
         ))}
+        <Link href='/about'>
+          <a className={classes.link}>
+            <ListItem button>
+              <ListItemAvatar>
+                <EmojiPeopleIcon className={classes.menuIcon} fontSize='inherit' />
+              </ListItemAvatar>
+              <ListItemText primary='About' />
+            </ListItem>
+          </a>
+        </Link>
       </List>
     </div>
   );
@@ -195,7 +178,11 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
             >
               <MenuIcon />
             </IconButton>
-            <img className={classes.logo} src='/logo.png' alt='Logo' />
+            <Link href='/'>
+              <a className={classes.link}>
+                <img className={classes.logo} src='/logo.png' alt='Logo' />
+              </a>
+            </Link>
           </Toolbar>
         </AppBar>
       </Hidden>
@@ -230,7 +217,7 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
         <Hidden mdUp>
           <div className={classes.toolbar} />
         </Hidden>
-        <Subscribe />
+        {showSubscribe ? <Subscribe /> : null }
         {children}
         <License />
         <div className={classes.toolbarBottom} />

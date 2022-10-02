@@ -4,18 +4,27 @@ import React, {FC} from 'react';
 
 import {createPlaylistFromAlbum} from '../../../audioPlayer';
 import {Album} from '../../../components/album';
+import {RemoteAlbum} from '../../../components/album/remote';
 import {Root} from '../../../components/root';
-import {processData, Album as AlbumType, Category, MenuData} from '../../../data';
-import {readData} from '../../../dataReader';
+import {categories, menu} from '../../../data';
 
 
 export interface AlbumPageProps {
-  album: AlbumType;
-  category: Category;
-  menu: MenuData;
+  albumLink: string;
+  categoryLink: string;
 }
 
-const AlbumPage: FC<AlbumPageProps> = ({album, category, menu}) => {
+const AlbumPage: FC<AlbumPageProps> = ({albumLink, categoryLink}) => {
+  const category = categories[categoryLink];
+  if (!category) {
+    throw Error('Missing category');
+  }
+
+  const album = category.album[albumLink];
+  if (!album) {
+    throw Error('Missing album');
+  }
+
   const router = useRouter();
   if (router.asPath.includes('?song=') && !router.query.song) {
     const query = router.asPath.split('?')[1] || '';
@@ -26,21 +35,23 @@ const AlbumPage: FC<AlbumPageProps> = ({album, category, menu}) => {
   }
 
   const songLink = router.query.song;
-  const song = album && album.songs.find(song => song.link == songLink);
+  const song = album && songLink && album.song[songLink];
 
   const playlist = createPlaylistFromAlbum(category, album);
 
   return (
     <Root title={album.name} menu={menu} initialPlaylist={playlist}>
-      <Album album={album} category={category} song={song} />
+      {album.links ? (
+        <RemoteAlbum album={album} />
+      ) : (
+        <Album category={category} album={album} song={song} />
+      )}
     </Root>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const rawData = await readData();
-  const {categories} = processData(rawData);
-  const paths = categories.flatMap(category => category.albums.map(
+  const paths = Object.values(categories).flatMap(category => category.albums.map(
     album => `/albums/${category.link}/${album.link}`
   ));
   return {paths, fallback: false};
@@ -55,24 +66,10 @@ export const getStaticProps: GetStaticProps<AlbumPageProps> = async ({params}) =
     throw Error('Missing album link in URL');
   }
 
-  const rawData = await readData();
-  const {categories, menu} = processData(rawData);
-
   const categoryLink = params.categoryId
   const albumLink = params.id;
-  const category = categories.find(category => category.link == categoryLink);
 
-  if (!category) {
-    throw Error('Missing category');
-  }
-
-  const album = category.albums.find(album => album.link == albumLink);
-
-  if (!album) {
-    throw Error('Missing album');
-  }
-
-  return {props: {album, category, menu}};
+  return {props: {categoryLink, albumLink}};
 };
 
 export default AlbumPage;

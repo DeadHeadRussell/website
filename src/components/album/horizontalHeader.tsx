@@ -6,7 +6,7 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {FC} from 'react';
 
 import {createPlaylistFromAlbum, Playlist} from '../../audioPlayer';
-import {Album, Category} from '../../data';
+import {Album} from '../../data';
 import {formatTime} from '../../utils';
 import {PlayButton} from '../playButton';
 
@@ -39,13 +39,12 @@ const useStyles = makeStyles(theme => ({
 
 export interface HorizontalAlbumHeaderProps {
   album: Album;
-  category: Category;
   playlist?: Playlist;
   hidePlay?: boolean;
   hideDownload?: boolean;
 }
 
-export const HorizontalAlbumHeader: FC<HorizontalAlbumHeaderProps> = ({album, category, playlist, hidePlay, hideDownload}) => {
+export const HorizontalAlbumHeader: FC<HorizontalAlbumHeaderProps> = ({album, playlist, hidePlay, hideDownload}) => {
   const classes = useStyles();
 
   return (
@@ -58,7 +57,10 @@ export const HorizontalAlbumHeader: FC<HorizontalAlbumHeaderProps> = ({album, ca
           </Typography>
           <div className={classes.headline}>
             <Typography variant='subtitle1'>
-              {category.name} • {album.date} • {formatTime(album.duration)}
+              {[album.category.name, album.date, formatTime(album.duration)]
+                .filter(value => !!value)
+                .join(' • ')
+              }
             </Typography>
           </div>
           <Typography color='textSecondary'>{album.tagline}</Typography>
@@ -71,7 +73,7 @@ export const HorizontalAlbumHeader: FC<HorizontalAlbumHeaderProps> = ({album, ca
                   <>
                     {!hidePlay && (
                       <Grid item>
-                        <PlayButton playlist={playlist || createPlaylistFromAlbum(category, album)} size='small' />
+                        <PlayButton playlist={playlist || createPlaylistFromAlbum(album.category, album)} size='small' />
                       </Grid>
                     )}
                     {!hideDownload && (

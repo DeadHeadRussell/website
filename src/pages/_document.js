@@ -14,6 +14,8 @@ export default class RootDocument extends Document {
           <meta itemProp='description' content="Lavish Dude band website" />
           <meta itemProp='image' content='/profile.jpg' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' />
+          <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Oleo%20Script%3Aital%2Cwght%400%2C700&directory=3&display=block' />
+          <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Questrial&display=swap' />
           <link rel='icon' type='image/png' href='/favicon.png' />
         </Head>
         <body>
