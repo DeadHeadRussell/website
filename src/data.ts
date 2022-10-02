@@ -171,7 +171,7 @@ function createAlbum(link: string, name: string, date: string, tagline: string, 
 
 function createSong(name: string, date: string, duration: number, credits: Credit[], other: any = {}): Song {
   return {
-    link: name.toLowerCase().replace(/[!@#$%^&*()-_+=,.'"<>?\\]/g, '').replace('/ +/g', '-'),
+    link: name.toLowerCase().replace(/[!@#$%^&*()-_+=,.'"<>?\\]/g, '').replace(/ +/g, '-'),
     name,
     date,
     duration,
@@ -179,8 +179,8 @@ function createSong(name: string, date: string, duration: number, credits: Credi
     credits,
     video: other.video || false,
     sheetMusic: other.sheetMusic,
-    description: other.description,
-    lyrics: other.lyrics,
+    description: (other.description || '').split('\n').map((line: string) => line.trim()).join('\n'),
+    lyrics: (other.lyrics || '').split('\n').map((line: string) => line.trim()).join('\n'),
     external: other.external,
     sections: []
   } as any as Song;

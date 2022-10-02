@@ -214,15 +214,19 @@ const Image: React.FC<CommandProps> = ({className, type, content, display, conte
     throw Error(`Cannot parse [[${type}:*]] in <Description /> without \`context.song\``);
   }
 
+  const category: Category = context.category as Category;
+  const album: Album = context.album as Album;
+  const song: Song = context.song as Song;
+
   return (
     <img
       className={className}
       src={type == 'category_img'
-        ? createCategoryLink(context.category as any, content)
+        ? createCategoryLink(category.link, content)
         : type == 'album_img'
-        ? createAlbumLink(context.category as any, context.album as any, content)
+        ? createAlbumLink(category.link, album.link, content)
         : type == 'song_img'
-        ? createSongLink(context.category as any, context.album as any, context.song as any, content)
+        ? createSongLink(category.link, album.link, song.link, content)
         : type == 'img'
         ? content
         : ''
