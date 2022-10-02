@@ -8,7 +8,9 @@ import {FC} from 'react';
 const useStyles = makeStyles(theme => ({
   paper: {
     width: 550,
-    margin: theme.spacing(4),
+    margin: 'auto',
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
     padding: theme.spacing(4)
   },
 

@@ -20,13 +20,13 @@ import Link from 'next/link';
 import React, {useEffect, useState, FC, ReactNode} from 'react';
 
 import {getPlayer, Playlist} from '../audioPlayer';
+import {usePlayback} from '../utils';
 import {MenuData} from '../data';
 import {AlbumIcon} from './album/icon';
 import {AlbumLink} from './album/link';
 import {AudioControls} from './audioPlayer';
 import {CategoryLink} from './category/link';
 import {License} from './license';
-import {Subscribe} from './subscribe';
 
 
 const drawerWidth = 240;
@@ -76,7 +76,10 @@ const useStyles = makeStyles(theme => ({
     fontSize: 38
   },
 
-  toolbar: theme.mixins.toolbar,
+  toolbar: {
+    ...theme.mixins.toolbar,
+    height: 77
+  },
 
   toolbarBottom: {
     ...theme.mixins.toolbar,
@@ -91,12 +94,11 @@ const useStyles = makeStyles(theme => ({
 
 export interface AppProps {
   initialPlaylist?: Playlist;
-  showSubscribe?: boolean;
   menu: MenuData;
   children: ReactNode;
 }
 
-export const App: FC<AppProps> = ({initialPlaylist, menu, showSubscribe, children}) => {
+export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
   const classes = useStyles();
 
   const [smallOpen, setSmallOpen] = useState(false);
@@ -104,6 +106,8 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, showSubscribe, childre
   const handleDrawerToggle = () => setSmallOpen(!smallOpen);
 
   const player = getPlayer();
+
+  const playbackState = usePlayback(player, false);
 
   useEffect(() => {
     if (initialPlaylist && !player.touched) {
@@ -217,10 +221,11 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, showSubscribe, childre
         <Hidden mdUp>
           <div className={classes.toolbar} />
         </Hidden>
-        {showSubscribe ? <Subscribe /> : null }
         {children}
         <License />
-        <div className={classes.toolbarBottom} />
+        {playbackState.song ? (
+          <div className={classes.toolbarBottom} />
+        ) : null}
       </main>
       <AudioControls />
     </div>

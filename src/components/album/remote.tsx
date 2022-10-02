@@ -14,14 +14,16 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(6)
   },
 
-  albumSm: {
-    width: '80%',
-    margin: 'auto',
-    marginTop: theme.spacing(4),
-    paddingBottom: theme.spacing(6)
+  albumWrapper: {
+    [theme.breakpoints.down('md')]: {
+      width: '80%',
+      margin: 'auto',
+      marginTop: theme.spacing(4),
+      paddingBottom: theme.spacing(6)
+    }
   },
 
-  smItem: {
+  item: {
     margin: 'auto',
   },
 
@@ -37,6 +39,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexFlow: 'row nowrap',
     width: 'fit-content',
+    margin: 'auto',
     marginTop: theme.spacing(2),
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(1),
@@ -47,8 +50,10 @@ const useStyles = makeStyles(theme => ({
     background: '#52250b',
     borderRadius: 6,
 
-    [theme.breakpoints.down('md')]: {
-      margin: 'auto'
+    [theme.breakpoints.down('xs')]: {
+      flexFlow: 'row wrap',
+      justifyContent: 'center',
+      paddingTop: theme.spacing(0)
     }
   },
 
@@ -58,11 +63,17 @@ const useStyles = makeStyles(theme => ({
     width: 48,
     height: 48,
     marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
+
+    [theme.breakpoints.down('xs')]: {
+      flex: '0 1 25%',
+      marginTop: theme.spacing(1),
+    }
   },
 
   streamingIcon: {
-    width: 48
+    width: 48,
+    margin: 'auto'
   },
 
   description: {
@@ -114,7 +125,8 @@ const StreamingBar: FC<RemoteAlbumProps> = ({album}) => {
   const classes = useStyles();
   return (
     <Fragment>
-      <Typography variant='h3' align='center'>{album.tagline}</Typography>
+      <Typography variant='h3' align='center'>{album.name}</Typography>
+      <Typography variant='h4' align='center'>{album.tagline}</Typography>
       <div className={classes.streamingBar}>
         {['spotify', 'apple', 'youtube-music', 'youtube', 'amazon'].map(service => (
           <a key={service} className={classes.streamingLink} href={album.links[service].musicUrl}>
@@ -139,6 +151,7 @@ const Player: FC<RemoteAlbumProps> = ({album}) => {
   const classes = useStyles();
   return (
     <iframe
+      key='player-iframe'
       className={classes.spotify}
       src={album.links.spotify.embedUrl}
       frameBorder='0'
@@ -156,7 +169,7 @@ const Insert: FC<RemoteAlbumProps> = ({album}) => {
       <Typography variant='h3' align='center'>Album Insert</Typography>
       <iframe
         className={classes.insertEmbed}
-        src='https://drive.google.com/file/d/1JK6zowGoYb1riFI5JmZWwKX1Fn6YvipV/preview'
+        src={album.extras.insert.embedUrl}
         allow='autoplay'
         frameBorder='0'
         allowFullScreen
@@ -169,44 +182,33 @@ export const RemoteAlbum: FC<RemoteAlbumProps> = ({album}) => {
   const classes = useStyles();
 
   return (
-    <Fragment>
-      <Hidden mdDown>
-        <Grid container className={classes.album} spacing={2}>
-          <Grid item lg={6}>
-            <Art album={album} />
+    <div className={classes.albumWrapper}>
+      <Grid container className={classes.album} spacing={2}>
+        <Hidden lgUp>
+          <Grid item className={classes.item} xs={12}>
+            <StreamingBar album={album} />
           </Grid>
-          <Grid item lg={6}>
+        </Hidden>
+        <Grid item className={classes.item} lg={6} xs={12}>
+          <Art album={album} />
+        </Grid>
+        <Grid item className={classes.item} lg={6} xs={12}>
+          <Hidden mdDown>
             <StreamingBar album={album} />
             <AlbumDescription album={album}/>
-            <Player album={album} />
-          </Grid>
-          <Grid item xs={12}>
-            <Insert album={album} />
-          </Grid>
+          </Hidden>
+          <Player key='player' album={album} />
         </Grid>
-      </Hidden>
-      <Hidden lgUp>
-        <div className={classes.albumSm}>
-          <Grid container className={classes.album} spacing={2}>
-            <Grid item className={classes.smItem} xs={12}>
-              <StreamingBar album={album} />
-            </Grid>
-            <Grid item className={classes.smItem} xs={12}>
-              <Art album={album} />
-            </Grid>
-            <Grid item className={classes.smItem} xs={12}>
-              <Player album={album} />
-            </Grid>
-            <Grid item className={classes.smItem} xs={12}>
-              <AlbumDescription album={album}/>
-            </Grid>
-            <Grid item className={classes.smItem} xs={12}>
-              <Insert album={album} />
-            </Grid>
+        <Hidden lgUp>
+          <Grid item className={classes.item} xs={12}>
+            <AlbumDescription album={album}/>
           </Grid>
-        </div>
-      </Hidden>
-    </Fragment>
+        </Hidden>
+        <Grid item className={classes.item} xs={12}>
+          <Insert album={album} />
+        </Grid>
+      </Grid>
+    </div>
   );
 };
 

@@ -28,6 +28,10 @@ export interface Album {
     musicUrl: string;
     albumId: string;
   }>;
+  extras: Record<string, {
+    embedUrl: string;
+    downloadUrl: string;
+  }>;
 }
 
 export interface Song {
@@ -163,6 +167,7 @@ function createAlbum(link: string, name: string, date: string, tagline: string, 
     tagline,
     description,
     links: other.links,
+    extras: other.extras,
     external: other.external,
     songs: other.songs,
     duration: other.duration
@@ -221,6 +226,16 @@ export const categories: Record<string, Category> = {
           albumId: 'B0BFCSDY51',
           musicUrl: 'https://music.amazon.ca/albums/B0BFCSDY51',
           embedUrl: 'https://music.amazon.ca/embed/B0BFCSDY51/?id=IGXxoj1MaL&marketplaceId=ART4WZ8MWBX2Y&musicTerritory=CA',
+        }
+      },
+      extras: {
+        insert: {
+          embedUrl: 'https://drive.google.com/file/d/1JK6zowGoYb1riFI5JmZWwKX1Fn6YvipV/preview',
+          downloadUrl: ''
+        },
+        lyrics: {
+          embedUrl: '',
+          downloadUrl: ''
         }
       }
     })
