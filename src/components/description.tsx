@@ -3,7 +3,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import React from 'react';
 import Link from 'next/link';
 
-import {createCategoryLink, createAlbumLink, createSongLink, Category, Album, Song} from '../data';
+import {createCategoryLink, createAlbumLink, createSongLink} from '../data/dataHelpers';
+import {Album, Category, Song} from '../data/types';
 import {formatTime} from '../utils';
 
 

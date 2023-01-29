@@ -1,4 +1,4 @@
-import {createChart} from './dataHelpers.ts';
+import {createChart} from './dataHelpers';
 
 export const songs = [
   createChart('Falling Down', 'https://drive.google.com/uc?export=download&id=1FhcKHmfwxYXKhKGd6wH5H-nyOPIhlL7z', [
@@ -885,6 +885,9 @@ export const collections = [
 function combineCharts(songNames: string[]): string[] {
   return songNames.flatMap(name => {
     const chart = songs.find(chart => chart.name == name);
+    if (!chart) {
+      throw Error(`Chart ${name} not found for a collection!`);
+    }
     return ['!title:' + name, ''].concat(chart.columns).concat(['', '']);
   });
 }

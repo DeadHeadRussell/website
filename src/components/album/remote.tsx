@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import {FC, Fragment} from 'react';
 
-import {Album as AlbumType} from '../../data';
+import {Album as AlbumType} from '../../data/types';
 import {Description} from '../description';
 
 

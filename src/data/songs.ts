@@ -1,4 +1,4 @@
-import {createCredit, createSong} from './dataHelpers.ts';
+import {createCredit, createSong} from './dataHelpers';
 
 export const fawm2022 = [
   createSong(

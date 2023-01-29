@@ -18,7 +18,7 @@ import {useRouter} from 'next/router';
 import {useEffect, useState, FC} from 'react';
 
 import {createPlaylistFromAlbum, createSong, getPlayer, Playlist, songMatcher} from '../../audioPlayer';
-import {Album, Category, Song as SongType} from '../../data';
+import {Album, Category, Song as SongType} from '../../data/types';
 import {formatTime, usePlayback} from '../../utils';
 import {SongInfo} from './info';
 

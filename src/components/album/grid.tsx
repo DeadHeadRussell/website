@@ -2,7 +2,7 @@ import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
 import {FC} from 'react';
 
-import {Album, Category} from '../../data';
+import {Album, Category} from '../../data/types';
 import {AlbumHeader} from './header';
 
 

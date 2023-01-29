@@ -22,7 +22,7 @@ import React, {useEffect, useState, FC, ReactNode} from 'react';
 
 import {getPlayer, Playlist} from '../audioPlayer';
 import {usePlayback} from '../utils';
-import {MenuData} from '../data';
+import {MenuData} from '../data/types';
 import {AlbumIcon} from './album/icon';
 import {AlbumLink} from './album/link';
 import {AudioControls} from './audioPlayer';

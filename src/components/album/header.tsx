@@ -11,7 +11,7 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {FC, ReactNode} from 'react';
 
 import {createPlaylistFromAlbum} from '../../audioPlayer';
-import {Album, Category} from '../../data';
+import {Album, Category} from '../../data/types';
 import {formatTime} from '../../utils';
 import {PlayButton} from '../playButton';
 import {AlbumLink} from './link';

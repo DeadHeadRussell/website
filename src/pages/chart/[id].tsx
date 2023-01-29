@@ -4,6 +4,7 @@ import React, {FC} from 'react';
 import {Chart} from '../../components/charts/chart';
 import {Root} from '../../components/root';
 import {charts, menu} from '../../data';
+import {Chart as ChartType} from '../../data/types';
 
 
 export interface ChartPageProps {
@@ -12,7 +13,8 @@ export interface ChartPageProps {
 }
 
 const ChartPage: FC<ChartPageProps> = ({chartType, chartLink}) => {
-  const chart = charts[chartType].find(c => c.link === chartLink);
+  const chartMap = (charts as unknown as Record<string, ChartType[]>);
+  const chart = chartMap[chartType].find(c => c.link === chartLink);
 
   if (!chart) {
     throw new Error('Missing chart');
@@ -46,6 +48,10 @@ export const getStaticProps: GetStaticProps<ChartPageProps> = ({params}) => {
     : isSong
       ? 'songs'
       : null;
+
+  if (!chartType) {
+    throw Error('Invalid chart name');
+  }
 
   return {props: {chartLink, chartType}};
 };

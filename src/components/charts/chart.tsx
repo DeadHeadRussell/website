@@ -7,7 +7,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import {FC} from 'react';
 
-import {Chart} from '../../data';
+import {Chart as ChartType} from '../../data/types';
 
 import {Description} from '../description';
 
@@ -80,14 +80,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export interface ChartProps {
-  chart: Chart;
+  chart: ChartType;
 }
 
-function parseColumn(classes, column) {
+function parseColumn(classes: Record<string, string>, column: string) {
   return column.split('\n').map((line, i) => parseLine(classes, line, i));
 }
 
-function parseLine(classes, line: string, index: number) {
+function parseLine(classes: Record<string, string>, line: string, index: number) {
   const sectionRegexes = [
     /^Verse( \d)?$/,
     /^(\w+-)?Chorus( \d)?$/,

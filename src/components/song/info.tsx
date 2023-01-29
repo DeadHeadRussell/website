@@ -13,7 +13,7 @@ import {FC} from 'react';
 import showdown from 'showdown';
 
 import {createPlaylistFromAlbum, createSong, getPlayer} from '../../audioPlayer';
-import {Album, Category, Song} from '../../data';
+import {Album, Category, Song} from '../../data/types';
 import {formatTime, usePlayback} from '../../utils';
 import {Description} from '../description';
 import {PlayButton} from '../playButton';

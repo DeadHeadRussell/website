@@ -6,7 +6,7 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {FC} from 'react';
 
 import {createPlaylistFromAlbum, Playlist} from '../../audioPlayer';
-import {Album} from '../../data';
+import {Album} from '../../data/types';
 import {formatTime} from '../../utils';
 import {PlayButton} from '../playButton';
 

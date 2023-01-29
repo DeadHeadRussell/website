@@ -4,7 +4,7 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import {FC} from 'react';
 
-import {Album as AlbumType, Category, Song as SongType} from '../../data';
+import {Album as AlbumType, Category, Song as SongType} from '../../data/types';
 import {Description} from '../description';
 import {Song} from '../song';
 import {HorizontalAlbumHeader} from './horizontalHeader';

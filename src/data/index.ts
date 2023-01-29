@@ -1,9 +1,9 @@
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 
-import {createAlbum, createCategory, createMenuCategory} from './dataHelpers.ts';
-
-import * as _charts from './charts.ts';
-import * as songs from './songs.ts';
+import * as _charts from './charts';
+import {createAlbum, createCategory, createMenuCategory} from './dataHelpers';
+import * as songs from './songs';
+import {Category, ChartData, MenuData} from './types';
 
 export const categories: Record<string, Category> = {
   studio: createCategory('studio', 'Studio Albums', [
