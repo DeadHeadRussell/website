@@ -14,6 +14,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 import MenuIcon from '@material-ui/icons/Menu';
 import UpdateIcon from '@material-ui/icons/Update';
 import Link from 'next/link';
@@ -154,6 +155,16 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
             ))}
           </React.Fragment>
         ))}
+        <Link href='/charts'>
+          <a className={classes.link}>
+            <ListItem button>
+              <ListItemAvatar>
+                <MenuBookIcon className={classes.menuIcon} fontSize='inherit' />
+              </ListItemAvatar>
+              <ListItemText primary='Chord Charts' />
+            </ListItem>
+          </a>
+        </Link>
         <Link href='/about'>
           <a className={classes.link}>
             <ListItem button>

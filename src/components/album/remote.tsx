@@ -128,7 +128,7 @@ const StreamingBar: FC<RemoteAlbumProps> = ({album}) => {
       <Typography variant='h3' align='center'>{album.name}</Typography>
       <Typography variant='h4' align='center'>{album.tagline}</Typography>
       <div className={classes.streamingBar}>
-        {['spotify', 'apple', 'youtube-music', 'youtube', 'amazon'].map(service => (
+        {['spotify', 'apple', 'youtube-music', 'youtube', 'bandcamp', 'amazon'].map(service => (
           <a key={service} className={classes.streamingLink} href={album.links[service].musicUrl}>
             <img className={classes.streamingIcon} src={'/' + service + '.png'} alt={service} />
           </a>
