@@ -69,9 +69,18 @@ export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handle
   const playerSong = createSong(category, album, song);
 
   const play = (seconds: number) => {
-    player.setPlaylist(playlist);
-    player.play(playerSong);
-    setTimeout(() => player.seek(seconds), 100);
+    if (player.isPlaying(playerSong)) {
+      player.seek(seconds);
+    } else {
+      player.setPlaylist(playlist);
+      const removeListener = player.addListener(action => {
+        if (action == player.actions.LOAD) {
+          player.seek(seconds);
+          removeListener();
+        }
+      });
+      player.play(playerSong);
+    }
   };
 
   const anchor = sm ? 'bottom' : 'right';

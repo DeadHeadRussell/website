@@ -87,7 +87,7 @@ export const ArtistHeader = ({}) => {
             <a className={classes.socialLink} href='https://www.instagram.com/lavish.dude/'>
               <img className={classes.socialIcon} src='/instagram.png' alt='Instagram' />
             </a>
-            <a className={classes.socialLink} href='https://fawm.org/fawmers/lavishdude'>
+            <a className={classes.socialLink} href='https://fawm.org/@lavishdude'>
               <img className={classes.socialIcon} src='/fawm.jpg' alt='FAWM' />
             </a>
           </div>

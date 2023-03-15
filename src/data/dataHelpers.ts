@@ -1,6 +1,6 @@
 const staticUrl = process.env.NEXT_PUBLIC_STATIC_URL;
 
-import {Album, Category, Chart, Credit, MenuAlbum, MenuCategory, Song} from './types';
+import {Album, Category, Chart, Credit, MenuAlbum, MenuCategory, Section, Song} from './types';
 
 export function createCategoryLink(category: string, file: string) {
   return `${staticUrl}/music/${category}/${file}`;
@@ -15,7 +15,7 @@ export function createSongLink(category: string, album: string, song: string, ex
 }
 
 export function parseLink(name: string): string {
-  return name.toLowerCase().replace(/[!@#$%^&*()-_+=,.'"<>?\\]/g, '').replace(/ +/g, '-');
+  return name.toLowerCase().replace(/[!@#$%^&*()\-_+=,.'"<>?\\]/g, '').replace(/ +/g, '-');
 }
 
 export function parseMultiLineString(s: string, startChar?: string): string {
@@ -121,12 +121,16 @@ export function createSong(name: string, date: string, duration: number, credits
     description: parseMultiLineString(other.description || ''),
     lyrics: parseMultiLineString(other.lyrics || ''),
     external: other.external,
-    sections: []
+    sections: other.sections || []
   } as any as Song;
 }
 
 export function createCredit(who: string, role: string): Credit {
   return {who, role};
+}
+
+export function createSection(title: string, startTime: number): Section {
+  return {title, startTime};
 }
 
 export function createChart(name: string, embedUrl: string, columns: string[]): Chart {

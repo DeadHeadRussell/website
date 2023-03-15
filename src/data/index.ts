@@ -56,23 +56,29 @@ export const categories: Record<string, Category> = {
     })
   ]),
   demos: createCategory('demos', 'Demos', [
+    createAlbum('fawm-2023', 'FAWM 2023', '2023-02', 'LAVISH DUDE', `
+      [[category:demos|Lavish Dude]] is just... why are you even here? Songs are all demos written during FAWM.
+    `, {
+      songs: songs.fawm2023,
+      external: 'https://fawm.org/@lavishdude'
+    }),
     createAlbum('fawm-2022', 'FAWM 2022', '2022-02', 'LAVISH DUDE', `
       [[category:demos|Lavish Dude]] is myself and Sean Brennan sometimes writing ok music. Songs are all demos written during FAWM.
     `, {
       songs: songs.fawm2022,
-      external: 'https://fawm.org/fawmers/lavishdude'
+      external: 'https://fawm.org/@lavishdude'
     }),
     createAlbum('fawm-2021', 'FAWM 2021', '2021-02', 'LAVISH DUDE', `
       [[category:demos|Lavish Dude]] is myself and Sean Brennan kicking ass. Songs are all demos written during FAWM.
     `, {
       songs: songs.fawm2021,
-      external: 'https://fawm.org/fawmers/lavishdude'
+      external: 'https://fawm.org/@lavishdude'
     }),
     createAlbum('fawm-2019', 'FAWM 2019', '2019-02-08 - 2019-02-10', 'LAVISH DUDE', `
       [[category:demos|Lavish Dude]] is myself and Sean Brennan kicking ass over a weekend during FAWM.  36 hours.  11 songs.  1hr of rocking out.
     `, {
       songs: songs.fawm2019,
-      external: 'https://fawm.org/fawmers/lavishdude'
+      external: 'https://fawm.org/@lavishdude'
     })
   ])
 };

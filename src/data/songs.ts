@@ -1,4 +1,443 @@
-import {createCredit, createSong} from './dataHelpers';
+import {createCredit, createSection, createSong} from './dataHelpers';
+
+export const fawm2023 = [
+  createSong(
+    'So Many Cars, Such Little Drive',
+    '2023-02',
+    248,
+    [
+      createCredit('Sean Brennan', 'Vocals, Violas, Music, Lyrics')
+    ],
+    {
+      lyrics: `
+        What can we do to feel alive?
+        Sometimes we can't tell nine from five
+        How will we know when we arrive?
+        So many cars, such little drive
+      `
+    }
+  ),
+  createSong(
+    'Without Common Language',
+    '2023-02',
+    244,
+    [
+      createCredit('Andrew Russell', 'Vocals, Guitar, Music, Lyrics'),
+      createCredit('"Sean Brennan"', '"Viola"')
+    ],
+    {
+      lyrics: `
+        Deciphers
+        And maps
+        Won't quests like these
+        Ever slack
+
+        After
+        Unceasing
+        Won't the homesick
+        Be leaving
+
+        Senselsess storms ache
+        Persevering through quakes
+
+        Not here
+        For engaging
+        Can't understand
+        Without common language
+
+        Projecting
+        Lands far
+        From remembering
+        My own earth
+
+        Scenario
+        Forever
+        Once more
+        Once again
+
+        Longing for space
+        Observing fates
+
+        Not here
+        For engaging
+        Can't understand
+        Without common language
+
+        Directed of feeling
+        Leaving myself reeling
+
+        Promised no denial
+        Accepting survival
+
+        Not here
+        For engaging
+        Can't understand
+        Without common language
+      `
+    }
+  ),
+  createSong(
+    'Time Machine',
+    '2023-02',
+    296,
+    [
+      createCredit('Andrew Russell', 'Vocals, Guitar, Music, Lyrics'),
+      createCredit('Sean Brennan', 'Backing Vocals, Viola, Lyrics')
+    ],
+    {
+      lyrics: `
+        I've invented a time machine
+        It's almost finished
+        I've invented a time machine
+        It's not actually real
+        We'll step into my time machine
+        And go back inside our minds
+        Join me in my time machine
+        We'll go back together
+
+        I've invented a time machine
+        To take us back before
+        I've invented a time machine
+        To help forget the world
+        We'll step into my time machine
+        To when life was better
+        Join me in my time machine
+        We'll go back forever
+
+        Forever is a long long time
+        But my time machine will take us there
+        We can stay in my time machine
+        A few more sips of forever
+
+        We can forget about
+        Our lack of money and power
+        Forget about the way things are
+        Inside my time machine
+
+        I've invented a time machine
+        It's almost finished
+        I've invented a time machine
+        To take us back before
+        Join me in my time machine
+        We'll live out forever
+        Join me in my time machine
+        We'll live out forever
+      `
+    }
+  ),
+  createSong(
+    'First Dance',
+    '2023-02',
+    192,
+    [
+      createCredit('Sean Brennan', 'Vocals, Viola, Shaker, Cajon, Music'),
+      createCredit('Andrew Russell', 'Backing Vocals, Guitar, Bass, Piano'),
+      createCredit('Alex Kalges', 'Lyrics')
+    ],
+    {
+      lyrics: `
+        Come and sit a while with me
+        Come and share a smile with me
+        It's been far too long
+        Come and have a laugh with me
+        Come and walk this path with me
+        It's been far too long
+
+        Can we start it over?
+        Is there another chance?
+        Can we make a new beginning?
+        Is there one more first dance?
+
+        Don't be so surprised at me
+        Don't just roll your eyes at me
+        It's been far too long
+        Don't you still remember when?
+        Don't you ever think of then?
+        It's been far too long
+
+        Please, just once, for old times
+        Hold my hand, let's go out on the floor
+        Please, just once, try to remember
+        The way things were before
+      `
+    }
+  ),
+  createSong(
+    'Be Not Troubled',
+    '2023-02',
+    297,
+    [
+      createCredit('Sean Brennan', 'Vocals, Backing Octopuses, Viola, Shaker, Cajon, Music, Lyrics'),
+      createCredit('Andrew Russell', 'Lead and Backing Octopuses, Guitar, Bubbles')
+    ],
+    {
+      description: 'I am an octopus 🐙',
+      lyrics: `
+        The other day I took a drive by the ocean
+        To escape from a web of conflict and commotion
+        The sun was shining on the sand and the waves
+        And the warmth on the water was inviting me to bathe
+        So I jumped in hoping the current wasn’t dangerous
+        I looked at the coral and I looked at an octopus
+        And it looked back
+
+        It said: “Be not troubled”
+        Which is hard to do when a mollusk is accosting you
+        “Be not troubled”
+        Didn’t wanna cause a spectacle so I just shook its tentacle
+        “Be not troubled
+        Down here we live in harmony
+        Down here we are free
+        In the sea”
+
+        I said I’d never met a cephalopod
+        And that my normal kind of company stood on sand and sod
+        It curled a tentacle back like I should follow
+        Curiosity consumed me, so my head went hollow
+        And then before I had a chance to rethink
+        It twirled around and around and it shrouded us in ink
+        Jet black
+
+        It said: “Be not troubled”
+        Which is easier to me when I’m able to see
+        “Be not troubled”
+        It had a certain kind of charm, so I figured “What’s the harm?”
+        “Be not troubled
+        Down here everything is slow
+        So much for me to show
+        Let’s go”
+
+        I was amazed, I was dazed, I was crazed
+        By the beauty and the color but my escort wasn’t fazed
+        Some other octopi emerged from the blue
+        And it was here that I realized I hadn’t thought this through
+        They wrapped me up by the arms and the legs
+        So I started to cry and then I started to beg
+        They just laughed
+
+        Saying: “Be not troubled”
+        Perhaps this isn’t noble, but I panic when immobile
+        “Be not troubled”
+        All my worries on the ground didn’t seem quite as profound
+        “Be not troubled
+        Down here ‘we’ includes me
+        But it doesn’t extend to thee
+        You see”
+
+        You might have noticed that I’m singing this song
+        So you’re wondering how I escaped an octopus throng
+        Well at first they came on kinda rude
+        But as luck would have it, octopi don’t want to eat Dudes
+        They just wanted to make another friend
+        So they cast a magic spell and that’s how this story ends
+        I’m an octopus!
+
+        Be not troubled
+        Be not troubled
+        Be not troubled
+        Be not troubled
+      `
+    }
+  ),
+  createSong(
+    'Answer Me',
+    '2023-02',
+    285,
+    [
+      createCredit('Andrew Russell', 'Vocals, Guitar, Music'),
+      createCredit('Sean Brennan', 'Lyrics')
+    ],
+    {
+      lyrics: `
+        What if I had been a little stronger?
+        Did you even think that I was weak?
+        What if I’d persisted slightly longer?
+        Could I change your mind with one more week?
+        I don’t even know what I’d have altered
+        But you don’t have the answers that I seek
+
+        I promise there’s no malice and I hope that there’s no shame
+        I have no conditions, I want you to be free
+        But if you had the chance would you do it all the same?
+        Answer me
+        Answer me
+        Answer me
+
+        Why’d you let me wander down that trail
+        If you knew the path was going to end?
+        Why’d you let me try to no avail?
+        Why’d you even bother to pretend?
+        All I ever wanted was to give
+        Now I’m here with nothing left to spend
+
+        I’m glad you seem to think that the situation’s stable
+        I’m glad I’m just a cook that your kitchen doesn’t need
+        But would you feel the same if I wasn’t on the table?
+        Answer me
+        Answer me
+        Answer me
+
+        So now I'm here
+        And now we're here
+        And you were here
+      `
+    }
+  ),
+  /*
+  createSong(
+    'Isn\'t It Funny',
+    '2023-02'
+  ),
+   */
+  createSong(
+    'Minuettish and Trioesque',
+    '2023-02',
+    132,
+    [
+      createCredit('Sean Brennan', 'Viola, Music'),
+      createCredit('Andrew Russell', 'Piano')
+    ]
+  ),
+  createSong(
+    'Halp',
+    '2023-02',
+    221,
+    [
+      createCredit('Andrew Russell', 'Vocals, Guitar, Bass, Cajon, Music'),
+      createCredit('Sean Brennan', 'Lyrics')
+    ],
+    {
+      description: 'Google Translate meets Lavish Dude',
+      lyrics: `
+        I can handle you carefully
+        Although the wound did not bleed, it pierced the villages
+        Two months is a long time, but four days is a very long time
+
+        I am not breathing, strongly
+        Sometimes I relax, but my mind is sticking
+        The radio signal is getting weaker and weaker
+        Halp
+
+        Your quiet kindness tells me you have never been in trouble
+        Your cold, limitless dignity is bothering me when I break here
+        He shook my hand, he promised
+
+        The road is dark and difficult, let’s walk together
+        I am now in the middle of this road
+        I have no directions - you are my guide
+
+        So halp, halp, halp, halp
+      `
+    }
+  ),
+  createSong(
+    'The Sun Will Rise Again',
+    '2023-02',
+    68,
+    [
+      createCredit('Sean Brennan', 'Lead, Bass, Music, Lyrics'),
+      createCredit('Andrew Russell', 'Tenor, Baritone')
+    ],
+    {
+      lyrics: `
+        un is nearly setting
+        The stars are in the sky
+        The skyline is bathed in gold
+        The dearest of friends
+        Now turn to say goodbye
+        With songs unsung and stories left untold
+
+        So now we sing this gentle prayer
+        As now we leave you in God's care
+
+        May we all return
+        May we find our way back
+        Keep faith and dream of then
+        Though night may fall
+        And the land goes black
+        The sun will rise again
+      `
+    }
+  ),
+  createSong(
+    'The Setting Sun',
+    '2023-02',
+    483,
+    [
+      createCredit('Andrew Russell', 'Vocals, Guitar, Piano, Bass, Drums, Music, Lyrics'),
+      createCredit('Sean Brennan', 'Viola')
+    ],
+    {
+      lyrics: `
+        She was a wondrous beauty of guile and grace
+        She had sunburned locks curled around her face
+        And golden eyes
+        She waited for her time
+        For her turn to fly
+
+        The village gathered all around her place
+        And cheered as they watched her depart
+        To save the setting sun
+        Without out her it'd be gone
+        She'd be back before too long
+        After her turn to fly
+
+        She walked away far from her place
+        She walked through fields, climbed mountains strange
+        Away from the place she once called home
+        She climbed until her muscles ached
+        Towards the top to meet her fate
+        She scrambled when she could not climb no more
+
+        At the top she found the setting sun
+        And she reached out
+        To help it all at once
+        But when she looked into his dying eyes
+        She finally realized
+        What it meant for her to fly
+
+        She dropped the sun and turned to home
+        She couldn't stay she should have known
+        Away from the place that was her goal
+        The sky grew dark and the air grew cold
+        She ran from the top to the fields below
+        Away she fled, far from home
+
+        When she reached the edge of her home
+        And she looked out
+        O'er the valley far below
+        She saw death, cold, fear
+        In the place she held so dear
+        She knew how to save everyone
+        And she turned back to fly
+      `
+    }
+  ),
+  createSong(
+    '10 Little Scales',
+    '2023-02',
+    275,
+    [
+      createCredit('Andrew Russell', 'Music, Guitar'),
+      createCredit('Sean Brennan', 'Music, Viola')
+    ],
+    {
+      description: `Each FAWM until now, we've had some sort of pre-compositional "game" that has generative properties to guide us in composing a jam. We've had a live jam in 2019, a Telephone game in 2021, and a dots-and-boxes game that led to bizarre chord progressions in 2022. This year, Andrew took the 10x10 format as inspiration, chose the first five scales, and Sean took the second five.`,
+      sections: [
+        createSection('C Major #2', 0),
+        createSection('C Major b2', 16.5),
+        createSection('C Major #6', 36),
+        createSection('C Major b5', 70),
+        createSection('D Minor b5 #6', 106),
+        createSection('D Octatonic, leading with whole step', 142),
+        createSection('E Phrygian', 162),
+        createSection('G Whole Tone', 183.5),
+        createSection('E Minor Pentatonic', 204.5),
+        createSection('A Lydian b7', 242)
+      ]
+    }
+  )
+];
 
 export const fawm2022 = [
   createSong(

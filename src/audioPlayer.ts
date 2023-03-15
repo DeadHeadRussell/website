@@ -46,7 +46,8 @@ export class AudioPlayer {
     PAUSE: 'PAUSE',
     PREVIOUS: 'PREVIOUS',
     NEXT: 'NEXT',
-    SEEK: 'SEEK'
+    SEEK: 'SEEK',
+    LOAD: 'LOAD'
   };
 
   listeners: AudioPlayerListener[] = [];
@@ -208,6 +209,7 @@ export class AudioPlayer {
       if (this.song) {
         this._player.src = this.song.music;
       }
+      this._player.addEventListener('canplay', () => this.onLoaded());
       this._player.addEventListener('ended', () => this.onEnded());
       window.document.body.appendChild(this._player);
     }
@@ -217,6 +219,10 @@ export class AudioPlayer {
   destroy(): void {
     this._player && this._player.remove();
     this._player = null;
+  }
+
+  onLoaded(): void {
+    this.handleUpdate(this.actions.LOAD);
   }
 
   onEnded(): void {
