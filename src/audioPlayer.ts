@@ -3,7 +3,7 @@ import {setupListensCount} from './listensCount';
 import {setupMediaKeys} from './mediaKeys';
 import {createNotifications} from './notifications';
 
-export type Action = 'PLAY' | 'PAUSE' | 'PREVIOUS' | 'NEXT' | 'SEEK';
+export type Action = 'PLAY' | 'PAUSE' | 'PREVIOUS' | 'NEXT' | 'SEEK' | 'LOAD';
 export type Actions = {[Key in Action]: Key};
 
 export interface AudioPlayerCategory {
