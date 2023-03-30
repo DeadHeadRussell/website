@@ -88,6 +88,47 @@ export const fawm2023 = [
     }
   ),
   createSong(
+    'Halp',
+    '2023-02',
+    221,
+    [
+      createCredit('Andrew Russell', 'Vocals, Guitar, Bass, Cajon, Music'),
+      createCredit('Sean Brennan', 'Lyrics')
+    ],
+    {
+      description: 'Google Translate meets Lavish Dude',
+      lyrics: `
+        I can handle you carefully
+        Although the wound did not bleed, it pierced the villages
+        Two months is a long time, but four days is a very long time
+
+        I am not breathing, strongly
+        Sometimes I relax, but my mind is sticking
+        The radio signal is getting weaker and weaker
+        Halp
+
+        Your quiet kindness tells me you have never been in trouble
+        Your cold, limitless dignity is bothering me when I break here
+        He shook my hand, he promised
+
+        The road is dark and difficult, let’s walk together
+        I am now in the middle of this road
+        I have no directions - you are my guide
+
+        So halp, halp, halp, halp
+      `
+    }
+  ),
+  createSong(
+    'Minuettish and Trioesque',
+    '2023-02',
+    132,
+    [
+      createCredit('Sean Brennan', 'Viola, Music'),
+      createCredit('Andrew Russell', 'Piano')
+    ]
+  ),
+  createSong(
     'Isn\'t It Funny',
     '2023-02',
     248,
@@ -120,47 +161,6 @@ export const fawm2023 = [
         The more we try to understand
         The more we realize
         How little we know
-      `
-    }
-  ),
-  createSong(
-    'Minuettish and Trioesque',
-    '2023-02',
-    132,
-    [
-      createCredit('Sean Brennan', 'Viola, Music'),
-      createCredit('Andrew Russell', 'Piano')
-    ]
-  ),
-  createSong(
-    'Halp',
-    '2023-02',
-    221,
-    [
-      createCredit('Andrew Russell', 'Vocals, Guitar, Bass, Cajon, Music'),
-      createCredit('Sean Brennan', 'Lyrics')
-    ],
-    {
-      description: 'Google Translate meets Lavish Dude',
-      lyrics: `
-        I can handle you carefully
-        Although the wound did not bleed, it pierced the villages
-        Two months is a long time, but four days is a very long time
-
-        I am not breathing, strongly
-        Sometimes I relax, but my mind is sticking
-        The radio signal is getting weaker and weaker
-        Halp
-
-        Your quiet kindness tells me you have never been in trouble
-        Your cold, limitless dignity is bothering me when I break here
-        He shook my hand, he promised
-
-        The road is dark and difficult, let’s walk together
-        I am now in the middle of this road
-        I have no directions - you are my guide
-
-        So halp, halp, halp, halp
       `
     }
   ),
