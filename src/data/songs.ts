@@ -2,6 +2,223 @@ import {createCredit, createSection, createSong} from './dataHelpers';
 
 export const fawm2023 = [
   createSong(
+    'First Dance',
+    '2023-02',
+    192,
+    [
+      createCredit('Sean Brennan', 'Vocals, Viola, Shaker, Cajon, Music'),
+      createCredit('Andrew Russell', 'Backing Vocals, Guitar, Bass, Piano'),
+      createCredit('Alex Kalges', 'Lyrics')
+    ],
+    {
+      lyrics: `
+        Come and sit a while with me
+        Come and share a smile with me
+        It's been far too long
+        Come and have a laugh with me
+        Come and walk this path with me
+        It's been far too long
+
+        Can we start it over?
+        Is there another chance?
+        Can we make a new beginning?
+        Is there one more first dance?
+
+        Don't be so surprised at me
+        Don't just roll your eyes at me
+        It's been far too long
+        Don't you still remember when?
+        Don't you ever think of then?
+        It's been far too long
+
+        Please, just once, for old times
+        Hold my hand, let's go out on the floor
+        Please, just once, try to remember
+        The way things were before
+      `
+    }
+  ),
+  createSong(
+    'Time Machine',
+    '2023-02',
+    296,
+    [
+      createCredit('Andrew Russell', 'Vocals, Guitar, Music, Lyrics'),
+      createCredit('Sean Brennan', 'Backing Vocals, Viola, Lyrics')
+    ],
+    {
+      lyrics: `
+        I've invented a time machine
+        It's almost finished
+        I've invented a time machine
+        It's not actually real
+        We'll step into my time machine
+        And go back inside our minds
+        Join me in my time machine
+        We'll go back together
+
+        I've invented a time machine
+        To take us back before
+        I've invented a time machine
+        To help forget the world
+        We'll step into my time machine
+        To when life was better
+        Join me in my time machine
+        We'll go back forever
+
+        Forever is a long long time
+        But my time machine will take us there
+        We can stay in my time machine
+        A few more sips of forever
+
+        We can forget about
+        Our lack of money and power
+        Forget about the way things are
+        Inside my time machine
+
+        I've invented a time machine
+        It's almost finished
+        I've invented a time machine
+        To take us back before
+        Join me in my time machine
+        We'll live out forever
+        Join me in my time machine
+        We'll live out forever
+      `
+    }
+  ),
+  createSong(
+    'Isn\'t It Funny',
+    '2023-02',
+    248,
+    [
+      createCredit('Sean Brennan', 'Vocals, Viola, Music, Lyrics'),
+      createCredit('Andrew Russell', 'Guitar')
+    ],
+    {
+      link: 'isnt-it-funny-sean',
+      lyrics: `
+        Count the dewdrops on a blade of grass
+        You're no closer to knowing dew
+        Measure the space between grains of sand
+        Their weight might still slip through
+        Ask a stranger to tell you lies
+        They might say something true
+        I've walked great stretches by your side
+        I'm miles from understanding you
+
+        Work your life to hoard your wealth
+        But time is never free
+        There will be no fruit to reap
+        'Til someone plants a tree
+        Ask two enemies why they fight
+        And they might just agree
+        I've looked at you one thousand times
+        But I still don't think I see
+
+        Isn't it funny
+        The more we try to understand
+        The more we realize
+        How little we know
+      `
+    }
+  ),
+  createSong(
+    'Minuettish and Trioesque',
+    '2023-02',
+    132,
+    [
+      createCredit('Sean Brennan', 'Viola, Music'),
+      createCredit('Andrew Russell', 'Piano')
+    ]
+  ),
+  createSong(
+    'Halp',
+    '2023-02',
+    221,
+    [
+      createCredit('Andrew Russell', 'Vocals, Guitar, Bass, Cajon, Music'),
+      createCredit('Sean Brennan', 'Lyrics')
+    ],
+    {
+      description: 'Google Translate meets Lavish Dude',
+      lyrics: `
+        I can handle you carefully
+        Although the wound did not bleed, it pierced the villages
+        Two months is a long time, but four days is a very long time
+
+        I am not breathing, strongly
+        Sometimes I relax, but my mind is sticking
+        The radio signal is getting weaker and weaker
+        Halp
+
+        Your quiet kindness tells me you have never been in trouble
+        Your cold, limitless dignity is bothering me when I break here
+        He shook my hand, he promised
+
+        The road is dark and difficult, let’s walk together
+        I am now in the middle of this road
+        I have no directions - you are my guide
+
+        So halp, halp, halp, halp
+      `
+    }
+  ),
+  createSong(
+    'The Setting Sun',
+    '2023-02',
+    483,
+    [
+      createCredit('Andrew Russell', 'Vocals, Guitar, Piano, Bass, Drums, Music, Lyrics'),
+      createCredit('Sean Brennan', 'Viola')
+    ],
+    {
+      lyrics: `
+        She was a wondrous beauty of guile and grace
+        She had sunburned locks curled around her face
+        And golden eyes
+        She waited for her time
+        For her turn to fly
+
+        The village gathered all around her place
+        And cheered as they watched her depart
+        To save the setting sun
+        Without out her it'd be gone
+        She'd be back before too long
+        After her turn to fly
+
+        She walked away far from her place
+        She walked through fields, climbed mountains strange
+        Away from the place she once called home
+        She climbed until her muscles ached
+        Towards the top to meet her fate
+        She scrambled when she could not climb no more
+
+        At the top she found the setting sun
+        And she reached out
+        To help it all at once
+        But when she looked into his dying eyes
+        She finally realized
+        What it meant for her to fly
+
+        She dropped the sun and turned to home
+        She couldn't stay she should have known
+        Away from the place that was her goal
+        The sky grew dark and the air grew cold
+        She ran from the top to the fields below
+        Away she fled, far from home
+
+        When she reached the edge of her home
+        And she looked out
+        O'er the valley far below
+        She saw death, cold, fear
+        In the place she held so dear
+        She knew how to save everyone
+        And she turned back to fly
+      `
+    }
+  ),
+  createSong(
     'So Many Cars, Such Little Drive',
     '2023-02',
     248,
@@ -77,88 +294,46 @@ export const fawm2023 = [
     }
   ),
   createSong(
-    'Time Machine',
+    'Answer Me',
     '2023-02',
-    296,
+    285,
     [
-      createCredit('Andrew Russell', 'Vocals, Guitar, Music, Lyrics'),
-      createCredit('Sean Brennan', 'Backing Vocals, Viola, Lyrics')
+      createCredit('Andrew Russell', 'Vocals, Guitar, Music'),
+      createCredit('Sean Brennan', 'Lyrics')
     ],
     {
       lyrics: `
-        I've invented a time machine
-        It's almost finished
-        I've invented a time machine
-        It's not actually real
-        We'll step into my time machine
-        And go back inside our minds
-        Join me in my time machine
-        We'll go back together
+        What if I had been a little stronger?
+        Did you even think that I was weak?
+        What if I’d persisted slightly longer?
+        Could I change your mind with one more week?
+        I don’t even know what I’d have altered
+        But you don’t have the answers that I seek
 
-        I've invented a time machine
-        To take us back before
-        I've invented a time machine
-        To help forget the world
-        We'll step into my time machine
-        To when life was better
-        Join me in my time machine
-        We'll go back forever
+        I promise there’s no malice and I hope that there’s no shame
+        I have no conditions, I want you to be free
+        But if you had the chance would you do it all the same?
+        Answer me
+        Answer me
+        Answer me
 
-        Forever is a long long time
-        But my time machine will take us there
-        We can stay in my time machine
-        A few more sips of forever
+        Why’d you let me wander down that trail
+        If you knew the path was going to end?
+        Why’d you let me try to no avail?
+        Why’d you even bother to pretend?
+        All I ever wanted was to give
+        Now I’m here with nothing left to spend
 
-        We can forget about
-        Our lack of money and power
-        Forget about the way things are
-        Inside my time machine
+        I’m glad you seem to think that the situation’s stable
+        I’m glad I’m just a cook that your kitchen doesn’t need
+        But would you feel the same if I wasn’t on the table?
+        Answer me
+        Answer me
+        Answer me
 
-        I've invented a time machine
-        It's almost finished
-        I've invented a time machine
-        To take us back before
-        Join me in my time machine
-        We'll live out forever
-        Join me in my time machine
-        We'll live out forever
-      `
-    }
-  ),
-  createSong(
-    'First Dance',
-    '2023-02',
-    192,
-    [
-      createCredit('Sean Brennan', 'Vocals, Viola, Shaker, Cajon, Music'),
-      createCredit('Andrew Russell', 'Backing Vocals, Guitar, Bass, Piano'),
-      createCredit('Alex Kalges', 'Lyrics')
-    ],
-    {
-      lyrics: `
-        Come and sit a while with me
-        Come and share a smile with me
-        It's been far too long
-        Come and have a laugh with me
-        Come and walk this path with me
-        It's been far too long
-
-        Can we start it over?
-        Is there another chance?
-        Can we make a new beginning?
-        Is there one more first dance?
-
-        Don't be so surprised at me
-        Don't just roll your eyes at me
-        It's been far too long
-        Don't you still remember when?
-        Don't you ever think of then?
-        It's been far too long
-
-        Please, just once, for old times
-        Hold my hand, let's go out on the floor
-        Please, just once, try to remember
-        The way things were before
+        So now I'm here
+        And now we're here
+        And you were here
       `
     }
   ),
@@ -240,93 +415,38 @@ export const fawm2023 = [
     }
   ),
   createSong(
-    'Answer Me',
-    '2023-02',
-    285,
-    [
-      createCredit('Andrew Russell', 'Vocals, Guitar, Music'),
-      createCredit('Sean Brennan', 'Lyrics')
-    ],
-    {
-      lyrics: `
-        What if I had been a little stronger?
-        Did you even think that I was weak?
-        What if I’d persisted slightly longer?
-        Could I change your mind with one more week?
-        I don’t even know what I’d have altered
-        But you don’t have the answers that I seek
-
-        I promise there’s no malice and I hope that there’s no shame
-        I have no conditions, I want you to be free
-        But if you had the chance would you do it all the same?
-        Answer me
-        Answer me
-        Answer me
-
-        Why’d you let me wander down that trail
-        If you knew the path was going to end?
-        Why’d you let me try to no avail?
-        Why’d you even bother to pretend?
-        All I ever wanted was to give
-        Now I’m here with nothing left to spend
-
-        I’m glad you seem to think that the situation’s stable
-        I’m glad I’m just a cook that your kitchen doesn’t need
-        But would you feel the same if I wasn’t on the table?
-        Answer me
-        Answer me
-        Answer me
-
-        So now I'm here
-        And now we're here
-        And you were here
-      `
-    }
-  ),
-  /*
-  createSong(
     'Isn\'t It Funny',
-    '2023-02'
-  ),
-   */
-  createSong(
-    'Minuettish and Trioesque',
     '2023-02',
-    132,
+    248,
     [
-      createCredit('Sean Brennan', 'Viola, Music'),
-      createCredit('Andrew Russell', 'Piano')
-    ]
-  ),
-  createSong(
-    'Halp',
-    '2023-02',
-    221,
-    [
-      createCredit('Andrew Russell', 'Vocals, Guitar, Bass, Cajon, Music'),
-      createCredit('Sean Brennan', 'Lyrics')
+      createCredit('Andrew Russell', 'Vocals, Guitars, Music'),
+      createCredit('Sean Brennan', 'Lyrics'),
     ],
     {
-      description: 'Google Translate meets Lavish Dude',
+      link: 'isnt-it-funny-andrew',
       lyrics: `
-        I can handle you carefully
-        Although the wound did not bleed, it pierced the villages
-        Two months is a long time, but four days is a very long time
+        Count the dewdrops on a blade of grass
+        You're no closer to knowing dew
+        Measure the space between grains of sand
+        Their weight might still slip through
+        Ask a stranger to tell you lies
+        They might say something true
+        I've walked great stretches by your side
+        I'm miles from understanding you
 
-        I am not breathing, strongly
-        Sometimes I relax, but my mind is sticking
-        The radio signal is getting weaker and weaker
-        Halp
+        Work your life to hoard your wealth
+        But time is never free
+        There will be no fruit to reap
+        'Til someone plants a tree
+        Ask two enemies why they fight
+        And they might just agree
+        I've looked at you one thousand times
+        But I still don't think I see
 
-        Your quiet kindness tells me you have never been in trouble
-        Your cold, limitless dignity is bothering me when I break here
-        He shook my hand, he promised
-
-        The road is dark and difficult, let’s walk together
-        I am now in the middle of this road
-        I have no directions - you are my guide
-
-        So halp, halp, halp, halp
+        Isn't it funny
+        The more we try to understand
+        The more we realize
+        How little we know
       `
     }
   ),
@@ -356,60 +476,6 @@ export const fawm2023 = [
         Though night may fall
         And the land goes black
         The sun will rise again
-      `
-    }
-  ),
-  createSong(
-    'The Setting Sun',
-    '2023-02',
-    483,
-    [
-      createCredit('Andrew Russell', 'Vocals, Guitar, Piano, Bass, Drums, Music, Lyrics'),
-      createCredit('Sean Brennan', 'Viola')
-    ],
-    {
-      lyrics: `
-        She was a wondrous beauty of guile and grace
-        She had sunburned locks curled around her face
-        And golden eyes
-        She waited for her time
-        For her turn to fly
-
-        The village gathered all around her place
-        And cheered as they watched her depart
-        To save the setting sun
-        Without out her it'd be gone
-        She'd be back before too long
-        After her turn to fly
-
-        She walked away far from her place
-        She walked through fields, climbed mountains strange
-        Away from the place she once called home
-        She climbed until her muscles ached
-        Towards the top to meet her fate
-        She scrambled when she could not climb no more
-
-        At the top she found the setting sun
-        And she reached out
-        To help it all at once
-        But when she looked into his dying eyes
-        She finally realized
-        What it meant for her to fly
-
-        She dropped the sun and turned to home
-        She couldn't stay she should have known
-        Away from the place that was her goal
-        The sky grew dark and the air grew cold
-        She ran from the top to the fields below
-        Away she fled, far from home
-
-        When she reached the edge of her home
-        And she looked out
-        O'er the valley far below
-        She saw death, cold, fear
-        In the place she held so dear
-        She knew how to save everyone
-        And she turned back to fly
       `
     }
   ),

@@ -15,7 +15,7 @@ export function createSongLink(category: string, album: string, song: string, ex
 }
 
 export function parseLink(name: string): string {
-  return name.toLowerCase().replace(/[!@#$%^&*()\-_+=,.'"<>?\\]/g, '').replace(/ +/g, '-');
+  return name.toLowerCase().replace(/[!@#$%^&*()\_+=,.'"<>?\\]/g, '').replace(/( |-)+/g, '-');
 }
 
 export function parseMultiLineString(s: string, startChar?: string): string {
@@ -110,7 +110,7 @@ export function createAlbum(link: string, name: string, date: string, tagline: s
 
 export function createSong(name: string, date: string, duration: number, credits: Credit[], other: any = {}): Song {
   return {
-    link: parseLink(name),
+    link: parseLink(other.link || name),
     name,
     date,
     duration,
