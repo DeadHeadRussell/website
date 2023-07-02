@@ -128,8 +128,9 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
         </Link>
       </Hidden>
       <List>
-        {menu.categories.map(category => (
+        {menu.categories.map((category, i) => (
           <React.Fragment key={category.link}>
+            {i != 0 ? (<Divider />) : null}
             <CategoryLink categoryLink={category.link}>
               <ListItem button>
                 {category.Icon ? (
@@ -150,7 +151,6 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
                     <ListItemText primary={album.name} />
                   </ListItem>
                 </AlbumLink>
-                <Divider />
               </React.Fragment>
             ))}
           </React.Fragment>

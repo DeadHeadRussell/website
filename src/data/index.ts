@@ -35,7 +35,7 @@ export const categories: Record<string, Category> = {
         bandcamp: {
           albumId: 'leading-off',
           musicUrl: 'https://lavishdude.bandcamp.com/album/leading-off',
-          embedUrl: 'https://bandcamp.com/EmbeddedPlayer/album=3613951579/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://lavishdude.bandcamp.com/album/leading-off'
+          embedUrl: 'https://bandcamp.com/EmbeddedPlayer/album=3613951579/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'
         },
         amazon: {
           albumId: 'B0BFCSDY51',
@@ -53,6 +53,44 @@ export const categories: Record<string, Category> = {
           downloadUrl: ''
         }
       }
+    }),
+    createAlbum('wants-to-battle', 'Lavish Dude Wants To Battle', '2023-06', 'Dude Tunes go Chip Tunes!', `
+      The perfect soundtrack for every ten-year-old leaving home to compete in unregulated animal fighting rings, Lavish Dude Wants to Battle is a complete re-imagining of 18 Lavish Dude songs. The signature acoustic Dude sound has been arranged in MIDI and run through an iconic video game synthesizer to produce an aesthetic that will be familiar to DudeHeads and master trainers alike. …We think we got through this without any trademark violations. Now hit Play and go run through some tall grass!
+    `, {
+      duration: 39*60 + 41,
+      links: {
+        'youtube-music': {
+          albumId: 'OLAK5uy_kcSqu3CABtON3C9Hh4y1LPbRPm-kNiplk',
+          musicUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_kcSqu3CABtON3C9Hh4y1LPbRPm-kNiplk&feature=share',
+          embedUrl: 'https://www.youtube.com/embed/videoseries?list=OLAK5uy_kcSqu3CABtON3C9Hh4y1LPbRPm-kNiplk'
+        },
+        youtube: {
+          albumId: 'OLAK5uy_kcSqu3CABtON3C9Hh4y1LPbRPm-kNiplk',
+          musicUrl: 'https://www.youtube.com/watch?v=Ta-5wOdn7AU&list=OLAK5uy_kcSqu3CABtON3C9Hh4y1LPbRPm-kNiplk',
+          embedUrl: 'https://www.youtube.com/embed/videoseries?list=OLAK5uy_kcSqu3CABtON3C9Hh4y1LPbRPm-kNiplk'
+        },
+        spotify: {
+          albumId: '67dUXwC2VjfJXKgRZG3fSl',
+          musicUrl: 'https://open.spotify.com/album/67dUXwC2VjfJXKgRZG3fSl',
+          embedUrl: 'https://open.spotify.com/embed/album/67dUXwC2VjfJXKgRZG3fSl?utm_source=generator' 
+        },
+        apple: {
+          albumId: '1690946474',
+          musicUrl: 'https://music.apple.com/us/album/lavish-dude-wants-to-battle/1690946474',
+          embedUrl: 'https://embed.music.apple.com/us/album/lavish-dude-wants-to-battle/1690946474'
+        },
+        bandcamp: {
+          albumId: 'lavish-dude-wants-to-battle',
+          musicUrl: 'https://lavishdude.bandcamp.com/album/lavish-dude-wants-to-battle',
+          embedUrl: 'https://bandcamp.com/EmbeddedPlayer/album=461450990/size=large/bgcol=52250b/linkcol=e3deac/artwork=small/transparent=true/'
+        },
+        amazon: {
+          albumId: 'B0C71QV13B',
+          musicUrl: 'https://music.amazon.ca/albums/B0C71QV13B',
+          embedUrl: 'https://music.amazon.ca/embed/B0C71QV13B/?id=IGXxoj1MaL&marketplaceId=ART4WZ8MWBX2Y&musicTerritory=CA',
+        }
+      },
+      extras: {}
     })
   ]),
   demos: createCategory('demos', 'Demos', [

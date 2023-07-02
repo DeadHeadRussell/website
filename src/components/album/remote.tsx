@@ -204,9 +204,11 @@ export const RemoteAlbum: FC<RemoteAlbumProps> = ({album}) => {
             <AlbumDescription album={album}/>
           </Grid>
         </Hidden>
-        <Grid item className={classes.item} xs={12}>
-          <Insert album={album} />
-        </Grid>
+        {album.extras?.insert ? (
+          <Grid item className={classes.item} xs={12}>
+            <Insert album={album} />
+          </Grid>
+        ) : null}
       </Grid>
     </div>
   );
