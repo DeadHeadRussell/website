@@ -3,6 +3,7 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import Head from 'next/head';
 import {FC, ReactNode} from 'react';
 
+import conf from '../../conf.json';
 import {theme} from '../theme';
 import {App, AppProps} from './app';
 
@@ -15,7 +16,7 @@ interface RootProps extends AppProps {
 export const Root: FC<RootProps> = ({title, children, ...appProps}) => (
   <>
     <Head>
-      <title>{title ? (title + ' - ') : ''}Lavish Dude</title>
+      <title>{title ? (title + ' - ') : ''}{conf.band.name}</title>
     </Head>
     <ThemeProvider theme={theme}>
       <CssBaseline />

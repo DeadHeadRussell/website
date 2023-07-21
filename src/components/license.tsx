@@ -2,6 +2,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import {FC} from 'react';
 
+import conf from '../../conf.json';
+
 const useStyles = makeStyles(theme => ({
   license: {
     width: 350,
@@ -18,7 +20,7 @@ export const License: FC = () => {
   return (
     <section className={classes.license}>
       <Typography variant='caption'>
-        COPYRIGHT © 2022 ·  LAVISH DUDE  ·  ALL RIGHTS RESERVED
+        COPYRIGHT © 2023 ·  {conf.band.name.toUpperCase()}  ·  ALL RIGHTS RESERVED
       </Typography>
     </section>
   );

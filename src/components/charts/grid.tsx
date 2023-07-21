@@ -14,7 +14,7 @@ import SaveAltIcon from '@material-ui/icons/SaveAlt';
 import {makeStyles} from '@material-ui/core/styles';
 import {FC} from 'react';
 
-import {ChartData, Chart} from '../../data/types';
+import {ChartData, Chart} from '../../../data/types';
 
 
 const useStyles = makeStyles(theme => ({

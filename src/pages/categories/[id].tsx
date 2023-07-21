@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 
 import {AlbumGrid} from '../../components/album/grid';
 import {Root} from '../../components/root';
-import {categories, menu} from '../../data';
+import {categories, menu} from '../../../data';
 
 
 export interface CategoryPageProps {

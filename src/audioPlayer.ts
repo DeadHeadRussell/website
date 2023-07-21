@@ -1,4 +1,4 @@
-import {Category, Album, Song} from './data/types';
+import {Category, Album, Song} from '../data/types';
 import {setupListensCount} from './listensCount';
 import {setupMediaKeys} from './mediaKeys';
 import {createNotifications} from './notifications';

@@ -2,6 +2,7 @@ import {ServerStyleSheets} from '@material-ui/core/styles';
 import Document, {Head, Html, Main, NextScript} from 'next/document';
 import React from 'react';
 
+import conf from '../../conf.json';
 import {theme} from '../theme';
 
 export default class RootDocument extends Document {
@@ -10,9 +11,9 @@ export default class RootDocument extends Document {
       <Html lang='en'>
         <Head>
           <meta name='theme-color' content={theme.palette.primary.main} />
-          <meta itemProp='name' content='Lavish Dude' />
-          <meta itemProp='description' content="Lavish Dude band website" />
-          <meta itemProp='image' content='/profile.jpg' />
+          <meta itemProp='name' content={conf.band.name} />
+          <meta itemProp='description' content={conf.band.description} />
+          <meta itemProp='image' content={conf.images.profile} />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Oleo%20Script%3Aital%2Cwght%400%2C700&directory=3&display=block' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Questrial&display=swap' />

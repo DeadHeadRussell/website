@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 
 import {ChartsGrid} from '../components/charts/grid';
 import {Root} from '../components/root';
-import {charts, menu} from '../data';
+import {charts, menu} from '../../data';
 
 
 const ChartsPage: FC<{}> = () => (

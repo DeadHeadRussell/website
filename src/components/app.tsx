@@ -20,9 +20,10 @@ import UpdateIcon from '@material-ui/icons/Update';
 import Link from 'next/link';
 import React, {useEffect, useState, FC, ReactNode} from 'react';
 
+import conf from '../../conf.json';
 import {getPlayer, Playlist} from '../audioPlayer';
 import {usePlayback} from '../utils';
-import {MenuData} from '../data/types';
+import {MenuData} from '../../data/types';
 import {AlbumIcon} from './album/icon';
 import {AlbumLink} from './album/link';
 import {AudioControls} from './audioPlayer';
@@ -122,7 +123,7 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
         <Link href='/'>
           <a className={classes.link}>
             <ListItem className={classes.header}>
-              <img className={classes.logo} src='/logo.png' alt='Logo' />
+              <img className={classes.logo} src={conf.images.logo} alt='Logo' />
             </ListItem>
           </a>
         </Link>
@@ -195,7 +196,7 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
             </IconButton>
             <Link href='/'>
               <a className={classes.link}>
-                <img className={classes.logo} src='/logo.png' alt='Logo' />
+                <img className={classes.logo} src={conf.images.logo} alt='Logo' />
               </a>
             </Link>
           </Toolbar>

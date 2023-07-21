@@ -1,0 +1,27 @@
+{
+  "staticUrl": "https://static.lavishdude.com",
+  "band": {
+    "name": "Lavish Dude",
+    "email": "lavishdude.band@gmail.com",
+    "description": "Lavish Dude band website",
+    "about": "Hailing from Kalamazoo, Michigan... no, wait, Victoria, British Columbia... Let's meet in the middle. Hailing from Glendive, Montana, Lavish Dude is an acoustic-alternative duo making a name for themselves with musical eclecticism, emotional sincerity, and conflicted fashion sensibilities. Guitarist Andrew Russell and violist Sean Brennan share vocals and take on multi-instrumental duties for songs that aim for big variety from a small toolbox. Andrew is also an accomplished pianist both in classical and jazz idioms, and Sean frequently plays with regional symphony orchestras. Lavish Dude draws from all these backgrounds to produce an alternative sound, supported by folk, jam, and grunge, with occasional seasonings from the great musical beyond."
+  },
+  "theme": {
+    "primary": "#52250b",
+    "secondary": "#de8bd8",
+    "contrast": "#e3deac",
+    "funFont": "'Oleo Script'"
+  },
+  "links": {
+    "twitter": "LavishDudeBand",
+    "instagram": "lavish.dude",
+    "fawm": "@lavishdude",
+    "youtube": "UC1zvAg4iieBfmJrEElrFJnA",
+    "twitch": "lavish_dude"
+  },
+  "images": {
+    "logo": "/logo.png",
+    "header": "/artist.jpg",
+    "profile": "/profile.jpg"
+  }
+}

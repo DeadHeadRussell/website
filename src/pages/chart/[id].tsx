@@ -3,8 +3,8 @@ import React, {FC} from 'react';
 
 import {Chart} from '../../components/charts/chart';
 import {Root} from '../../components/root';
-import {charts, menu} from '../../data';
-import {Chart as ChartType} from '../../data/types';
+import {charts, menu} from '../../../data';
+import {Chart as ChartType} from '../../../data/types';
 
 
 export interface ChartPageProps {

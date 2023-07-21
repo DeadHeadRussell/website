@@ -1,12 +1,14 @@
 import {makeStyles} from '@material-ui/core/styles';
 
+import conf from '../../../conf.json';
+
 const useStyles = makeStyles(theme => ({
   header: {
     position: 'relative',
     width: '100%',
     height: '28vw',
     minHeight: 300,
-    backgroundImage: 'url(/artist.jpg)',
+    backgroundImage: `url(${conf.images.header})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPositionX: 'center',
@@ -46,11 +48,11 @@ const useStyles = makeStyles(theme => ({
   text: {
     paddingLeft: theme.spacing(2),
     paddingBottom: theme.spacing(1),
-    color: '#e3deac',
-    fontFamily: "'Oleo Script', arial, sans-serif",
+    color: theme.palette.primary.contrastText,
+    fontFamily: `${conf.theme.funFont}, arial, sans-serif`,
     fontSize: '8em',
     lineHeight: '0.8',
-    textStroke: '2px #52250b',
+    textStroke: `2px ${theme.palette.primary.main}`,
 
     [theme.breakpoints.down('sm')]: {
       paddingBottom: 0
@@ -62,10 +64,11 @@ const useStyles = makeStyles(theme => ({
   },
 
   socialIcon: {
+    maxHeight: 48,
     width: 48,
     marginLeft: theme.spacing(1),
-    verticalAlign: 'bottom',
-    borderRadius: 15
+    verticalAlign: 'middle',
+    borderRadius: 5
   },
 
   socialLink: {
@@ -79,17 +82,33 @@ export const ArtistHeader = ({}) => {
     <div>
       <div className={classes.header}>
         <div className={classes.overlay}>
-          <span className={classes.text}>Lavish Dude</span>
+          <span className={classes.text}>{conf.band.name}</span>
           <div className={classes.socialBar}>
-            <a className={classes.socialLink} href='https://twitter.com/LavishDudeBand'>
-              <img className={classes.socialIcon} src='/twitter.png' alt='Twitter' />
-            </a>
-            <a className={classes.socialLink} href='https://www.instagram.com/lavish.dude/'>
-              <img className={classes.socialIcon} src='/instagram.png' alt='Instagram' />
-            </a>
-            <a className={classes.socialLink} href='https://fawm.org/@lavishdude'>
-              <img className={classes.socialIcon} src='/fawm.jpg' alt='FAWM' />
-            </a>
+            {conf.links.youtube ? (
+              <a className={classes.socialLink} href={`https://www.youtube.com/channel/${conf.links.youtube}`}>
+                <img className={classes.socialIcon} src='/social/youtube.png' alt='YouTube' />
+              </a>
+            ) : null}
+            {conf.links.twitch ? (
+              <a className={classes.socialLink} href={`https://www.twitch.tv/${conf.links.twitch}`}>
+                <img className={classes.socialIcon} src='/social/twitch.png' alt='Twitch' />
+              </a>
+            ) : null}
+            {conf.links.twitter ? (
+              <a className={classes.socialLink} href={`https://twitter.com/${conf.links.twitter}`}>
+                <img className={classes.socialIcon} src='/social/twitter.png' alt='Twitter' />
+              </a>
+            ) : null}
+            {conf.links.instagram ? (
+              <a className={classes.socialLink} href={`https://www.instagram.com/${conf.links.instagram}`}>
+                <img className={classes.socialIcon} src='/social/instagram.png' alt='Instagram' />
+              </a>
+            ) : null}
+            {conf.links.fawm ? (
+              <a className={classes.socialLink} href={`https://fawm.org/${conf.links.fawm}`}>
+                <img className={classes.socialIcon} src='/social/fawm.jpg' alt='FAWM' />
+              </a>
+            ) : null}
           </div>
         </div>
       </div>

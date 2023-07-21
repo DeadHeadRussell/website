@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import {FC, Fragment} from 'react';
 
-import {Album as AlbumType} from '../../data/types';
+import {Album as AlbumType} from '../../../data/types';
 import {Description} from '../description';
 
 
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     paddingRight: theme.spacing(1),
     justifyContent: 'flex-start',
     alignItems: 'center',
-    background: '#52250b',
+    background: theme.palette.primary.main,
     borderRadius: 6,
 
     [theme.breakpoints.down('xs')]: {
@@ -130,7 +130,7 @@ const StreamingBar: FC<RemoteAlbumProps> = ({album}) => {
       <div className={classes.streamingBar}>
         {['spotify', 'apple', 'youtube-music', 'youtube', 'bandcamp', 'amazon'].map(service => (
           <a key={service} className={classes.streamingLink} href={album.links[service].musicUrl}>
-            <img className={classes.streamingIcon} src={'/' + service + '.png'} alt={service} />
+            <img className={classes.streamingIcon} src={'/social/' + service + '.png'} alt={service} />
           </a>
         ))}
       </div>

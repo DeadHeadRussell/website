@@ -6,7 +6,7 @@ import {createPlaylistFromAlbum} from '../../../audioPlayer';
 import {Album} from '../../../components/album';
 import {RemoteAlbum} from '../../../components/album/remote';
 import {Root} from '../../../components/root';
-import {categories, menu} from '../../../data';
+import {categories, menu} from '../../../../data';
 
 
 export interface AlbumPageProps {

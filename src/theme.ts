@@ -1,19 +1,20 @@
 import {createTheme} from '@material-ui/core/styles';
 
-const primaryBrown = '#52250b';
+import conf from '../conf.json';
+
 
 export const theme = createTheme({
   palette: {
     primary: {
-      main: primaryBrown,
-      contrastText: '#e3deac'
+      main: conf.theme.primary,
+      contrastText: conf.theme.contrast
     },
     secondary: {
-      main: '#de8bd8'
+      main: conf.theme.secondary
     },
     background: {
       paper: '#e4e4e4',
-      default: '#e3deac'
+      default: conf.theme.contrast
     },
     type: 'light'
   },
@@ -23,7 +24,7 @@ export const theme = createTheme({
   overrides: {
     MuiTableCell: {
       root: {
-        borderBottomColor: primaryBrown
+        borderBottomColor: conf.theme.primary
       }
     }
   }

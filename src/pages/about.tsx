@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 
 import {About} from '../components/about';
 import {Root} from '../components/root';
-import {menu} from '../data';
+import {menu} from '../../data';
 
 
 const AboutPage: FC<{}> = () => (

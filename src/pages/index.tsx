@@ -4,7 +4,7 @@ import React, {FC} from 'react';
 import {ArtistHeader} from '../components/artist/header';
 import {RemoteAlbum} from '../components/album/remote';
 import {Root} from '../components/root';
-import {categories, menu} from '../data';
+import {feature, menu} from '../../data';
 
 
 export interface IndexPageProps {}
@@ -13,7 +13,7 @@ const IndexPage: FC<IndexPageProps> = () => {
   return (
     <Root menu={menu}>
       <ArtistHeader />
-      <RemoteAlbum album={categories.studio.album['leading-off']} />
+      <RemoteAlbum album={feature} />
     </Root>
   );
 };

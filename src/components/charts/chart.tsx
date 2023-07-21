@@ -7,8 +7,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import {FC} from 'react';
 
-import {Chart as ChartType} from '../../data/types';
-
+import conf from '../../../conf.json';
+import {Chart as ChartType} from '../../../data/types';
 import {Description} from '../description';
 
 
@@ -22,9 +22,9 @@ const useStyles = makeStyles(theme => ({
 
   title: {
     marginBottom: theme.spacing(2),
-    color: '#e3deac',
-    fontFamily: "'Oleo Script', arial, sans-serif",
-    textStroke: '1.3px #52250b'
+    color: theme.palette.primary.contrastText,
+    fontFamily: `${conf.theme.funFont}, arial, sans-serif`,
+    textStroke: `1.3px ${theme.palette.primary.main}`
   },
 
   chart: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   inChartTitle: {
     color: '#52240b',
     display: 'block',
-    fontFamily: "'Oleo Script', arial, sans-serif",
+    fontFamily: `${conf.theme.funFont}, arial, sans-serif`,
     fontSize: '2em'
   },
 
