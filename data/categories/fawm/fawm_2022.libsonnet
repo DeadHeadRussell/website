@@ -8,12 +8,12 @@ utils.makeAlbum(
   [
     utils.makeSong(
       'Mysteries of the Night',
-      '2021-02',
+      '2022-02',
       128
     ),
     utils.makeSong(
       'Good Morning Blues',
-      '2021-02',
+      '2022-02',
       161,
       artist = 'Andrew Russell and Nadine de Macdeo',
       credits = [
@@ -25,7 +25,7 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'The Light Falls',
-      '2021-02',
+      '2022-02',
       357,
       lyrics = |||
         The light falls
@@ -58,7 +58,7 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'Mountains',
-      '2021-02',
+      '2022-02',
       218,
       artist = 'Andrew Russell and Heather Russell',
       credits = [
@@ -93,7 +93,7 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'February Sunshine Love',
-      '2021-02',
+      '2022-02',
       543,
       artist = 'The Andrew Russell Trio starring Alex Klages',
       credits = [
@@ -103,7 +103,7 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'A-Team',
-      '2021-02',
+      '2022-02',
       221,
       artist = 'The A-Team',
       credits = [
@@ -170,7 +170,7 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'Chocolate Swirl',
-      '2021-02',
+      '2022-02',
       122,
       artist = 'The Russell Family',
       credits = [
@@ -214,7 +214,7 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'Malplenan Theme',
-      '2021-02',
+      '2022-02',
       251,
       credits = [
         utils.makeCredit('Andrew Russell', 'Everything except below'),
@@ -225,39 +225,39 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'Im̓ye̓n and Snč̓l̓ep',
-      '2021-02',
+      '2022-02',
       231,
       external = 'https://www.worldanvil.com/w/malplenan-russellnoob',
       description = 'A folk song written for my DnD campaign called Malplenan.'
     ),
     utils.makeSong(
       'Improv for a Cold Morning',
-      '2021-02',
+      '2022-02',
       556
     ),
     utils.makeSong(
       'Acoustic Fire',
-      '2021-02',
+      '2022-02',
       167
     ),
     utils.makeSong(
       'Me and My Guitar - 1',
-      '2021-02',
+      '2022-02',
       274
     ),
     utils.makeSong(
       'Me and My Guitar - 2',
-      '2021-02',
+      '2022-02',
       212
     ),
     utils.makeSong(
       'Me and My Guitar - 3',
-      '2021-02',
+      '2022-02',
       240
     ),
     utils.makeSong(
       'Me and My Guitar - 4 (Dog Jam)',
-      '2021-02',
+      '2022-02',
       294,
       credits = [
         utils.makeCredit('Andrew Russell', 'Guitar, Bass, Musical Idea'),
@@ -266,7 +266,7 @@ utils.makeAlbum(
     ),
     utils.makeSong(
       'Me and My Guitar - 5',
-      '2021-02',
+      '2022-02',
       167
     )
   ],

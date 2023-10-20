@@ -1,6 +1,8 @@
 local utils = import '../../utils.libsonnet';
 
 utils.makeCategory('FAWM', [
+  import './5090_2023.libsonnet',
+  import './fawm_2023.libsonnet',
   import './fawm_2022.libsonnet',
   import './fawm_2021.libsonnet',
   import './5090_2020.libsonnet',
