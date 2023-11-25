@@ -18,7 +18,7 @@ export default class RootDocument extends Document {
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' />
           <link rel='stylesheet' href={conf.theme.funFontUrl} />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Questrial&display=swap' />
-          <link rel='icon' type='image/png' href={conf.images.favicon} />
+          <link rel='icon' type='image/png' href={staticLink(conf.images.favicon)} />
         </Head>
         <body>
           <Main />
