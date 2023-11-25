@@ -24,8 +24,7 @@ export const AlbumLink: FC<AlbumLinkProps> = ({categoryLink, albumLink, songLink
   
   return (
     <Link
-      href='/albums/[categoryId]/[albumId]'
-      as={{
+      href={{
         pathname: `/albums/${categoryLink}/${albumLink}`,
         query
       }}

@@ -126,7 +126,7 @@ export const studio = [
 ];
 
 export const projects = [
-  createAlbum('guitar-saga', 'Guitar Saga', '???', 'Upcoming', `
+  createAlbum('guitar_saga', 'Guitar Saga', '???', 'Upcoming', `
     Planned album with a guitar first focus, with a long form, four piece composition about the joys of life. More to come soon!
   `, {}),
   createAlbum('rock_opera', 'Rock Opera', '???', 'A story about climate change leading to child slavery', `

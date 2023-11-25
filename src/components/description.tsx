@@ -162,14 +162,6 @@ const ContentLink: React.FC<CommandProps> = ({className, type, content, display}
   return (
     <Link
       href={type == 'category'
-        ? '/categories/[categoryId]'
-        : type == 'album'
-        ? '/albums/[categoryId]/[albumId]'
-        : type == 'song'
-        ? '/albums/[categoryId]/[albumId]'
-        : ''
-      }
-      as={type == 'category'
         ? `/categories/${category}`
         : type == 'album'
         ? `/albums/${category}/${album}`
