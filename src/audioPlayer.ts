@@ -2,6 +2,7 @@ import {Category, Album, Song} from '../data/types';
 import {setupListensCount} from './listensCount';
 import {setupMediaKeys} from './mediaKeys';
 import {createNotifications} from './notifications';
+import {staticLink} from './utils';
 
 export type Action = 'PLAY' | 'PAUSE' | 'PREVIOUS' | 'NEXT' | 'SEEK' | 'LOAD';
 export type Actions = {[Key in Action]: Key};
@@ -121,7 +122,7 @@ export class AudioPlayer {
     const previousSong = this.song;
     this.currentSong = currentSong;
     if (this.song) {
-      this.player.src = this.song.music;
+      this.player.src = staticLink(this.song.music);
     } else {
       this.pause();
     }
@@ -207,7 +208,7 @@ export class AudioPlayer {
     if (!this._player) {
       this._player = window.document.createElement('audio');
       if (this.song) {
-        this._player.src = this.song.music;
+        this._player.src = staticLink(this.song.music);
       }
       this._player.addEventListener('canplay', () => this.onLoaded());
       this._player.addEventListener('ended', () => this.onEnded());
