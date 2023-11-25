@@ -12,9 +12,9 @@ export default class RootDocument extends Document {
       <Html lang='en'>
         <Head>
           <meta name='theme-color' content={theme.palette.primary.main} />
-          <meta itemProp='name' content={conf.band.name} />
-          <meta itemProp='description' content={conf.band.description} />
-          <meta itemProp='image' content={staticLink(conf.images.profile)} />
+          <meta property='og:title' itemProp='name' content={conf.band.name} />
+          <meta property='og:description' itemProp='description' content={conf.band.description} />
+          <meta property='og:image' itemProp='image' content={staticLink(conf.images.profile)} />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' />
           <link rel='stylesheet' href={conf.theme.funFontUrl} />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Questrial&display=swap' />

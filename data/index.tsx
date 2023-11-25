@@ -15,7 +15,7 @@ export const conf: Conf = {
       Andrew Russell is a musician from Victoria, BC that loves to tell stories
       and express emotions through music. They focus on composing based on the
       need of the story and takes influence from styles such as jazz, romantic,
-      jam bands and americana. They grew up playnig the guitar and piano and
+      jam bands and americana. They grew up playing the guitar and piano and
       their music tends to skew towards, but they also like to vary their
       arrangements to keep things fresh.
     `
