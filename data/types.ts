@@ -1,3 +1,34 @@
+export interface Conf {
+  band: {
+    name: string;
+    email: string;
+    description: string;
+    about: string;
+  };
+  theme: {
+    primary: string;
+    secondary: string;
+    contrast: string;
+    grey: string;
+    funColour: string;
+    funFont: string;
+    funFontUrl: string;
+  };
+  links: {
+    fawm?: string;
+    instagram?: string;
+    twitch?: string;
+    twitter?: string;
+    youtube?: string;
+  }
+  images: {
+    favicon: string;
+    logo: string;
+    header: string;
+    profile: string;
+  };
+}
+
 export interface Category {
   name: string;
   link: string;
@@ -33,7 +64,7 @@ export interface Album {
 
 export interface Song {
   name: string;
-  link_: string;
+  link: string;
   date: string;
   duration: number;
   credits: Credit[];
@@ -79,7 +110,7 @@ export interface MenuLink {
 }
 
 export interface MenuData {
-  categories: MenuCategory[];
+  categories: (MenuCategory | MenuLink)[];
   charts: boolean;
 }
 
@@ -94,3 +125,8 @@ export interface ChartData {
   collections: Chart[],
   songs: Chart[]
 };
+
+export function isMenuCategory(item: MenuCategory | MenuLink): item is MenuCategory {
+  return !!(item as any).link;
+}
+

@@ -23,7 +23,7 @@ import React, {useEffect, useState, FC, ReactNode} from 'react';
 import {conf} from '../../data';
 import {getPlayer, Playlist} from '../audioPlayer';
 import {staticLink, usePlayback} from '../utils';
-import {MenuData} from '../../data/types';
+import {isMenuCategory, MenuData} from '../../data/types';
 import {AlbumIcon} from './album/icon';
 import {AlbumLink} from './album/link';
 import {AudioControls} from './audioPlayer';
@@ -130,7 +130,7 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
       </Hidden>
       <List>
         {menu.categories.map((category, i) =>
-          category.link ? (
+          isMenuCategory(category) ? (
             <React.Fragment key={category.link}>
               <CategoryLink categoryLink={category.link}>
                 <ListItem button>

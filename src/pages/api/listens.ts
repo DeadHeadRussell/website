@@ -6,7 +6,7 @@ import {addListen, getListens, InputListen, Listen, SONG_SEP} from '../../servic
 import {isSecure} from '../../services/secure';
 
 
-type NextQuery = string | string[];
+type NextQuery = string | string[] | undefined;
 
 type PartialGrouping<T> = {[valueKey: string]: T[]};
 type Grouping<T> = {[valueKey: string]: T[] | GroupingResponse<T>};

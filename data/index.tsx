@@ -4,9 +4,9 @@ import React from 'react';
 
 import * as albums from './albums';
 import {createCategory, createMenuCategory, createMenuLink} from './dataHelpers';
-import {Album, Category, ChartData, MenuData} from './types';
+import {Album, Category, ChartData, Conf, MenuData} from './types';
 
-export const conf = {
+export const conf: Conf = {
   'band': {
     'name': 'Andrew Russell Band',
     'email': 'deadhead.russell@gmail.com',
