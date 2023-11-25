@@ -2,9 +2,11 @@ import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {FC, Fragment} from 'react';
 
 import {Album as AlbumType} from '../../../data/types';
+import {staticLink} from '../../utils';
 import {Description} from '../description';
 
 
@@ -73,7 +75,8 @@ const useStyles = makeStyles(theme => ({
 
   streamingIcon: {
     width: 48,
-    margin: 'auto'
+    margin: 'auto',
+    color: theme.palette.primary.contrastText
   },
 
   description: {
@@ -86,7 +89,7 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
     width: '100%',
     maxWidth: 800,
-    minHeight: 380,
+    minHeight: 400,
     borderRadius: 12
   },
 
@@ -117,7 +120,7 @@ export interface RemoteAlbumProps {
 const Art: FC<RemoteAlbumProps> = ({album}) => {
   const classes = useStyles();
   return (
-    <img className={classes.albumArt} src={album.art} alt='Album Art' />
+    <img className={classes.albumArt} src={staticLink(album.art)} alt='Album Art' />
   );
 };
 
@@ -128,11 +131,19 @@ const StreamingBar: FC<RemoteAlbumProps> = ({album}) => {
       <Typography variant='h3' align='center'>{album.name}</Typography>
       <Typography variant='h4' align='center'>{album.tagline}</Typography>
       <div className={classes.streamingBar}>
-        {['spotify', 'apple', 'youtube-music', 'youtube', 'bandcamp', 'amazon'].map(service => (
-          <a key={service} className={classes.streamingLink} href={album.links[service].musicUrl}>
-            <img className={classes.streamingIcon} src={'/social/' + service + '.png'} alt={service} />
+        {['spotify', 'apple', 'youtube-music', 'youtube', 'bandcamp', 'amazon']
+          .filter(service => album.links[service])
+          .map(service => (
+            <a key={service} className={classes.streamingLink} href={album.links[service].musicUrl}>
+              <img className={classes.streamingIcon} src={'/social/' + service + '.png'} alt={service} />
+            </a>
+          ))
+        }
+        {album.external ? (
+          <a className={classes.streamingLink} href={album.external}>
+            <OpenInNewIcon className={classes.streamingIcon} fontSize='large' />
           </a>
-        ))}
+        ) : null}
       </div>
     </Fragment>
   );
@@ -153,7 +164,7 @@ const Player: FC<RemoteAlbumProps> = ({album}) => {
     <iframe
       key='player-iframe'
       className={classes.spotify}
-      src={album.links.spotify.embedUrl}
+      src={album.links[album.embed].embedUrl}
       frameBorder='0'
       allowFullScreen
       allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'

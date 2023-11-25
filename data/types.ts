@@ -19,6 +19,7 @@ export interface Album {
   description?: string;
   external?: string;
   category: Category;
+  embed: string;
   links: Record<string, {
     embedUrl: string;
     musicUrl: string;
@@ -32,7 +33,7 @@ export interface Album {
 
 export interface Song {
   name: string;
-  link: string;
+  link_: string;
   date: string;
   duration: number;
   credits: Credit[];
@@ -71,8 +72,15 @@ export interface MenuCategory {
   Icon?: any;
 }
 
+export interface MenuLink {
+  url: string;
+  text: string;
+  Icon?: any;
+}
+
 export interface MenuData {
   categories: MenuCategory[];
+  charts: boolean;
 }
 
 export interface Chart {

@@ -9,6 +9,7 @@ import {FC} from 'react';
 import {AlbumIcon} from '../album/icon';
 import {AlbumLink} from '../album/link';
 import {AudioPlayerAlbum, AudioPlayerSong} from '../../audioPlayer';
+import {staticLink} from '../../utils';
 
 
 const useStyles = makeStyles(theme => ({
@@ -58,10 +59,10 @@ export const AudioPlayerSongDisplay: FC<AudioPlayerSongDisplayProps> = ({song, a
           <Grid container spacing={2} wrap='nowrap'>
             <Grid item>
               {alwaysShowArt ? (
-                <AlbumIcon albumArt={song.album.art} />
+                <AlbumIcon albumArt={staticLink(song.album.art)} />
               ) : (
                 <Hidden smDown>
-                  <AlbumIcon albumArt={song.album.art} />
+                  <AlbumIcon albumArt={staticLink(song.album.art)} />
                 </Hidden>
               )}
             </Grid>

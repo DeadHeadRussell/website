@@ -2,6 +2,11 @@ import {useEffect, useRef, useState} from 'react';
 
 import {AudioPlayer, AudioPlayerAlbum, AudioPlayerSong, Playlist} from './audioPlayer';
 
+const STATIC_URL = process.env.NEXT_PUBLIC_STATIC_URL;
+
+export function staticLink(path: string): string {
+  return STATIC_URL + path;
+}
 
 export function useInterval(callback: () => void, delay: number): void {
   const savedCallback = useRef();

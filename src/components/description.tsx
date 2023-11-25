@@ -55,6 +55,7 @@ export const Description: React.FC<DescriptionProps> = ({description, onPlay, co
                     classes={{
                       root: classes.paragraph
                     }}
+                    component='span'
                     align='justify'
                   >
                     {line.split(/\[\[|]]/).map((text, i) => {
@@ -133,11 +134,19 @@ function parseCommand(text: string): [React.FC<CommandProps>, string, string, st
       return [ListSection, type, content, display];
     }
 
+    case 'break': {
+      return [LineBreak, type, content, display];
+    }
+
     case 'category_img':
     case 'album_img':
     case 'song_img':
     case 'img': {
       return [Image, type, content, display];
+    }
+
+    case 'link': {
+      return [ExternalLink, type, content, display];
     }
 
     default: {
@@ -148,14 +157,16 @@ function parseCommand(text: string): [React.FC<CommandProps>, string, string, st
 
 const ContentLink: React.FC<CommandProps> = ({className, type, content, display}) => {
   const [category, album, song] = content.split('.');
+  console.log(type, content, display);
+  console.log(category, album, song);
   return (
     <Link
       href={type == 'category'
-        ? '/categories/[id]'
+        ? '/categories/[categoryId]'
         : type == 'album'
-        ? '/albums/[categoryId]/[id]'
+        ? '/albums/[categoryId]/[albumId]'
         : type == 'song'
-        ? '/albums/[categoryId]/[id]'
+        ? '/albums/[categoryId]/[albumId]'
         : ''
       }
       as={type == 'category'
@@ -169,7 +180,7 @@ const ContentLink: React.FC<CommandProps> = ({className, type, content, display}
     >
       <a className={className}>{display}</a>
     </Link>
-  )
+  );
 };
 
 const TimeLink: React.FC<CommandProps> = ({className, type, content, display, onPlay}) => {
@@ -199,6 +210,12 @@ const ListSection: React.FC<CommandProps> = ({className, type, content, display}
         ))}
       </ul>
     </>
+  );
+}
+
+const LineBreak: React.FC<CommandProps> = ({className, type, content, display}) => {
+  return (
+    <br className={className} />
   );
 }
 
@@ -236,3 +253,15 @@ const Image: React.FC<CommandProps> = ({className, type, content, display, conte
   );
 };
 
+const ExternalLink: React.FC<CommandProps> = ({className, type, content, display}) => {
+  return (
+    <a
+      className={className}
+      href={content}
+      target='_blank'
+    >
+      {display}
+    </a>
+  );
+}
+    

@@ -1,9 +1,7 @@
-import conf from '../conf.json';
-
-import {Album, Category, Chart, Credit, MenuAlbum, MenuCategory, Section, Song} from './types';
+import {Album, Category, Chart, Credit, MenuAlbum, MenuCategory, MenuLink, Section, Song} from './types';
 
 export function createCategoryLink(category: string, file: string) {
-  return `${conf.staticUrl}/music/${category}/${file}`;
+  return `/music/${category}/${file}`;
 }
 
 export function createAlbumLink(category: string, album: string, file: string) {
@@ -42,6 +40,10 @@ export function createMenuCategory(category: Category, includeAlbums: boolean, I
       ? category.albums.map(createMenuAlbum)
       : []
   }
+}
+
+export function createMenuLink(url: string, text: string, Icon: any = null): MenuLink {
+  return {url, text, Icon};
 }
 
 export function createCategory(link: string, name: string, albums: Album[]): Category {
@@ -100,6 +102,7 @@ export function createAlbum(link: string, name: string, date: string, tagline: s
     date,
     tagline,
     description,
+    embed: other.embed,
     links: other.links,
     extras: other.extras,
     external: other.external,
@@ -108,16 +111,35 @@ export function createAlbum(link: string, name: string, date: string, tagline: s
   } as any as Album;
 }
 
+export function songConvertor(songData: any): Song {
+  return createSong(
+    songData['name'],
+    songData['date'],
+    songData['duration'],
+    songData['credits'] || [],
+    {
+      link: songData['link'],
+      artist: songData['artist'],
+      video: songData['video'],
+      sheetMusic: songData['sheetMusic'],
+      description: songData['description'],
+      lyrics: songData['lyrics'],
+      external: songData['external'],
+      sections: songData['sections']
+    }
+  );
+}
+
 export function createSong(name: string, date: string, duration: number, credits: Credit[], other: any = {}): Song {
   return {
-    link: parseLink(other.link || name),
+    link: other.link || parseLink(name),
     name,
     date,
     duration,
-    artist: 'Lavish Dude',
+    artist: other.artist || 'Andrew Russell Band',
     credits,
     video: other.video || false,
-    sheetMusic: other.sheetMusic,
+    sheetMusic: other.sheetMusic || false,
     description: parseMultiLineString(other.description || ''),
     lyrics: parseMultiLineString(other.lyrics || ''),
     external: other.external,

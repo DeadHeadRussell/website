@@ -77,7 +77,7 @@ const ChartsSection: FC<ChartsSectionProps> = ({title, charts}) => {
                 <TableRow key={chart.link}>
                   <TableCell>
                     <Tooltip title='View Chart'>
-                      <Link href={{pathname: '/chart/[id]'}} as={{pathname: `/chart/${chart.link}`}}>
+                      <Link href='/chart/[id]' as={{pathname: `/chart/${chart.link}`}}>
                         <a className={classes.link}>
                           <Button aria-label={`view chart for ${chart.name}`}>
                             <InfoIcon />

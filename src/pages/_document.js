@@ -2,8 +2,9 @@ import {ServerStyleSheets} from '@material-ui/core/styles';
 import Document, {Head, Html, Main, NextScript} from 'next/document';
 import React from 'react';
 
-import conf from '../../conf.json';
+import {conf} from '../../data';
 import {theme} from '../theme';
+import {staticLink} from '../utils';
 
 export default class RootDocument extends Document {
   render() {
@@ -13,11 +14,11 @@ export default class RootDocument extends Document {
           <meta name='theme-color' content={theme.palette.primary.main} />
           <meta itemProp='name' content={conf.band.name} />
           <meta itemProp='description' content={conf.band.description} />
-          <meta itemProp='image' content={conf.images.profile} />
+          <meta itemProp='image' content={staticLink(conf.images.profile)} />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' />
-          <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Oleo%20Script%3Aital%2Cwght%400%2C700&directory=3&display=block' />
+          <link rel='stylesheet' href={conf.theme.funFontUrl} />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Questrial&display=swap' />
-          <link rel='icon' type='image/png' href='/favicon.png' />
+          <link rel='icon' type='image/png' href={conf.images.favicon} />
         </Head>
         <body>
           <Main />

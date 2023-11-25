@@ -1,4 +1,5 @@
 import {AudioPlayer, AudioPlayerSong, Action} from './audioPlayer';
+import {staticLink} from './utils';
 
 export function createNotifications(player: AudioPlayer): void {
   const notificationActions: Action[] = [player.actions.PLAY, player.actions.NEXT, player.actions.PREVIOUS];
@@ -11,7 +12,7 @@ export function createNotifications(player: AudioPlayer): void {
             if (permission === 'granted') {
               const n = new Notification(song.name, {
                 body: song.album.name + ' - ' + song.artist,
-                image: song.album.art,
+                image: staticLink(song.album.art),
                 silent: true
               })
             }

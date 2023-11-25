@@ -4,7 +4,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import {FC} from 'react';
 
-import conf from '../../conf.json';
+import {staticLink} from '../utils';
+import {conf} from '../../data';
 
 
 const useStyles = makeStyles(theme => ({
@@ -33,7 +34,7 @@ export const About: FC = () => {
       <Paper className={classes.paper}>
         <Typography variant='h3' align='center' gutterBottom>About</Typography>
         <Typography variant='body1'>{conf.band.about}</Typography>
-        <img className={classes.bandPhoto} src={conf.images.profile} alt='Band photo' />
+        <img className={classes.bandPhoto} src={staticLink(conf.images.profile)} alt='Band photo' />
         <Typography variant='body1'>
           Email: <a href={`mailto:${conf.band.email}`}>{conf.band.email}</a>
         </Typography>

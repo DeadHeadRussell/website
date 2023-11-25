@@ -1,4 +1,5 @@
 import {AudioPlayer} from './audioPlayer';
+import {staticLink} from './utils';
 
 /*
 declare global {
@@ -17,7 +18,7 @@ export function setupMediaKeys(player: AudioPlayer) {
           title: player.song.name,
           artist: player.song.artist,
           album: player.song.album.name,
-          artwork: [{src: player.song.album.art, type: 'image/jpg'}]
+          artwork: [{src: staticLink(player.song.album.art), type: 'image/jpg'}]
         });
 
         mediaSession.setPositionState && mediaSession.setPositionState({

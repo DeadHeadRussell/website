@@ -7,7 +7,7 @@ import {FC} from 'react';
 
 import {createPlaylistFromAlbum, Playlist} from '../../audioPlayer';
 import {Album} from '../../../data/types';
-import {formatTime} from '../../utils';
+import {formatTime, staticLink} from '../../utils';
 import {PlayButton} from '../playButton';
 
 
@@ -49,7 +49,7 @@ export const HorizontalAlbumHeader: FC<HorizontalAlbumHeaderProps> = ({album, pl
 
   return (
     <div className={classes.album}>
-      <img className={classes.albumArt} src={album.art} alt='Album Art' />
+      <img className={classes.albumArt} src={staticLink(album.art)} alt='Album Art' />
       <div className={classes.content}>
         <div>
           <Typography variant='h3'>

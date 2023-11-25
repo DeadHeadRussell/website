@@ -19,10 +19,7 @@ export interface CategoryLinkProps {
 export const CategoryLink: FC<CategoryLinkProps> = ({categoryLink, children}) => {
   const classes = useStyles();
   return (
-    <Link
-      href='/categories/[id]'
-      as={`/categories/${categoryLink}`}
-    >
+    <Link href={`/categories/${categoryLink}`}>
       <a className={classes.link}>{children}</a>
     </Link>
   );

@@ -3,7 +3,7 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import Head from 'next/head';
 import {FC, ReactNode} from 'react';
 
-import conf from '../../conf.json';
+import {conf} from '../../data';
 import {theme} from '../theme';
 import {App, AppProps} from './app';
 

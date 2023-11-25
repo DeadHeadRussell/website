@@ -7,7 +7,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import {FC} from 'react';
 
-import conf from '../../../conf.json';
+import {conf} from '../../../data';
 import {Chart as ChartType} from '../../../data/types';
 import {Description} from '../description';
 

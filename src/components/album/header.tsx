@@ -12,7 +12,7 @@ import {FC, ReactNode} from 'react';
 
 import {createPlaylistFromAlbum} from '../../audioPlayer';
 import {Album, Category} from '../../../data/types';
-import {formatTime} from '../../utils';
+import {formatTime, staticLink} from '../../utils';
 import {PlayButton} from '../playButton';
 import {AlbumLink} from './link';
 
@@ -57,7 +57,7 @@ export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
   return (
     <Card className={classes.album}>
       <Wrapper>
-        <CardMedia title='Album Art' className={classes.albumArt} image={album.art} />
+        <CardMedia title='Album Art' className={classes.albumArt} image={staticLink(album.art)} />
         <CardContent className={classes.albumText}>
           <Typography variant='h3' align='center'>
             {album.name}

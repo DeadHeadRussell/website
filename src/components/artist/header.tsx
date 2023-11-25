@@ -1,6 +1,7 @@
 import {makeStyles} from '@material-ui/core/styles';
 
-import conf from '../../../conf.json';
+import {staticLink} from '../../utils';
+import {conf} from '../../../data';
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -8,26 +9,22 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     height: '28vw',
     minHeight: 300,
-    backgroundImage: `url(${conf.images.header})`,
+    backgroundImage: `url(${staticLink(conf.images.header)})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPositionX: 'center',
-    backgroundPositionY: '58%',
 
     [theme.breakpoints.down('md')]: {
-      height: '36vw',
-      backgroundPositionY: '90%'
+      height: '36vw'
     },
 
     [theme.breakpoints.down('sm')]: {
-      height: '38vw',
-      backgroundPositionY: '66%'
+      height: '38vw'
     },
 
     [theme.breakpoints.down('xs')]: {
       height: 300,
-      backgroundPositionX: 0,
-      backgroundPositionY: '58%'
+      backgroundPositionX: 0
     },
   },
 
@@ -42,13 +39,13 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     height: 180,
     width: '100%',
-    background: 'linear-gradient(rgba(82, 37, 11, 0) 0%, rgba(82, 37, 11, 0.5) 30%, rgba(82, 37, 11, 0.8) 100%)'
+    background: `linear-gradient(${theme.palette.primary.main}00 0%, ${theme.palette.primary.main}7F 30%, ${theme.palette.primary.main}CC 100%)`
   },
 
   text: {
     paddingLeft: theme.spacing(2),
     paddingBottom: theme.spacing(1),
-    color: theme.palette.primary.contrastText,
+    color: conf.theme.funColour,
     fontFamily: `${conf.theme.funFont}, arial, sans-serif`,
     fontSize: '8em',
     lineHeight: '0.8',

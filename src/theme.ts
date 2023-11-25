@@ -1,6 +1,6 @@
 import {createTheme} from '@material-ui/core/styles';
 
-import conf from '../conf.json';
+import {conf} from '../data';
 
 
 export const theme = createTheme({
@@ -13,7 +13,7 @@ export const theme = createTheme({
       main: conf.theme.secondary
     },
     background: {
-      paper: '#e4e4e4',
+      paper: conf.theme.grey,
       default: conf.theme.contrast
     },
     type: 'light'

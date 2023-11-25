@@ -20,9 +20,9 @@ import UpdateIcon from '@material-ui/icons/Update';
 import Link from 'next/link';
 import React, {useEffect, useState, FC, ReactNode} from 'react';
 
-import conf from '../../conf.json';
+import {conf} from '../../data';
 import {getPlayer, Playlist} from '../audioPlayer';
-import {usePlayback} from '../utils';
+import {staticLink, usePlayback} from '../utils';
 import {MenuData} from '../../data/types';
 import {AlbumIcon} from './album/icon';
 import {AlbumLink} from './album/link';
@@ -123,49 +123,69 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
         <Link href='/'>
           <a className={classes.link}>
             <ListItem className={classes.header}>
-              <img className={classes.logo} src={conf.images.logo} alt='Logo' />
+              <img className={classes.logo} src={staticLink(conf.images.logo)} alt='Logo' />
             </ListItem>
           </a>
         </Link>
       </Hidden>
       <List>
-        {menu.categories.map((category, i) => (
-          <React.Fragment key={category.link}>
-            {i != 0 ? (<Divider />) : null}
-            <CategoryLink categoryLink={category.link}>
-              <ListItem button>
-                {category.Icon ? (
-                  <ListItemAvatar>
-                    <category.Icon className={classes.menuIcon} fontSize='inherit' />
-                  </ListItemAvatar>
-                ) : null}
-                <ListItemText primary={category.name} />
-              </ListItem>
-            </CategoryLink>
-            {category.albums.map(album => (
-              <React.Fragment key={category.link + '_' + album.link}>
-                <AlbumLink categoryLink={category.link} albumLink={album.link}>
-                  <ListItem button>
+        {menu.categories.map((category, i) =>
+          category.link ? (
+            <React.Fragment key={category.link}>
+              <CategoryLink categoryLink={category.link}>
+                <ListItem button>
+                  {category.Icon ? (
                     <ListItemAvatar>
-                      <AlbumIcon albumArt={album.art} />
+                      <category.Icon className={classes.menuIcon} fontSize='inherit' />
                     </ListItemAvatar>
-                    <ListItemText primary={album.name} />
-                  </ListItem>
-                </AlbumLink>
-              </React.Fragment>
-            ))}
-          </React.Fragment>
-        ))}
-        <Link href='/charts'>
-          <a className={classes.link}>
-            <ListItem button>
-              <ListItemAvatar>
-                <MenuBookIcon className={classes.menuIcon} fontSize='inherit' />
-              </ListItemAvatar>
-              <ListItemText primary='Chord Charts' />
-            </ListItem>
-          </a>
-        </Link>
+                  ) : null}
+                  <ListItemText primary={category.name} />
+                </ListItem>
+              </CategoryLink>
+              {category.albums.map(album => (
+                <React.Fragment key={category.link + '_' + album.link}>
+                  <AlbumLink categoryLink={category.link} albumLink={album.link}>
+                    <ListItem button>
+                      <ListItemAvatar>
+                        <AlbumIcon albumArt={staticLink(album.art)} />
+                      </ListItemAvatar>
+                      <ListItemText primary={album.name} />
+                    </ListItem>
+                  </AlbumLink>
+                </React.Fragment>
+              ))}
+              {category.albums.length > 0 ? (
+                <Divider />
+              ) : null}
+            </React.Fragment>
+          ) : (
+            <React.Fragment key={i}>
+              <a className={classes.link} href={category.url}>
+                <ListItem button>
+                  {category.Icon ? (
+                    <ListItemAvatar>
+                      <category.Icon className={classes.menuIcon} fontSize='inherit' />
+                    </ListItemAvatar>
+                  ) : null}
+                  <ListItemText primary={category.text} />
+                </ListItem>
+              </a>
+              <Divider />
+            </React.Fragment>
+          )
+        )}
+        {menu.charts ? (
+          <Link href='/charts'>
+            <a className={classes.link}>
+              <ListItem button>
+                <ListItemAvatar>
+                  <MenuBookIcon className={classes.menuIcon} fontSize='inherit' />
+                </ListItemAvatar>
+                <ListItemText primary='Chord Charts' />
+              </ListItem>
+            </a>
+          </Link>
+        ) : null}
         <Link href='/about'>
           <a className={classes.link}>
             <ListItem button>
@@ -196,7 +216,7 @@ export const App: FC<AppProps> = ({initialPlaylist, menu, children}) => {
             </IconButton>
             <Link href='/'>
               <a className={classes.link}>
-                <img className={classes.logo} src={conf.images.logo} alt='Logo' />
+                <img className={classes.logo} src={staticLink(conf.images.logo)} alt='Logo' />
               </a>
             </Link>
           </Toolbar>
