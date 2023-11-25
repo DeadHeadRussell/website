@@ -244,7 +244,7 @@ export const old = [
   createAlbum('epic', 'Epic', '2008 - 2015', 'The most brilliant rock album no one has ever heard.', `
     This album was my wild vision for musical success back when I was in high school.  At this point, I had written a number of songs but this was my first attempt to actually put them together into a cohesive album.  Little did I know that this was the start of an effort that would lead to rock operas later in life...
   `, {songs: songs.old.epic}),
-  createAlbum('theCamJervisExperience', 'The Cam Jervis Experience', '2008', 'High School Band', `
+  createAlbum('the_cam_jervis_experience', 'The Cam Jervis Experience', '2008', 'High School Band', `
     Originals and covers we played around town
   `, {songs: songs.old.theCamJervisExperience})
 ];
