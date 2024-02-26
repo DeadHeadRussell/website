@@ -10,6 +10,7 @@ import {formatTime} from '../utils';
 
 const useStyles = makeStyles(theme => ({
   paragraph: {
+    display: 'block',
     paddingBottom: theme.spacing(0.5),
     fontSize: '1.3rem'
   },

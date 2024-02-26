@@ -14,7 +14,7 @@ import showdown from 'showdown';
 
 import {createPlaylistFromAlbum, createSong, getPlayer} from '../../audioPlayer';
 import {Album, Category, Song} from '../../../data/types';
-import {formatTime, usePlayback} from '../../utils';
+import {formatTime, staticLink, usePlayback} from '../../utils';
 import {Description} from '../description';
 import {PlayButton} from '../playButton';
 
@@ -121,7 +121,7 @@ export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handle
             <Button
               color='primary'
               component='a'
-              href={song.sheetMusicLink}
+              href={staticLink(song.sheetMusicLink)}
               target='blank'
             >
               Sheet Music

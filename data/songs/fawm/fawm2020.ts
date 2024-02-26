@@ -105,7 +105,7 @@ export const fawm2020 = [
      "artist": "",
      "credits": [ ],
      "date": "2020-02",
-     "description": "There's just something about me and manhattans when it comes to piano. It just changes how I write piano music.\nAnyhoo, regular disclaimer that I \"played\" this piece. Aka, one hand... err... one part of one hand at a time. Then made lots of edits. So don't go claiming I'm great at playing piano after listening to this.\n",
+     "description": "There's just something about sitting down at the piano with a manhattan. It makes you feel like you have some class. Does that mean I think this song is classy?",
      "duration": 223,
      "link": "prelude_in_f_minor",
      "name": "Prelude in F Minor",

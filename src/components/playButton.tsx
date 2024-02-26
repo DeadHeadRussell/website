@@ -46,7 +46,8 @@ export const PlayButton: FC<PlayButtonProps> = ({playlist, size, song}) => {
   return playbackState.playing ? (
     <>
       <Button
-        color='primary'
+        variant='contained'
+        color='secondary'
         size={size}
         aria-controls='playbutton-menu'
         aria-haspopup='true'
@@ -68,7 +69,8 @@ export const PlayButton: FC<PlayButtonProps> = ({playlist, size, song}) => {
     </>
   ) : (
     <Button
-      color='primary'
+      variant='contained'
+      color='secondary'
       size={size}
       onClick={play}
     >

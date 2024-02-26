@@ -138,17 +138,17 @@ export const projects = [
     It took me a while to get started. I didn't have a clue what to write about
     at first. It wasn't until I happened to be playing guitar one day, and
     played two of my older songs 'Farther Away' and 'Boy' back-to-back that I
-    got an idea. The two songs fit well together musically, and there was an
-    opportunity for a story. 'Farther Away' was written as a grade 12 English
-    project. Instead of writing a book report, I was able to convince my English
-    teacher to write a song. The book in question is Oryx and Crake by Margaret
-    Atwood (I highly recommend it!!) and this rock opera has been heavily
-    influenced by it. 'Boy', on the other hand, was an unnamed song (yes, I
-    know, I'm terrible at naming things) from I don't even know when. I first
-    remember playing it during a lunch hour in Grade 9, though it probably did
-    not have any lyrics back then. It was simply a song complaining about
-    relationships, as highschool students are wont to do. I have also rewritten
-    parts of its intro many times. From these two songs, I started writing.
+    got an idea. The two songs fit well together musically, and the seeds of a
+    story began. 'Farther Away' was written as a grade 12 English project.
+    Instead of writing a book report, I was able to convince my English teacher
+    to write a song about Oryx and Crake by Margaret Atwood and this rock opera
+    has been heavily influenced by it. 'Boy', on the other hand, was an unnamed
+    song from I don't even know when (yes, I know, I'm terrible at naming
+    things). I first remember playing it during a lunch hour in Grade 9, though
+    it probably did not have any lyrics back then. It was simply a song
+    complaining about relationships, as highschool students are wont to do. I
+    have also rewritten parts of its intro many times. From these two songs, I
+    started writing.
     <<break>>
     Progress was slow until I started grad school at CMU. I was in the music and
     tech department and had the opportunity to take composition lessons as part
@@ -162,17 +162,14 @@ export const projects = [
     Now that I've finished writing all the songs and recorded the demos, what
     now? Well, I'm still not 100% completed. If you haven't noticed yet, I'm
     pretty terrible at naming things. Almost every song needs a new name, not
-    to even mention the name of the whole thing, or even any of the characters'
-    names (side note: I named the father 'Jerry' for a while, but thought it
-    sounded weird so I nixed it). I am also not 100% happy with all of the
-    lyrics, so some of them may still change. I guess I could also create some
-    artwork / images. But mainly I really need to finish the sheet music. If I
-    want this ever recorded / performed, having good sheet music will be very
-    important! Otherwise, I guess I have to figure out what to do with it. Do I
-    try and get it performed somewhere? Properly record it? Get someone to
-    choreograph it or even write dialogue for outside of the songs? Who knows.
+    to even mention the name of the whole thing. I am also not 100% happy with
+    all of the lyrics, so some of them may still change. There are a few
+    arrangement issues as well. From there?  Get it recorded I guess. Turn it
+    into a musical?
     <<break>>
-    Anyways, I hope you enjoy the demos (despite the fact that I'm singing all the parts, including the female vocals). I'd love to here any feedback, questions, comments, etc, you have!
+    Anyways, I hope you enjoy the demos (despite the fact that I'm singing all
+    the parts, including the female vocals). I'd love to hear any feedback,
+    questions, comments, etc, you have!
   `, {songs: songs.rockOpera}),
   createAlbum('compositional_improvs', 'Compositional Improvs', '', 'Improv to Stimulate Creativity', `
     Sometimes I just want to sit down and play. I started recording them after

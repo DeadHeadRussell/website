@@ -50,7 +50,7 @@ export const fawm2021 = [
         }
      ],
      "date": "2021-02",
-     "description": "Come join us in our jazz lounge. Pull up a chair, grab a drink, but most importantly, relax and enjoy the show. A very Paul Anka or Mel Tormé feel lounge feel.",
+     "description": "Come join us in our jazz lounge. Pull up a chair, grab a drink, but most importantly, relax and enjoy the show. A very Paul Anka or Mel Tormé lounge feel.",
      "duration": 273,
      "link": "blue",
      "lyrics": "[Verse]\nBlue...\nLike the shadows on the new fallen snow\nBlue...\nLike the night sky when you bid me go\nBlue...\nAll I know is the colour blue\n\n[Verse]\nBlue...\nLike the water rushing down the drain\nBlue...\nLike the teardrops now falling like rain\nBlue...\nAll I know is the colour blue\n\n[Bridge]\nI used to know red\nWas the colour of love\nI used to know yellow\nLike the sunshine above\nNow all I know\nAll that is left for me\nIs the colour blue\nAnd that's how I will be...\n\n[Verse]\nBlue...\nLike the empty sky over my head\nBlue...\nLike the empty sheets on my old bed\nBlue...\nAll I know is the colour blue\n\n[Bridge]\nI used to know green\nWas the colour of life\nI used to know white\nBack when you were my wife\nNow all I know\nI don't even have grey\nIs the colour blue\nAnd that's how I will stay\n\n[Out]\nBlue...\nBlue...\nBlue...\nAll I know is the colour blue\n",
@@ -72,7 +72,7 @@ export const fawm2021 = [
      "video": false
   },
   {
-     "artist": "",
+     "artist": "The Andrew Russell Trio starring Andrew Russell",
      "credits": [ ],
      "date": "2021-02",
      "description": "The guitarist Andrew Russell joins in the Andrew Russell trio for a compelling jazz rock fusion to round out the album.",

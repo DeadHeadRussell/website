@@ -137,7 +137,7 @@ export function createSong(name: string, date: string, duration: number, credits
     date,
     duration,
     artist: other.artist || 'Andrew Russell Band',
-    credits,
+    credits: (credits && credits.length > 0) ? credits : [createCredit('Andrew Russell', 'Everything')],
     video: other.video || false,
     sheetMusic: other.sheetMusic || false,
     description: parseMultiLineString(other.description || ''),
