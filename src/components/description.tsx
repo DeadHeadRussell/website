@@ -15,6 +15,11 @@ const useStyles = makeStyles(theme => ({
     fontSize: '1.3rem'
   },
 
+  paragraphSmall: {
+    fontSize: '1.2rem',
+    lineHeight: 1.3
+  },
+
   section: {
     margin: 0
   },
@@ -34,11 +39,12 @@ export type DescriptionContext = {
 
 export type DescriptionProps = {
   description: string;
+  small?: boolean;
   context?: DescriptionContext;
   onPlay?: (seconds: number) => void;
 };
 
-export const Description: React.FC<DescriptionProps> = ({description, onPlay, context}) => {
+export const Description: React.FC<DescriptionProps> = ({description, small, onPlay, context}) => {
   const classes = useStyles();
 
   return (
@@ -54,7 +60,7 @@ export const Description: React.FC<DescriptionProps> = ({description, onPlay, co
                   <Typography
                     key={i}
                     classes={{
-                      root: classes.paragraph
+                      root: `${classes.paragraph} ${small ? classes.paragraphSmall : ''}`
                     }}
                     component='span'
                     align='justify'

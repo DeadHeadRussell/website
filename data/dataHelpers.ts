@@ -13,10 +13,14 @@ export function createSongLink(category: string, album: string, song: string, ex
 }
 
 export function parseLink(name: string): string {
-  return name.toLowerCase().replace(/[!@#$%^&*()\_+=,.'"<>?\\]/g, '').replace(/( |-)+/g, '-');
+  return name.toLowerCase().replace(/[!@#$%^&*()\-+=,.'"<>?\\]/g, '').replace(/( |_)+/g, '_');
 }
 
-export function parseMultiLineString(s: string, startChar?: string): string {
+export function parseMultiLineString(s: string, mergeLines?: boolean, startChar?: string): string {
+  if (mergeLines) {
+    s = s.replaceAll(/\n +/g, ' ');
+  }
+
   return s.split('\n').map((line: string) => startChar
     ? line.slice(line.indexOf(startChar) + 1).trimEnd()
     : line.trim()
@@ -101,7 +105,7 @@ export function createAlbum(link: string, name: string, date: string, tagline: s
     name,
     date,
     tagline,
-    description,
+    description: parseMultiLineString(description || '', true),
     embed: other.embed,
     links: other.links,
     extras: other.extras,
@@ -140,7 +144,7 @@ export function createSong(name: string, date: string, duration: number, credits
     credits: (credits && credits.length > 0) ? credits : [createCredit('Andrew Russell', 'Everything')],
     video: other.video || false,
     sheetMusic: other.sheetMusic || false,
-    description: parseMultiLineString(other.description || ''),
+    description: parseMultiLineString(other.description || '', true),
     lyrics: parseMultiLineString(other.lyrics || ''),
     external: other.external,
     sections: other.sections || []

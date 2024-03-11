@@ -17,6 +17,11 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(4)
   },
 
+  about: {
+    fontSize: '1.1rem',
+    lineHeight: 1.3
+  },
+
   bandPhoto: {
     width: '100%',
     marginTop: theme.spacing(2),
@@ -33,7 +38,7 @@ export const About: FC = () => {
     <Container maxWidth='sm'>
       <Paper className={classes.paper}>
         <Typography variant='h3' align='center' gutterBottom>About</Typography>
-        <Typography variant='body1'>{conf.band.about}</Typography>
+        <Typography className={classes.about} variant='body1'>{conf.band.about}</Typography>
         <img className={classes.bandPhoto} src={staticLink(conf.images.profile)} alt='Band photo' />
         <Typography variant='body1'>
           Email: <a href={`mailto:${conf.band.email}`}>{conf.band.email}</a>

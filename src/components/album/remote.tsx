@@ -153,7 +153,7 @@ const AlbumDescription: FC<RemoteAlbumProps> = ({album}) => {
   const classes = useStyles();
   return album.description ? (
     <div className={classes.description}>
-      <Description description={album.description} context={{album}} />
+      <Description description={album.description} small={true} context={{album}} />
     </div>
   ) : null;
 };

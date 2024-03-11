@@ -13,7 +13,6 @@ import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import QueueMusicIcon from '@material-ui/icons/QueueMusic';
-import SaveAltIcon from '@material-ui/icons/SaveAlt';
 import {useRouter} from 'next/router';
 import {useEffect, useState, FC} from 'react';
 
@@ -31,12 +30,6 @@ const useStyles = makeStyles(theme => ({
 
   artist: {
     [theme.breakpoints.down('xs')]: {
-      display: 'none'
-    }
-  },
-
-  download: {
-    [theme.breakpoints.down('md')]: {
       display: 'none'
     }
   }
@@ -194,17 +187,6 @@ const MoreCell: FC<CellProps> = ({active, noInfoRouting, category, album, song})
         </IconButton>
       </Tooltip>
       <SongInfo open={showInfo} category={category} album={album} song={song} handleClose={closeInfo} />
-
-      <Tooltip className={classes.download} title='Download Song'>
-        <IconButton
-          aria-label='download song'
-          component='a'
-          href={song.music}
-          download={song.fileName}
-        >
-          <SaveAltIcon />
-        </IconButton>
-      </Tooltip>
     </div>
   );
 };

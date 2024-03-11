@@ -3,7 +3,7 @@ import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import React from 'react';
 
 import * as albums from './albums';
-import {createCategory, createMenuCategory, createMenuLink} from './dataHelpers';
+import {createCategory, createMenuCategory, createMenuLink, parseMultiLineString} from './dataHelpers';
 import {Album, Category, ChartData, Conf, MenuData} from './types';
 
 export const conf: Conf = {
@@ -11,14 +11,14 @@ export const conf: Conf = {
     'name': 'Andrew Russell Band',
     'email': 'deadhead.russell@gmail.com',
     'description': 'Andrew Russell Band website',
-    'about': `
-      Andrew Russell is a musician from Victoria, BC that loves to tell stories
-      and express emotions through music. They focus on composing based on the
-      need of the story and takes influence from styles such as jazz, romantic,
-      jam bands and americana. They grew up playing the guitar and piano and
-      their music tends to skew towards, but they also like to vary their
-      arrangements to keep things fresh.
-    `
+    'about': parseMultiLineString(`
+      Andrew Russell is a Canadian musician and composer from Victoria, BC that
+      loves to tell stories through music. They focus on composing based on the
+      needs of the story and draw from their background in styles such as jazz,
+      romantic, jam bands, grunge and americana. They grew up playing the guitar
+      and piano and their music tends to skew towards those instruments, however,
+      they like to vary their arrangements to keep things fresh.
+    `, true)
   },
   'theme': {
     'primary': '#021534',

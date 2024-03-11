@@ -184,6 +184,9 @@ export const demos = [
   createAlbum('misc', 'Misc', '', 'Various Demos', `
     A collection of miscellaneous recordings of original songs done at home.
   `, {songs: songs.misc}),
+  createAlbum('fawm_2024', 'FAWM 2024', '2024-02', 'The mandolin era begins', `
+    For some reason, I decided to pull out my mandolin this year.  It was fun.
+  `, {songs: songs.fawm2024}),
   createAlbum('5090_2023', '50/90 2023', '2023-07-04 - 2023-10-01', 'No Purpose', `
     Just a couple things that happened to be done during the 50/90 time period.
   `, {songs: songs.fiftyNinety2023}),

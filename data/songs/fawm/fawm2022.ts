@@ -13,7 +13,25 @@ export const fawm2022 = [
        "video": false
     },
     {
-       "artist": "Andrew Russell and Nadine de Macdeo",
+      "artist": "",
+      "credits": [{
+        "role": "Lyrics",
+        "who": "Nancy Gunderson"
+      }, {
+        "role": "Music",
+        "who": "Andrew Russell"
+      }],
+      "date": "2022-02",
+      "duration": 195,
+      "link": "winters_dangerous_beauty",
+      "name": "Winter's Dangerous Beauty",
+      "sections": [],
+      "sheetMusic": false,
+      "video": false,
+      "lyrics": "In winter's coldest cold\nThe sky is bluest blue\nThe sun shines bright with Treachery\nWarmth felt only if the air is still\n\nThe sun is brilliant\nBoundaryless\nBeautiful\nBright, bright, bright\nBrilliance is treacherous\nTreachery is brilliant\n\nIn winter's coldest cold\nThe sky is bluest blue\nThe heavens hold the boldest hue\nBitter in its intensity\n\nThe heavens are clear\nBounderyless\nBeautiful\nBold, bold, bold\nBoldness is bitter\nBitterness is bold\n\nIn winter's coldest cold\nThe sky bluest blue\nThe sun shines bright with mimicry\nThe beauty of a summer's day\n\nThe day seems summery\nBoundaryless\nBeautiful\nBlue, blue, blue\nBeauty is dangerous\nDanger is beautiful\n\nIn winter's coldest cold\nThe sky is bluest blue\nLife is brilliant\nTreacherous\nBold and bitter\nBeautiful\nAnd dangerous\n\nWinter's beauty is dangerous\nWinter's danger is beautiful"
+    },
+    {
+       "artist": "The Andrew Russell Trio starring Nadine de Macdeo",
        "credits": [
           {
              "role": "Melody, Production",

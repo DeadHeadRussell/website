@@ -233,6 +233,39 @@ export const fawm2023 = [
      "video": false
   },
   {
+     "artist": "A-Team",
+     "credits": [
+        {
+           "role": "A-Team Member",
+           "who": "Andy Myers"
+        },
+        {
+           "role": "A-Team Member",
+           "who": "Alex Klages"
+        },
+        {
+           "role": "A-Team Member",
+           "who": "Andy Getch"
+        },
+        {
+           "role": "A-Team Member",
+           "who": "Amanda Williams"
+        },
+        {
+           "role": "A-Team Member",
+           "who": "Andy Russell"
+        }
+     ],
+     "date": "2023-02",
+     "duration": 269,
+     "link": "awesome_101",
+     "lyrics": "If you listen real hard, you'll figure them out",
+     "name": "Awesome 101",
+     "sections": [ ],
+     "sheetMusic": false,
+     "video": false
+  },
+  {
      "artist": "",
      "credits": [
         {

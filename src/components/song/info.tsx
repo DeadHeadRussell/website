@@ -90,7 +90,7 @@ export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handle
       <div className={classes.details}>
         <Typography variant='h4' align='center'>{song.name}</Typography>
         <Typography variant='h5' align='center'>{album.name} - {song.artist}</Typography>
-        <Typography variant='h6' align='center'  gutterBottom>{song.date}</Typography>
+        <Typography variant='h6' align='center' gutterBottom>{song.date}</Typography>
 
         <CardActions>
           <PlayButton
@@ -132,7 +132,7 @@ export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handle
         <Grid container spacing={2} direction='column'>
           {song.description && (
             <Grid item>
-              <Description description={song.description} onPlay={play} context={{category, album, song}} />
+              <Description description={song.description} small={true} onPlay={play} context={{category, album, song}} />
             </Grid>
           )}
           {song.sections.length > 0 && (
