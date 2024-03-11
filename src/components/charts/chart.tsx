@@ -150,7 +150,7 @@ export const Chart: FC<ChartProps> = ({chart}) => {
             <IconButton
               aria-label={`download chart for ${chart.name}`}
               component='a'
-              target='_blank'
+              target='blank'
               href={chart.embedUrl}
               download={chart.name}
             >

@@ -100,7 +100,8 @@ export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handle
           <Button
             color='primary'
             component='a'
-            href={song.music}
+            href={staticLink(song.music)}
+            target='blank'
             download={song.fileName}
           >
             Download
@@ -109,7 +110,7 @@ export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handle
             <Button
               color='primary'
               component='a'
-              target='_blank'
+              target='blank'
               href={song.external}
             >
               Link
@@ -121,8 +122,8 @@ export const SongInfo: FC<SongInfoProps> = ({open, category, album, song, handle
             <Button
               color='primary'
               component='a'
-              href={staticLink(song.sheetMusicLink)}
               target='blank'
+              href={staticLink(song.sheetMusicLink)}
             >
               Sheet Music
             </Button>

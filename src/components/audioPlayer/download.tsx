@@ -5,6 +5,7 @@ import SaveAltIcon from '@material-ui/icons/SaveAlt';
 import {FC} from 'react';
 
 import {AudioPlayerSong} from '../../audioPlayer';
+import {staticLink} from '../../utils';
 
 
 export interface AudioPlayerDownloadProps {
@@ -17,7 +18,8 @@ export const AudioPlayerDownload: FC<AudioPlayerDownloadProps> = ({song}) => (
       <IconButton
         aria-label='download song'
         component='a'
-        href={song.music}
+        target='blank'
+        href={staticLink(song.music)}
         download={song.fileName}
       >
         <SaveAltIcon />

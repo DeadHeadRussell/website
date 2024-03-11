@@ -92,7 +92,7 @@ const ChartsSection: FC<ChartsSectionProps> = ({title, charts}) => {
                       <IconButton
                         aria-label={`download chart for ${chart.name}`}
                         component='a'
-                        target='_blank'
+                        target='blank'
                         href={chart.embedUrl}
                         download={chart.name}
                       >

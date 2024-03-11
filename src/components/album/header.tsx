@@ -82,7 +82,8 @@ export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
                       color='primary'
                       size='small'
                       component='a'
-                      href={album.archive}
+                      target='blank'
+                      href={staticLink(album.archive)}
                       download={`${album.name}.zip`}
                     >
                       Download
@@ -96,7 +97,7 @@ export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
                     color='primary'
                     size='small'
                     component='a'
-                    target='_blank'
+                    target='blank'
                     href={album.external}
                   >
                     Link
