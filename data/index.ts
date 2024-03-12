@@ -94,6 +94,12 @@ export const categories: Record<string, Category> = {
     })
   ]),
   demos: createCategory('demos', 'Demos', [
+    createAlbum('fawm-2024', 'FAWM 2024', '2024-02', 'LAVISH DUDE', `
+      Hello?  Are you out there?
+    `, {
+      songs: songs.fawm2024,
+      external: 'https://fawm.org/@lavishdude'
+    }),
     createAlbum('fawm-2023', 'FAWM 2023', '2023-02', 'LAVISH DUDE', `
       [[category:demos|Lavish Dude]] is just... why are you even here? Songs are all demos written during FAWM.
     `, {

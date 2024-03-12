@@ -1,5 +1,148 @@
 import {createCredit, createSection, createSong} from './dataHelpers';
 
+export const fawm2024 = [
+  createSong(
+    'One Day',
+    '2024-02',
+    258,
+    [
+      createCredit('Sean Brennan', 'Vocals, Viola, Bass, Cajon, Music, Lyrics'),
+      createCredit('Andrew Russell', 'Guitar')
+    ],
+    {
+      lyrics: `
+        I've been feeling worn and jaded
+        Being fed to a beast that is never sated
+        I'm angry
+        I've been toiling endless hours
+        But my labors only give my captors power
+        I'm angry
+
+        When did we lose our way,
+        Sleeping through the night just to work all day?
+        All the men in the suits just laugh,
+        They know that we don't have the energy to fight back
+
+        But maybe we will all rise together
+        Maybe draw a line in the sand
+        Maybe stop the motor of commerce
+        But today we're just so damn tired
+
+        I've been feeling desensitized
+        As paragons of cruelty are lionized
+        I'm weary
+        I've been praying zealously
+        But the heathens guard my God so jealously
+        I'm weary
+
+        When did we lose our minds,
+        Buying salvation, leaving brothers behind?
+        All the people in the pews just jeer,
+        They know that we can't overcome the power of fear
+
+        But maybe we will all sing together
+        Harmonize in unity and love
+        Maybe drive the merchants from the temple
+        But today we’re just so damn hurt
+
+        But one day we will all take our rest
+        One day we will all heal our wounds
+        One day we’ll be rid of these shackles
+        One day we will live
+      `
+    }
+  ),
+  createSong(
+    'Beyond',
+    '2024-02',
+    306,
+    [
+      createCredit('Sean Brennan', 'Vocals, Viola, Bass, Cajon, Music, Lyrics'),
+      createCredit('Andrew Russell', 'Guitar')
+    ],
+    {
+      lyrics: `
+        I know you want to spread your wings so desperately
+        But they're held down by the weight of reality
+        I don't have much, girl -- just the moon and stars
+        And they'll never be enough, girl -- until they are
+
+        Fly away with me
+        And leave day and night behind us
+        Soar toward our future
+        And leave behind the ties that bind us
+        Leave the ties that bind us
+
+        I know your soul needs order and balance and harmony
+        But order is only a dead man's conspiracy
+        What will we want, girl, for after we're gone?
+        Embrace the beyond
+
+        Fly away with me
+        And leave day and night behind us
+        Soar toward our future
+        And leave behind the ties that bind us
+        And carry only our scars to remind us
+        And let the universe unwind us
+        And be ready for what may find us
+      `
+    }
+  ),
+  createSong(
+    'Not Bad',
+    '2024-02',
+    176,
+    [
+      createCredit('Andrew Russell', 'Vocals, Guitar, Bass, Cajon, Music'),
+      createCredit('Stephen Wort', 'Lyrics')
+    ],
+    {
+      lyrics: `
+        How're you doing?
+        Yeah, not bad
+        Despite the year or two we've had
+        And, sure, the world's been in wars
+        But summer's here, it's nice outdoors
+        And in the end, we should be glad
+        So, yeah, not bad
+        Yeah, not bad
+
+        How's it going?
+        Yeah, same same
+        Nothing major on the brain
+        Though getting by is getting steep
+        I'm safe enough I don't lose sleep
+        And in the end, I can't complain
+        So, yeah, same same
+        Yeah, same same
+
+        All right, It's cool, I'm fine, I'm sweet
+        I'm here, still kicking, on my feet
+        I've grabbed the ends and made them meet
+        For one more week... For one more week
+
+        How're you feeling?
+        Yeah, OK
+        I'll live to fight another day
+        There's not a lot left in the purse
+        But others out there they got it worse
+        So I'll keep heading on my way
+        So yeah, OK
+        Yeah, OK
+      `
+    }
+  ),
+  createSong(
+    'Sunshine',
+    '2024-02',
+    238,
+    [
+      createCredit('Andrew Russell', 'Guitar, Mandolin, Bass, Cajon, Music'),
+      createCredit('Sean Brennan', 'Imaginary viola')
+    ]
+  )
+];
+
 export const fawm2023 = [
   createSong(
     'First Dance',
