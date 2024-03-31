@@ -2,7 +2,7 @@ import {createCredit, createSection, createSong} from '../dataHelpers';
 import {Category, Song} from '../types';
 
 
-export const portfolio = (categories: Record<String, Category>): Record<String, Song> => {
+export const portfolio = (categories: Record<string, Category>): Record<string, Song[]> => {
   return {
     stories: [
       categories.demos.album.fawm_2024.song.every_day,

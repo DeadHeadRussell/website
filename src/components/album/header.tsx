@@ -18,6 +18,11 @@ import {AlbumLink} from './link';
 
 
 const useStyles = makeStyles(theme => ({
+  link: {
+    color: 'inherit',
+    textDecoration: 'none'
+  },
+
   album: {
     display: 'flex',
     flexDirection: 'column',
@@ -51,8 +56,10 @@ export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
 
   const Wrapper: FC<{}> = onlyExternal
     ? ({children}) => (
-      <CardActionArea href={album.external} target='blank'>
-        {children}
+      <CardActionArea>
+        <a className={classes.link} href={album.external} target='blank'>
+          {children}
+        </a>
       </CardActionArea>
     ) : link ? ({children}) => (
       <CardActionArea>

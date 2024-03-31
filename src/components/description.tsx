@@ -66,7 +66,7 @@ export const Description: React.FC<DescriptionProps> = ({description, small, onP
                     component='span'
                     align='justify'
                   >
-                    {processLinks(line, i, classes.link, onPlay, context)}
+                    {processLinks(line, classes.link, onPlay, context)}
                   </Typography>
                 ))}
               </React.Fragment>
@@ -98,7 +98,7 @@ export const Description: React.FC<DescriptionProps> = ({description, small, onP
   );
 }
 
-function processLinks(line, i, className, onPlay, context) {
+function processLinks(line: string, className: string, onPlay?: (seconds: number) => void, context?: DescriptionContext) {
   return (
     <>
       {line.split(/\[\[|]]/).map((text, i) => {
@@ -136,7 +136,7 @@ type CommandProps = {
 function parseCommand(text: string): [React.FC<CommandProps>, string, string, string] {
   const [type, ...contentAndDisplay] = text.split(':');
   const contentParts = contentAndDisplay.join(':').split('|');
-  const display = contentParts.pop();
+  const display = contentParts.pop() || '';
   const content = contentParts.join('|');
   switch (type) {
     case 'category':
@@ -213,7 +213,7 @@ const TimeLink: React.FC<CommandProps> = ({className, type, content, display, on
 }
 
 const ListSection: React.FC<CommandProps> = ({className, type, content, display, context}) => {
-  const items = content.split(',').filter(i => !!i).map(i => i.trim().slice(2)).map((line, i) => processLinks(line, i, '', () => {}, context));
+  const items = content.split(',').filter(i => !!i).map(i => i.trim().slice(2)).map(line => processLinks(line, '', () => {}, context));
   return (
     <>
       {display}

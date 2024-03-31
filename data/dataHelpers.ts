@@ -60,7 +60,7 @@ export function createCategory(link: string, name: string, description: string, 
   category.albums = albums
       .map(album => ({
         art: createAlbumLink(category.link, album.link, 'art.jpg'),
-        ...album,
+        ...(album as any),
         archive: typeof album.archive == 'string' ? album.archive
           : album.archive ? createAlbumLink(category.link, album.link, 'archive.zip')
           : null,
@@ -83,7 +83,7 @@ export function createCategory(link: string, name: string, description: string, 
             ? createSongLink(album.category.link, album.link, song.link, 'pdf')
             : null,
           fileName: `${song.name}.${extension}`,
-          ...song,
+          ...(song as any),
           album
         };
       });

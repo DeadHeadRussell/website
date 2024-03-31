@@ -181,7 +181,7 @@ export const projects = [
   `, {songs: songs.compositionalImprovs})
 ];
 
-export const portfolio = (categories: Record<String, Category>): Album[] => {
+export const portfolio = (categories: Record<string, Category>): Album[] => {
   const portfolioSongs = songs.portfolio(categories);
 
   return [

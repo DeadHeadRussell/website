@@ -4,7 +4,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
+import {FC} from 'react';
 
+import {Category as CategoryType} from '../../../data/types';
 import {AlbumGrid} from '../album/grid';
 import {Description} from '../description';
 
@@ -17,9 +19,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+export interface CategoryProps {
+  category: CategoryType
+};
+
 export const Category: FC<CategoryProps> = ({category}) => {
   const classes = useStyles();
-          //<Typography className={classes.content} color='text'>{category.description}</Typography>
   return (
     <>
       <Card>
