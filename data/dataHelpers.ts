@@ -50,13 +50,20 @@ export function createMenuLink(url: string, text: string, Icon: any = null): Men
   return {url, text, Icon};
 }
 
-export function createCategory(link: string, name: string, albums: Album[]): Category {
-  const category: any = {link, name};
+export function createCategory(link: string, name: string, description: string, albums: Album[]): Category {
+  const category: any = {
+    link,
+    name,
+    description: parseMultiLineString(description || '', true),
+  };
+
   category.albums = albums
       .map(album => ({
-        ...album,
         art: createAlbumLink(category.link, album.link, 'art.jpg'),
-        archive: createAlbumLink(category.link, album.link, 'archive.zip'),
+        ...album,
+        archive: typeof album.archive == 'string' ? album.archive
+          : album.archive ? createAlbumLink(category.link, album.link, 'archive.zip')
+          : null,
         category
       }));
  
@@ -71,13 +78,13 @@ export function createCategory(link: string, name: string, albums: Album[]): Cat
       album.songs = album.songs.map((song: Song) => {
         const extension = song.video ? 'mp4' : 'mp3';
         return {
-          ...song,
-          album,
           music: createSongLink(album.category.link, album.link, song.link, extension),
           sheetMusicLink: song.sheetMusic
             ? createSongLink(album.category.link, album.link, song.link, 'pdf')
             : null,
-          fileName: `${song.name}.${extension}`
+          fileName: `${song.name}.${extension}`,
+          ...song,
+          album
         };
       });
 
@@ -100,7 +107,7 @@ export function createCategory(link: string, name: string, albums: Album[]): Cat
 }
 
 export function createAlbum(link: string, name: string, date: string, tagline: string, description: string, other: any = {}): Album {
-  return {
+  const album = {
     link,
     name,
     date,
@@ -111,8 +118,15 @@ export function createAlbum(link: string, name: string, date: string, tagline: s
     extras: other.extras,
     external: other.external,
     songs: other.songs,
-    duration: other.duration
+    duration: other.duration,
+    archive: other.archive === undefined ? true : other.archive
   } as any as Album;
+
+  if (other.art) {
+    album.art = other.art;
+  }
+
+  return album;
 }
 
 export function songConvertor(songData: any): Song {
@@ -135,7 +149,7 @@ export function songConvertor(songData: any): Song {
 }
 
 export function createSong(name: string, date: string, duration: number, credits: Credit[], other: any = {}): Song {
-  return {
+  const song = {
     link: other.link || parseLink(name),
     name,
     date,
@@ -143,12 +157,22 @@ export function createSong(name: string, date: string, duration: number, credits
     artist: other.artist || 'Andrew Russell Band',
     credits: (credits && credits.length > 0) ? credits : [createCredit('Andrew Russell', 'Everything')],
     video: other.video || false,
-    sheetMusic: other.sheetMusic || false,
+    sheetMusic: !!other.sheetMusic || false,
     description: parseMultiLineString(other.description || '', true),
     lyrics: parseMultiLineString(other.lyrics || ''),
     external: other.external,
     sections: other.sections || []
   } as any as Song;
+
+  if (other.music) {
+    song.music = other.music;
+  }
+
+  if (typeof other.sheetMusic == 'string') {
+    song.sheetMusicLink = other.sheetMusic;
+  }
+
+  return song;
 }
 
 export function createCredit(who: string, role: string): Credit {

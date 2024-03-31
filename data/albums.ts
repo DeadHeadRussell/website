@@ -1,5 +1,6 @@
 import {createAlbum} from './dataHelpers';
 import * as songs from './songs';
+import {Album, Category} from './types';
 
 export const studio = [
   createAlbum('chosen', 'Chosen', '2023-11', 'Concept album about battling depression', `
@@ -179,6 +180,85 @@ export const projects = [
     recordings done years ago!
   `, {songs: songs.compositionalImprovs})
 ];
+
+export const portfolio = (categories: Record<String, Category>): Album[] => {
+  const portfolioSongs = songs.portfolio(categories);
+
+  return [
+    createAlbum('stories', 'Stories', '', '', `
+      I grew up reading a lot of books, largely fantasy. As a kid, it was always the worlds that interested me, and I quenched that creative drive by drawing maps. However, at some point, I wanted to tell a story of my own, so I turned to music to help me out.
+
+      Every Day follows the kishotenketsu structure to telling stories, both lyrically and musically. That structures the song into four sections, the intro, development, twist and conclusion. I'll let you listen so as to not spoil the story 🙂
+
+      [[album:studio.chosen|Chosen]] is a story about battling depression.  At the beginning of the album, our hero is desperately trying to be chosen by those who lead.  The two songs included below, "No Light" and "It's Clear" is the part where our hero realizes that they are instead free to choose their own course.
+
+      The Setting Sun tells a fairy tell of sacrifice.  Our hero goes to save the setting sun so the village can continue to have light and warmth.  However, she does not know that saving the setting sun involves giving up her life as she knows it.
+
+      Many years ago, I started working on a [[album:projects.rock_opera|Rock Opera]].  It still doesn't have a name...  This was my first foray into long form story telling through music.  The two songs included, "Here We Are" and "Boy", introduce the 4 main themes in the first act and our main protagonist.
+    `, {
+      art: '/music/studio/chosen/art.jpg',
+      songs: portfolioSongs.stories,
+      archive: false
+    }),
+    createAlbum('classical', 'Classical', '', '', `
+      My musical journey started as a classical pianist in the Royal Conservatory of Music at a young age. I have since branched out into many other genres and instruments, however my classical piano upgringing has always stuck with me. You will find these influences all over my music, but most prominently in my solo piano pieces. Below is a collection of solo piano, orchestral and guitar first classical pieces.
+
+      Solo piano pieces. Scores are usually included in the info popup, but they are written primarly for my own reference so the quality does vary.
+      <<list:
+      - Prelude in D Minor,
+      - Prelude in F Minor,
+      - Prelude in E♭ Minor,
+      - Once Majestic,
+      - Rhapsody of Uncertainty
+      |>>
+      
+      Reverie - A guitar / upright bass trio. Evokes the emotion of a day on little sleep where you keep nodding off into daydreams, just to be roughly brought back to the real world.
+      <<list:
+      - Mvmt 1 - Sleepless - still in progress,
+      - Mvmt 2 - Journey of Reverie,
+      - Mvmt 3 - Regarding Reality
+      |>>
+
+      A few other classical compositions:
+      <<list:
+      - Malplenan Theme - Orchestral - A theme song I wrote for the D&D campaign I'm GM'ing,
+      - Loan Roamer - Guitar duet,
+      - Labour of Love - Guitar duet,
+      - He Who Was - Violin / Piano duet
+      |>>
+    `, {
+      art: '/music/portfolio/classical.jpg',
+      songs: portfolioSongs.classical,
+      archive: false
+    }),
+    createAlbum('jazz', 'Jazz', '', '', `
+      Who doesn't love a good jazz standard.  After growing up with classical piano, I craved freedom from playing just the notes written on the page.
+      I turned to jazz to help and eventually started writing my own. Lead sheets are occassionally included in the info popup for the songs, however,
+      they have been written primarly for my own reference so quality will vary. If you want one cleaned up, please reach out to the email on my [[page:/about|About page]]!
+    `, {
+      art: '/music/portfolio/jazz.jpg',
+      songs: portfolioSongs.jazz,
+      archive: false
+    }),
+    createAlbum('roots', 'Roots', '', '', `
+      If you listen really hard, you can hear the Garcia and Grisman influence. Not For Kids Only is a top album of all time.
+    `, {
+      art: '/music/portfolio/roots.jpg',
+      songs: portfolioSongs.roots,
+      archive: false
+    }),
+    createAlbum('alt', 'Acoustic Alternative', '', '', '', {
+      art: '/music/studio/leading-off/art.jpg',
+      external: 'https://lavishdude.com/albums/studio/leading-off',
+      archive: false
+    }),
+    createAlbum('chip', 'Chip Tunes', '', '', '', {
+      art: '/music/studio/wants-to-battle/art.jpg',
+      external: 'https://lavishdude.com/albums/studio/wants-to-battle',
+      archive: false
+    })
+  ];
+};
 
 export const demos = [
   createAlbum('misc', 'Misc', '', 'Various Demos', `

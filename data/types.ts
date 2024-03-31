@@ -32,6 +32,7 @@ export interface Conf {
 export interface Category {
   name: string;
   link: string;
+  description: string;
   albums: Album[];
   album: Record<string, Album>;
 }

@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
   },
 
   section: {
-    margin: 0
+    margin: 0,
+    fontSize: 'inherit'
   },
 
   link: {
@@ -65,24 +66,7 @@ export const Description: React.FC<DescriptionProps> = ({description, small, onP
                     component='span'
                     align='justify'
                   >
-                    {line.split(/\[\[|]]/).map((text, i) => {
-                      if (i % 2 == 0) {
-                        return text;
-                      } else {
-                        const [Component, type, content, display] = parseCommand(text);
-                        return (
-                          <Component
-                            key={i}
-                            className={classes.link}
-                            type={type}
-                            content={content}
-                            display={display}
-                            onPlay={onPlay}
-                            context={context || {}}
-                          />
-                        );
-                      }
-                    })}
+                    {processLinks(line, i, classes.link, onPlay, context)}
                   </Typography>
                 ))}
               </React.Fragment>
@@ -93,7 +77,10 @@ export const Description: React.FC<DescriptionProps> = ({description, small, onP
           return (
             <Typography
               key={i}
-              component='div'
+              classes={{
+                root: `${classes.paragraph} ${small ? classes.paragraphSmall : ''}`
+              }}
+              component='span'
               align='justify'
             >
               <Component
@@ -111,6 +98,30 @@ export const Description: React.FC<DescriptionProps> = ({description, small, onP
   );
 }
 
+function processLinks(line, i, className, onPlay, context) {
+  return (
+    <>
+      {line.split(/\[\[|]]/).map((text, i) => {
+        if (i % 2 == 0) {
+          return text;
+        } else {
+          const [Component, type, content, display] = parseCommand(text);
+          return (
+            <Component
+              key={i}
+              className={className}
+              type={type}
+              content={content}
+              display={display}
+              onPlay={onPlay}
+              context={context || {}}
+            />
+          );
+        }
+      })}
+    </>
+  );
+}
 
 type CommandProps = {
   className: string;
@@ -123,9 +134,10 @@ type CommandProps = {
 
 
 function parseCommand(text: string): [React.FC<CommandProps>, string, string, string] {
-  const [type, ...contentParts] = text.split(':');
-  const [content, ...displayParts] = contentParts.join(':').split('|');
-  const display = displayParts.join('|');
+  const [type, ...contentAndDisplay] = text.split(':');
+  const contentParts = contentAndDisplay.join(':').split('|');
+  const display = contentParts.pop();
+  const content = contentParts.join('|');
   switch (type) {
     case 'category':
     case 'album':
@@ -152,6 +164,10 @@ function parseCommand(text: string): [React.FC<CommandProps>, string, string, st
       return [Image, type, content, display];
     }
 
+    case 'page': {
+      return [InternalLink, type, content, display];
+    }
+
     case 'link': {
       return [ExternalLink, type, content, display];
     }
@@ -164,8 +180,6 @@ function parseCommand(text: string): [React.FC<CommandProps>, string, string, st
 
 const ContentLink: React.FC<CommandProps> = ({className, type, content, display}) => {
   const [category, album, song] = content.split('.');
-  console.log(type, content, display);
-  console.log(category, album, song);
   return (
     <Link
       href={type == 'category'
@@ -198,8 +212,8 @@ const TimeLink: React.FC<CommandProps> = ({className, type, content, display, on
   );
 }
 
-const ListSection: React.FC<CommandProps> = ({className, type, content, display}) => {
-  const items = content.split('\n').filter(i => !!i).map(i => i.slice(2));
+const ListSection: React.FC<CommandProps> = ({className, type, content, display, context}) => {
+  const items = content.split(',').filter(i => !!i).map(i => i.trim().slice(2)).map((line, i) => processLinks(line, i, '', () => {}, context));
   return (
     <>
       {display}
@@ -249,6 +263,14 @@ const Image: React.FC<CommandProps> = ({className, type, content, display, conte
         : ''
       }
     />
+  );
+};
+
+const InternalLink: React.FC<CommandProps> = ({className, type, content, display}) => {
+  return (
+    <Link href={content}>
+      <a className={className}>{display}</a>
+    </Link>
   );
 };
 

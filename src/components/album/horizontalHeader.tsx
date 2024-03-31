@@ -76,7 +76,7 @@ export const HorizontalAlbumHeader: FC<HorizontalAlbumHeaderProps> = ({album, pl
                         <PlayButton playlist={playlist || createPlaylistFromAlbum(album.category, album)} size='small' />
                       </Grid>
                     )}
-                    {!hideDownload && (
+                    {!hideDownload && album.archive && (
                       <Grid item>
                         <Button
                           color='primary'

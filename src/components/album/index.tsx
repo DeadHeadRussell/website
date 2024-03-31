@@ -1,10 +1,14 @@
 import Container from '@material-ui/core/Container';
 import {makeStyles} from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
+import Typography from '@material-ui/core/Typography';
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import {FC} from 'react';
 
 import {Album as AlbumType, Category, Song as SongType} from '../../../data/types';
+import {CategoryLink} from '../category/link';
 import {Description} from '../description';
 import {Song} from '../song';
 import {HorizontalAlbumHeader} from './horizontalHeader';
@@ -13,6 +17,11 @@ import {HorizontalAlbumHeader} from './horizontalHeader';
 const useStyles = makeStyles(theme => ({
   headerContent: {
     padding: theme.spacing(8, 0, 6)
+  },
+
+  back: {
+    marginBottom: theme.spacing(1),
+    textTransform: 'none'
   },
 
   table: {
@@ -34,6 +43,14 @@ export const Album: FC<AlbumProps> = ({album, category, song}) => {
     <>
       <section className={classes.headerContent}>
         <Container maxWidth='lg'>
+          <CategoryLink categoryLink={category.link}>
+            <Button
+              className={classes.back}
+              startIcon={<KeyboardBackspaceIcon />}
+            >
+              Back to {category.name}
+            </Button>
+          </CategoryLink>
           <HorizontalAlbumHeader album={album} />
         </Container>
 			</section>

@@ -1,7 +1,7 @@
 import {GetStaticPaths, GetStaticProps} from 'next';
 import React, {FC} from 'react';
 
-import {AlbumGrid} from '../../components/album/grid';
+import {Category} from '../../components/category/index';
 import {Root} from '../../components/root';
 import {categories, menu} from '../../../data';
 
@@ -19,7 +19,7 @@ const CategoryPage: FC<CategoryPageProps> = ({categoryLink}) => {
 
   return (
     <Root title={category.name} menu={menu}>
-      <AlbumGrid albums={category.albums} />
+      <Category category={category} />
     </Root>
   );
 };

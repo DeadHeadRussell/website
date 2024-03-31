@@ -52,7 +52,8 @@ const useStyles = makeStyles(theme => ({
     textStroke: `2px ${theme.palette.primary.main}`,
 
     [theme.breakpoints.down('sm')]: {
-      paddingBottom: 0
+      paddingBottom: 0,
+      fontSize: '6em'
     }
   },
 

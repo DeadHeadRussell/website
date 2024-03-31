@@ -1,4 +1,5 @@
 import Avatar from '@material-ui/core/Avatar';
+import FeaturedPlayListIcon from '@material-ui/icons/FeaturedPlayList';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import React from 'react';
 
@@ -42,11 +43,20 @@ export const conf: Conf = {
 };
 
 export const categories: Record<string, Category> = {
-  studio: createCategory('studio', 'Studio Releases', albums.studio),
-  projects: createCategory('projects', 'Projects', albums.projects),
-  demos: createCategory('demos', 'Demos', albums.demos),
-  old: createCategory('old', 'Old Works', albums.old)
+  studio: createCategory('studio', 'Studio Releases', '', albums.studio),
+  projects: createCategory('projects', 'Projects', '', albums.projects),
+  demos: createCategory('demos', 'Demos', '', albums.demos),
+  old: createCategory('old', 'Old Works', '', albums.old)
 };
+
+categories.portfolio = createCategory('portfolio', 'Composition Portfolio', `
+  I love using music to tell a story.  Usually the story comes first and genre, instruemntation and the music comes second, but there are a few standards I fall back on to help compose the best piece and not get caught up in the details.
+  Also, music is entertainment.  I strive to write  music that is entertaining to all parties involved.  The musicians, the audience and the composers.
+  Below is a collection of my best compositions.  Most of the records are demos so the quality of the performance does vary.
+  <<break>>
+  I am open to commissions so if you have a story or other media that you would like music to accompany, please reach out to the email address on the [[page:/about|About page]]! I am also happy to provide scores for any of my music upon request.
+  And also, if you want to just chat about music, please reach out!
+`, albums.portfolio(categories));
 
 export const feature: Album = categories.studio.album['chosen'];
 
@@ -62,6 +72,9 @@ export const menu: MenuData = {
       />
     )),
     createMenuCategory(categories.projects, true),
+    createMenuCategory(categories.portfolio, false, ({...props}) => (
+      <FeaturedPlayListIcon {...props} color='secondary' />
+    )),
     createMenuCategory(categories.demos, false, LibraryMusicIcon),
     createMenuCategory(categories.old, false, LibraryMusicIcon)
   ],

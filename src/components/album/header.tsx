@@ -46,8 +46,15 @@ export interface AlbumHeaderProps {
 export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
   const classes = useStyles();
 
-  const Wrapper: FC<{}> = link
+  const hasSongs = (album.songs && album.songs.length > 0);
+  const onlyExternal = (!hasSongs && !album.links && album.external);
+
+  const Wrapper: FC<{}> = onlyExternal
     ? ({children}) => (
+      <CardActionArea href={album.external} target='blank'>
+        {children}
+      </CardActionArea>
+    ) : link ? ({children}) => (
       <CardActionArea>
         <AlbumLink categoryLink={album.category.link} albumLink={album.link}>{children}</AlbumLink>
       </CardActionArea>
@@ -69,7 +76,7 @@ export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
         </CardContent>
       </Wrapper>
       <CardActions>
-        {((album.songs && album.songs.length > 0) || album.external) && (
+        {(hasSongs || album.external) && (
           <div>
             <Grid container spacing={2} justifyContent='center'>
               {album.songs && album.songs.length > 0 && (
@@ -77,18 +84,20 @@ export const AlbumHeader: FC<AlbumHeaderProps> = ({album, link}) => {
                   <Grid item>
                     <PlayButton playlist={createPlaylistFromAlbum(album.category, album)} size='small' />
                   </Grid>
-                  <Grid item>
-                    <Button
-                      color='primary'
-                      size='small'
-                      component='a'
-                      target='blank'
-                      href={staticLink(album.archive)}
-                      download={`${album.name}.zip`}
-                    >
-                      Download
-                    </Button>
-                  </Grid>
+                  {album.archive && (
+                    <Grid item>
+                      <Button
+                        color='primary'
+                        size='small'
+                        component='a'
+                        target='blank'
+                        href={staticLink(album.archive)}
+                        download={`${album.name}.zip`}
+                      >
+                        Download
+                      </Button>
+                    </Grid>
+                  )}
                 </>
               )}
               {album.external && (
