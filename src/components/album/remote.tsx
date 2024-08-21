@@ -215,7 +215,7 @@ const SongLyricsTable: FC<RemoteAlbumProps> = ({album}) => {
             <AccordionDetails>
               <Typography
                 dangerouslySetInnerHTML={{
-                  __html: converter.makeHtml(song.lyrics)
+                  __html: converter.makeHtml(song.lyrics || '_No lyrics_')
                 }}
               />
             </AccordionDetails>
