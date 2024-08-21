@@ -10,7 +10,7 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {FC, Fragment, useEffect, useState} from 'react';
 import showdown from 'showdown';
 
-import {Album as AlbumType} from '../../../data/types';
+import {Album as AlbumType, Song} from '../../../data/types';
 import {staticLink} from '../../utils';
 import {Description} from '../description';
 
@@ -199,7 +199,7 @@ const Player: FC<RemoteAlbumProps> = ({album}) => {
 
 const SongLyricsTable: FC<RemoteAlbumProps> = ({album}) => {
   const classes = useStyles();
-  const [songs, setSongs] = useState([]);
+  const [songs, setSongs] = useState<Song[]>([]);
   useEffect(() => {
     setSongs(album.songs);
   }, [album]);
