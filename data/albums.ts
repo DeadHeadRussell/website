@@ -21,6 +21,7 @@ export const studio = [
   `, {
     duration: (54*60 + 8),
     embed: 'bandcamp',
+    songs: songs.chosen,
     links: {
       'youtube-music': {
         albumId: 'OLAK5uy_nH5-pz_4Ewk4AYk5Rjn24loSzGWWoRM5k',

@@ -1,14 +1,23 @@
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {FC, Fragment} from 'react';
+import showdown from 'showdown';
 
 import {Album as AlbumType} from '../../../data/types';
 import {staticLink} from '../../utils';
 import {Description} from '../description';
 
+
+const converter = new showdown.Converter({
+  simpleLineBreaks: true
+});
 
 const useStyles = makeStyles(theme => ({
   album: {
@@ -93,6 +102,21 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 12
   },
 
+  songLyricsBlock: {
+    display: 'block',
+    width: 800,
+    margin: 'auto',
+    marginTop: theme.spacing(8),
+
+    [theme.breakpoints.down('md')]: {
+      marginTop: theme.spacing(2)
+    }
+  },
+
+  songLyricsTable: {
+    marginTop: theme.spacing(2)
+  },
+
   insert: {
     display: 'block',
     width: '100%',
@@ -173,6 +197,35 @@ const Player: FC<RemoteAlbumProps> = ({album}) => {
   );
 };
 
+const SongLyricsTable: FC<RemoteAlbumProps> = ({album}) => {
+  const classes = useStyles();
+  return (
+    <div className={classes.songLyricsBlock}>
+      <Typography variant='h4'>Lyrics</Typography>
+      <div className={classes.songLyricsTable}>
+        {album.songs.map(song => (
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`${song.name} Lyrics`}
+              id={song.name}
+            >
+              <Typography variant='subtitle1'>{song.name}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                dangerouslySetInnerHTML={{
+                  __html: converter.makeHtml(song.lyrics)
+                }}
+              />
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Insert: FC<RemoteAlbumProps> = ({album}) => {
   const classes = useStyles();
   return (
@@ -215,6 +268,9 @@ export const RemoteAlbum: FC<RemoteAlbumProps> = ({album}) => {
             <AlbumDescription album={album}/>
           </Grid>
         </Hidden>
+        {album.songs ? (
+          <SongLyricsTable album={album} />
+        ) : null}
         {album.extras?.insert ? (
           <Grid item className={classes.item} xs={12}>
             <Insert album={album} />

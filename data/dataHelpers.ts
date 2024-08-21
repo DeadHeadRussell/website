@@ -148,6 +148,10 @@ export function songConvertor(songData: any): Song {
   );
 }
 
+export function createLyricsOnlySong(name: string, lyrics: string): Song {
+  return createSong(name, '', 0, [], {lyrics});
+}
+
 export function createSong(name: string, date: string, duration: number, credits: Credit[], other: any = {}): Song {
   const song = {
     link: other.link || parseLink(name),

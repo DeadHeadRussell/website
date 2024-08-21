@@ -20,7 +20,7 @@ export const License: FC = () => {
   return (
     <section className={classes.license}>
       <Typography variant='caption'>
-        COPYRIGHT © 2023 ·  {conf.band.name.toUpperCase()}  ·  ALL RIGHTS RESERVED
+        COPYRIGHT © 2024 ·  {conf.band.name.toUpperCase()}  ·  ALL RIGHTS RESERVED
       </Typography>
     </section>
   );

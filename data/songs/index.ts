@@ -1,3 +1,4 @@
+export * from './albums';
 export * from './cmuSession';
 export * from './compositionalImprovs';
 export * from './fawm';
