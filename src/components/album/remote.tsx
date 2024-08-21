@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
-import {FC, Fragment} from 'react';
+import {FC, Fragment, useEffect, useState} from 'react';
 import showdown from 'showdown';
 
 import {Album as AlbumType} from '../../../data/types';
@@ -199,11 +199,15 @@ const Player: FC<RemoteAlbumProps> = ({album}) => {
 
 const SongLyricsTable: FC<RemoteAlbumProps> = ({album}) => {
   const classes = useStyles();
+  const [songs, setSongs] = useState([]);
+  useEffect(() => {
+    setSongs(album.songs);
+  }, [album]);
   return (
     <div className={classes.songLyricsBlock}>
       <Typography variant='h4'>Lyrics</Typography>
       <div className={classes.songLyricsTable}>
-        {album.songs.map(song => (
+        {songs.map(song => (
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
